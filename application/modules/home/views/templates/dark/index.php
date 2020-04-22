@@ -13,7 +13,7 @@
     }
     #whatsapp-chat {
       position: fixed;
-      right: 70px;
+      right: 60px;
       bottom: 25px;
       z-index: 9999;
       width: 55px;
