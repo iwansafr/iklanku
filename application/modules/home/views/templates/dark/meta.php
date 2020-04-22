@@ -15,12 +15,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="viewport" content="width=device-width">
 <!-- =====  CSS  ===== -->
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('templates/darklook/') ?>css/font-awesome.min.css" />
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('templates/darklook/') ?>css/bootstrap.css" />
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('templates/darklook/') ?>css/style.css">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('templates/darklook/') ?>css/magnific-popup.css">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('templates/darklook/') ?>css/owl.carousel.css">
-<link rel="shortcut icon" href="<?php echo base_url('templates/darklook/') ?>images/favicon.png">
-<link rel="apple-touch-icon" href="<?php echo base_url('templates/darklook/') ?>images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="72x72" href="<?php echo base_url('templates/darklook/') ?>images/apple-touch-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="114x114" href="<?php echo base_url('templates/darklook/') ?>images/apple-touch-icon-114x114.png">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('templates/dark/') ?>css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('templates/dark/') ?>css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('templates/dark/') ?>css/style.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('templates/dark/') ?>css/magnific-popup.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('templates/dark/') ?>css/owl.carousel.css">
+<link rel="shortcut icon" href="<?php echo base_url('templates/dark/') ?>images/favicon.png">
+<link rel="apple-touch-icon" href="<?php echo base_url('templates/dark/') ?>images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="<?php echo base_url('templates/dark/') ?>images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="<?php echo base_url('templates/dark/') ?>images/apple-touch-icon-114x114.png">
