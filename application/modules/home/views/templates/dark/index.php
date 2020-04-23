@@ -95,7 +95,7 @@
             <div class="navbar-header col-xs-6 col-sm-4"> <a class="navbar-brand" href="index.html"> <img alt="themini" src="<?php echo image_module('config','logo/'.$logo['image']); ?>"> </a> </div>
             <div class="col-xs-6 col-sm-4 shopcart">
               <div id="cart" class="btn-group btn-block mtb_40">
-                <button type="button" class="btn" data-target="#cart-dropdown" data-toggle="collapse" aria-expanded="true"><span id="shippingcart">Shopping cart</span><span id="cart-total">items (0)</span> </button>
+                <button type="button" class="btn" data-target="#cart-dropdown" data-toggle="collapse" aria-expanded="true"><span id="shippingcart">cart</span><span id="cart-total">items (0)</span> </button>
               </div>
               <div id="cart-dropdown" class="cart-menu collapse">
                 <ul>
@@ -103,15 +103,15 @@
                     <table class="table table-striped">
                       <tbody>
                         <tr>
-                          <td class="text-center"><a href="#"><img src="<?php echo base_url('templates/dark/') ?>images/product/70x84.jpg" alt="iPod Classic" title="iPod Classic"></a></td>
-                          <td class="text-left product-name"><a href="#">MacBook Pro</a> <span class="text-left price">$20.00</span>
+                          <td class="text-center"><a href="#"><img src="<?php echo base_url('templates/dark/') ?>images/category/billboard" alt="iPod Classic" title="iPod Classic"></a></td>
+                          <td class="text-left product-name"><a href="#">Billboard</a> <span class="text-left price">Rp 1.5000.000</span>
                             <input class="cart-qty" name="product_quantity" min="1" value="1" type="number">
                           </td>
                           <td class="text-center"><a class="close-cart"><i class="fa fa-times-circle"></i></a></td>
                         </tr>
                         <tr>
-                          <td class="text-center"><a href="#"><img src="<?php echo base_url('templates/dark/') ?>images/product/70x84.jpg" alt="iPod Classic" title="iPod Classic"></a></td>
-                          <td class="text-left product-name"><a href="#">MacBook Pro</a> <span class="text-left price">$20.00</span>
+                          <td class="text-center"><a href="#"><img src="<?php echo base_url('templates/dark/') ?>images/category/billboard" alt="iPod Classic" title="iPod Classic"></a></td>
+                          <td class="text-left product-name"><a href="#">Billboard</a> <span class="text-left price">Rp 1.5000.000</span>
                             <input class="cart-qty" name="product_quantity" min="1" value="1" type="number">
                           </td>
                           <td class="text-center"><a class="close-cart"><i class="fa fa-times-circle"></i></a></td>
@@ -124,19 +124,11 @@
                       <tbody>
                         <tr>
                           <td class="text-right"><strong>Sub-Total</strong></td>
-                          <td class="text-right">$2,100.00</td>
-                        </tr>
-                        <tr>
-                          <td class="text-right"><strong>Eco Tax (-2.00)</strong></td>
-                          <td class="text-right">$2.00</td>
-                        </tr>
-                        <tr>
-                          <td class="text-right"><strong>VAT (20%)</strong></td>
-                          <td class="text-right">$20.00</td>
+                          <td class="text-right">Rp 3.000.0000</td>
                         </tr>
                         <tr>
                           <td class="text-right"><strong>Total</strong></td>
-                          <td class="text-right">$2,122.00</td>
+                          <td class="text-right">Rp 3.0000.000</td>
                         </tr>
                       </tbody>
                     </table>
@@ -159,74 +151,28 @@
             <div class="collapse navbar-collapse js-navbar-collapse">
               <ul id="menu" class="nav navbar-nav">
                 <li> <a href="index.html">Home</a></li>
-                <li class="dropdown mega-dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Collection </a>
+                <li class="dropdown mega-dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Media </a>
                   <ul class="dropdown-menu mega-dropdown-menu row">
                     <li class="col-md-3">
                       <ul>
-                        <li class="dropdown-header">Women's</li>
-                        <li><a href="#">Unique Features</a></li>
-                        <li><a href="#">Image Responsive</a></li>
-                        <li><a href="#">Auto Carousel</a></li>
-                        <li><a href="#">Newsletter Form</a></li>
-                        <li><a href="#">Four columns</a></li>
-                        <li><a href="#">Four columns</a></li>
-                        <li><a href="#">Good Typography</a></li>
-                      </ul>
-                    </li>
-                    <li class="col-md-3">
-                      <ul>
-                        <li class="dropdown-header">Man's</li>
-                        <li><a href="#">Unique Features</a></li>
-                        <li><a href="#">Image Responsive</a></li>
-                        <li><a href="#">Four columns</a></li>
-                        <li><a href="#">Auto Carousel</a></li>
-                        <li><a href="#">Newsletter Form</a></li>
-                        <li><a href="#">Four columns</a></li>
-                        <li><a href="#">Good Typography</a></li>
-                      </ul>
-                    </li>
-                    <li class="col-md-3">
-                      <ul>
-                        <li class="dropdown-header">Children's</li>
-                        <li><a href="#">Unique Features</a></li>
-                        <li><a href="#">Four columns</a></li>
-                        <li><a href="#">Image Responsive</a></li>
-                        <li><a href="#">Auto Carousel</a></li>
-                        <li><a href="#">Newsletter Form</a></li>
-                        <li><a href="#">Four columns</a></li>
-                        <li><a href="#">Good Typography</a></li>
-                      </ul>
-                    </li>
-                    <li class="col-md-3">
-                      <ul>
-                        <li id="myCarousel" class="carousel slide" data-ride="carousel">
-                          <div class="carousel-inner">
-                            <div class="item active"> <a href="#"><img src="<?php echo base_url('templates/dark/') ?>images/menu-banner1.jpg" class="img-responsive" alt="Banner1"></a></div>
-                            <!-- End Item -->
-                            <div class="item"> <a href="#"><img src="<?php echo base_url('templates/dark/') ?>images/menu-banner2.jpg" class="img-responsive" alt="Banner1"></a></div>
-                            <!-- End Item -->
-                            <div class="item"> <a href="#"><img src="<?php echo base_url('templates/dark/') ?>images/menu-banner3.jpg" class="img-responsive" alt="Banner1"></a></div>
-                            <!-- End Item -->
-                          </div>
-                          <!-- End Carousel Inner -->
-                        </li>
-                        <!-- /.carousel -->
+                        <!-- <li class="dropdown-header">Women's</li> -->
+                        <li><a href="#">Billboard</a></li>
+                        <li><a href="#">Baliho</a></li>
+                        <li><a href="#">JPO (Pedestrian Bridge)</a></li>
+                        <li><a href="#">Videotron</a></li>
+                        <li><a href="#">Road Sign</a></li>
+                        <li><a href="#">Midi Board</a></li>
+                        <li><a href="#">Indoor</a></li>
+                        <li><a href="#">Lainnya</a></li>
                       </ul>
                     </li>
                   </ul>
                 </li>
-                <li> <a href="category_page.html">Shop</a></li>
-                <li> <a href="blog_page.html">Blog</a></li>
-                <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages </a>
-                  <ul class="dropdown-menu">
-                    <li> <a href="cart_page.html">Cart</a></li>
-                    <li> <a href="checkout_page.html">Checkout</a></li>
-                    <li> <a href="product_detail_page.html">Product Detail Page</a></li>
-                    <li> <a href="single_blog.html">Single Post</a></li>
-                  </ul>
-                </li>
-                <li> <a href="about.html">About us</a></li>
-                <li> <a href="contact_us.html">Contact us</a></li>
+                <li> <a href="#">Tentang Kami</a></li>
+                <li> <a href="#">Cara Beriklan</a></li>
+                <li> <a href="#">Hubungi Kami</a></li>
+                <li> <a href="#">Blog</a></li>
+                <li> <a href="#">Login</a></li>
               </ul>
             </div>
             <!-- /.nav-collapse -->
