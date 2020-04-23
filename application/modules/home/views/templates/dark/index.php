@@ -103,14 +103,14 @@
                     <table class="table table-striped">
                       <tbody>
                         <tr>
-                          <td class="text-center"><a href="#"><img src="<?php echo base_url('templates/dark/') ?>images/category/billboard" alt="iPod Classic" title="iPod Classic"></a></td>
+                          <td class="text-center"><a href="#"><img src="<?php echo base_url('templates/dark/') ?>images/category/billboard.jpg" alt="iPod Classic" title="iPod Classic"></a></td>
                           <td class="text-left product-name"><a href="#">Billboard</a> <span class="text-left price">Rp 1.5000.000</span>
                             <input class="cart-qty" name="product_quantity" min="1" value="1" type="number">
                           </td>
                           <td class="text-center"><a class="close-cart"><i class="fa fa-times-circle"></i></a></td>
                         </tr>
                         <tr>
-                          <td class="text-center"><a href="#"><img src="<?php echo base_url('templates/dark/') ?>images/category/billboard" alt="iPod Classic" title="iPod Classic"></a></td>
+                          <td class="text-center"><a href="#"><img src="<?php echo base_url('templates/dark/') ?>images/category/billboard.jpg" alt="iPod Classic" title="iPod Classic"></a></td>
                           <td class="text-left product-name"><a href="#">Billboard</a> <span class="text-left price">Rp 1.5000.000</span>
                             <input class="cart-qty" name="product_quantity" min="1" value="1" type="number">
                           </td>
