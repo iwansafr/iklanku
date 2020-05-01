@@ -26,6 +26,12 @@
 			font-family: 'comfortaaregular';
 			background-color: #f8f9fa!important;
 		}
+		.rating_star{
+			color: grey;
+		}
+		.checked{
+			color: orange;
+		}
 	</style>
 </head>
 <body>
@@ -64,23 +70,72 @@
 	<br>
 	<br>
 	<div class="divider mb-2"></div>
-	<nav aria-label="breadcrumb">
-	  <ol class="breadcrumb bg-info" style="color: white;">
-	    <li class="breadcrumb-item"><a href="#" style="color: white;"><i class="fa fa-arrow-left"></i></a></li>
-	    <span class="ml-5">JL. Majapahit / Kota Semarang</span>
-	  </ol>
-	</nav>
-	<span class="badge badge-success pull-right" style="width: 80px; position: absolute;z-index: 1; left: 10px;">available</span>
-	<img src="img/map.jpg" class="border img img-fluid" alt="" style="position: absolute;top: 128px;">
-	<div class="container-fluid">
-		<div class="review">
-			<div class="row">
-				<div class="col"><i class="fa fa-eye"></i> 360</div>
-				<div class="col">
-					
+	<div class="content_top">
+		<nav aria-label="breadcrumb">
+		  <ol class="breadcrumb bg-info" style="color: white;">
+		    <li class="breadcrumb-item"><a href="#" style="color: white;"><i class="fa fa-arrow-left"></i></a></li>
+		    <span class="ml-5">JL. Majapahit / Kota Semarang</span>
+		  </ol>
+		</nav>
+		<span class="badge badge-success pull-right" style="width: 80px; position: absolute;z-index: 1; left: 10px;">available</span>
+		<img src="img/map.jpg" class="border img img-fluid m-auto" alt="" style="margin-top: -16px!important;">
+	</div>
+	<div class="review container-fluid">
+		<div class="row">
+			<div class="col">
+				<div class="views mb-3">
+					<small class="text-primary"><i class="fa fa-eye"></i> 360 views</small>
+				</div>
+				<table class="table table-sm"> 
+					<tr>
+						<td>
+							<small>ukuran</small>			
+						</td>
+						<td>:</td>
+						<td>
+							<small>5 x 10 Meter</small>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<small>dimensi</small>			
+						</td>
+						<td>:</td>
+						<td>
+							<small>Vertikal</small>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<small>Light</small>			
+						</td>
+						<td>:</td>
+						<td>
+							<small>FrontLight</small>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="col">
+				<div class="rating text-right mb-3">
+					<span class="rating_star fa fa-star checked"></span>
+					<span class="rating_star fa fa-star checked"></span>
+					<span class="rating_star fa fa-star checked"></span>
+					<span class="rating_star fa fa-star checked"></span>
+					<span class="rating_star fa fa-star"></span>
+				</div>
+				<div class="description border-left pl-3" style="min-height: 100px;">
+					<i class="fa fa-map-marker"style="position: absolute;top: 40%;left: 8px;font-size: 28px;"></i>
+					<span>< 50 Meter</span>
+					<p class="text-muted" style="font-size: 12px;">
+						RM. Pempek Ny. Kamto BRI Unit Majapahit SPBU Majapahit
+					</p>
 				</div>
 			</div>
 		</div>
+	</div>
+	<div class="container-fluid">
+		
 	</div>
 	<script src="jquery/jquery.min.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
