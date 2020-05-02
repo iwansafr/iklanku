@@ -56,9 +56,9 @@ if($mod['content'] == 'home/index')
 <meta content="<?php echo $image ?>" itemprop='url'/>
 <link href="<?php echo $image; ?>" rel="icon">
 <link href="<?php echo $image; ?>" rel="apple-touch-icon">
-<link rel="stylesheet" type="text/css" href="http://localhost/iklanku/templates/iklanku/font-awesome/css/font-awesome.min.css" />
-<link rel="stylesheet" type="text/css" href="http://localhost/iklanku/templates/iklanku/bootstrap/css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css" href="http://localhost/iklanku/templates/iklanku/font/stylesheet.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('templates/iklanku/font-awesome/css/font-awesome.min.css');?>" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('templates/iklanku/bootstrap/css/bootstrap.min.css');?>" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('templates/iklanku/font/stylesheet.css');?>" />
 <?php
 $this->load->view('templates'.DIRECTORY_SEPARATOR.$templates['public_template'].DIRECTORY_SEPARATOR.'meta');
 ?>
