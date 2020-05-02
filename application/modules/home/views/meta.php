@@ -56,6 +56,9 @@ if($mod['content'] == 'home/index')
 <meta content="<?php echo $image ?>" itemprop='url'/>
 <link href="<?php echo $image; ?>" rel="icon">
 <link href="<?php echo $image; ?>" rel="apple-touch-icon">
+<link rel="stylesheet" type="text/css" href="http://localhost/iklanku/templates/iklanku/font-awesome/css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="http://localhost/iklanku/templates/iklanku/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="http://localhost/iklanku/templates/iklanku/font/stylesheet.css" />
 <?php
 $this->load->view('templates'.DIRECTORY_SEPARATOR.$templates['public_template'].DIRECTORY_SEPARATOR.'meta');
 ?>
@@ -63,6 +66,5 @@ $this->load->view('templates'.DIRECTORY_SEPARATOR.$templates['public_template'].
   var _URL = '<?php echo base_url() ?>';
 </script>
 <?php $this->load->view('style') ?>
-<link rel="stylesheet" href="<?php echo base_url('templates/AdminLTE') ?>/assets/dist/css/style.css">
 <link itemprop="thumbnailUrl" href="<?php echo $image ?>">
 <span itemprop="thumbnail" itemscope itemtype="http://schema.org/ImageObject"> <link itemprop="url" href="<?php echo $image ?>"> </span>

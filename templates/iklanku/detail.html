@@ -49,6 +49,13 @@
 		div.scrollimages a:hover {
 		  /*background-color: #777;*/
 		}
+		::-webkit-scrollbar {
+		  height: 4px;              /* height of horizontal scrollbar ← You're missing this */
+		  width: 4px;               /* width of vertical scrollbar */
+		  /*border: 1px solid #d5d5d5;*/
+		  /*border: 1px solid black;*/
+		  /*background: black;*/
+		}
 	</style>
 </head>
 <body>
@@ -94,8 +101,10 @@
 		    <span class="ml-5">JL. Majapahit / Kota Semarang</span>
 		  </ol>
 		</nav>
-		<span class="badge badge-success pull-right" style="width: 80px; position: absolute;z-index: 1; left: 10px;">available</span>
-		<img src="img/map.jpg" class="border img img-fluid m-auto" alt="" style="margin-top: -16px!important;">
+		<center>
+			<span class="badge badge-success pull-right" style="width: 80px; position: absolute;z-index: 1; left: 10px;">available</span>
+			<img src="img/map.jpg" class="border img img-fluid m-auto" alt="" style="margin-top: -16px!important;">
+		</center>
 	</div>
 	<div class="review container-fluid">
 		<div class="row">
@@ -162,20 +171,28 @@
 		<br>
 		<div class="scrollimages">
 			<a href="">
-				<img src="../../images/g-map.png" height="200" width="200">
+				<img src="../../images/g-map.png" height="200" width="150">
 			</a>
 			<a href="">
-				<img src="../../images/g-map.png" height="200" width="200">
+				<img src="../../images/g-map.png" height="200" width="150">
 			</a>
 			<a href="">
-				<img src="../../images/g-map.png" height="200" width="200">
+				<img src="../../images/g-map.png" height="200" width="150">
 			</a>
 			<a href="">
-				<img src="../../images/g-map.png" height="200" width="200">
+				<img src="../../images/g-map.png" height="200" width="150">
 			</a>
 			<a href="">
-				<img src="../../images/g-map.png" height="200" width="200">
+				<img src="../../images/g-map.png" height="200" width="150">
 			</a>
+		</div>
+		<div class="order container-fluid">
+			<div class="form-group">
+				<button class="btn btn-info rounded w-100">Simulasi Harga</button>
+			</div>
+			<div class="form-group">
+				<button class="btn btn-success rounded w-100">Online Chat</button>
+			</div>
 		</div>
 	</div>
 	<br>
