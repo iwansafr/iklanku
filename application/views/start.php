@@ -39,7 +39,7 @@
 			<img src="<?php echo base_url('templates/iklanku/img/start.png');?>" class="img img-fluid mb-3">
 			<h6 class="mt-5">Pasang Iklanmu</h6>
 			<h6>dimanapun kapanpun</h6>
-			<a class="btn btn-lg btn-info pl-5 pr-5 mb-3 mt-3" href="<?php echo base_url('home') ?>" style="font-size: 36px;border-radius: 15px;">mulai</a>
+			<a class="btn btn-lg btn-info pl-5 pr-5 mb-3 mt-3" href="<?php echo base_url('home/iklan') ?>" style="font-size: 36px;border-radius: 15px;">mulai</a>
 			<h6 class="mt-3">Sudah Punya Akun ? <a href="<?php echo base_url('home/login');?>" class="text-danger">Login</a></h6>
 		</div>
 	</div>
