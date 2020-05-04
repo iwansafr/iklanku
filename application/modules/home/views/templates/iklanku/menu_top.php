@@ -30,6 +30,9 @@
           <a class="dropdown-item" href="#">Lainnya</a>
         </div>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url() ?>">Keluar</a>
+      </li>
     </ul>
   </div>
 </nav>
