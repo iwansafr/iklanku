@@ -1,12 +1,12 @@
-<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light" style="background-color: white!important;">
-  <a class="navbar-brand" href="#"><h1 class="font-weight-bold" style="font-size: 6vw">iklan<span class="text-info">ku</span></h1></a>
+<nav class="navbar fixed-top navbar-light bg-light" style="background-color: white!important;">
+  <a class="navbar-brand" href="#"><h1 class="font-weight-bold" style="font-size: 5vw">iklan<span class="text-info">ku</span></h1></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="border-color: rgba(0,0,0,0);">
-    <span class="navbar-toggler-icon font-weight-bold"></span>
+    <span class="navbar-toggler-icon font-weight-bold" style="height: 5vw;"></span>
   </button>
 
   <style>
     .nav-link , .dropdown-item{
-      font-size: 4vw!important;
+      font-size: 3vw!important;
     }
 
   </style>
@@ -42,6 +42,3 @@
     </ul>
   </div>
 </nav>
-<br>
-<br>
-<br>

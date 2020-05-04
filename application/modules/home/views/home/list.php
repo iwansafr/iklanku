@@ -1,20 +1,17 @@
 	<style>
-		body{
-			font-family: 'comfortaaregular';
-			background-color: #f8f9fa!important;
-		}
 		input.custom{
-			height: 12vw!important;
+			height: 10vw!important;
 			border-radius: 1.2rem!important;
 			background-color: white!important;
 			text-align: center;
+			font-size: 4vw;
 		}
 		.placeh{
-			font-size: 6vw;
+			font-size: 5vw;
 			color: #656363!important;
 			position: absolute;
 	    z-index: 9;
-	    top: 12px;
+	    top: 2vw;
 	    left: 16px;
 		}
 		.sign-in-b{
@@ -51,7 +48,7 @@
 	    width: 10px;
 		}
 	</style>
-<div class="title text-center mt-2">
+<div class="title text-center" style="padding-top: 20vw;">
 	<form action="" method="post">
 		<div class="form-group">
 			<div class="input-group">
@@ -65,7 +62,7 @@
 				<input type="text" name="kota" placeholder="ketik nama ruas jalan" class="form-control custom">
 			</div>
 		</div>
-		<button class="btn btn-lg btn-info" style="width: 100%;border-radius: 1.2rem; font-size: 4vw;">Search</button>
+		<button class="btn btn-sm btn-info" style="width: 100%;border-radius: 1.2rem; font-size: 4vw;">Search</button>
 	</form>
 	<br>
 	<div class="filter text-left mb-3">
@@ -141,185 +138,12 @@
 		</div>
 	</div>
 </div>
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="100000">
-  <ol class="carousel-indicators" style="bottom: -30px;color: black;">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <div class="product">
-				<div class="card mb-3 product_box">
-					<span class="badge badge-success pull-right" style="width: 20vw;padding-top: 1vw; position: absolute;top: 2vw;right: 10px;font-size: 3vw;">available</span>
-					<a href="<?php echo base_url('home/detail') ?>" ><img src="<?php echo base_url('templates/iklanku/');?>img/map.jpg" class="card-img-top" alt="..."></a>
-				  <div class="card-body">
-				  	<div class="row">
-					    <div class="col">
-					    	<h5 class="card-title" style="font-size: 4vw;">Kota Semarang</h5>
-					    </div>
-					    <div class="col description_product">
-					    	<p style="font-size: 3vw;margin-bottom: -1vw;">Jl. Majapahit</p>
-					    	<p class="card-text">
-					    		<small style="font-size: 2vw;" class="text-muted">
-					    			Billboard / 5x10M / Vertical / FL
-					    		</small>
-					    	</p>
-					    </div>
-				  	</div>
-				  </div>
-				</div>
-				<div class="card mb-3 product_box">
-					<span class="badge badge-danger pull-right" style="width: 20vw;padding-top: 1vw; position: absolute;top: 2vw;right: 10px;font-size: 3vw;">unavailable</span>
-					<a href="<?php echo base_url('home/detail') ?>" ><img src="<?php echo base_url('templates/iklanku/');?>img/map.jpg" class="card-img-top" alt="..."></a>
-				  <div class="card-body">
-				  	<div class="row">
-					    <div class="col">
-					    	<h5 class="card-title" style="font-size: 4vw;">Kota Semarang</h5>
-					    </div>
-					    <div class="col description_product">
-					    	<p style="font-size: 3vw;margin-bottom: -1vw;">Jl. Prof Hamka</p>
-					    	<p class="card-text">
-					    		<small style="font-size: 2vw;" class="text-muted">
-					    			Billboard / 5x10M / Horizontal / FL
-					    		</small>
-					    	</p>
-					    </div>
-				  	</div>
-				  </div>
-				</div>
-			</div>
-    </div>
-    <div class="carousel-item">
-      <div class="product">
-				<div class="card mb-3 product_box">
-					<span class="badge badge-success pull-right" style="width: 20vw;padding-top: 1vw; position: absolute;top: 2vw;right: 10px;font-size: 3vw;">available</span>
-					<a href="<?php echo base_url('home/detail') ?>" ><img src="<?php echo base_url('templates/iklanku/');?>img/map.jpg" class="card-img-top" alt="..."></a>
-				  <div class="card-body">
-				  	<div class="row">
-					    <div class="col">
-					    	<h5 class="card-title" style="font-size: 4vw;">Kota Semarang</h5>
-					    </div>
-					    <div class="col description_product">
-					    	<p style="font-size: 3vw;margin-bottom: -1vw;">Jl. Majapahit</p>
-					    	<p class="card-text">
-					    		<small style="font-size: 2vw;" class="text-muted">
-					    			Billboard / 5x10M / Vertical / FL
-					    		</small>
-					    	</p>
-					    </div>
-				  	</div>
-				  </div>
-				</div>
-				<div class="card mb-3 product_box">
-					<span class="badge badge-danger pull-right" style="width: 20vw;padding-top: 1vw; position: absolute;top: 2vw;right: 10px;font-size: 3vw;">unavailable</span>
-					<a href="<?php echo base_url('home/detail') ?>" ><img src="<?php echo base_url('templates/iklanku/');?>img/map.jpg" class="card-img-top" alt="..."></a>
-				  <div class="card-body">
-				  	<div class="row">
-					    <div class="col">
-					    	<h5 class="card-title" style="font-size: 4vw;">Kota Semarang</h5>
-					    </div>
-					    <div class="col description_product">
-					    	<p style="font-size: 3vw;margin-bottom: -1vw;">Jl. Prof Hamka</p>
-					    	<p class="card-text">
-					    		<small style="font-size: 2vw;" class="text-muted">
-					    			Billboard / 5x10M / Horizontal / FL
-					    		</small>
-					    	</p>
-					    </div>
-				  	</div>
-				  </div>
-				</div>
-			</div>
-    </div>
-    <div class="carousel-item">
-      <div class="product">
-				<div class="card mb-3 product_box">
-					<span class="badge badge-success pull-right" style="width: 20vw;padding-top: 1vw; position: absolute;top: 2vw;right: 10px;font-size: 3vw;">available</span>
-					<a href="<?php echo base_url('home/detail') ?>" ><img src="<?php echo base_url('templates/iklanku/');?>img/map.jpg" class="card-img-top" alt="..."></a>
-				  <div class="card-body">
-				  	<div class="row">
-					    <div class="col">
-					    	<h5 class="card-title" style="font-size: 4vw;">Kota Semarang</h5>
-					    </div>
-					    <div class="col description_product">
-					    	<p style="font-size: 3vw;margin-bottom: -1vw;">Jl. Majapahit</p>
-					    	<p class="card-text">
-					    		<small style="font-size: 2vw;" class="text-muted">
-					    			Billboard / 5x10M / Vertical / FL
-					    		</small>
-					    	</p>
-					    </div>
-				  	</div>
-				  </div>
-				</div>
-				<div class="card mb-3 product_box">
-					<span class="badge badge-danger pull-right" style="width: 20vw;padding-top: 1vw; position: absolute;top: 2vw;right: 10px;font-size: 3vw;">unavailable</span>
-					<a href="<?php echo base_url('home/detail') ?>" ><img src="<?php echo base_url('templates/iklanku/');?>img/map.jpg" class="card-img-top" alt="..."></a>
-				  <div class="card-body">
-				  	<div class="row">
-					    <div class="col">
-					    	<h5 class="card-title" style="font-size: 4vw;">Kota Semarang</h5>
-					    </div>
-					    <div class="col description_product">
-					    	<p style="font-size: 3vw;margin-bottom: -1vw;">Jl. Prof Hamka</p>
-					    	<p class="card-text">
-					    		<small style="font-size: 2vw;" class="text-muted">
-					    			Billboard / 5x10M / Horizontal / FL
-					    		</small>
-					    	</p>
-					    </div>
-				  	</div>
-				  </div>
-				</div>
-			</div>
-    </div>
-    <div class="carousel-item">
-      <div class="product">
-				<div class="card mb-3 product_box">
-					<span class="badge badge-success pull-right" style="width: 20vw;padding-top: 1vw; position: absolute;top: 2vw;right: 10px;font-size: 3vw;">available</span>
-					<a href="<?php echo base_url('home/detail') ?>" ><img src="<?php echo base_url('templates/iklanku/');?>img/map.jpg" class="card-img-top" alt="..."></a>
-				  <div class="card-body">
-				  	<div class="row">
-					    <div class="col">
-					    	<h5 class="card-title" style="font-size: 4vw;">Kota Semarang</h5>
-					    </div>
-					    <div class="col description_product">
-					    	<p style="font-size: 3vw;margin-bottom: -1vw;">Jl. Majapahit</p>
-					    	<p class="card-text">
-					    		<small style="font-size: 2vw;" class="text-muted">
-					    			Billboard / 5x10M / Vertical / FL
-					    		</small>
-					    	</p>
-					    </div>
-				  	</div>
-				  </div>
-				</div>
-				<div class="card mb-3 product_box">
-					<span class="badge badge-danger pull-right" style="width: 20vw;padding-top: 1vw; position: absolute;top: 2vw;right: 10px;font-size: 3vw;">unavailable</span>
-					<a href="<?php echo base_url('home/detail') ?>" ><img src="<?php echo base_url('templates/iklanku/');?>img/map.jpg" class="card-img-top" alt="..."></a>
-				  <div class="card-body">
-				  	<div class="row">
-					    <div class="col">
-					    	<h5 class="card-title" style="font-size: 4vw;">Kota Semarang</h5>
-					    </div>
-					    <div class="col description_product">
-					    	<p style="font-size: 3vw;margin-bottom: -1vw;">Jl. Prof Hamka</p>
-					    	<p class="card-text">
-					    		<small style="font-size: 2vw;" class="text-muted">
-					    			Billboard / 5x10M / Horizontal / FL
-					    		</small>
-					    	</p>
-					    </div>
-				  	</div>
-				  </div>
-				</div>
-			</div>
-    </div>
-  </div>
-</div>
+<?php $slide = false; ?>
+<?php if ($slide): ?>
+	<?php $this->load->view('home/list_slide') ?>
+<?php else: ?>
+	<?php $this->load->view('home/list_scroll') ?>
+<?php endif ?>
 <script>
 
 </script>

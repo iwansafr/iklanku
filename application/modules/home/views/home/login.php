@@ -1,9 +1,5 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');?>
 <style>
-	body{
-		font-family: 'comfortaaregular';
-		background-color: #f8f9fa!important;
-	}
 	input{
 		height: 12vw!important;
 		border-radius: 1.2rem!important;
