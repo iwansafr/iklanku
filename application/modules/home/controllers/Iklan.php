@@ -11,6 +11,7 @@ class Iklan extends CI_Controller
 	}
 	public function index()
 	{
+		$this->esg->add_js(base_url('templates/iklanku/js/home.js'));
 		$this->load->view('index');
 	}
 }

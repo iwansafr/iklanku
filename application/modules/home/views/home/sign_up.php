@@ -5,30 +5,18 @@
 		background-color: #f8f9fa!important;
 	}
 	.form-control{
-		height: 60px!important;
+		height: 12vw!important;
 		border-radius: 1.2rem!important;
 		background-color: white!important;
 		text-align: center;
 	}
 	.placeh{
-		font-size: 30px;
+		font-size: 6vw;
 		color: #656363!important;
 		position: absolute;
     z-index: 9;
     top: 12px;
     left: 16px;
-	}
-	.sign-in-b{
-		border-radius: 1.3rem;
-		background: white;
-		border: 1px black solid;
-		vertical-align: center;
-		font-size: 12px;
-		width: 200px;
-		text-align: left;
-	}
-	.sign-in-b:hover{
-		background-color: #17a2b8;
 	}
 	.containers {
 	  display: block;
@@ -99,9 +87,9 @@
 	  transform: rotate(45deg);
 	}
 </style>
-<div class="title text-center mt-5 pt-5">
+<div class="title text-center mt-5">
 	<div class="title mt-5 mb-5">
-		<h5 class="font-weight-bold" style="font-size: 26px;">Sign Up</h5>
+		<h5 class="font-weight-bold" style="font-size: 5vw;">Sign Up</h5>
 	</div>
 	<form action="" method="post">
 		<div class="form-group">
@@ -132,13 +120,13 @@
   <div class="row">
   	<div class="col"></div>
   	<div class="col-7">
-		  <label class="containers" style="font-size: 14px;"> Berlangganan <span class="text-info">NewsLetter</span>
+		  <label class="containers" style="font-size: 3vw;"> Berlangganan <span class="text-info">NewsLetter</span>
 			  <input type="checkbox">
 			  <span class="checkmark"></span>
 			</label>
   	</div>
   	<div class="col"></div>
   </div>
-	<button class="btn btn-lg btn-info pl-5 pr-5 mb-5 mt-3" style="border-radius: 1.3rem;"><h1>daftar</h1></button>
+	<button class="btn btn-sm btn-info pl-5 pr-5 mb-5 mt-3"><h1 style="font-size: 7vw;padding-top: 2vw;">daftar</h1></button>
 	<br>
 </div>

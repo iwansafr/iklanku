@@ -1,9 +1,15 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light" style="background-color: white!important;">
-  <a class="navbar-brand" href="#" style="font-size: 30px;"><h1 class="font-weight-bold">iklan<span class="text-info">ku</span></h1></a>
+  <a class="navbar-brand" href="#"><h1 class="font-weight-bold" style="font-size: 6vw">iklan<span class="text-info">ku</span></h1></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="border-color: rgba(0,0,0,0);">
-    <span class="navbar-toggler-icon"></span>
+    <span class="navbar-toggler-icon font-weight-bold"></span>
   </button>
 
+  <style>
+    .nav-link , .dropdown-item{
+      font-size: 4vw!important;
+    }
+
+  </style>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">

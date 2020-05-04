@@ -5,13 +5,13 @@
 		background-color: #f8f9fa!important;
 	}
 	input{
-		height: 60px!important;
+		height: 12vw!important;
 		border-radius: 1.2rem!important;
 		background-color: white!important;
 		text-align: center;
 	}
 	.placeh{
-		font-size: 30px;
+		font-size: 6vw;
 		color: #656363!important;
 		position: absolute;
     z-index: 9;
@@ -23,17 +23,17 @@
 		background: white;
 		border: 1px black solid;
 		vertical-align: center;
-		font-size: 12px;
+		font-size: 3vw;
 		width: 200px;
-		text-align: left;
+		text-align: center;
 	}
 	.sign-in-b:hover{
 		background-color: #17a2b8;
 	}
 </style>
-<div class="title text-center mt-5 pt-5">
-	<div class="title mt-5 mb-5">
-		<h5 class="font-weight-bold" style="font-size: 26px;">Sign-in</h5>
+<div class="title text-center mt-5">
+	<div class="title mt-5 mb-3">
+		<h5 class="font-weight-bold" style="font-size: 5vw;">Sign-in</h5>
 	</div>
 	<form action="" method="post">
 		<div class="form-group">
@@ -49,13 +49,13 @@
 			</div>
 		</div>
 	</form>
-	<div class="space mb-5 mt-5">
-		<h6>Lupa password ? <span class="text-danger">Buat Baru</span></h6>
+	<div class="space mb-3 mt-5">
+		<h6 style="font-size: 3vw">Lupa password ? <span class="text-danger">Buat Baru</span></h6>
 	</div>
-	<button class="btn btn-lg btn-info pl-5 pr-5 mb-5 mt-3" style="border-radius: 1.3rem;"><h1>masuk</h1></button>
+	<button class="btn btn-sm btn-info pl-3 pr-3 mb-5 mt-3 rounded"><h1 style="font-size: 7vw;padding-top: 2vw;">masuk</h1></button>
 	<br>
-	<button class="sign-in-b mb-2 btn"> <img src="<?php echo base_url('images/');?>google.png" height="25"> Sign in with Google</button>
+	<button class="sign-in-b mb-2 btn"> <img src="<?php echo base_url('images/');?>google.png" style="height: 5vw;"> Sign in with Google</button>
 	<br>
-	<button class="sign-in-b btn mb-5"><img src="<?php echo base_url('images/');?>facebook.png" style="image-fit: cover; height: 25px;" height="30"> Sign in with Facebook</button>
-	<h6>Belum punya Akun ? <a href="<?php echo base_url('home/sign_up') ?>" class="text-danger">Daftar Baru</a></h6>
+	<button class="sign-in-b btn mb-5"><img src="<?php echo base_url('images/');?>facebook.png" style="height: 6vw;"> Sign in with Facebook</button>
+	<h6 style="font-size: 3vw">Belum punya Akun ? <a href="<?php echo base_url('home/sign_up') ?>" class="text-danger">Daftar Baru</a></h6>
 </div>
