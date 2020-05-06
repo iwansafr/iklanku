@@ -1,26 +1,12 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');?>
 <style>
-	input{
-		height: 12vw!important;
-		border-radius: 1.2rem!important;
-		background-color: white!important;
-		text-align: center;
-	}
-	.placeh{
-		font-size: 6vw;
-		color: #656363!important;
-		position: absolute;
-    z-index: 9;
-    top: 12px;
-    left: 16px;
-	}
 	.sign-in-b{
 		border-radius: 1.3rem;
 		background: white;
 		border: 1px black solid;
 		vertical-align: center;
 		font-size: 3vw;
-		width: 200px;
+		width: 50vw;
 		text-align: center;
 	}
 	.sign-in-b:hover{
@@ -35,13 +21,13 @@
 		<div class="form-group">
 			<div class="input-group">
 				<i class="fa fa-user placeh"></i>
-				<input type="text" name="namauser" placeholder="username / email" class="form-control">
+				<input type="text" name="namauser" placeholder="username / email" class="form-control custom" autocomplete="off">
 			</div>
 		</div>
 		<div class="form-group">
 			<div class="input-group">
 				<i class="fa fa-lock placeh"></i>
-				<input type="password" name="sandi" placeholder="password" class="form-control">
+				<input type="password" name="sandi" placeholder="password" class="form-control custom" autocomplete="off">
 			</div>
 		</div>
 	</form>
@@ -50,7 +36,7 @@
 	</div>
 	<button class="btn btn-sm btn-info pl-3 pr-3 mb-5 mt-3 rounded"><h1 style="font-size: 7vw;padding-top: 2vw;">masuk</h1></button>
 	<br>
-	<button class="sign-in-b mb-2 btn"> <img src="<?php echo base_url('images/');?>google.png" style="height: 5vw;"> Sign in with Google</button>
+	<button class="sign-in-b mb-2 btn" style="padding-top: 2vw;"> <img src="<?php echo base_url('images/');?>google.png" style="height: 5vw;margin-top: -2vw;"> <span style="font-size: 3vw;">Sign in with Google</span></button>
 	<br>
 	<button class="sign-in-b btn mb-5"><img src="<?php echo base_url('images/');?>facebook.png" style="height: 6vw;"> Sign in with Facebook</button>
 	<h6 style="font-size: 3vw">Belum punya Akun ? <a href="<?php echo base_url('home/sign_up') ?>" class="text-danger">Daftar Baru</a></h6>

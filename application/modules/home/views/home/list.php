@@ -1,19 +1,4 @@
 	<style>
-		input.custom{
-			height: 10vw!important;
-			border-radius: 1.2rem!important;
-			background-color: white!important;
-			text-align: center;
-			font-size: 4vw;
-		}
-		.placeh{
-			font-size: 5vw;
-			color: #656363!important;
-			position: absolute;
-	    z-index: 9;
-	    top: 2vw;
-	    left: 16px;
-		}
 		.sign-in-b{
 			border-radius: 1.3rem;
 			background: white;

@@ -1,6 +1,1 @@
-<style>
-	body{
-		font-family: 'comfortaaregular';
-		background-color: #9e9e9e40!important;
-	}
-</style>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('templates/iklanku/css/style.css');?>" />

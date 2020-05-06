@@ -4,7 +4,10 @@
 	<?php $this->load->view('meta') ?>
 </head>
 <body>
-	<?php $this->load->view('menu_top') ?>
+	<?php if ($mod['content'] != 'home/detail'): ?>
+		<?php $this->load->view('menu_top') ?>
+	<?php endif ?>
+
 	<?php $this->load->view($mod['content']);?>
 	<script src="<?php echo base_url('templates/iklanku/') ?>jquery/jquery.min.js"></script>
   <script src="<?php echo base_url('templates/iklanku/') ?>bootstrap/js/bootstrap.min.js"></script>
