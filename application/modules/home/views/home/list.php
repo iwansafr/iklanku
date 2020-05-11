@@ -32,22 +32,26 @@
 	    height: 10px;
 	    width: 10px;
 		}
+		.form-group{
+			width: 90%;
+			margin: auto;
+		}
 	</style>
 <div class="title text-center" style="padding-top: 20vw;">
 	<form action="" method="post">
-		<div class="form-group">
+		<div class="form-group mb-2">
 			<div class="input-group">
 				<i class="fa fa-search placeh"></i>
 				<input type="text" name="kota" placeholder="ketik nama kota / kabupaten" class="form-control custom">
 			</div>
 		</div>
-		<div class="form-group">
+		<div class="form-group mb-2">
 			<div class="input-group">
 				<i class="fa fa-search placeh"></i>
 				<input type="text" name="kota" placeholder="ketik nama ruas jalan" class="form-control custom">
 			</div>
 		</div>
-		<button class="btn btn-sm btn-info" style="width: 100%;border-radius: 1.2rem; font-size: 4vw;">Search</button>
+		<button class="btn btn-sm btn-info" style="width: 90%;border-radius: 1.2rem; font-size: 4vw;">Search</button>
 	</form>
 	<br>
 	<div class="filter text-left mb-3">
