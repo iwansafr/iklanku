@@ -58,7 +58,7 @@
 	    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 		}
 	</style>
-<div class="title text-center" style="padding-top: 20vw;">
+<div class="title text-center">
 	<form action="" method="post" class="mt-1">
 		<div class="form-group mb-2">
 			<div class="input-group">
