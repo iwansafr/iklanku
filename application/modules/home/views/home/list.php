@@ -36,22 +36,43 @@
 			width: 90%;
 			margin: auto;
 		}
+		::placeholder {
+		  color: #4950575c!important;
+		}
+		input:focus, textarea:focus, select:focus{
+      outline: none!important;
+    }
+    .custom{
+	    display: block;
+	    width: 100%;
+	    height: calc(1.5em + .75rem + 2px);
+	    padding: .375rem .75rem;
+	    font-size: 1rem;
+	    font-weight: 400;
+	    line-height: 1.5;
+	    color: #495057;
+	    background-color: #fff;
+	    background-clip: padding-box;
+	    border: 1px solid #ced4da;
+	    border-radius: .25rem;
+	    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+		}
 	</style>
 <div class="title text-center" style="padding-top: 20vw;">
-	<form action="" method="post">
+	<form action="" method="post" class="mt-1">
 		<div class="form-group mb-2">
 			<div class="input-group">
 				<i class="fa fa-search placeh"></i>
-				<input type="text" name="kota" placeholder="ketik nama kota / kabupaten" class="form-control custom">
+				<input type="text" name="kota" placeholder="ketik nama kota / kabupaten" class="custom">
 			</div>
 		</div>
 		<div class="form-group mb-2">
 			<div class="input-group">
 				<i class="fa fa-search placeh"></i>
-				<input type="text" name="kota" placeholder="ketik nama ruas jalan" class="form-control custom">
+				<input type="text" name="kota" placeholder="ketik nama ruas jalan" class="custom">
 			</div>
 		</div>
-		<button class="btn btn-sm btn-info" style="width: 90%;border-radius: 1.2rem; font-size: 4vw;">Search</button>
+		<button class="btn btn-sm btn-info" style="width: 90%;border-radius: 0.5rem; font-size: 4vw;">Search</button>
 	</form>
 	<br>
 	<div class="filter text-left mb-3">

@@ -1,15 +1,15 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');?>
 <div class="divider"></div>
 <div class="content_top">
-	<nav aria-label="breadcrumb" style="position: fixed;width: 100%;top: 0;z-index: 9999">
+	<nav aria-label="breadcrumb">
 	  <ol class="breadcrumb bg-info" style="color: white;padding: 2%;margin-bottom: 0;">
 	    <li class="breadcrumb-item"><a href="<?php echo base_url('home/list')?>" style="color: white;font-size: 4vw;"><i class="fa fa-arrow-left"></i></a></li>
 	    <span class="ml-2" style="font-size: 4vw;padding-top: 1vw;">JL. Majapahit / Kota Semarang</span>
 	  </ol>
 	</nav>
 </div>
-<center style="margin-top: 11vw;">
-	<span class="badge badge-success pull-right" style="width: 20vw; position: absolute; left: 10px; top: 12vw; font-size: 3vw;">available</span>
+<center>
+	<span class="badge badge-success pull-right mt-1" style="width: 20vw; position: absolute; left: 10px;  font-size: 3vw;">available</span>
 	<img src="<?php echo base_url('templates/iklanku');?>/img/map.jpg" class="border img img-fluid m-auto" alt="">
 </center>
 <div class="review container-fluid">

@@ -7,7 +7,7 @@ body{
 }
 input.custom{
 	height: 10vw!important;
-	border-radius: 1.2rem!important;
+	border-radius: 0.5rem!important;
 	background-color: white!important;
 	text-align: center;
 	font-size: 4vw;
@@ -19,4 +19,8 @@ input.custom{
   z-index: 9;
   top: 2vw;
   left: 16px;
+}
+.btn-secondary{
+	background-color: #9E9E9E!important;
+  border-color: #9E9E9E!important;
 }

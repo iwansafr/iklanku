@@ -4,9 +4,11 @@
 	<?php $this->load->view('meta') ?>
 </head>
 <body>
+	<?php $class = 'fixed-top;' ?>
 	<?php if ($mod['content'] != 'home/detail'): ?>
-		<?php $this->load->view('menu_top') ?>
+		<?php $class = ''; ?>
 	<?php endif ?>
+	<?php $this->load->view('menu_top',['class'=>$class]) ?>
 
 	<?php $this->load->view($mod['content']);?>
 	<script src="<?php echo base_url('templates/iklanku/') ?>jquery/jquery.min.js"></script>
