@@ -76,19 +76,19 @@
 	<i class="fa fa-image" style="font-size: 3vw;"></i>  <span style="font-size: 3vw;"> Gallery</span>
 	<div class="scrollimages">
 		<a href="" style="padding-right: 0;">
-			<img src="<?php echo base_url();?>images/g-map.png" style="object-fit: cover; height: 40vw;width: 32vw;">
+			<img src="<?php echo base_url('templates/iklanku/');?>img/detail1.jpg" style="object-fit: cover; height: 40vw;width: 32vw;">
 		</a>
 		<a href="" style="padding-right: 0;">
-			<img src="<?php echo base_url();?>images/g-map.png" style="object-fit: cover; height: 40vw;width: 32vw;">
+			<img src="<?php echo base_url('templates/iklanku/');?>img/detail2.jpg" style="object-fit: cover; height: 40vw;width: 32vw;">
 		</a>
 		<a href="" style="padding-right: 0;">
-			<img src="<?php echo base_url();?>images/g-map.png" style="object-fit: cover; height: 40vw;width: 32vw;">
+			<img src="<?php echo base_url('templates/iklanku/');?>img/detail3.jpg" style="object-fit: cover; height: 40vw;width: 32vw;">
 		</a>
 		<a href="" style="padding-right: 0;">
-			<img src="<?php echo base_url();?>images/g-map.png" style="object-fit: cover; height: 40vw;width: 32vw;">
+			<img src="<?php echo base_url('templates/iklanku/');?>img/detail4.jpg" style="object-fit: cover; height: 40vw;width: 32vw;">
 		</a>
 		<a href="" style="padding-right: 0;">
-			<img src="<?php echo base_url();?>images/g-map.png" style="object-fit: cover; height: 40vw;width: 32vw;">
+			<img src="<?php echo base_url('templates/iklanku/');?>img/detail5.jpg" style="object-fit: cover; height: 40vw;width: 32vw;">
 		</a>
 	</div>
 	<div class="order container-fluid">
