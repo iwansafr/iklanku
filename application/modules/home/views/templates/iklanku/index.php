@@ -4,8 +4,8 @@
 	<?php $this->load->view('meta') ?>
 </head>
 <body>
-	<?php $class = 'fixed-top;' ?>
-	<?php if ($mod['content'] != 'home/detail'): ?>
+	<?php $class = 'fixed-top' ?>
+	<?php if ($mod['content'] == 'home/detail'): ?>
 		<?php $class = ''; ?>
 	<?php endif ?>
 	<?php $this->load->view('menu_top',['class'=>$class]) ?>

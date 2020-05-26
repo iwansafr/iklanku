@@ -58,7 +58,7 @@
 	    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 		}
 	</style>
-<div class="title text-center">
+<div class="title text-center mt-5 pt-2">
 	<form action="" method="post" class="mt-1">
 		<div class="form-group mb-2">
 			<div class="input-group">
@@ -75,7 +75,7 @@
 		<button class="btn btn-sm btn-info" style="width: 90%;border-radius: 0.5rem; font-size: 4vw;">Search</button>
 	</form>
 	<br>
-	<div class="filter text-left mb-3">
+	<div class="filter text-left mb-3 ml-4 mr-4">
 		<form action="" method="get">
 				<button class="btn btn-sm btn-light">
 					<i class="fa fa-filter"></i> <span style="text-decoration: underline;text-decoration-style:dotted; font-size: 3vw;">Filter</span>
