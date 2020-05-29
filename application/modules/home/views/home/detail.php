@@ -29,7 +29,7 @@
 					</td>
 					<td>:</td>
 					<td>
-						<small>5 x 10 Meter</small>
+						5 x 10 Meter
 					</td>
 				</tr>
 				<tr>
@@ -38,7 +38,7 @@
 					</td>
 					<td>:</td>
 					<td>
-						<small>Vertikal</small>
+						Vertikal
 					</td>
 				</tr>
 				<tr>
@@ -47,7 +47,7 @@
 					</td>
 					<td>:</td>
 					<td>
-						<small>FrontLight</small>
+						FrontLight
 					</td>
 				</tr>
 			</table>

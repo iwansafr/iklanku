@@ -8,7 +8,6 @@ images/modules/*
 images/cache/*
 images/session
 images/session/*
-images/
 
 #codeigniter 3
 # application/config/config.php
