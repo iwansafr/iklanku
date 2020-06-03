@@ -25,30 +25,30 @@
 			</div>
 			<table class="table table-sm"> 
 				<tr>
-					<td>
+					<td style="font-size: 12px;">
 						<small>ukuran</small>			
 					</td>
 					<td>:</td>
-					<td>
-						5 x 10 Meter
+					<td style="font-size: 14px;">
+						<strong>5 x 10 Meter</strong>
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td style="font-size: 12px;">
 						<small>dimensi</small>			
 					</td>
 					<td>:</td>
-					<td>
-						Vertikal
+					<td style="font-size: 14px;">
+						<strong>Vertikal</strong>
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td style="font-size: 12px;">
 						<small>Light</small>			
 					</td>
 					<td>:</td>
-					<td>
-						FrontLight
+					<td style="font-size: 14px;">
+						<strong>FrontLight</strong>
 					</td>
 				</tr>
 			</table>
@@ -57,11 +57,12 @@
 			<div class="rating text-right mb-3" style="font-size: 3vw;">
 				<span class="badge badge-success pull-right mt-1" style="width: 20vw; font-size: 3vw;">available</span>
 			</div>
+			<br>
 			<div class="description pl-3" style="min-height: 100px;">
-				<i class="fa fa-map-marker"style="position: absolute;top: 40%;left: 0;font-size: 5vw;"></i>
-				<span>< 50 Meter</span>
-				<p class="text-muted">
-					RM. Pempek Ny. Kamto BRI Unit Majapahit SPBU Majapahit
+				<i class="fa fa-map-marker"style="position: absolute;top: 40%;left: 0;font-size: 24px;"></i>
+				<span style="font-size: 16px;"><strong>< 50 Meter</strong></span>
+				<p class="text-muted" style="font-size: 12px;">
+					<small>RM. Pempek Ny. Kamto BRI Unit Majapahit SPBU Majapahit</small>
 				</p>
 			</div>
 		</div>
@@ -94,10 +95,10 @@
 	</div>
 	<div class="order container-fluid">
 		<div class="form-group">
-			<button class="btn btn-info rounded w-100">Simulasi Harga</button>
+			<button class="btn btn-info rounded w-100">SEWA TITIK</button>
 		</div>
 		<div class="form-group">
-			<button class="btn btn-success rounded w-100">Online Chat</button>
+			<button class="btn btn-success rounded w-100">INFO HARGA</button>
 		</div>
 	</div>
 </div>
