@@ -747,6 +747,12 @@ class Zea
 	{
 		$this->input[$text] = array('text'=>$text, 'type'=>$type);
 	}
+
+	public function append($text = '', $value = '')
+	{
+		$this->input[$text]['append'] = $value;
+	}
+
 	public function clearInput()
 	{
 		$this->input = array();
