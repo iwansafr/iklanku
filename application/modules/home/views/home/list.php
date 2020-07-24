@@ -63,13 +63,13 @@
 		<div class="form-group mb-2">
 			<div class="input-group">
 				<i class="fa fa-search placeh"></i>
-				<input type="text" name="kota" placeholder="ketik nama kota / kabupaten" class="custom" value="<?php echo !empty($_GET['kota']) ? $_GET['kota'] : ''; ?>">
+				<input type="text" name="kota" placeholder="ketik nama kota / kabupaten" class="custom" value="<?php echo !empty($_GET['kota']) ? htmlentities($_GET['kota']) : ''; ?>" >
 			</div>
 		</div>
 		<div class="form-group mb-2">
 			<div class="input-group">
 				<i class="fa fa-search placeh"></i>
-				<input type="text" name="jalan" placeholder="ketik nama ruas jalan" class="custom" value="<?php echo !empty($_GET['jalan']) ? $_GET['jalan'] : ''; ?>">
+				<input type="text" name="jalan" placeholder="ketik nama ruas jalan" class="custom" value="<?php echo !empty($_GET['jalan']) ? $_GET['jalan'] : ''; ?>" >
 			</div>
 		</div>
 		<button type="submit" class="btn btn-sm btn-info" style="width: 90%;border-radius: 0.5rem; font-size: 4vw;">Search</button>
@@ -148,7 +148,7 @@
 		</div>
 	</div>
 </div>
-<?php pr($data['query']) ?>
+
 <?php $slide = false; ?>
 <?php if ($slide): ?>
 	<?php $this->load->view('home/list_slide') ?>

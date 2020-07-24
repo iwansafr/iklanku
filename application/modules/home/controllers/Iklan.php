@@ -22,11 +22,11 @@ class Iklan extends CI_Controller
 		$where = '';
 		if(!empty($_GET['kota']))
 		{
-			$where = ' kota LIKE "%'.$_GET['kota'].'%"';
+			$where = ' kota LIKE "%'.$this->db->escape_like_str($_GET['kota']).'%"';
 		}
 		if(!empty($_GET['jalan']))
 		{
-			$where .= !empty($where) ? ' AND jalan LIKE "%'.$_GET['jalan'].'%"' : ' jalan LIKE "%'.$_GET['jalan'].'%"';
+			$where .= !empty($where) ? ' AND jalan LIKE "%'.$this->db->escape_like_str($_GET['jalan']).'%"' : ' jalan LIKE "%'.$this->db->escape_like_str($_GET['jalan']).'%"';
 		}
 
 		$form->setWhere($where);
