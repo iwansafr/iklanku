@@ -11,40 +11,27 @@ class Iklan extends CI_Controller
 		$this->load->library('esg');
 		$this->load->library('ZEA/Zea');
 	}
+
+	public function json_list()
+	{
+		$data    = $this->iklan_model->get_list();
+		$status  = $this->iklan_model->status();
+		$dimensi = $this->iklan_model->dimensi();
+		$light   = $this->iklan_model->light();
+		$output = ['data'=>$data['data'],'status'=>$status,'dimensi'=>$dimensi,'light'=>$light];
+		echo json_encode($output);
+	}
+
 	public function index()
 	{
 		$this->esg->add_js(base_url('templates/iklanku/js/home.js'));
 
-		$form = new zea();
-		$form->init('roll');
-		$form->setTable('iklan');
 
-		$where = '';
-		if(!empty($_GET['kota']))
-		{
-			$where = ' kota LIKE "%'.$this->db->escape_like_str($_GET['kota']).'%"';
-		}
-		if(!empty($_GET['jalan']))
-		{
-			$where .= !empty($where) ? ' AND jalan LIKE "%'.$this->db->escape_like_str($_GET['jalan']).'%"' : ' jalan LIKE "%'.$this->db->escape_like_str($_GET['jalan']).'%"';
-		}
-
-		$form->setWhere($where);
-		$form->addInput('id','plaintext');
-		$form->addInput('jalan','plaintext');
-		$form->addInput('kota','plaintext');
-		$form->addInput('map_image','plaintext');
-		$form->addInput('dimensi','plaintext');
-		$form->addInput('panjang','plaintext');
-		$form->addInput('lebar','plaintext');
-		$form->addInput('light','plaintext');
-		$form->addInput('status','plaintext');
-
-		$data    = $form->getData();
+		$data    = $this->iklan_model->get_list();
 		$status  = $this->iklan_model->status();
 		$dimensi = $this->iklan_model->dimensi();
 		$light   = $this->iklan_model->light();
 
-		$this->load->view('index',['data'=>$data,'status'=>$status,'dimensi'=>$dimensi,'light'=>$light]);
+		$this->load->view('index',['data'=>$data,'status'=>$status,'dimensi'=>$dimensi,'light'=>$light,'full'=>1]);
 	}
 }
