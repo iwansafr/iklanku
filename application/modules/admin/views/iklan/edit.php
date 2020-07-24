@@ -10,9 +10,11 @@ $form->setTable('iklan');
 $form->addInput('jalan','text');
 $form->addInput('kota','text');
 $form->addInput('alamat','textarea');
-$form->addInput('koordinat','text');
-$form->setLabel('koordinat','link dari google map');
 $form->addInput('map_image','file');
+
+$form->addInput('latitude','text');
+$form->addInput('longitude','text');
+
 $form->setLabel('map_image','Gambar Map');
 $form->setAccept('map_image','.jpg,.png,.gif');
 
