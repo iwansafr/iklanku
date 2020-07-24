@@ -57,22 +57,22 @@
 	    border-radius: .25rem;
 	    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 		}
-	</style>
+	</style>	
 <div class="title text-center mt-5 pt-2">
-	<form action="" method="post" class="mt-1">
+	<form action="" method="get" class="mt-1">
 		<div class="form-group mb-2">
 			<div class="input-group">
 				<i class="fa fa-search placeh"></i>
-				<input type="text" name="kota" placeholder="ketik nama kota / kabupaten" class="custom">
+				<input type="text" name="kota" placeholder="ketik nama kota / kabupaten" class="custom" value="<?php echo !empty($_GET['kota']) ? $_GET['kota'] : ''; ?>">
 			</div>
 		</div>
 		<div class="form-group mb-2">
 			<div class="input-group">
 				<i class="fa fa-search placeh"></i>
-				<input type="text" name="kota" placeholder="ketik nama ruas jalan" class="custom">
+				<input type="text" name="jalan" placeholder="ketik nama ruas jalan" class="custom" value="<?php echo !empty($_GET['jalan']) ? $_GET['jalan'] : ''; ?>">
 			</div>
 		</div>
-		<button class="btn btn-sm btn-info" style="width: 90%;border-radius: 0.5rem; font-size: 4vw;">Search</button>
+		<button type="submit" class="btn btn-sm btn-info" style="width: 90%;border-radius: 0.5rem; font-size: 4vw;">Search</button>
 	</form>
 	<br>
 	<div class="filter text-left mb-3 ml-4 mr-4">
@@ -148,6 +148,7 @@
 		</div>
 	</div>
 </div>
+<?php pr($data['query']) ?>
 <?php $slide = false; ?>
 <?php if ($slide): ?>
 	<?php $this->load->view('home/list_slide') ?>
