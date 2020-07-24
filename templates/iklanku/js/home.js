@@ -20,6 +20,7 @@ $(document).ready(function(){
 		$('input[name="dimensi_t"]').val(b);
 	});
 	$('#load_more').on('click',function(){
+		$('#loading').removeClass('d-none');
 		var page = parseInt($(this).attr('page'));
 		var kota = $(this).attr('kota');
 		var jalan = $(this).attr('jalan');
@@ -33,9 +34,10 @@ $(document).ready(function(){
 		}
 		page = page+1;
 		$.getJSON(_URL+'home/iklan/json_list/?page='+page+where,function(result){
-			if(result){
+			console.log(result);
+			if(result.data.length>1){
 				for(i=0;i<result.data.length;i++){
-					console.log(result.data[i]);
+					// console.log(result.data[i]);
 					$('#product').append(`<div class="card mb-3 product_box">
 				<span class="badge badge-success pull-right" style="width: 20vw;padding-top: 1vw; position: absolute;top: 2vw;right: 10px;font-size: 3vw;"> ${result.status[result.data[i]['status']]} </span>
 				<a href="${_URL+'home/detail/'+result.data[i]['id']}" ><img style="border-top-right-radius: 10%;border-top-left-radius: 10%;" src="${_URL+'images/modules/iklan/'+result.data[i]['id']+'/'+result.data[i]['map_image']}" class="card-img-top" alt="..."></a>
@@ -56,7 +58,11 @@ $(document).ready(function(){
 			  </div>
 			</div>`);
 				}
+			}else{
+				$('#load_more').addClass('d-none');
 			}
+			$('#loading').addClass('d-none');
+			$('#load_more').attr('page',page);
 		});
 	});
 });

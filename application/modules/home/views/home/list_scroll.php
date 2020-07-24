@@ -22,6 +22,9 @@
 			</div>
 		<?php endforeach ?>
 	</div>
+	<div id="loading" class="text-center d-none">
+		<label for="">loading ...</label>
+	</div>
 	<?php
 	if(!empty($data['pagination'] && !empty($full)))
 	{
