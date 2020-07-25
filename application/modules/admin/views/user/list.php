@@ -17,10 +17,11 @@ if(!is_root())
 }
 $this->zea->setField(array('username','email'));
 $this->zea->setTable('user');
-$this->zea->addInput('id','plaintext');
+$this->zea->setNumbering(true);
+$this->zea->addInput('id','hidden');
 $this->zea->addInput('username','plaintext');
 $this->zea->addInput('email','plaintext');
-$this->zea->addInput('created','plaintext');
+// $this->zea->addInput('created','plaintext');
 $this->zea->addInput('active', 'checkbox');
 $this->zea->setDelete(TRUE);
 $this->zea->setEdit(TRUE);
