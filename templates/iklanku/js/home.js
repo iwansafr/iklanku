@@ -1,4 +1,14 @@
 $(document).ready(function(){
+	$.getJSON(_URL+'home/iklan/json_kota/',function(result){
+		$('input[name="kota"]').autocomplete({
+			source: result
+		});
+	});
+	$.getJSON(_URL+'home/iklan/json_jalan/',function(result){
+		$('input[name="jalan"]').autocomplete({
+			source: result
+		});
+	});
 	$('.media-iklan').on('click',function(){
 		var a = $(this).val();
 		var b = $(this).html();

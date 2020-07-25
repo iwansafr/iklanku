@@ -57,6 +57,9 @@
 	    border-radius: .25rem;
 	    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 		}
+		.ui-widget {
+	    font-size: 2em;
+		}
 	</style>	
 <div class="title text-center mt-5 pt-2">
 	<form action="" method="get" class="mt-1">

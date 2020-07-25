@@ -9,7 +9,7 @@
 <div class="content_top">
 	<nav aria-label="breadcrumb">
 	  <ol class="breadcrumb bg-info" style="color: white;padding: 2%;margin-bottom: 0;">
-	    <li class="breadcrumb-item"><a href="<?php echo base_url('home/list')?>" style="color: white;font-size: 4vw;"><i class="fa fa-arrow-left"></i></a></li>
+	    <li class="breadcrumb-item"><a href="<?php echo base_url('home/iklan')?>" style="color: white;font-size: 4vw;"><i class="fa fa-arrow-left"></i></a></li>
 	    <span class="ml-2" style="font-size: 4vw;padding-top: 1vw;">JL. Majapahit / Kota Semarang</span>
 	  </ol>
 	</nav>

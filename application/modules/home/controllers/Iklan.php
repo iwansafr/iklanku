@@ -21,10 +21,38 @@ class Iklan extends CI_Controller
 		$output = ['data'=>$data['data'],'status'=>$status,'dimensi'=>$dimensi,'light'=>$light];
 		echo json_encode($output);
 	}
+	public function json_kota()
+	{
+		$data = $this->db->query('SELECT kota FROM iklan GROUP BY kota ORDER BY kota ASC LIMIT 6')->result_array();
+		if(!empty($data))
+		{
+			$output = [];
+			foreach ($data as $key => $value) 
+			{
+				$output[] = $value['kota'];
+			}
+			echo json_encode($output);
+		}
+	}
+
+	public function json_jalan()
+	{
+		$data = $this->db->query('SELECT jalan FROM iklan GROUP BY jalan ORDER BY jalan ASC LIMIT 6')->result_array();
+		if(!empty($data))
+		{
+			$output = [];
+			foreach ($data as $key => $value) 
+			{
+				$output[] = $value['jalan'];
+			}
+			echo json_encode($output);
+		}
+	}
 
 	public function index()
 	{
-		$this->esg->add_js(base_url('templates/iklanku/js/home.js'));
+		$this->esg->add_css('//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css');
+		$this->esg->add_js(['https://code.jquery.com/ui/1.12.1/jquery-ui.js',base_url('templates/iklanku/js/home.js')]);
 
 
 		$data    = $this->iklan_model->get_list();
