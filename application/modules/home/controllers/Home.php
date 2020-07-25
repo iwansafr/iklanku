@@ -6,6 +6,7 @@ class Home extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('home_model');
+		$this->load->model('iklan_model');
 		$this->load->helper('content');
 		$this->load->library('esg');
 	}
@@ -21,10 +22,17 @@ class Home extends CI_Controller
 		$this->load->view('index');
 	}
 
-	public function detail()
+	public function detail($id = 0)
 	{
 		$this->esg->add_css(base_url('templates/iklanku/css/detail.css'));
-		$this->load->view('index');
+		$this->db->where('id', $id);
+		$this->db->set('views', 'views+1', FALSE);
+		$this->db->update('iklan');
+		$data = $this->db->query('SELECT * FROM iklan WHERE id = ? ',$id)->row_array();
+		$status  = $this->iklan_model->status();
+		$dimensi = $this->iklan_model->dimensi();
+		$light   = $this->iklan_model->light();
+		$this->load->view('index',['data'=>$data,'status'=>$status,'dimensi'=>$dimensi,'light'=>$light]);
 	}
 
 	public function login()
