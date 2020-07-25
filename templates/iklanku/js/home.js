@@ -4,9 +4,14 @@ $(document).ready(function(){
 			source: result
 		});
 	});
-	$.getJSON(_URL+'home/iklan/json_jalan/',function(result){
-		$('input[name="jalan"]').autocomplete({
-			source: result
+	$('input[name="jalan"]').on('keyup',function(){
+		var a = $(this).val();
+		console.log(a);
+		$.getJSON(_URL+'home/iklan/json_jalan/'+a,function(result){
+			console.log(result);
+			$('input[name="jalan"]').autocomplete({
+				source: result
+			});
 		});
 	});
 	$('.media-iklan').on('click',function(){

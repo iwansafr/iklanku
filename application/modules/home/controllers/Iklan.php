@@ -35,9 +35,9 @@ class Iklan extends CI_Controller
 		}
 	}
 
-	public function json_jalan()
+	public function json_jalan($jalan = '')
 	{
-		$data = $this->db->query('SELECT jalan FROM iklan GROUP BY jalan ORDER BY jalan ASC LIMIT 6')->result_array();
+		$data = $this->db->query('SELECT jalan FROM iklan WHERE jalan LIKE ? GROUP BY jalan ORDER BY jalan ASC LIMIT 6',"%{$jalan}%")->result_array();
 		if(!empty($data))
 		{
 			$output = [];
