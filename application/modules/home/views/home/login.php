@@ -18,17 +18,19 @@
 		<h5 class="font-weight-bold" style="font-size: 5vw;">Sign-in</h5>
 	</div>
 	<form action="" method="post">
-		<div class="form-group">
-			<div class="input-group">
-				<i class="fa fa-user placeh"></i>
-				<input type="text" name="namauser" placeholder="username / email" class="form-control custom" autocomplete="off">
-			</div>
-		</div>
-		<div class="form-group">
-			<div class="input-group">
-				<i class="fa fa-lock placeh"></i>
-				<input type="password" name="sandi" placeholder="password" class="form-control custom" autocomplete="off">
-			</div>
+		<div class="container">
+				<div class="form-group">
+					<div class="input-group">
+						<i class="fa fa-user placeh"></i>
+						<input type="text" name="namauser" placeholder="username / email" class="form-control custom" autocomplete="off">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<i class="fa fa-lock placeh"></i>
+						<input type="password" name="sandi" placeholder="password" class="form-control custom" autocomplete="off">
+					</div>
+				</div>
 		</div>
 	</form>
 	<div class="space mb-3 mt-5">

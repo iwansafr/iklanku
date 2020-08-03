@@ -8,7 +8,7 @@
 <div class="divider"></div>
 <div class="content_top">
 	<nav aria-label="breadcrumb">
-	  <ol class="breadcrumb bg-info" style="color: white;padding: 2%;margin-bottom: 0;">
+	  <ol class="breadcrumb bg-info" style="color: white;padding: 2%;margin-bottom: 0;border-radius: 0;">
 	    <li class="breadcrumb-item"><a href="<?php echo base_url('home/iklan')?>" style="color: white;font-size: 4vw;"><i class="fa fa-arrow-left"></i></a></li>
 	    <span class="ml-2" style="font-size: 4vw;padding-top: 1vw;"><?php echo $data['jalan'] ?> / <?php echo $data['kota'] ?></span>
 	  </ol>
@@ -30,7 +30,7 @@
 					</td>
 					<td>:</td>
 					<td style="font-size: 14px;">
-						<strong><?php echo $data['panjang'] ?> x <?php echo $data['lebar'] ?> Meter</strong>
+						<?php echo $data['panjang'] ?> x <?php echo $data['lebar'] ?> Meter
 					</td>
 				</tr>
 				<tr>
@@ -39,7 +39,7 @@
 					</td>
 					<td>:</td>
 					<td style="font-size: 14px;">
-						<strong><?php echo $dimensi[$data['dimensi']] ?></strong>
+						<?php echo $dimensi[$data['dimensi']] ?>
 					</td>
 				</tr>
 				<tr>
@@ -48,19 +48,19 @@
 					</td>
 					<td>:</td>
 					<td style="font-size: 14px;">
-						<strong><?php echo $light[$data['light']] ?></strong>
+						<?php echo $light[$data['light']] ?>
 					</td>
 				</tr>
 			</table>
 		</div>
 		<div class="col">
-			<div class="rating text-right mb-3" style="font-size: 3vw;">
+			<div class="rating text-right mb-3 mt-1" style="font-size: 3vw;">
 				<span class="badge badge-success pull-right mt-1" style="width: 20vw; font-size: 3vw;"><?php echo $status[$data['status']] ?></span>
 			</div>
 			<br>
 			<div class="description pl-3" style="min-height: 100px;">
 				<i class="fa fa-map-marker"style="position: absolute;top: 40%;left: 0;font-size: 24px;"></i>
-				<span style="font-size: 16px;"><strong>< 50 Meter</strong></span>
+				<span style="font-size: 16px;">< 50 Meter</span>
 				<p class="text-muted" style="font-size: 12px;">
 					<small><?php echo $data['alamat'] ?></small>
 				</p>
