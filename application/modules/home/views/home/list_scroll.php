@@ -1,5 +1,5 @@
 <?php if (!empty($data)): ?>
-	<div id="product">
+	<div id="product" style="padding: 20px;">
 		<?php foreach ($data['data'] as $key => $value): ?>
 			<div class="card mb-3 product_box">
 				<span class="badge badge-success pull-right" style="width: 20vw;padding-top: 1vw; position: absolute;top: 2vw;right: 10px;font-size: 3vw;"><?php echo $status[$value['status']] ?></span>
@@ -7,13 +7,13 @@
 			  <div class="card-body">
 			  	<div class="row">
 				    <div class="col">
-				    	<h5 class="card-title" style="font-size: 4vw;"><?php echo $value['kota'] ?></h5>
+				    	<h5 class="card-title" style="font-size: 4vw; font-weight: bold;"><?php echo $value['kota'] ?></h5>
 				    </div>
 				    <div class="col-7 description_product pl-0">
 				    	<p style="font-size: 3vw;margin-bottom: -1vw;"><?php echo $value['jalan'] ?></p>
 				    	<p class="card-text">
 				    		<small style="font-size: 2vw;" class="text-muted">
-				    			<?php echo $value['panjang'] ?>x <?php echo $value['lebar'] ?>	 M / <?php echo $dimensi[$value['dimensi']] ?> / <?php echo $light[$value['light']] ?>
+				    			Billboard / <?php echo $value['panjang'] ?>x <?php echo $value['lebar'] ?>	 M / <?php echo $dimensi[$value['dimensi']] ?> / <?php echo $light[$value['light']] ?>
 				    		</small>
 				    	</p>
 				    </div>
