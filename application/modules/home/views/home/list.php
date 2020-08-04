@@ -65,13 +65,13 @@
 	<form action="" method="get" class="mt-1">
 		<div class="form-group mb-2">
 			<div class="input-group">
-				<i class="fa fa-search placeh"></i>
+				<i class="fa fa-search placeh" style="z-index: 0;"></i>
 				<input type="text" name="kota" placeholder="ketik nama kota / kabupaten" class="custom" value="<?php echo !empty($_GET['kota']) ? htmlentities($_GET['kota']) : ''; ?>" >
 			</div>
 		</div>
 		<div class="form-group mb-2">
 			<div class="input-group">
-				<i class="fa fa-search placeh"></i>
+				<i class="fa fa-search placeh" style="z-index: 0;"></i>
 				<input type="text" name="jalan" placeholder="ketik nama ruas jalan" class="custom" value="<?php echo !empty($_GET['jalan']) ? $_GET['jalan'] : ''; ?>" >
 			</div>
 		</div>

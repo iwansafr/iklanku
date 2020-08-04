@@ -8,7 +8,7 @@
 	<?php if ($mod['content'] == 'home/detail'): ?>
 		<?php $class = ''; ?>
 	<?php endif ?>
-	<?php $this->load->view('menu_top',['class'=>$class]) ?>
+	<?php $this->load->view('templates/iklanku/menu_top',['class'=>$class]) ?>
 
 	<?php $this->load->view($mod['content']);?>
 	<script src="<?php echo base_url('templates/iklanku/') ?>jquery/jquery.min.js"></script>
