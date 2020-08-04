@@ -1,3 +1,10 @@
+function openNav() {
+  document.getElementById("myNav").style.width = "100%";
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+}
 $(document).ready(function(){
 	$.getJSON(_URL+'home/iklan/json_kota/',function(result){
 		$('input[name="kota"]').autocomplete({

@@ -3,7 +3,7 @@
   height: 100%;
   width: 0;
   position: fixed;
-  z-index: 1;
+  z-index: 1500;
   top: 0;
   left: 0;
   background-color: rgb(0,0,0);
@@ -107,12 +107,3 @@
   </div>
 </nav>
  -->
-<script>
-function openNav() {
-  document.getElementById("myNav").style.width = "100%";
-}
-
-function closeNav() {
-  document.getElementById("myNav").style.width = "0%";
-}
-</script>
