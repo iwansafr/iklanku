@@ -1,4 +1,4 @@
-<style type="text/css">
+<!-- <style type="text/css">
   .overlay {
   height: 100%;
   width: 0;
@@ -48,8 +48,8 @@
   right: 35px;
   }
 }
-</style>
-<div id="myNav" class="overlay">
+</style> -->
+<!-- <div id="myNav" class="overlay">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <div class="overlay-content">
     <a href="#">Home</a>
@@ -57,16 +57,16 @@
     <a href="#">Cara Beriklan</a>
     <a href="#">Hubungi Kami</a>
   </div>
-</div>
-<nav class="navbar navbar-light bg-light <?php echo $class ?>">
+</div> -->
+<!-- <nav class="navbar navbar-light bg-light <?php echo $class ?>">
   <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
   <a class="navbar-brand" href="#" style="padding-bottom: 0;"><h1 class="font-weight-bold" style="font-size: 5vw;margin-bottom: 0;">iklan<span class="text-info">ku</span></h1></a>
-</nav>
+</nav> -->
 <!-- <nav class="navbar <?php echo $class ?> navbar-light bg-light" style="background-color: white!important;max-height: 100%;">
+  <a class="navbar-brand" href="#" style="padding-bottom: 0;"><h1 class="font-weight-bold" style="font-size: 5vw;margin-bottom: 0;">iklan<span class="text-info">ku</span></h1></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="border-color: rgba(0,0,0,0);">
     <span class="navbar-toggler-icon font-weight-bold" style="height: 5vw;"></span>
   </button>
-  <a class="navbar-brand" href="#" style="padding-bottom: 0;"><h1 class="font-weight-bold" style="font-size: 5vw;margin-bottom: 0;">iklan<span class="text-info">ku</span></h1></a>
 
   <style>
     .nav-link , .dropdown-item{
@@ -107,3 +107,4 @@
   </div>
 </nav>
  -->
+ 
