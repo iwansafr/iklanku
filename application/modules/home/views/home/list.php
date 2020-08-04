@@ -61,7 +61,7 @@
 	    font-size: 2em;
 		}
 	</style>	
-<div class="title text-center mt-5 pt-2">
+<div class="title text-center mt-5 pt-4">
 	<form action="" method="get" class="mt-1">
 		<div class="form-group mb-2">
 			<div class="input-group">
