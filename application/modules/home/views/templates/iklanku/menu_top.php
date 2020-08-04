@@ -58,7 +58,7 @@
     <a href="#">Hubungi Kami</a>
   </div>
 </div>
-<nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-light bg-light <?php echo $class ?>">
   <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
   <a class="navbar-brand" href="#" style="padding-bottom: 0;"><h1 class="font-weight-bold" style="font-size: 5vw;margin-bottom: 0;">iklan<span class="text-info">ku</span></h1></a>
 </nav>
