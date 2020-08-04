@@ -18,7 +18,7 @@
 		<h5 class="font-weight-bold" style="font-size: 5vw;">Sign-in</h5>
 	</div>
 	<form action="" method="post">
-		<div class="container">
+		<div class="container" style="padding-right: 60px; padding-left: 60px;">
 				<div class="form-group">
 					<div class="input-group">
 						<i class="fa fa-user placeh"></i>
@@ -36,7 +36,7 @@
 	<div class="space mb-3 mt-5">
 		<h6 style="font-size: 3vw">Lupa password ? <span class="text-danger">Buat Baru</span></h6>
 	</div>
-	<button class="btn btn-sm btn-info pl-3 pr-3 mb-5 mt-3 rounded"><h1 style="font-size: 7vw;padding-top: 2vw;">masuk</h1></button>
+	<button class="btn btn-sm btn-info pl-3 pr-3 mb-5 mt-3 rounded"><h1 style="font-size: 7vw;">masuk</h1></button>
 	<br>
 	<button class="sign-in-b mb-2 btn" style="padding-top: 2vw;"> <img src="<?php echo base_url('images/');?>google.png" style="height: 5vw;margin-top: -2vw;"> <span style="font-size: 3vw;">Sign in with Google</span></button>
 	<br>

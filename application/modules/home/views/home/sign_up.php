@@ -88,28 +88,30 @@
 		<h5 class="font-weight-bold" style="font-size: 5vw;">Sign Up</h5>
 	</div>
 	<form action="" method="post">
-		<div class="form-group">
-			<div class="input-group">
-				<i class="fa fa-user placeh"></i>
-				<input type="text" name="namauser" placeholder="username" class="form-control">
+		<div class="container" style="padding-right: 60px; padding-left: 60px;">
+			<div class="form-group">
+				<div class="input-group">
+					<i class="fa fa-user placeh"></i>
+					<input type="text" name="namauser" placeholder="username" class="form-control">
+				</div>
 			</div>
-		</div>
-		<div class="form-group">
-			<div class="input-group">
-				<i class="fa fa-envelope placeh"></i>
-				<input type="text" name="email" placeholder="email address" class="form-control">
+			<div class="form-group">
+				<div class="input-group">
+					<i class="fa fa-envelope placeh"></i>
+					<input type="text" name="email" placeholder="email address" class="form-control">
+				</div>
 			</div>
-		</div>
-		<div class="form-group">
-			<div class="input-group">
-				<i class="fa fa-lock placeh"></i>
-				<input type="password" name="sandi" placeholder="password" class="form-control">
+			<div class="form-group">
+				<div class="input-group">
+					<i class="fa fa-lock placeh"></i>
+					<input type="password" name="sandi" placeholder="password" class="form-control">
+				</div>
 			</div>
-		</div>
-		<div class="form-group">
-			<div class="input-group">
-				<i class="fa fa-phone placeh"></i>
-				<input type="text" name="number" placeholder="mobile number" class="form-control">
+			<div class="form-group">
+				<div class="input-group">
+					<i class="fa fa-phone placeh"></i>
+					<input type="text" name="number" placeholder="mobile number" class="form-control">
+				</div>
 			</div>
 		</div>
 	</form>
