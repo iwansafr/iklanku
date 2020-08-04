@@ -1,7 +1,7 @@
 <div class="wrapper">
 	<nav id="sidebar">
 		<div id="dismiss">
-			<i class="fas fa-arrow-right" style="color: white;"></i>
+			<i class="fa fa-arrow-right" style="color: white;"></i>
 		</div>
 
 		<div class="sidebar-header">

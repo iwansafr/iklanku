@@ -34,7 +34,7 @@
 		</div>
 	</form>
 	<div class="space mb-3 mt-5">
-		<h6 style="font-size: 3vw">Lupa password ? <span class="text-danger">Buat Baru</span></h6>
+		<h6 style="font-size: 3vw">Lupa password ? <a href="<?php echo base_url('home/sign_up') ?>" class="text-danger">Buat Baru</a></h6>
 	</div>
 	<button class="btn btn-sm btn-info pl-3 pr-3 mb-5 mt-3 rounded"><h1 style="font-size: 7vw;">masuk</h1></button>
 	<br>
