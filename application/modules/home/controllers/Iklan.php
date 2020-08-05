@@ -62,4 +62,8 @@ class Iklan extends CI_Controller
 
 		$this->load->view('index',['data'=>$data,'status'=>$status,'dimensi'=>$dimensi,'light'=>$light,'full'=>1]);
 	}
+	public function media()
+	{
+		$this->load->view('index');
+	}
 }

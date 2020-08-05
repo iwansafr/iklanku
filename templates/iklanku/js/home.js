@@ -72,7 +72,7 @@ $(document).ready(function(){
 				    	<p style="font-size: 3vw;margin-bottom: -1vw;">${result.data[i]['jalan']}</p>
 				    	<p class="card-text">
 				    		<small style="font-size: 2vw;" class="text-muted">
-				    			${result.data[i]['panjang']}x ${result.data[i]['lebar']}	 M / ${result.dimensi[result.data[i]['dimensi']]} / ${result.light[result.data[i]['light']]}
+				    			Billboard / ${result.data[i]['panjang']}x ${result.data[i]['lebar']}	 M / ${result.dimensi[result.data[i]['dimensi']]} / ${result.light[result.data[i]['light']]}
 				    		</small>
 				    	</p>
 				    </div>
