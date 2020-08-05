@@ -74,7 +74,7 @@ a:focus {
     height: 35px;
     line-height: 35px;
     text-align: center;
-    background: #26a1b8;
+    /*background: #26a1b8;*/
     position: absolute;
     top: 10px;
     right: 10px;
