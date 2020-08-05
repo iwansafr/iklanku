@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col">
 			<a href="<?php echo base_url('home/iklan') ?>">
-				<div class="card card-success" style="height: 300px;">
+				<div class="card" style="height: 300px;">
 					<div class="card-body">
 						<h4 style="margin-top: 30%;text-align: center;">OUT OF HOME MEDIA</h4>
 					</div>
@@ -13,7 +13,7 @@
 			</a>
 		</div>
 		<div class="col">
-			<div class="card card-success" style="height: 300px;">
+			<div class="card" style="height: 300px;">
 				<div class="card-body">
 					<h4 style="margin-top: 30%;text-align: center;">RADIO</h4>
 				</div>
@@ -26,7 +26,7 @@
 	<hr>
 	<div class="row">
 		<div class="col">
-			<div class="card card-success" style="height: 300px;">
+			<div class="card" style="height: 300px;">
 				<div class="card-body">
 					<h4 style="margin-top: 30%;text-align: center;">KORAN</h4>
 				</div>
@@ -36,7 +36,7 @@
 			</div>
 		</div>
 		<div class="col">
-			<div class="card card-success" style="height: 300px;">
+			<div class="card" style="height: 300px;">
 				<div class="card-body">
 					<h4 style="margin-top: 30%;text-align: center;">MEIDA SOCIAL CAMPAIGN</h4>
 				</div>
