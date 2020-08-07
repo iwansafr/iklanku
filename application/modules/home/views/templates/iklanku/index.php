@@ -4,11 +4,12 @@
 	<?php $this->load->view('meta') ?>
 </head>
 <body>
+	<?php $hide_menu = $mod['content'] == 'iklan/media' ? false : true; ?>
 	<?php $class = 'fixed-top' ?>
 	<?php if ($mod['content'] == 'home/detail'): ?>
 		<?php $class = ''; ?>
 	<?php endif ?>
-	<?php $this->load->view('templates/iklanku/menu_side',['class'=>$class]) ?>
+	<?php $this->load->view('templates/iklanku/menu_side',['class'=>$class,'hide_menu'=>$hide_menu]) ?>
 
 	<?php $this->load->view($mod['content']);?>
 	<script src="<?php echo base_url('templates/iklanku/') ?>jquery/jquery.min.js"></script>
