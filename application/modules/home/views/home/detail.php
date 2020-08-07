@@ -6,7 +6,7 @@
 </style>
 <link rel="stylesheet" href="http://localhost/esg/templates/property/css/magnific-popup.css" type="text/css">
 <div class="divider"></div>
-<div class="content_top">
+<div class="content_top" style="margin-top: 70px;">
 	<nav aria-label="breadcrumb">
 	  <ol class="breadcrumb bg-info" style="color: white;padding: 2%;margin-bottom: 0;border-radius: 0;">
 	    <li class="breadcrumb-item"><a href="<?php echo base_url('home/iklan')?>" style="color: white;font-size: 4vw;"><i class="fa fa-arrow-left"></i></a></li>
@@ -20,31 +20,31 @@
 <div class="review container-fluid">
 	<div class="row">
 		<div class="col">
-			<div class="views mb-2">
+			<div class="views mb-2 mt-1">
 				<small class="text-primary"><i class="fa fa-eye"></i> <?php echo $data['views'] ?> views</small>
 			</div>
 			<table class="table table-sm"> 
-				<tr>
+				<tr style="border-bottom: dotted 3px #F0F0F0; border-top: dotted 3px white;">
 					<td style="font-size: 12px;">
-						<small>ukuran</small>			
+						<small>UKURAN</small>			
 					</td>
 					<td>:</td>
 					<td style="font-size: 14px;">
 						<?php echo $data['panjang'] ?> x <?php echo $data['lebar'] ?> Meter
 					</td>
 				</tr>
-				<tr>
+				<tr style="border-bottom: dotted 3px #F0F0F0;">
 					<td style="font-size: 12px;">
-						<small>dimensi</small>			
+						<small>DIMENSI</small>			
 					</td>
 					<td>:</td>
 					<td style="font-size: 14px;">
 						<?php echo $dimensi[$data['dimensi']] ?>
 					</td>
 				</tr>
-				<tr>
+				<tr style="border-bottom: dotted 3px #F0F0F0;">
 					<td style="font-size: 12px;">
-						<small>Light</small>			
+						<small>LIGHT</small>			
 					</td>
 					<td>:</td>
 					<td style="font-size: 14px;">

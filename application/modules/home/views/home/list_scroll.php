@@ -12,7 +12,7 @@
 				    <div class="col-7 description_product pl-0">
 				    	<p style="font-size: 3vw;margin-bottom: -1vw;"><?php echo $value['jalan'] ?></p>
 				    	<p class="card-text">
-				    		<small style="font-size: 2vw;" class="text-muted">
+				    		<small style="font-size: 2.2vw;" class="text-muted">
 				    			Billboard / <?php echo $value['panjang'] ?>x <?php echo $value['lebar'] ?>	 M / <?php echo $dimensi[$value['dimensi']] ?> / <?php echo $light[$value['light']] ?>
 				    		</small>
 				    	</p>

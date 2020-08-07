@@ -24,3 +24,6 @@ input.custom{
 	background-color: #9E9E9E!important;
   border-color: #9E9E9E!important;
 }
+.disabled{
+	color: #808080!important;
+}

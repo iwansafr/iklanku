@@ -33,11 +33,11 @@
 		</ul>
 	</nav>
 	<div id="content">
-		<nav class="navbar <?php echo $class ?> navbar-light bg-light" style="background-color: white!important;max-height: 100%; text-align: center;">
-			<a class="navbar-brand" href="#" style="padding-bottom: 0;"><h1 class="font-weight-bold" style="font-size: 5vw;margin-bottom: 0;">iklan<span class="text-info">ku</span></h1></a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" id="sidebarCollapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="border-color: rgba(0,0,0,0);">
+		<nav class="navbar <?php echo $class ?> navbar-light bg-light" style="background-color: white!important;max-height: 100%; text-align: center;display: block;">
+			<a class="navbar-brand" href="<?php echo base_url(); ?>" style="padding-bottom: 0;"><h1 class="font-weight-bold" style="font-size: 5vw;margin-bottom: 0;">iklan<span class="text-info">ku</span></h1></a>
+<!-- 			<button class="navbar-toggler" type="button" data-toggle="collapse" id="sidebarCollapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="border-color: rgba(0,0,0,0);">
 			<span class="navbar-toggler-icon font-weight-bold" style="height: 5vw;"></span>
-			</button>
+			</button> -->
 		</nav>
 	</div>
 </div>
