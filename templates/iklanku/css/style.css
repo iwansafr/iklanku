@@ -7,7 +7,7 @@ body{
 }
 input.custom{
 	height: 10vw!important;
-	border-radius: 0.5rem!important;
+	border-radius: 1.5rem!important;
 	background-color: white!important;
 	text-align: center;
 	font-size: 4vw;

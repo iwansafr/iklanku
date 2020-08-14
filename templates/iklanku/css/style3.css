@@ -127,15 +127,18 @@ a:focus {
 }
 
 #sidebar ul li a:hover {
-    color: #26a1b8;
+    color: #0872ba;
     background: #fff;
 }
 
+#sidebar ul li.active{
+    border-left: 5px solid #0872ba;
+}
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
-    color: #fff;
+    color: black;
     /*background: #6d7fcc;*/
-    background: #26a1b8;
+    /*background: #26a1b8;*/
 }
 
 a[data-toggle="collapse"] {
@@ -185,8 +188,6 @@ a.article:hover {
 
 #content {
     width: 100%;
-    /*padding: 20px;*/
-    /*min-height: 100vh;*/
     transition: all 0.3s;
     position: absolute;
     top: 0;

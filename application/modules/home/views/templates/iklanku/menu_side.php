@@ -3,29 +3,25 @@
 		<div id="dismiss">
 			<i class="fa fa-arrow-right"></i>
 		</div>
-
 		<div class="sidebar-header">
-			<h5>iklan<span class="text-info">ku</span></h5>
+			<img src="<?php echo base_url('images/logo.png') ?>" class="img img-fluid" width="100" alt="">
 		</div>
 
 		<ul class="list-unstyled components">
 			<li class="active">
-				<a href="#">Home</a>
+				<a href="#pageSubmenu" id="mainMenu" data-toggle="collapse" aria-expanded="false">Menu Utama <i class="fa fa-caret-down pull-right"></i></a>
+
 			</li>
+			<ul class="collapse list-unstyled" id="pageSubmenu">
+				<li><a href="#">Out Of Home Media</a></li>
+				<li><a href="#">Iklan Koran</a></li>
+				<li><a href="#">Iklan Radio</a></li>
+				<li><a href="#">Social Media Campaign</a></li>
+				<li><a href="#">Digital Print</a></li>
+			</ul>
 			<li>
 				<a href="#">Tentang Kami</a>
-				<a href="#">Cara Beriklan</a>
-				<a href="#">Hubungi Kami</a>
-				<a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Media</a>
-				<ul class="collapse list-unstyled" id="pageSubmenu">
-					<li><a href="#">Billboard</a></li>
-					<li><a href="#">Baliho</a></li>
-					<li><a href="#">JPO (Pedestrian Bridge)</a></li>
-					<li><a href="#">Videotron</a></li>
-					<li><a href="#">Road Sign</a></li>
-					<li><a href="#">Midi Board</a></li>
-					<li><a href="#">Indoor</a></li>
-				</ul>
+				<a href="#">Kontak</a>
 			</li>
 		</ul>
 
@@ -38,7 +34,9 @@
 		
 		?>
 		<nav class="navbar <?php echo $class ?> navbar-light bg-light" style="background-color: white!important;max-height: 100%;<?php echo $style ?>">
-			<a class="navbar-brand" href="<?php echo base_url(); ?>" style="padding-bottom: 0;"><h1 class="font-weight-bold" style="font-size: 5vw;margin-bottom: 0;">iklan<span class="text-info">ku</span></h1></a>
+			<a class="navbar-brand" href="<?php echo base_url(); ?>" style="padding-bottom: 0;">
+				<img src="<?php echo base_url('images/logo.png') ?>" class="img img-fluid" width="170" alt="">
+			</a>
 			<?php if ($hide_menu): ?>			
 				<button class="navbar-toggler" type="button" data-toggle="collapse" id="sidebarCollapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="border-color: rgba(0,0,0,0);">
 				<span class="navbar-toggler-icon font-weight-bold" style="height: 5vw;"></span>

@@ -6,7 +6,7 @@
 </style>
 <link rel="stylesheet" href="http://localhost/esg/templates/property/css/magnific-popup.css" type="text/css">
 <div class="divider"></div>
-<div class="content_top" style="margin-top: 70px;">
+<div class="content_top" style="margin-top: 100px;">
 	<nav aria-label="breadcrumb">
 	  <ol class="breadcrumb bg-info" style="color: white;padding: 2%;margin-bottom: 0;border-radius: 0;">
 	    <li class="breadcrumb-item"><a href="<?php echo base_url('home/iklan')?>" style="color: white;font-size: 4vw;"><i class="fa fa-arrow-left"></i></a></li>
@@ -80,15 +80,16 @@
 		<i class="fa fa-image" style="font-size: 3vw;"></i>  <span style="font-size: 3vw;"> Gallery</span>
 		<div class="scrollimages gallery">
 			<?php foreach ($gallery as $key => $value): ?>
-				<a href="<?php echo image_module('iklan','gallery/'.$data['id'].'/'.$value) ?>" style="padding-right: 0;">
+				<a href="<?php echo image_module('iklan','gallery/'.$data['id'].'/'.$value) ?>" class="gallery_item" style="padding-right: 0;">
 					<img src="<?php echo image_module('iklan','gallery/'.$data['id'].'/'.$value) ?>" style="object-fit: cover; height: 40vw;width: 32vw;">
 				</a>
 			<?php endforeach ?>
 		</div>
 	<?php endif ?>
+	<hr>
 	<div class="order container-fluid">
 		<div class="form-group">
-			<button class="btn btn-info rounded w-100">SEWA TITIK</button>
+			<a href="<?php echo base_url('home/sewa/'.$data['id']) ?>" class="btn btn-info rounded w-100">SEWA TITIK</a>
 		</div>
 		<div class="form-group">
 			<button class="btn btn-success rounded w-100">INFO HARGA</button>

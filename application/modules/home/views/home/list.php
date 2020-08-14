@@ -61,9 +61,9 @@
 	    font-size: 2em;
 		}
 	</style>	
-<div class="title text-center mt-5 pt-4">
+<div class="title text-center mt-5 pt-5">
 	<form action="" method="get" class="mt-1">
-		<div class="form-group mb-2">
+		<div class="form-group mb-2 pt-2">
 			<div class="input-group">
 				<i class="fa fa-search placeh" style="z-index: 0;"></i>
 				<input type="text" name="kota" placeholder="ketik nama kota / kabupaten" class="custom" value="<?php echo !empty($_GET['kota']) ? htmlentities($_GET['kota']) : ''; ?>" >
@@ -80,11 +80,9 @@
 	<br>
 	<div class="filter text-left mb-3 ml-4 mr-4">
 		<form action="" method="get">
-				<button class="btn btn-sm btn-light">
-					<i class="fa fa-filter"></i> <span style="text-decoration: underline;text-decoration-style:dotted; font-size: 3vw;">Filter</span>
-				</button>
+				<i class="fa fa-filter"></i> <span style="font-color: white;text-decoration: underline;text-decoration-style:dotted; font-size: 3vw;"></span>
 				<button type="button" class="btn btn-secondary btn-sm" style="font-size: 2.5vw;" id="media-opsi" data-toggle="modal" data-target="#media-modal">
-				  Semua Media
+				  Jenis Reklame
 				</button>
 				<input type="hidden" value="0" name="media">
 				<button type="button" class="btn btn-secondary btn-sm" style="font-size: 2.5vw;" id="dimensi-opsi" data-toggle="modal" data-target="#dimensi-modal">
@@ -104,9 +102,10 @@
 		      </div>
 		      <div class="modal-body">
 		        <button data-dismiss="modal" value="1" class="media-iklan w-100 btn btn-sm btn-secondary">Semua</button>
-		        <button data-dismiss="modal" value="1" class="media-iklan w-100 btn btn-sm btn-secondary">billboard</button>
-		        <button data-dismiss="modal" value="2" class="media-iklan w-100 btn btn-sm btn-secondary">baliho</button>
-		        <button data-dismiss="modal" value="3" class="media-iklan w-100 btn btn-sm btn-secondary">videotron</button>
+		        <button data-dismiss="modal" value="2" class="media-iklan w-100 btn btn-sm btn-secondary">billboard</button>
+		        <button data-dismiss="modal" value="3" class="media-iklan w-100 btn btn-sm btn-secondary">baliho</button>
+		        <button data-dismiss="modal" value="4" class="media-iklan w-100 btn btn-sm btn-secondary">neon box</button>
+		        <button data-dismiss="modal" value="5" class="media-iklan w-100 btn btn-sm btn-secondary">videotron</button>
 		      </div>
 		      <div class="modal-footer">
 		      </div>
@@ -123,25 +122,9 @@
 		        </button>
 		      </div>
 		      <div class="modal-body">
-		      	<div class="form-row">
-			        <div class="col">
-					      <div class="input-group mb-2">
-					        <input value="0" id="dimensi_lebar" type="number" min="0" class="form-control" placeholder="lebar">
-					        <div class="input-group-apend">
-					          <div class="input-group-text">M</div>
-					        </div>
-					      </div>
-					    </div>
-					    x
-			        <div class="col">
-					      <div class="input-group mb-2">
-					        <input value="0" id="dimensi_tinggi" type="number" min="0" class="form-control" placeholder="tinggi">
-					        <div class="input-group-apend">
-					          <div class="input-group-text">M</div>
-					        </div>
-					      </div>
-					    </div>
-		      	</div>
+		      	<div class="modal-body" id="size_filter">
+		      		
+			      </div>
 		      </div>
 		      <div class="modal-footer">
 		      	<button class="btn btn-sm btn-info" id="simpan_dimensi" data-dismiss="modal">Simpan</button>

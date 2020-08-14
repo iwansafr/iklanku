@@ -34,6 +34,17 @@ class Home extends CI_Controller
 		$light   = $this->iklan_model->light();
 		$this->load->view('index',['data'=>$data,'status'=>$status,'dimensi'=>$dimensi,'light'=>$light]);
 	}
+	public function sewa($id=0)
+	{
+		$id = !empty($id) ? intval($id) : 0;
+		$data = $this->db->get_where('iklan',['id'=>$id])->row_array();
+		$this->load->view('index',['data'=>$data]);
+	}
+
+	public function welcome()
+	{
+		$this->load->view('index');
+	}
 
 	public function login()
 	{

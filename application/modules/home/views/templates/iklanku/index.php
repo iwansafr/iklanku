@@ -4,12 +4,14 @@
 	<?php $this->load->view('meta') ?>
 </head>
 <body>
-	<?php $hide_menu = $mod['content'] == 'iklan/media' ? false : true; ?>
+	<?php $hide_menu = true; ?>
 	<?php $class = 'fixed-top' ?>
 	<?php if ($mod['content'] == 'home/detail'): ?>
 		<?php $class = ''; ?>
 	<?php endif ?>
-	<?php $this->load->view('templates/iklanku/menu_side',['class'=>$class,'hide_menu'=>$hide_menu]) ?>
+	<?php if ($mod['content'] != 'home/login'): ?>
+		<?php $this->load->view('templates/iklanku/menu_side',['class'=>$class,'hide_menu'=>$hide_menu]) ?>
+	<?php endif ?>
 
 	<?php $this->load->view($mod['content']);?>
 	<script src="<?php echo base_url('templates/iklanku/') ?>jquery/jquery.min.js"></script>
@@ -41,7 +43,7 @@
 	<script type="text/javascript">
 		$('.gallery').each(function() { // the containers for all your galleries
 		    $(this).magnificPopup({
-		        delegate: 'a', // the selector for gallery item
+		        delegate: '.gallery_item', // the selector for gallery item
 		        type: 'image',
 		        gallery: {
 		          enabled:true
