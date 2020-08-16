@@ -15,15 +15,15 @@
 </style>
 <div class="container mt-5 pt-5">
 	<div class="welcome  mt-5 pt-5 mb-5 pb-5 pl-5 pr-5">
-		<h3 style="font-weight: bold;">Hi, {nama_user}</h3>
-		<p style="font-size: 20px;">Selamat Datang di <b>adsbox</b>,<br>Akun anda telah aktif</p>
+		<h3 style="font-size:4vw;font-weight: bold;">Hi, {nama_user}</h3>
+		<p style="font-size: 4vw;">Selamat Datang di <b>adsbox</b>,<br>Akun anda telah aktif</p>
 	</div>
 </div>
 <div class="title text-center pl-5 pr-5">
 		<div class="container">
 
-			<button class="btn btn-sm btn-primary btn-lg" style="margin-top: 70%;px;border-radius: 1.5rem;width: 100%;background-color:#0872ba;line-height: 2.5;font-size: 32px;font-weight: bold;">
+			<a href="<?php echo base_url('home/iklan/media') ?>" class="btn btn-sm btn-primary btn-lg" style="color: white;border-radius: 1.5rem;width: 100%;background-color:#0872ba;line-height: 9vw;font-size: 4vw;font-weight: bold;">
 				NEXT
-			</button>
+			</a>
 		</div>
 </div>

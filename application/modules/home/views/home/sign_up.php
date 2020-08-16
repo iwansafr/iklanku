@@ -84,8 +84,8 @@
 	}
 </style>
 <div class="title text-center mt-5 pt-5">
-	<div class="title mt-5 mb-5">
-		<h5 class="font-weight-bold" style="font-size: 28px;">SIGN UP</h5>
+	<div class="title mt-5">
+		<h5 class="font-weight-bold" style="font-size: 5vw;">SIGN UP</h5>
 	</div>
 	<form action="" method="post">
 		<div class="container" style="padding-right: 60px; padding-left: 60px;">
@@ -113,13 +113,13 @@
 					<input type="text" name="number" placeholder="mobile number" class="form-control">
 				</div>
 			</div>
-  		<div class="form-inline mt-5 mb-5">
-	  		<input type="checkbox" style="width: 30px;height: 30px;margin-left: 55px;">
-	  		<div class="text ml-2">
+  		<div class="form-inline mt-3 mb-3">
+	  		<input type="checkbox" style="width: 30px;height: 5vw;">
+	  		<div class="text ml-2" style="font-size: 3vw;">
 	  			Cek jika anda <span style="font-weight: bold;font-style: italic;">Agensi Periklanan</span>
 	  		</div>
   		</div>
-			<button class="btn btn-sm btn-primary btn-lg" style="border-radius: 1.5rem;width: 100%;background-color:#0872ba;line-height: 2.5;font-size: 32px;font-weight: bold;">
+			<button class="btn btn-sm btn-primary btn-lg" style="border-radius: 1.5rem;width: 100%;background-color:#0872ba;line-height: 9vw;font-size: 4vw;font-weight: bold;">
 				SIGN UP
 			</button>
 			<br>
