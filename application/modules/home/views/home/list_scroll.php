@@ -7,13 +7,15 @@
 			  <div class="card-body">
 			  	<div class="row">
 				    <div class="col">
-				    	<h5 class="card-title" style="font-size: 4vw; font-weight: bold;"><?php echo $value['kota'] ?></h5>
+				    	<p style="margin-block-end: 0;font-size: 3vw; font-weight: bold;"><?php echo $value['kota'] ?></p>
+				    	<p style="font-size: 3vw;"><?php echo $value['jalan'] ?></p>
 				    </div>
 				    <div class="col-7 description_product pl-0">
-				    	<p style="font-size: 3vw;margin-bottom: -1vw;"><?php echo $value['jalan'] ?></p>
 				    	<p class="card-text">
 				    		<small style="font-size: 2.2vw;" class="text-muted">
-				    			Billboard / <?php echo $value['panjang'] ?>x <?php echo $value['lebar'] ?>	 M / <?php echo $dimensi[$value['dimensi']] ?> / <?php echo $light[$value['light']] ?>
+				    			Billboard / <?php echo $value['panjang'] ?>x <?php echo $value['lebar'] ?>	 M /
+				    			<br>
+				    			<?php echo $dimensi[$value['dimensi']] ?> / <?php echo $light[$value['light']] ?>
 				    		</small>
 				    	</p>
 				    </div>

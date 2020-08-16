@@ -80,7 +80,7 @@
 	<br>
 	<div class="filter text-left mb-3 ml-4 mr-4">
 		<form action="" method="get">
-				<i class="fa fa-filter"></i> <span style="font-color: white;text-decoration: underline;text-decoration-style:dotted; font-size: 3vw;"></span>
+				<i class="fa fa-filter" style="font-size: 24px;color: #9E9E9E;"></i>
 				<button type="button" class="btn btn-secondary btn-sm" style="font-size: 2.5vw;" id="media-opsi" data-toggle="modal" data-target="#media-modal">
 				  Jenis Reklame
 				</button>
@@ -127,7 +127,6 @@
 			      </div>
 		      </div>
 		      <div class="modal-footer">
-		      	<button class="btn btn-sm btn-info" id="simpan_dimensi" data-dismiss="modal">Simpan</button>
 		      </div>
 		    </div>
 		  </div>

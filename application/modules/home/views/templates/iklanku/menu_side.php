@@ -35,7 +35,7 @@
 		?>
 		<nav class="navbar <?php echo $class ?> navbar-light bg-light" style="background-color: white!important;max-height: 100%;<?php echo $style ?>">
 			<a class="navbar-brand" href="<?php echo base_url(); ?>" style="padding-bottom: 0;">
-				<img src="<?php echo base_url('images/logo.png') ?>" class="img img-fluid" width="170" alt="">
+				<img src="<?php echo base_url('images/logo.png') ?>" width="170" alt="">
 			</a>
 			<?php if ($hide_menu): ?>			
 				<button class="navbar-toggler" type="button" data-toggle="collapse" id="sidebarCollapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="border-color: rgba(0,0,0,0);">
