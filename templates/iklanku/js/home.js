@@ -25,6 +25,7 @@ $(document).ready(function(){
 		var a = $(this).val();
 		var b = $(this).html();
 		$('#media-opsi').html(b);
+		$('#dimensi-opsi').html('Semua Ukuran');
 		$('input[name="media"]').val(a);
 		set_size(a);
 	});

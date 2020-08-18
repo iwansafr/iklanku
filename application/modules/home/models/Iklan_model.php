@@ -14,6 +14,18 @@ class Iklan_model extends CI_Model
 	{
 		return ['1'=>'BackLight','2'=>'FrontLight'];
 	}
+	public function ukuran()
+	{
+		return ['1'=>'1x2','2'=>'4x2','3'=>'4x6','4'=>'4x8','5'=>'5x10','6'=>'6x12','7'=>'8x16','8'=>'10x20'];
+	}
+	public function durasi()
+	{
+		return ['1'=>'1 Minggu','2'=>'2 Minggu','3'=>'3 Minggu','4'=>'1 Bulan','5'=>'3 Bulan','6'=>'6 Bulan','7'=>'1 Tahun'];
+	}
+	public function jenis()
+	{
+		return ['1'=>'Billboard','2'=>'Baliho','3'=>'Neon Box','4'=>'Videotron'];
+	}
 	public function get_list()
 	{
 		$form = new zea();
@@ -36,8 +48,8 @@ class Iklan_model extends CI_Model
 		$form->addInput('kota','plaintext');
 		$form->addInput('map_image','plaintext');
 		$form->addInput('dimensi','plaintext');
-		$form->addInput('panjang','plaintext');
-		$form->addInput('lebar','plaintext');
+		$form->addInput('jenis','plaintext');
+		$form->addInput('ukuran','plaintext');
 		$form->addInput('light','plaintext');
 		$form->addInput('status','plaintext');
 		// $form->setLimit(2);

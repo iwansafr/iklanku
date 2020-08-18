@@ -16,9 +16,11 @@ class Iklan extends CI_Controller
 	{
 		$data    = $this->iklan_model->get_list();
 		$status  = $this->iklan_model->status();
+		$jenis  = $this->iklan_model->jenis();
+		$ukuran  = $this->iklan_model->ukuran();
 		$dimensi = $this->iklan_model->dimensi();
 		$light   = $this->iklan_model->light();
-		$output = ['data'=>$data['data'],'status'=>$status,'dimensi'=>$dimensi,'light'=>$light];
+		$output = ['data'=>$data['data'],'status'=>$status,'dimensi'=>$dimensi,'light'=>$light,'ukuran'=>$ukuran,'jenis'=>$jenis];
 		echo json_encode($output);
 	}
 	public function json_kota()
@@ -57,10 +59,12 @@ class Iklan extends CI_Controller
 
 		$data    = $this->iklan_model->get_list();
 		$status  = $this->iklan_model->status();
+		$ukuran  = $this->iklan_model->ukuran();
+		$jenis  = $this->iklan_model->jenis();
 		$dimensi = $this->iklan_model->dimensi();
 		$light   = $this->iklan_model->light();
 
-		$this->load->view('index',['data'=>$data,'status'=>$status,'dimensi'=>$dimensi,'light'=>$light,'full'=>1]);
+		$this->load->view('index',['data'=>$data,'ukuran'=>$ukuran,'jenis'=>$jenis,'status'=>$status,'dimensi'=>$dimensi,'light'=>$light,'full'=>1]);
 	}
 	public function media()
 	{

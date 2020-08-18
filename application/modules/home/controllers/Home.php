@@ -30,15 +30,23 @@ class Home extends CI_Controller
 		$this->db->update('iklan');
 		$data = $this->db->query('SELECT * FROM iklan WHERE id = ? ',$id)->row_array();
 		$status  = $this->iklan_model->status();
+		$ukuran  = $this->iklan_model->ukuran();
 		$dimensi = $this->iklan_model->dimensi();
 		$light   = $this->iklan_model->light();
-		$this->load->view('index',['data'=>$data,'status'=>$status,'dimensi'=>$dimensi,'light'=>$light]);
+		$this->load->view('index',['data'=>$data,'status'=>$status,'dimensi'=>$dimensi,'light'=>$light,'ukuran'=>$ukuran]);
 	}
 	public function sewa($id=0)
 	{
 		$id = !empty($id) ? intval($id) : 0;
 		$data = $this->db->get_where('iklan',['id'=>$id])->row_array();
-		$this->load->view('index',['data'=>$data]);
+		$status  = $this->iklan_model->status();
+		$ukuran  = $this->iklan_model->ukuran();
+		$jenis  = $this->iklan_model->jenis();
+		$dimensi = $this->iklan_model->dimensi();
+		$light   = $this->iklan_model->light();
+		$durasi = $this->iklan_model->durasi();
+		$this->esg->add_js(base_url('templates/iklanku/js/sewa.js'));
+		$this->load->view('index',['data'=>$data,'status'=>$status,'dimensi'=>$dimensi,'light'=>$light,'ukuran'=>$ukuran,'jenis'=>$jenis,'durasi'=>$durasi]);
 	}
 
 	public function welcome()

@@ -88,8 +88,7 @@
 				<button type="button" class="btn btn-secondary btn-sm" style="font-size: 2.5vw;" id="dimensi-opsi" data-toggle="modal" data-target="#dimensi-modal">
 				  Semua Ukuran
 				</button>
-				<input type="hidden" value="0" name="dimensi_l">
-				<input type="hidden" value="0" name="dimensi_t">
+				<input type="hidden" value="0" name="dimensi">
 		</form>
 		<div class="modal fade" id="media-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		  <div class="modal-dialog" role="document">

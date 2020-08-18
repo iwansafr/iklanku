@@ -30,7 +30,7 @@
 					</td>
 					<td>:</td>
 					<td style="font-size: 14px;">
-						<?php echo $data['panjang'] ?> x <?php echo $data['lebar'] ?> Meter
+						<?php echo $ukuran[$data['ukuran']] ?> Meter
 					</td>
 				</tr>
 				<tr style="border-bottom: dotted 3px #F0F0F0;">
@@ -89,10 +89,10 @@
 	<hr>
 	<div class="order container-fluid">
 		<div class="form-group">
-			<a href="<?php echo base_url('home/sewa/'.$data['id']) ?>" class="btn btn-info rounded w-100">SEWA TITIK</a>
+			<a href="<?php echo base_url('home/sewa/'.$data['id']) ?>" class="btn btn-info rounded w-100">SEWA LOKASI</a>
 		</div>
 		<div class="form-group">
-			<button class="btn btn-success rounded w-100">INFO HARGA</button>
+			<a href="https://wa.me/6282221357390" class="btn btn-success rounded w-100">ONLINE CHAT</a>
 		</div>
 	</div>
 </div>
