@@ -34,9 +34,9 @@
 						<input type="password" name="sandi" placeholder="password" class="form-control custom" autocomplete="off">
 					</div>
 				</div>
-			<button class="btn btn-sm btn-primary btn-lg" style="border-radius: 1.5rem;width: 100%;background-color:#0872ba;line-height: 9vw;font-size: 4vw;font-weight: bold;">
+			<a href="<?php echo base_url('home/iklan/media') ?>" class="btn btn-sm btn-primary btn-lg" style="border-radius: 1.5rem;width: 100%;background-color:#0872ba;line-height: 9vw;font-size: 4vw;font-weight: bold;">
 				SIGN IN
-			</button>
+			</a>
 			<div class="space mb-3 mt-5">
 				<h6 style="font-size:3vw;">Belum punya Akun ? <a href="<?php echo base_url('home/sign_up') ?>" class="text-danger">Daftar Baru</a> Lupa password </h6>
 			</div>
