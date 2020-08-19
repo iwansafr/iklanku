@@ -44,7 +44,7 @@
 				</div>
 				<div class="col">
 					<label for="">Sisi</label>
-					<select name="" id="" class="form-control select">
+					<select name="sisi" id="" class="form-control select">
 						<option value="1">1</option>
 						<option value="2">2</option>
 					</select>
@@ -56,22 +56,27 @@
 				<div class="col">
 					<div class="form-group">
 						<label for="">Mulai Tayang</label>
-						<input type="date" id="dateTayang" class="form-control" value="<?php echo date('Y-m-d') ?>" style="border-radius: 0.5rem;width: 85%;">
+						<input type="date" id="dateTayang" name="start" class="form-control" value="<?php echo date('Y-m-d') ?>" style="border-radius: 0.5rem;width: 85%;">
 					</div>
 					<div class="form-group">
 						<label for="">Selesai Tayang</label>
-						<input type="date" id="selesaiTayang" readonly class="form-control" value="<?php echo date('Y-m-d',strtotime("+7 days")) ?>" style="border-radius: 0.5rem;width: 85%;">
+						<input type="date" id="selesaiTayang" name="end" readonly class="form-control" value="<?php echo date('Y-m-d',strtotime("+7 days")) ?>" style="border-radius: 0.5rem;width: 85%;background-color: white;">
 					</div>
 				</div>
 				<div class="col">
 					<label for="">Durasi</label>
-					<select name="" id="durasi" class="form-control" style="border-radius: 0.5rem;">
+					<select name="durasi" id="durasi" class="form-control" style="border-radius: 0.5rem;">
 						<?php foreach ($durasi as $key => $value): ?>
 							<option value="<?php echo $key ?>"><?php echo $value ?></option>
 						<?php endforeach ?>
 					</select>
 				</div>
 			</div>
+		</div>
+		<div class="form-group">
+			<button class="btn btn-sm btn-primary btn-lg" style="border-radius: 1.5rem;width: 100%;background-color:#0872ba;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
+				SELESAI
+			</button>
 		</div>
 	</form>
 </div>
