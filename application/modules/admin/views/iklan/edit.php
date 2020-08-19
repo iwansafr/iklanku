@@ -19,12 +19,12 @@ $form->setLabel('map_image','Gambar Map');
 $form->setAccept('map_image','.jpg,.png,.gif');
 
 $form->addInput('gallery','files');
-$form->addInput('panjang','text');
-$form->setType('panjang','number');
-$form->addInput('lebar','text');
-$form->setType('lebar','number');
-$form->setAttribute('panjang',['placeholder'=>'meter']);
-$form->setAttribute('lebar',['placeholder'=>'meter']);
+$this->load->model('home/iklan_model');
+$form->addInput('ukuran','dropdown');
+$form->setOptions('ukuran',$this->iklan_model->ukuran());
+
+$form->addInput('jenis','dropdown');
+$form->setOptions('jenis',$this->iklan_model->jenis());
 
 $form->addInput('dimensi','dropdown');
 $form->setOptions('dimensi',['1'=>'Horizontal','2'=>'Vertical']);
