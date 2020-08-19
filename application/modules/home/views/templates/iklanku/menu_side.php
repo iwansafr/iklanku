@@ -22,6 +22,7 @@
 			<li>
 				<a href="#">Tentang Kami</a>
 				<a href="#">Kontak</a>
+				<a href="<?php echo base_url('home/logout') ?>">Logout</a>
 			</li>
 		</ul>
 

@@ -56,9 +56,18 @@ class Home extends CI_Controller
 
 	public function login()
 	{
-		$this->load->view('index');
+		if(empty($_COOKIE[base_url().'_username'])){
+			$this->load->view('index');
+		}else{
+			redirect(base_url('home/iklan/media'));
+		}
 	}
 
+	public function logout()
+	{
+		$this->esg->delete_cookie();
+		redirect(base_url('home/login'));
+	}
 	public function sign_up()
 	{
 		$this->esg->add_js(base_url('templates/iklanku/js/sign_up.js'));
