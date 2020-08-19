@@ -57,6 +57,42 @@ class Iklan_model extends CI_Model
 	}
 	public function sign_up()
 	{
-		pr($_POST);
+		$data = $_POST;
+		if(!empty($data))
+		{
+			$output = [];
+			$this->db->select('id');
+			$username = $this->db->get_where('user',['username'=>$data['username']])->row_array();
+			$email = $this->db->get_where('user',['email'=>$data['email']])->row_array();
+			if(!empty($username))
+			{
+				$output[] = ['status'=>false,'alert'=>'danger','msg'=>'username sudah ada, gunakan username lain'];
+			}
+			if(!empty($email))
+			{
+				$output[] = ['status'=>false,'alert'=>'danger','msg'=>'email sudah ada, gunakan email lain'];
+			}
+			if(empty($output))
+			{
+				if(empty($data['agency']))
+				{
+					$this->db->select('id');
+					$user_role_id = $this->db->get_where('user_role',['title'=>'member'])->row_array();
+				}else{
+					$this->db->select('id');
+					$user_role_id = $this->db->get_where('user_role',['title'=>'agency'])->row_array();
+					unset($data['agency']);
+				}
+				$data['user_role_id'] = !empty($user_role_id['id']) ? $user_role_id['id'] : 0 ;
+				if($this->db->insert('user',$data)){
+					$this->esg->set_cookie($data);
+					redirect(base_url('home/welcome'));
+				}else{
+					return ['status'=>false,'alert'=>'info','msg'=>'mohon maaf untuk saat ini sistem tidak bisa melakukan pendaftaran, silahkan coba beberapa saat lagi'];
+				}
+			}else{
+				return $output;
+			}
+		}
 	}
 }

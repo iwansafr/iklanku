@@ -15,7 +15,7 @@
 </style>
 <div class="container mt-5 pt-5">
 	<div class="welcome  mt-5 pt-5 mb-5 pb-5 pl-5 pr-5">
-		<h3 style="font-size:4vw;font-weight: bold;">Hi, {nama_user}</h3>
+		<h3 style="font-size:4vw;font-weight: bold;">Hi, <?php echo !empty($_COOKIE[base_url().'_username']) ? $_COOKIE[base_url().'_username'] : '{nama_user}'; ?></h3>
 		<p style="font-size: 4vw;">Selamat Datang di <b>adsbox</b>,<br>Akun anda telah aktif</p>
 	</div>
 </div>

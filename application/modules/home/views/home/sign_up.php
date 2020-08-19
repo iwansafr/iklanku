@@ -89,6 +89,13 @@
 	</div>
 	<form action="" method="post" id="signForm">
 		<div class="container" style="padding-right: 60px; padding-left: 60px;">
+			<?php if (!empty($data)): ?>
+				<?php foreach ($data as $key => $value): ?>
+					<div class="alert alert-<?php echo $value['alert'];?>" style="font-size: 2vw;">
+						<?php echo $value['msg'] ?>
+					</div>
+				<?php endforeach ?>
+			<?php endif ?>
 			<div class="form-group">
 				<div class="input-group">
 					<i class="fa fa-user placeh"></i>
@@ -114,7 +121,7 @@
 			<div class="form-group">
 				<div class="input-group">
 					<i class="fa fa-phone placeh"></i>
-					<input autocomplete="off" type="number" name="number" name="phone" placeholder="mobile number" class="form-control" required>
+					<input autocomplete="off" type="number" name="phone" placeholder="mobile number" class="form-control" required>
 				</div>
 			</div>
   		<div class="form-inline mt-3 mb-3">

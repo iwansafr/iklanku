@@ -61,9 +61,8 @@ class Home extends CI_Controller
 
 	public function sign_up()
 	{
-		$this->iklan_model->sign_up();
 		$this->esg->add_js(base_url('templates/iklanku/js/sign_up.js'));
-		$this->load->view('index');
+		$this->load->view('index',['data'=>$this->iklan_model->sign_up()]);
 	}
 
 	public function user_exist($username = '')
