@@ -87,34 +87,38 @@
 	<div class="title mt-5">
 		<h5 class="font-weight-bold" style="font-size: 5vw;">SIGN UP</h5>
 	</div>
-	<form action="" method="post">
+	<form action="" method="post" id="signForm">
 		<div class="container" style="padding-right: 60px; padding-left: 60px;">
 			<div class="form-group">
 				<div class="input-group">
 					<i class="fa fa-user placeh"></i>
-					<input type="text" name="namauser" placeholder="username" class="form-control">
+					<input id="userInput" autocomplete="off" type="text" name="username" placeholder="username" class="form-control" required>
+					<div id="usernameAlert" class="invalid-feedback" style="font-size: 2.5vw;">
+	        </div>
 				</div>
 			</div>
 			<div class="form-group">
 				<div class="input-group">
 					<i class="fa fa-envelope placeh"></i>
-					<input type="text" name="email" placeholder="email address" class="form-control">
+					<input id="emailInput" autocomplete="off" type="email" name="email" placeholder="email address" class="form-control" required>
+					<div id="emailAlert" class="invalid-feedback" style="font-size: 2.5vw;">
+	        </div>
 				</div>
 			</div>
 			<div class="form-group">
 				<div class="input-group">
 					<i class="fa fa-lock placeh"></i>
-					<input type="password" name="sandi" placeholder="password" class="form-control">
+					<input autocomplete="off" type="password" name="password" placeholder="password" class="form-control" required>
 				</div>
 			</div>
 			<div class="form-group">
 				<div class="input-group">
 					<i class="fa fa-phone placeh"></i>
-					<input type="text" name="number" placeholder="mobile number" class="form-control">
+					<input autocomplete="off" type="number" name="number" name="phone" placeholder="mobile number" class="form-control" required>
 				</div>
 			</div>
   		<div class="form-inline mt-3 mb-3">
-	  		<input type="checkbox" style="width: 30px;height: 5vw;">
+	  		<input autocomplete="off" type="checkbox" style="width: 30px;height: 5vw;" name="agency">
 	  		<div class="text ml-2" style="font-size: 3vw;">
 	  			Cek jika anda <span style="font-weight: bold;font-style: italic;">Agensi Periklanan</span>
 	  		</div>

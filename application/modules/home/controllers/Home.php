@@ -61,7 +61,41 @@ class Home extends CI_Controller
 
 	public function sign_up()
 	{
+		$this->iklan_model->sign_up();
+		$this->esg->add_js(base_url('templates/iklanku/js/sign_up.js'));
 		$this->load->view('index');
+	}
+
+	public function user_exist($username = '')
+	{
+		$output = ['msg'=>'Username tidak boleh kosong','alert'=>'danger','status'=>false];
+		if(!empty($username))
+		{
+			$exist = $this->db->get_where('user',['username'=>$username])->row_array();
+			if(!empty($exist))
+			{
+				$output = ['msg'=>'Username sudah ada, gunakan username lain','alert'=>'danger','status'=>false,'data'=>$exist];
+			}else{
+				$output = ['msg'=>'','alert'=>'success','status'=>true];
+			}
+		}
+		echo json_encode($output);
+	}
+
+	public function email_exist($email = '')
+	{
+		$output = ['msg'=>'email tidak boleh kosong','alert'=>'danger','status'=>false];
+		if(!empty($email))
+		{
+			$exist = $this->db->get_where('user',['email'=>$email])->row_array();
+			if(!empty($exist))
+			{
+				$output = ['msg'=>'email sudah ada, gunakan email lain','alert'=>'danger','status'=>false,'data'=>$exist];
+			}else{
+				$output = ['msg'=>'','alert'=>'success','status'=>true];
+			}
+		}
+		echo json_encode($output);
 	}
 
 	public function e()

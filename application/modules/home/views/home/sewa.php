@@ -2,11 +2,13 @@
 	.input{
     border-radius: 0.5rem!important;
     background-color: #bcbcbc!important;
-    /*font-size: 4vw;*/
+    font-size: 3vw;
+	}
+	.form-control{
+		font-size: 3vw!important;
 	}
 	.select{
     border-radius: 0.5rem!important;
-    width: 50%!important;
 	}
 </style>
 <div class="container mt-5 pt-5">

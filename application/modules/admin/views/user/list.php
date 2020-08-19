@@ -20,6 +20,7 @@ $this->zea->setTable('user');
 $this->zea->setNumbering(true);
 $this->zea->addInput('id','hidden');
 $this->zea->addInput('username','plaintext');
+$this->zea->addInput('phone','plaintext');
 $this->zea->addInput('email','plaintext');
 // $this->zea->addInput('created','plaintext');
 $this->zea->addInput('active', 'checkbox');
