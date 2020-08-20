@@ -95,4 +95,27 @@ class Iklan_model extends CI_Model
 			}
 		}
 	}
+	public function login()
+	{
+		$data = $_POST;
+		if(!empty($data))
+		{
+			$user = $this->db->get_where('user',['username'=>$data['username']])->row_array();
+			if(empty($user)){
+				$user = $this->db->get_where('user',['email'=>$data['username']])->row_array();
+			}
+			if(empty($user)){
+				$output = ['msg'=>'akun tidak dikenali','status'=>false,'alert'=>'danger'];
+			}else{
+				if($user['password'] == $data['password']){
+					$output = ['msg'=>'login success','status'=>true,'alert'=>'success'];
+					$this->esg->set_cookie($user);
+					redirect(base_url('home/iklan/media'));
+				}else{
+					$output = ['msg'=>'password anda salah','status'=>false,'alert'=>'danger'];
+				}
+			}
+			return $output;
+		}
+	}
 }
