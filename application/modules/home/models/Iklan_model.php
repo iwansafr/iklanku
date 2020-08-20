@@ -108,6 +108,9 @@ class Iklan_model extends CI_Model
 		$data = $_POST;
 		if(!empty($data))
 		{
+			$this->db->select('user.*,user_role.title AS role');
+			$this->db->join('user_role','user.user_role_id=user_role.id');
+
 			$user = $this->db->get_where('user',['username'=>$data['username']])->row_array();
 			if(empty($user)){
 				$user = $this->db->get_where('user',['email'=>$data['username']])->row_array();
@@ -124,6 +127,16 @@ class Iklan_model extends CI_Model
 				}
 			}
 			return $output;
+		}
+	}
+	public function send_sewa()
+	{
+		if(!empty($_POST))
+		{
+			$data = $_POST;
+			if($this->db->insert('iklan_sewa',$data)){
+				redirect(base_url('home/sewa_success'));
+			}
 		}
 	}
 }

@@ -37,6 +37,7 @@ class Home extends CI_Controller
 	}
 	public function sewa($id=0)
 	{
+		$this->iklan_model->send_sewa();
 		$id = !empty($id) ? intval($id) : 0;
 		$data = $this->db->get_where('iklan',['id'=>$id])->row_array();
 		$status  = $this->iklan_model->status();
@@ -110,5 +111,9 @@ class Home extends CI_Controller
 	public function e()
 	{
 		$this->load->view('error');
+	}
+	public function sewa_success()
+	{
+		$this->load->view('index');
 	}
 }
