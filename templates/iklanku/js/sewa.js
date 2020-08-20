@@ -2,6 +2,16 @@ let durasi = document.getElementById('durasi');
 let dateTayang = document.getElementById('dateTayang');
 let selesaiTayang = document.getElementById('selesaiTayang');
 let tgl = dateTayang.value;
+let formSewa = document.getElementById('formSewa');
+let pageSewa = document.getElementById('pageSewa');
+formSewa.addEventListener('submit',function(e){
+	this.classList.add('d-none');
+	pageSewa.append('Sedang Mengirim Data ...');
+	setInterval(function(){
+		console.log('ok');
+		pageSewa.append('.');
+	}, 100);
+});
 durasi.addEventListener('change',function(){
 	let lama = durasi.value;
 	let start = dateTayang.value; 

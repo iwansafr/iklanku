@@ -11,11 +11,11 @@
     border-radius: 0.5rem!important;
 	}
 </style>
-<div class="container mt-5 pt-5">
+<div class="container mt-5 pt-5 " id="pageSewa">
 	<h5 class="font-weight-bold mt-5 mb-4">FORM SEWA LOKASI</h5>
 	<?php if (!empty($data)): ?>
 		
-		<form action="" method="post">
+		<form action="" method="post" id="formSewa">
 			<div class="form-group">
 				<label for="">Kota / Kabupaten</label>
 				<input type="text" disabled class="form-control input" value="<?php echo $data['kota'] ?>">

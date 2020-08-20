@@ -24,4 +24,8 @@ class Iklan extends CI_Controller
 	{
 		$this->load->view('iklan/list');
 	}
+	public function email_config()
+	{
+		$this->load->view('index');
+	}
 }

@@ -134,8 +134,30 @@ class Iklan_model extends CI_Model
 		if(!empty($_POST))
 		{
 			$data = $_POST;
-			if($this->db->insert('iklan_sewa',$data)){
-				redirect(base_url('home/sewa_success'));
+			$email_config = $this->esg->get_config('email_config');
+			if(!empty($email_config))
+			{
+				// if($this->db->insert('iklan_sewa',$data)){
+					$this->load->library('email');
+					$config['protocol']     = $email_config['protocol'];
+					$config['smtp_host']    = $email_config['smtp_host'];
+					$config['smtp_port']    = $email_config['smtp_port'];
+					$config['smtp_timeout'] = $email_config['smtp_timeout'];
+					$config['smtp_user']    = $email_config['email'];
+					$config['smtp_pass']    = $email_config['password'];
+					$config['charset']      = $email_config['charset'];
+					$config['newline']      = $email_config['newline'];
+					$config['mailtype']     = $email_config['mailtype'];
+					$config['validation']   = $email_config['validation'];
+					$data = 'siap melakukan sewa';
+					$this->email->initialize($config);
+					$this->email->from($email_config['email'], 'esoftgreat corp');
+					$this->email->to('iwansafr@gmail.com');
+					$this->email->subject('Sewa');
+					$this->email->message($data);
+					$this->email->send();
+					redirect(base_url('home/sewa_success'));
+				// }
 			}
 		}
 	}
