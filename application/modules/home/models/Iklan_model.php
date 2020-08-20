@@ -60,7 +60,7 @@ class Iklan_model extends CI_Model
 		$form->addInput('ukuran','plaintext');
 		$form->addInput('light','plaintext');
 		$form->addInput('status','plaintext');
-		$form->setLimit(2);
+		// $form->setLimit(2);
 		return $form->getData();
 	}
 	public function sign_up()

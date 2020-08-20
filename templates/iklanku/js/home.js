@@ -34,7 +34,10 @@ $(document).ready(function(){
 	});
 
 	$(document).on('click','.dimensi_iklan',function(){
+		let a = $(this).val();
 		$('#dimensi-opsi').html($(this).html());
+		$('#load_more').attr('ukuran',a);
+		load_product(false,false);
 	});
 	function load_product(i = false,append = true){
 		$('#loading').removeClass('d-none');
@@ -103,33 +106,33 @@ $(document).ready(function(){
 	function set_size(a){
 		if(a==1){
 			$('#size_filter').html(`
-				<button data-dismiss="modal" value="1" class="dimensi_iklan w-100 btn btn-sm btn-secondary">Semua Ukuran</button>
-	      <button data-dismiss="modal" value="2" class="dimensi_iklan w-100 btn btn-sm btn-secondary">10 X 20</button>
-	      <button data-dismiss="modal" value="3" class="dimensi_iklan w-100 btn btn-sm btn-secondary">6 X 12</button>
+				<button data-dismiss="modal" value="0" class="dimensi_iklan w-100 btn btn-sm btn-secondary">Semua Ukuran</button>
+	      <button data-dismiss="modal" value="8" class="dimensi_iklan w-100 btn btn-sm btn-secondary">10 X 20</button>
+	      <button data-dismiss="modal" value="6" class="dimensi_iklan w-100 btn btn-sm btn-secondary">6 X 12</button>
 	      <button data-dismiss="modal" value="4" class="dimensi_iklan w-100 btn btn-sm btn-secondary">4 X 8</button>
-	      <button data-dismiss="modal" value="5" class="dimensi_iklan w-100 btn btn-sm btn-secondary">8 X 16</button>
-	      <button data-dismiss="modal" value="6" class="dimensi_iklan w-100 btn btn-sm btn-secondary">5 X 10</button>
+	      <button data-dismiss="modal" value="7" class="dimensi_iklan w-100 btn btn-sm btn-secondary">8 X 16</button>
+	      <button data-dismiss="modal" value="5" class="dimensi_iklan w-100 btn btn-sm btn-secondary">5 X 10</button>
 
 				`);
 		}else if(parseInt(a)==parseInt(2)){
 			$('#size_filter').html(`
-				<button data-dismiss="modal" value="1" class="dimensi_iklan w-100 btn btn-sm btn-secondary">Semua Ukuran</button>
-		    <button data-dismiss="modal" value="2" class="dimensi_iklan w-100 btn btn-sm btn-secondary">4 X 6</button>
+				<button data-dismiss="modal" value="0" class="dimensi_iklan w-100 btn btn-sm btn-secondary">Semua Ukuran</button>
+		    <button data-dismiss="modal" value="3" class="dimensi_iklan w-100 btn btn-sm btn-secondary">4 X 6</button>
 				`);
 		}else if(parseInt(a)==parseInt(3)){
 			$('#size_filter').html(`
-				<button data-dismiss="modal" value="1" class="dimensi_iklan w-100 btn btn-sm btn-secondary">Semua Ukuran</button>
+				<button data-dismiss="modal" value="0" class="dimensi_iklan w-100 btn btn-sm btn-secondary">Semua Ukuran</button>
 	      <button data-dismiss="modal" value="2" class="dimensi_iklan w-100 btn btn-sm btn-secondary">4 X 2</button>
-	      <button data-dismiss="modal" value="3" class="dimensi_iklan w-100 btn btn-sm btn-secondary">1 X 2</button>
+	      <button data-dismiss="modal" value="1" class="dimensi_iklan w-100 btn btn-sm btn-secondary">1 X 2</button>
 				`);
 		}else if(parseInt(a)==parseInt(4)){
 			$('#size_filter').html(`
-				<button data-dismiss="modal" value="1" class="dimensi_iklan w-100 btn btn-sm btn-secondary">Semua Ukuran</button>
-		    <button data-dismiss="modal" value="2" class="dimensi_iklan w-100 btn btn-sm btn-secondary">8 X 16</button>
+				<button data-dismiss="modal" value="0" class="dimensi_iklan w-100 btn btn-sm btn-secondary">Semua Ukuran</button>
+		    <button data-dismiss="modal" value="7" class="dimensi_iklan w-100 btn btn-sm btn-secondary">8 X 16</button>
 				`);
 		}else{
 			$('#size_filter').html(`
-				<button data-dismiss="modal" value="1" class="dimensi_iklan w-100 btn btn-sm btn-secondary">Semua Ukuran</button>
+				<button data-dismiss="modal" value="0" class="dimensi_iklan w-100 btn btn-sm btn-secondary">Semua Ukuran</button>
 				`);
 		}
 		$('#load_more').attr('jenis',a);
