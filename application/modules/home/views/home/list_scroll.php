@@ -13,7 +13,7 @@
 				    <div class="col-7 description_product pl-0">
 				    	<p class="card-text">
 				    		<small style="font-size: 2.2vw;" class="text-muted">
-				    			<?php echo $jenis[$value['jenis']] ?> / <?php echo $ukuran[$value['ukuran']] ?>	 M /
+				    			<?php echo $jenis[$value['jenis']] ?> / <?php echo $ukuran[$value['ukuran']] ?>	 M
 				    			<br>
 				    			<?php echo $dimensi[$value['dimensi']] ?> / <?php echo $light[$value['light']] ?>
 				    		</small>
@@ -28,16 +28,16 @@
 		<label for="">loading ...</label>
 	</div>
 	<?php
+	$hiddenclass = 'd-none';
 	if(!empty($data['pagination'] && !empty($full)))
 	{
-		?>
-		<div class="text-center">
-			<button class="btn btn-sm btn-default" id="load_more" page="1" kota="<?php echo !empty($_GET['kota']) ? htmlentities($_GET['kota']) : ''; ?>" jalan="<?php echo !empty($_GET['jalan']) ? $_GET['jalan'] : ''; ?>" style="background: white;width: 90%;border-radius: 0.5rem;">Tampilkan Lainnya</button>
-			<hr>
-		</div>
-		<?php
+		$hiddenclass = '';
 	}
 	?>
+	<div class="text-center">
+		<button class="btn btn-sm btn-default <?php echo $hiddenclass ?>" id="load_more" page="1" kota="<?php echo !empty($_GET['kota']) ? htmlentities($_GET['kota']) : ''; ?>" jalan="<?php echo !empty($_GET['jalan']) ? $_GET['jalan'] : ''; ?>" jenis="<?php echo !empty($_GET['jenis']) ? $_GET['jenis'] : ''; ?>" ukuran="<?php echo !empty($_GET['ukuran']) ? $_GET['ukuran'] : ''; ?>" style="background: white;width: 90%;border-radius: 0.5rem;">Tampilkan Lainnya</button>
+		<hr>
+	</div>
 <?php endif ?>
       
   

@@ -100,11 +100,13 @@
 		        </button>
 		      </div>
 		      <div class="modal-body">
-		        <button data-dismiss="modal" value="1" class="media-iklan w-100 btn btn-sm btn-secondary">Semua</button>
-		        <button data-dismiss="modal" value="2" class="media-iklan w-100 btn btn-sm btn-secondary">billboard</button>
-		        <button data-dismiss="modal" value="3" class="media-iklan w-100 btn btn-sm btn-secondary">baliho</button>
-		        <button data-dismiss="modal" value="4" class="media-iklan w-100 btn btn-sm btn-secondary">neon box</button>
-		        <button data-dismiss="modal" value="5" class="media-iklan w-100 btn btn-sm btn-secondary">videotron</button>
+		      	<form action="" method="get">
+			        <button data-dismiss="modal" value="0" class="media-iklan w-100 btn btn-sm btn-secondary">Semua</button>
+			        <button data-dismiss="modal" value="1" class="media-iklan w-100 btn btn-sm btn-secondary">billboard</button>
+			        <button data-dismiss="modal" value="2" class="media-iklan w-100 btn btn-sm btn-secondary">baliho</button>
+			        <button data-dismiss="modal" value="3" class="media-iklan w-100 btn btn-sm btn-secondary">neon box</button>
+			        <button data-dismiss="modal" value="4" class="media-iklan w-100 btn btn-sm btn-secondary">videotron</button>
+		      	</form>
 		      </div>
 		      <div class="modal-footer">
 		      </div>

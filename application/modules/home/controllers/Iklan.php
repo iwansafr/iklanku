@@ -20,7 +20,7 @@ class Iklan extends CI_Controller
 		$ukuran  = $this->iklan_model->ukuran();
 		$dimensi = $this->iklan_model->dimensi();
 		$light   = $this->iklan_model->light();
-		$output = ['data'=>$data['data'],'status'=>$status,'dimensi'=>$dimensi,'light'=>$light,'ukuran'=>$ukuran,'jenis'=>$jenis];
+		$output = ['data'=>$data['data'],'status'=>$status,'dimensi'=>$dimensi,'light'=>$light,'ukuran'=>$ukuran,'jenis'=>$jenis,'q'=>$this->db->last_query()];
 		echo json_encode($output);
 	}
 	public function json_kota()

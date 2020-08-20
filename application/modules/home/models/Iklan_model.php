@@ -41,6 +41,14 @@ class Iklan_model extends CI_Model
 		{
 			$where .= !empty($where) ? ' AND jalan LIKE "%'.$this->db->escape_like_str($_GET['jalan']).'%"' : ' jalan LIKE "%'.$this->db->escape_like_str($_GET['jalan']).'%"';
 		}
+		if(!empty($_GET['jenis']))
+		{
+			$where .= !empty($where) ? ' AND jenis = '.$this->db->escape_like_str($_GET['jenis']) : ' jenis = '.$this->db->escape_like_str($_GET['jenis']);
+		}
+		if(!empty($_GET['ukuran']))
+		{
+			$where .= !empty($where) ? ' AND ukuran = '.$this->db->escape_like_str($_GET['ukuran']) : ' ukuran = '.$this->db->escape_like_str($_GET['ukuran']);
+		}
 
 		$form->setWhere($where);
 		$form->addInput('id','plaintext');
@@ -52,7 +60,7 @@ class Iklan_model extends CI_Model
 		$form->addInput('ukuran','plaintext');
 		$form->addInput('light','plaintext');
 		$form->addInput('status','plaintext');
-		// $form->setLimit(2);
+		$form->setLimit(2);
 		return $form->getData();
 	}
 	public function sign_up()
