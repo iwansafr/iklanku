@@ -137,7 +137,7 @@ class Iklan_model extends CI_Model
 			$email_config = $this->esg->get_config('email_config');
 			if(!empty($email_config))
 			{
-				// if($this->db->insert('iklan_sewa',$data)){
+				if($this->db->insert('iklan_sewa',$data)){
 					$this->load->library('email');
 					$config['protocol']     = $email_config['protocol'];
 					$config['smtp_host']    = $email_config['smtp_host'];
@@ -149,15 +149,83 @@ class Iklan_model extends CI_Model
 					$config['newline']      = $email_config['newline'];
 					$config['mailtype']     = $email_config['mailtype'];
 					$config['validation']   = $email_config['validation'];
-					$data = 'siap melakukan sewa';
+
+					$jenis = $this->jenis();
+					$dimensi = $this->dimensi();
+					$ukuran = $this->ukuran();
+					$light = $this->light();
+					$durasi = $this->durasi();
+					$pesan = '
+					<h5>Saya ingin menyewa iklan dengan rencian sbb : </h5>
+					<table>
+						<tr>
+							<td>kota</td>
+							<td>:'.$data['kota'].'</td>
+						</tr>
+						<tr>
+							<td>jl</td>
+							<td>:'.$data['jl'].'</td>
+						</tr>
+						<tr>
+							<td>jenis</td>
+							<td>:'.$jenis[$data['jenis']].'</td>
+						</tr>
+						<tr>
+							<td>ukuran</td>
+							<td>:'.$ukuran[$data['ukuran']].'</td>
+						</tr>
+						<tr>
+							<td>light</td>
+							<td>:'.$light[$data['lightning']].'</td>
+						</tr>
+						<tr>
+							<td>sisi</td>
+							<td>:'.$data['sisi'].'</td>
+						</tr>
+						<tr>
+							<td>Mulai Tayang</td>
+							<td>:'.$data['start'].'</td>
+						</tr>
+						<tr>
+							<td>selesai tayang</td>
+							<td>:'.$data['end'].'</td>
+						</tr>
+						<tr>
+							<td>durasi</td>
+							<td>:'.$durasi[$data['durasi']].'</td>
+						</tr>
+					</table>
+
+					<h5>Data Diri penyewa</h5>
+					<table>
+						<tr>
+							<td>username</td>
+							<td>: '.$data['username'].'</td>
+						</tr>
+						<tr>
+							<td>email</td>
+							<td>: '.$data['email'].'</td>
+						</tr>
+						<tr>
+							<td>phone</td>
+							<td>: '.$data['hp'].'</td>
+						</tr>
+						<tr>
+							<td>level</td>
+							<td>: '.$data['role'].'</td>
+						</tr>
+					</table>
+					';
+
+
 					$this->email->initialize($config);
 					$this->email->from($email_config['email'], 'esoftgreat corp');
 					$this->email->to('iwansafr@gmail.com');
 					$this->email->subject('Sewa');
-					$this->email->message($data);
+					$this->email->message($pesan);
 					$this->email->send();
 					redirect(base_url('home/sewa_success'));
-				// }
+				}
 			}
 		}
 	}
