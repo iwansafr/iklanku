@@ -163,7 +163,7 @@ class Iklan_model extends CI_Model
 							<td>:'.$data['kota'].'</td>
 						</tr>
 						<tr>
-							<td>jl</td>
+							<td>jalan</td>
 							<td>:'.$data['jl'].'</td>
 						</tr>
 						<tr>
