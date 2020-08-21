@@ -220,7 +220,7 @@ class Iklan_model extends CI_Model
 
 					$this->email->initialize($config);
 					$this->email->from($email_config['email'], 'esoftgreat corp');
-					$this->email->to('iwansafr@gmail.com');
+					$this->email->to('marketing@billboardku.com');
 					$this->email->subject('Sewa');
 					$this->email->message($pesan);
 					$this->email->send();
