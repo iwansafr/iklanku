@@ -93,6 +93,7 @@ class Iklan_model extends CI_Model
 				}
 				$data['user_role_id'] = !empty($user_role_id['id']) ? $user_role_id['id'] : 0 ;
 				if($this->db->insert('user',$data)){
+					$this->session->set_userdata(base_url().'_logged_in', $data);
 					$this->esg->set_cookie($data);
 					redirect(base_url('home/welcome'));
 				}else{
@@ -120,6 +121,7 @@ class Iklan_model extends CI_Model
 			}else{
 				if($user['password'] == $data['password']){
 					$output = ['msg'=>'login success','status'=>true,'alert'=>'success'];
+					$this->session->set_userdata(base_url().'_logged_in', $data);
 					$this->esg->set_cookie($user);
 					redirect(base_url('home/iklan/media'));
 				}else{

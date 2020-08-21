@@ -58,7 +58,7 @@ class Home extends CI_Controller
 	public function login()
 	{
 		$output = $this->iklan_model->login();
-		if(empty($_COOKIE[base_url().'_username'])){
+		if(empty($_SESSION[base_url().'_logged_in']['username'])){
 			$this->load->view('index',['output'=>$output]);
 		}else{
 			redirect(base_url('home/iklan/media'));

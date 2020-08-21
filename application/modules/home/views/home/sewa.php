@@ -86,7 +86,7 @@
 					<input type="hidden" name="dimensi" value="<?php echo $data['dimensi'] ?>">
 					<input type="hidden" name="ukuran" value="<?php echo $data['ukuran'] ?>">
 					<input type="hidden" name="lightning" value="<?php echo $data['light'] ?>">
-					<?php $user = $_COOKIE; ?>
+					<?php $user = $_SESSION[base_url().'_logged_in']; ?>
 					<?php if (!empty($user[base_url().'_username'])): ?>
 						<input type="hidden" name="user_id" value="<?php echo $user[base_url().'_id'] ?>">
 						<input type="hidden" name="username" value="<?php echo $user[base_url().'_username'] ?>">
