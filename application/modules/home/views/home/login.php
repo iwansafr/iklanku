@@ -41,7 +41,7 @@
 				SIGN IN
 			</button>
 			<div class="space mb-3 mt-5">
-				<h6 style="font-size:3vw;">Belum punya Akun ? <a href="<?php echo base_url('home/sign_up') ?>" class="text-danger">Daftar Baru</a> <br>Lupa password </h6>
+				<h6 style="font-size:3vw;">Belum punya Akun ? <a href="<?php echo base_url('home/sign_up') ?>" class="text-danger">Daftar Baru</a> <br><br>Lupa password </h6>
 			</div>
 			<center style="font-style: italic;" class="mt-5 pt-5">
 				by DnE
