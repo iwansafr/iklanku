@@ -8,7 +8,7 @@
 <div class="divider"></div>
 <div class="content_top" style="margin-top: 100px;">
 	<nav aria-label="breadcrumb">
-	  <ol class="breadcrumb bg-info" style="color: white;padding: 2%;margin-bottom: 0;border-radius: 0;">
+	  <ol class="breadcrumb btn-primary" style="background-color:#0872ba;padding: 2%;margin-bottom: 0;border-radius: 0;">
 	    <li class="breadcrumb-item"><a href="<?php echo base_url('home/iklan')?>" style="color: white;font-size: 4vw;"><i class="fa fa-arrow-left"></i></a></li>
 	    <span class="ml-2" style="font-size: 4vw;padding-top: 1vw;"><?php echo $data['jalan'] ?> / <?php echo $data['kota'] ?></span>
 	  </ol>
@@ -89,7 +89,7 @@
 	<hr>
 	<div class="order container-fluid">
 		<div class="form-group">
-			<a href="<?php echo base_url('home/sewa/'.$data['id']) ?>" class="btn btn-info rounded w-100">SEWA LOKASI</a>
+			<a href="<?php echo base_url('home/sewa/'.$data['id']) ?>" class="btn btn-primary rounded w-100" style="background-color:#0872ba;">SEWA LOKASI</a>
 		</div>
 		<div class="form-group">
 			<a href="https://wa.me/6282221357390" class="btn btn-success rounded w-100">ONLINE CHAT</a>

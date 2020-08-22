@@ -75,7 +75,7 @@
 				<input type="text" name="jalan" placeholder="ketik nama ruas jalan" class="custom" value="<?php echo !empty($_GET['jalan']) ? $_GET['jalan'] : ''; ?>" >
 			</div>
 		</div>
-		<button type="submit" class="btn btn-sm btn-info" style="width: 90%;border-radius: 0.5rem; font-size: 4vw;">Search</button>
+		<button type="submit" class="btn btn-sm btn-primary" style="background-color:#0872ba;width: 90%;border-radius: 0.5rem; font-size: 4vw;">Search</button>
 	</form>
 	<br>
 	<div class="filter text-left mb-3 ml-4 mr-4">

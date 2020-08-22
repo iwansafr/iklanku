@@ -160,13 +160,13 @@ class Iklan_model extends CI_Model
 					$config['mailtype']     = $email_config['mailtype'];
 					$config['validation']   = $email_config['validation'];
 
-					$jenis = $this->jenis();
+					$jenis   = $this->jenis();
 					$dimensi = $this->dimensi();
-					$ukuran = $this->ukuran();
-					$light = $this->light();
-					$durasi = $this->durasi();
-					$pesan = '
-					<h5>Saya ingin menyewa iklan dengan rencian sbb : </h5>
+					$ukuran  = $this->ukuran();
+					$light   = $this->light();
+					$durasi  = $this->durasi();
+					$pesan   = '
+					<h5>ORDER ADSBOX - ['.date('d').'/'.date('m').'/'.date('Y').']</h5>
 					<table>
 						<tr>
 							<td>kota</td>
@@ -235,6 +235,7 @@ class Iklan_model extends CI_Model
 					$this->email->message($pesan);
 					$this->email->send();
 					redirect(base_url('home/sewa_success'));
+					// pr($pesan);die();
 				}
 			}
 		}
