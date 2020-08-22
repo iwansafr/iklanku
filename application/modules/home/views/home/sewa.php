@@ -87,14 +87,16 @@
 					<input type="hidden" name="ukuran" value="<?php echo $data['ukuran'] ?>">
 					<input type="hidden" name="lightning" value="<?php echo $data['light'] ?>">
 					<?php $user = $_SESSION[base_url().'_logged_in']; ?>
-					<?php if (!empty($user[base_url().'_username'])): ?>
-						<input type="hidden" name="user_id" value="<?php echo $user[base_url().'_id'] ?>">
-						<input type="hidden" name="username" value="<?php echo $user[base_url().'_username'] ?>">
-						<input type="hidden" name="role" value="<?php echo $user[base_url().'_role'] ?>">
-						<input type="hidden" name="email" value="<?php echo $user[base_url().'_email'] ?>">
-						<input type="hidden" name="hp" value="<?php echo $user[base_url().'_phone'] ?>">
+					<?php if (!empty($user['username'])): ?>
+						<input type="hidden" name="user_id" value="<?php echo $user['id'] ?>">
+						<input type="hidden" name="username" value="<?php echo $user['username'] ?>">
+						<input type="hidden" name="role" value="<?php echo $user['role'] ?>">
+						<input type="hidden" name="email" value="<?php echo $user['email'] ?>">
+						<input type="hidden" name="hp" value="<?php echo $user['phone'] ?>">
 					<?php else: ?>
-						<?php redirect(base_url()) ?>
+						<?php 
+						redirect(base_url()) 
+						?>
 					<?php endif ?>
 				</div>
 				<button class="btn btn-sm btn-primary btn-lg" style="border-radius: 1.5rem;width: 100%;background-color:#0872ba;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">

@@ -93,9 +93,17 @@ class Iklan_model extends CI_Model
 				}
 				$data['user_role_id'] = !empty($user_role_id['id']) ? $user_role_id['id'] : 0 ;
 				if($this->db->insert('user',$data)){
-					$this->session->set_userdata(base_url().'_logged_in', $data);
-					$this->esg->set_cookie($data);
-					redirect(base_url('home/welcome'));
+					$last_id = $this->db->insert_id();
+					if(!empty($last_id)){
+						$this->db->select('user.*,user_role.title AS role');
+						$this->db->join('user_role','user.user_role_id=user_role.id');
+
+						$data = $this->db->get_where('user',['user.id'=>$last_id])->row_array();
+						$this->session->set_userdata(base_url().'_logged_in', $data);
+						redirect(base_url('home/welcome'));
+					}else{
+						redirect(base_url());
+					}
 				}else{
 					return ['status'=>false,'alert'=>'info','msg'=>'mohon maaf untuk saat ini sistem tidak bisa melakukan pendaftaran, silahkan coba beberapa saat lagi'];
 				}
@@ -122,7 +130,7 @@ class Iklan_model extends CI_Model
 				if($user['password'] == $data['password']){
 					$output = ['msg'=>'login success','status'=>true,'alert'=>'success'];
 					$this->session->set_userdata(base_url().'_logged_in', $data);
-					$this->esg->set_cookie($user);
+					// $this->esg->set_cookie($user);
 					redirect(base_url('home/iklan/media'));
 				}else{
 					$output = ['msg'=>'password anda salah','status'=>false,'alert'=>'danger'];
