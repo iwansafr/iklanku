@@ -120,9 +120,7 @@ $message = $this->esg->get_esg('message');
           </ul>
         </li>
         <!-- Control Sidebar Toggle Button -->
-        <li>
-          <a href="#" data-toggle="control-sidebar"><i class="fa fa-cogs"></i></a>
-        </li>
+        
       </ul>
     </div>
   </nav>

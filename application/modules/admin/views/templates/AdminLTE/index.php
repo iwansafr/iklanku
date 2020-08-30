@@ -43,27 +43,7 @@
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Create the tabs -->
-    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-      <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-      <li class="active"><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-cogs"></i></a></li>
-    </ul>
-    <!-- Tab panes -->
-    <div class="tab-content">
-      <!-- Home tab content -->
-      <div class="tab-pane" id="control-sidebar-home-tab">
-        <?php if (is_root()): ?>
-          <?php $this->load->view('config/subscriber') ?>
-        <?php endif ?>
-      </div>
-      <div class="tab-pane active" id="control-sidebar-settings-tab">
-        <?php if (is_root()): ?>
-          <a href="<?php echo base_url() ?>" target="_blank" class="btn btn-default"><i class="fa fa-image"></i> preview website</a><hr>
-          <form method="post">
-            <?php $this->load->view('config/templates') ?>
-          </form>
-        <?php endif ?>
-      </div>
-    </div>
+        <!-- Tab panes -->
   </aside>
   <div class="control-sidebar-bg"></div>
 </div>
