@@ -16,7 +16,7 @@ $form->addInput('latitude','text');
 $form->addInput('longitude','text');
 
 $form->setLabel('map_image','Gambar Map');
-$form->setAccept('map_image','.jpg,.png,.gif');
+$form->setAccept('map_image','.jpeg,.jpg,.png,.gif');
 
 $form->addInput('gallery','files');
 $this->load->model('home/iklan_model');
