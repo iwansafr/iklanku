@@ -18,7 +18,7 @@
 			margin-bottom: 10px; 
 		}
 		.product_box{
-			border-radius: 1.2rem;
+			border-radius: 10%;
 		}
 		.description_product{
 			text-align: right;
