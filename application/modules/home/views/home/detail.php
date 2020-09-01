@@ -55,7 +55,8 @@
 		</div>
 		<div class="col">
 			<div class="rating text-right mb-3 mt-1" style="font-size: 3vw;">
-				<span class="badge badge-success pull-right mt-1" style="width: 20vw; font-size: 3vw;"><?php echo $status[$data['status']] ?></span>
+				<?php $status_badge = empty($value['status']) ? 'danger' : 'success'; ?>
+				<span class="badge badge-<?php echo $status_badge;?> pull-right mt-1" style="width: 20vw; font-size: 3vw;"><?php echo $status[$data['status']] ?></span>
 			</div>
 			<br>
 			<div class="description pl-3" style="min-height: 100px;">
