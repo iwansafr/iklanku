@@ -2,7 +2,8 @@
 	<div id="product" style="padding: 20px;">
 		<?php foreach ($data['data'] as $key => $value): ?>
 			<div class="card mb-3 product_box">
-				<span class="badge badge-success pull-right" style="width: 20vw;padding-top: 1vw; position: absolute;top: 2vw;right: 10px;font-size: 3vw;"><?php echo $status[$value['status']] ?></span>
+				<?php $status_badge = empty($value['status']) ? 'danger' : 'success'; ?>
+				<span class="badge badge-<?php echo $status_badge;?> pull-right" style="width: 20vw;padding-top: 1vw; position: absolute;top: 2vw;right: 10px;font-size: 3vw;"><?php echo $status[$value['status']] ?></span>
 				<a href="<?php echo base_url('home/detail/'.$value['id']) ?>" ><img style="border-top-right-radius: 10%;border-top-left-radius: 10%;" src="<?php echo image_module('iklan',$value['id'].'/'.$value['map_image']) ?>" class="card-img-top" alt="..."></a>
 			  <div class="card-body">
 			  	<div class="row">
