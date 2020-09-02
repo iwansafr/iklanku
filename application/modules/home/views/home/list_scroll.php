@@ -13,7 +13,7 @@
 				    </div>
 				    <div class="col-7 description_product pl-0">
 				    	<p class="card-text">
-				    		<small style="font-size: 2.2vw;" class="text-muted">
+				    		<small style="font-size: 2.5vw;" class="text-muted">
 				    			<?php echo $jenis[$value['jenis']] ?> / <?php echo $ukuran[$value['ukuran']] ?>	 M
 				    			<br>
 				    			<?php echo $dimensi[$value['dimensi']] ?> / <?php echo $light[$value['light']] ?>
