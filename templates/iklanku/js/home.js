@@ -80,13 +80,8 @@ $(document).ready(function(){
 						    	<p style="font-size: 3vw;">${result.data[i]['jalan']}</p>
 						    </div>
 						    <div class="col-7 description_product pl-0">
-						    	<p class="card-text">
-						    		<small style="font-size: 2.5vw;" class="text-muted">
-						    			${result.jenis[result.data[i]['jenis']]} / ${result.ukuran[result.data[i]['ukuran']]} M
-						    			<br>
-						    			${result.dimensi[result.data[i]['dimensi']]} / ${result.light[result.data[i]['light']]}
-						    		</small>
-						    	</p>
+						    	<p style="font-size: 3vw;margin-block-end: 0;">${result.jenis[result.data[i]['jenis']]} / ${result.ukuran[result.data[i]['ukuran']]} M</p>
+				    			<p style="font-size: 3vw;">${result.dimensi[result.data[i]['dimensi']]} / ${result.light[result.data[i]['light']]}</p>
 						    </div>
 					  	</div>
 					  </div>

@@ -55,7 +55,7 @@
 		</div>
 		<div class="col">
 			<div class="rating text-right mb-3 mt-1" style="font-size: 3vw;">
-				<?php $status_badge = empty($value['status']) ? 'danger' : 'success'; ?>
+				<?php $status_badge = empty($data['status']) ? 'danger' : 'success'; ?>
 				<span class="badge badge-<?php echo $status_badge;?> pull-right mt-1" style="width: 20vw; font-size: 3vw;"><?php echo $status[$data['status']] ?></span>
 			</div>
 			<br>
@@ -90,7 +90,11 @@
 	<hr>
 	<div class="order container-fluid">
 		<div class="form-group">
-			<a href="<?php echo base_url('home/sewa/'.$data['id']) ?>" class="btn btn-primary rounded w-100" style="background-color:#0872ba;">SEWA LOKASI</a>
+			<?php if (!empty($data['status'])): ?>
+				<a href="<?php echo base_url('home/sewa/'.$data['id']) ?>" class="btn btn-primary rounded w-100" style="background-color:#0872ba;">SEWA LOKASI</a>
+			<?php else: ?>
+				<a href="#disable_sewa_lokasi" id="disable_sewa_lokasi" class="btn btn-secondary rounded w-100">SEWA LOKASI</a>
+			<?php endif ?>
 		</div>
 		<div class="form-group">
 			<a href="https://wa.me/6282221357390" class="btn btn-success rounded w-100">ONLINE CHAT</a>
