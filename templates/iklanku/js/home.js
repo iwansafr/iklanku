@@ -64,14 +64,19 @@ $(document).ready(function(){
 			page = page+1;
 		}
 		$.getJSON(_URL+'home/iklan/json_list/?page='+page+where,function(result){
+			console.log(result);
 			if(result.data.length>0){
 				if(append==false){
 					$('#product').html('');
 					console.log('ok bersih');
 				}
 				for(i=0;i<result.data.length;i++){
+					let badge = 'badge-danger';
+					if(result.data[i]['status']==1){
+						badge = 'badge-success';
+					}
 					$('#product').append(`<div class="card mb-3 product_box">
-						<span class="badge badge-success pull-right" style="width: 20vw;padding-top: 1vw; position: absolute;top: 2vw;right: 10px;font-size: 3vw;"> ${result.status[result.data[i]['status']]} </span>
+						<span class="badge ${badge} pull-right" style="width: 20vw;padding-top: 1vw; position: absolute;top: 2vw;right: 10px;font-size: 3vw;"> ${result.status[result.data[i]['status']]} </span>
 						<a href="${_URL+'home/detail/'+result.data[i]['id']}" ><img style="border-top-right-radius: 10%;border-top-left-radius: 10%;" src="${_URL+'images/modules/iklan/'+result.data[i]['id']+'/'+result.data[i]['map_image']}" class="card-img-top" alt="..."></a>
 					  <div class="card-body">
 					  	<div class="row">
