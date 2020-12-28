@@ -173,4 +173,8 @@ class Config extends CI_Controller
 		}
 		$this->load->view('index');
 	}
+	public function media()
+	{
+		$this->load->view('index');
+	}
 }

@@ -54,17 +54,17 @@
 	<div class="row" style="padding: 10px 30px 0 30px;">
 		<div class="col text-center">
 			<div class="card">
-				<a href="#" data-toggle="modal" data-target="#sosmedModal" style="padding: 5px 0 0 0;">
-					<img src="<?php echo base_url('images/radio_disabled.png') ?>" class="img img-fluid img-circle">
-					<p class="disabled" style="text-align: center;font-size: 11px;">IKLAN RADIO</p>
+				<a href="<?php echo base_url('home/radio') ?>" style="padding: 5px 0 0 0;">
+					<img src="<?php echo base_url('images/MENU-IKLANRADIO-ACTIVE-03.png') ?>" class="img img-fluid img-circle">
+					<p style="text-align: center;font-size: 11px;">IKLAN RADIO</p>
 				</a>
 			</div>
 		</div>
 		<div class="col text-center">
 			<div class="card">
-				<a href="#" data-toggle="modal" data-target="#sosmedModal" style="padding: 5px 0 0 0;">
-					<img src="<?php echo base_url('images/koran_disabled.png') ?>" class="img img-fluid img-circle">
-					<p class="disabled" style="text-align: center;font-size: 11px;">IKLAN KORAN</p>
+				<a href="<?php echo base_url('home/koran') ?>" style="padding: 5px 0 0 0;">
+					<img src="<?php echo base_url('images/MENU-IKLANKORAN-ACTIVE-03.png') ?>" class="img img-fluid img-circle">
+					<p style="text-align: center;font-size: 11px;">IKLAN KORAN</p>
 				</a>
 			</div>
 		</div>
