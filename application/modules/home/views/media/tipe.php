@@ -66,7 +66,7 @@
 		<div class="form-group mb-2">
 			<div class="input-group">
 				<i class="fa fa-search placeh" style="z-index: 0;"></i>
-				<input type="text" name="jalan" placeholder="ketik nama <?php echo $label;?>" class="custom" value="<?php echo !empty($_GET['jalan']) ? $_GET['jalan'] : ''; ?>" >
+				<input type="text" name="nama" placeholder="ketik nama <?php echo $label;?>" class="custom" value="<?php echo !empty($_GET['nama']) ? $_GET['nama'] : ''; ?>" >
 			</div>
 		</div>
 		<button type="submit" class="btn btn-sm btn-primary" style="background-color:#0872ba;width: 90%;border-radius: 0.5rem; font-size: 4vw;">Search</button>

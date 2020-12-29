@@ -129,7 +129,7 @@ class Iklan_model extends CI_Model
 			}else{
 				if($user['password'] == $data['password']){
 					$output = ['msg'=>'login success','status'=>true,'alert'=>'success'];
-					$this->session->set_userdata(base_url().'_logged_in', $data);
+					$this->session->set_userdata(base_url().'_logged_in', $user);
 					// $this->esg->set_cookie($user);
 					redirect(base_url('home/iklan/media'));
 				}else{

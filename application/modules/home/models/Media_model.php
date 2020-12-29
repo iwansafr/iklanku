@@ -14,6 +14,11 @@ class Media_model extends CI_Model
 			$where = ' nama LIKE "%'.$this->db->escape_like_str($_GET['nama']).'%"';
 		}
 		
+		if(!empty($_GET['tipe']))
+		{
+			$tipe = @intval($_GET['tipe']);
+		}
+
 		if(!empty($where))
 		{
 			$where .= ' AND tipe = '.$tipe;
@@ -26,7 +31,7 @@ class Media_model extends CI_Model
 		$form->addInput('nama','plaintext');
 		$form->addInput('alamat','plaintext');
 		$form->addInput('photo','plaintext');
-		// $form->setLimit(2);
+		$form->setLimit(2);
 		return $form->getData();
 	}
 }

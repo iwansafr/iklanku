@@ -28,19 +28,14 @@ class Media extends CI_Controller
 	{
 		$tipe_id = $this->getType($tipe);
 		$this->esg->add_css('//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css');
-		$this->esg->add_js(['https://code.jquery.com/ui/1.12.1/jquery-ui.js',base_url('templates/iklanku/js/home.js')]);
-		$this->load->view('index',['label'=>$tipe,'data'=>$this->media_model->get_list($tipe_id)]);
+		$this->esg->add_js(['https://code.jquery.com/ui/1.12.1/jquery-ui.js',base_url('templates/iklanku/js/media.js')]);
+		$this->load->view('index',['label'=>$tipe,'data'=>$this->media_model->get_list($tipe_id),'full'=>1,'tipe_id'=>$tipe_id]);
 	}
 
 	public function json_list()
 	{
-		$data    = $this->media_model->get_list();
-		$status  = $this->media_model->status();
-		$jenis  = $this->media_model->jenis();
-		$ukuran  = $this->media_model->ukuran();
-		$dimensi = $this->media_model->dimensi();
-		$light   = $this->media_model->light();
-		$output = ['data'=>$data['data'],'status'=>$status,'dimensi'=>$dimensi,'light'=>$light,'ukuran'=>$ukuran,'jenis'=>$jenis,'q'=>$this->db->last_query()];
+		$tipe_id = 1;
+		$output = ['data'=>$this->media_model->get_list($tipe_id)['data'],'q'=>$this->db->last_query()];
 		echo json_encode($output);
 	}
 	public function json_kota()
@@ -89,5 +84,11 @@ class Media extends CI_Controller
 	public function media()
 	{
 		$this->load->view('index');
+	}
+	public function order($id = 0)
+	{
+		$this->esg->add_css(base_url('templates/iklanku/css/detail.css'));
+		$data = $this->db->query('SELECT * FROM media WHERE id = ? ',$id)->row_array();
+		$this->load->view('index',['data'=>$data]);
 	}
 }
