@@ -18,6 +18,7 @@ $form->setType('tarif','number');
 $form->setLabel('tarif','Tarif Periklan');
 $form->addInput('photo','upload');
 $form->setAccept('photo','.jpg,.jpeg,.png');
+$form->addInput('alamat','textarea');
 $form->setRequired(['nama']);
 
 $form->form();

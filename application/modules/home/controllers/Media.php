@@ -11,6 +11,26 @@ class Media extends CI_Controller
 		$this->load->library('esg');
 		$this->load->library('ZEA/Zea');
 	}
+	public function getType($type)
+	{
+		if(!empty($type))
+		{
+			return match($type){
+				'radio' => 1,
+				'koran' => 2,
+				default => 1,
+			};
+		}else{
+			return 1;
+		}
+	}
+	public function tipe($tipe = 'radio')
+	{
+		$tipe_id = $this->getType($tipe);
+		$this->esg->add_css('//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css');
+		$this->esg->add_js(['https://code.jquery.com/ui/1.12.1/jquery-ui.js',base_url('templates/iklanku/js/home.js')]);
+		$this->load->view('index',['label'=>$tipe,'data'=>$this->media_model->get_list($tipe_id)]);
+	}
 
 	public function json_list()
 	{
