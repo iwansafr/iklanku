@@ -52,20 +52,6 @@ class Media extends CI_Controller
 		}
 	}
 
-	public function json_jalan($jalan = '')
-	{
-		$data = $this->db->query('SELECT jalan FROM iklan WHERE jalan LIKE ? GROUP BY jalan ORDER BY jalan ASC LIMIT 6',"%{$jalan}%")->result_array();
-		if(!empty($data))
-		{
-			$output = [];
-			foreach ($data as $key => $value) 
-			{
-				$output[] = $value['jalan'];
-			}
-			echo json_encode($output);
-		}
-	}
-
 	public function index()
 	{
 		$this->esg->add_css('//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css');
@@ -87,8 +73,20 @@ class Media extends CI_Controller
 	}
 	public function order($id = 0)
 	{
+		$this->media_model->send_sewa();
 		$this->esg->add_css(base_url('templates/iklanku/css/detail.css'));
 		$data = $this->db->query('SELECT * FROM media WHERE id = ? ',$id)->row_array();
-		$this->load->view('index',['data'=>$data]);
+		$jam_tayang = $this->session->userdata('jam_tayang');
+		if(!empty($_POST['jam_tayang'])) 
+		{
+			$jam_tayang[$_POST['jam_tayang']] = $_POST['jam_tayang'];
+			$this->session->set_userdata('jam_tayang', $jam_tayang);
+		}
+		if(!empty($_POST['del_jam_tayang'])) 
+		{
+			unset($jam_tayang[$_POST['del_jam_tayang']]);
+			$this->session->set_userdata('jam_tayang', $jam_tayang);
+		}
+		$this->load->view('index',['data'=>$data,'jam_tayang'=>$this->session->userdata('jam_tayang')]);
 	}
 }

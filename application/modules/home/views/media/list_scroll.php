@@ -2,7 +2,7 @@
 	<div id="product" style="padding: 20px;">
 		<?php foreach ($data['data'] as $key => $value): ?>
 			<div class="card mb-3 product_box">
-				<span class="badge badge-primary pull-right" style="width: 20vw;padding-top: 1vw; position: absolute;top: 2vw;right: 10px;font-size: 3vw;"><?php echo $label ?></span>
+				<span class="badge badge-danger pull-right" style="width: 20vw;padding-top: 1vw; position: absolute;top: 2vw;right: 10px;font-size: 3vw;"><?php echo 'Rp '.number_format($value['tarif'],0,',','.') ?></span>
 				<a href="<?php echo base_url('home/media/order/'.$value['id']) ?>" ><img style="border-top-right-radius: 10%;border-top-left-radius: 10%;" src="<?php echo image_module('media',$value['id'].'/'.$value['photo']) ?>" class="card-img-top" alt="..."></a>
 			  <div class="card-body">
 			  	<div class="row">
