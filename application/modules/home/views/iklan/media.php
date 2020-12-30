@@ -51,7 +51,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="row" style="padding: 10px 30px 0 30px;">
+	<!-- <div class="row" style="padding: 10px 30px 0 30px;">
 		<div class="col text-center">
 			<div class="card">
 				<a href="<?php echo base_url('home/radio') ?>" style="padding: 5px 0 0 0;">
@@ -68,7 +68,7 @@
 				</a>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<div class="row" style="padding: 10px 30px 0 30px;">
 		<div class="col text-center">
 			<div class="card">
