@@ -73,9 +73,11 @@ class Media extends CI_Controller
 	}
 	public function order($id = 0)
 	{
-		$this->media_model->send_sewa();
 		$this->esg->add_css(base_url('templates/iklanku/css/detail.css'));
 		$data = $this->db->query('SELECT * FROM media WHERE id = ? ',$id)->row_array();
+		if($data['tipe'] == 1){
+			$this->media_model->send_sewa();
+		}
 		$jam_tayang = $this->session->userdata('jam_tayang');
 		if(!empty($_POST['jam_tayang'])) 
 		{

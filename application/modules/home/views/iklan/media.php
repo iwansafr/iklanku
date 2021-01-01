@@ -60,14 +60,14 @@
 				</a>
 			</div>
 		</div>
-		<!-- <div class="col text-center">
+		<div class="col text-center">
 			<div class="card">
 				<a href="<?php echo base_url('home/koran') ?>" style="padding: 5px 0 0 0;">
 					<img src="<?php echo base_url('images/MENU-IKLANKORAN-ACTIVE-03.png') ?>" class="img img-fluid img-circle">
 					<p style="text-align: center;font-size: 11px;">IKLAN KORAN</p>
 				</a>
 			</div>
-		</div> -->
+		</div>
 	</div>
 	<div class="row" style="padding: 10px 30px 0 30px;">
 		<div class="col text-center">

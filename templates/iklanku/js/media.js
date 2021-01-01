@@ -27,9 +27,7 @@ $(document).ready(function(){
 	});
 	$('input[name="nama"]').on('keyup',function(){
 		var a = $(this).val();
-		console.log(a);
 		$.getJSON(_URL+'home/media/json_list/'+a,function(result){
-			console.log(result);
 			$('input[name="nama"]').autocomplete({
 				source: result
 			});
