@@ -77,6 +77,8 @@ class Media extends CI_Controller
 		$data = $this->db->query('SELECT * FROM media WHERE id = ? ',$id)->row_array();
 		if($data['tipe'] == 1){
 			$this->media_model->send_sewa();
+		}else if($data['tipe'] == 2){
+			$this->media_model->sewa_koran();
 		}
 		$jam_tayang = $this->session->userdata('jam_tayang');
 		if(!empty($_POST['jam_tayang'])) 

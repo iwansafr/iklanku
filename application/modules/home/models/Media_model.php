@@ -135,17 +135,17 @@ class Media_model extends CI_Model
 			if(!empty($email_config))
 			{
 				if($this->db->insert('order_koran',$data)){
-					$this->load->library('email');
-					$config['protocol']     = $email_config['protocol'];
-					$config['smtp_host']    = $email_config['smtp_host'];
-					$config['smtp_port']    = $email_config['smtp_port'];
-					$config['smtp_timeout'] = $email_config['smtp_timeout'];
-					$config['smtp_user']    = $email_config['email'];
-					$config['smtp_pass']    = $email_config['password'];
-					$config['charset']      = $email_config['charset'];
-					$config['newline']      = $email_config['newline'];
-					$config['mailtype']     = $email_config['mailtype'];
-					$config['validation']   = $email_config['validation'];
+					// $this->load->library('email');
+					// $config['protocol']     = $email_config['protocol'];
+					// $config['smtp_host']    = $email_config['smtp_host'];
+					// $config['smtp_port']    = $email_config['smtp_port'];
+					// $config['smtp_timeout'] = $email_config['smtp_timeout'];
+					// $config['smtp_user']    = $email_config['email'];
+					// $config['smtp_pass']    = $email_config['password'];
+					// $config['charset']      = $email_config['charset'];
+					// $config['newline']      = $email_config['newline'];
+					// $config['mailtype']     = $email_config['mailtype'];
+					// $config['validation']   = $email_config['validation'];
 
 					$pesan   = '
 					<h5>ORDER ADSBOX - ['.date('d').'/'.date('m').'/'.date('Y').']</h5>
@@ -157,10 +157,6 @@ class Media_model extends CI_Model
 						<tr>
 							<td>Alamat Media</td>
 							<td>:'.$data['alamat_media'].'</td>
-						</tr>
-						<tr>
-							<td>Judul Iklan</td>
-							<td>:'.$data['judul'].'</td>
 						</tr>
 						<tr>
 							<td>Isi Iklan</td>
@@ -202,17 +198,16 @@ class Media_model extends CI_Model
 					';
 
 
-					$this->email->initialize($config);
-					$this->email->from($email_config['email'], 'esoftgreat corp');
+					// $this->email->initialize($config);
+					// $this->email->from($email_config['email'], 'esoftgreat corp');
 					// $this->email->to('marketing@billboardku.com');
-					$this->email->to('iwansafr@gmail.com');
-					$this->email->subject('Sewa');
-					$this->email->message($pesan);
-					$this->email->send();
+					// $this->email->to('iwansafr@gmail.com');
+					// $this->email->subject('Sewa');
+					// $this->email->message($pesan);
+					// $this->email->send();
 					unset($_POST);
-					unset($_SESSION['jam_tayang']);
-					redirect(base_url('home/sewa_success'));
-					// pr($pesan);die();
+					// redirect(base_url('home/sewa_success'));
+					pr($pesan);die();
 				}
 			}
 		}

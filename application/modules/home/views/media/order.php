@@ -172,7 +172,7 @@
 				   		<div class="col">
 				   			<div class="form-group">
 				   				<label for="tipe">Tipe Iklan</label>
-				   				<select name="tipe_iklan" class="form-control" id="tipeIklan">
+				   				<select name="tipe" class="form-control" id="tipeIklan">
 				   					<option value="1">Text</option>
 				   					<option value="2">Graphic</option>
 				   				</select>
@@ -200,6 +200,7 @@
 				   			<div class="form-group">
 				   				<label for="biaya">biaya</label>
 				   				<input type="text" readonly class="form-control" id="biaya" value="Rp <?php echo number_format($data['tarif'],0,',','.');?>">
+				   				<input type="hidden" name="biaya" id="biayavalue" value="<?php echo $data['tarif'];?>">
 				   			</div>
 				   		</div>
 				   	</div>
@@ -240,18 +241,22 @@
 		let harga = <?php echo $data['tarif'];?>;
 		let baris_kolom = document.getElementById('baris_kolom');
 		let bariskolomvalue = document.getElementById('bariskolomvalue');
-		document.getElementById('biaya').value = 'Rp '+formatMoney(harga*1,0,',','.');
+		let total_harga = harga;
+		document.getElementById('biaya').value = 'Rp '+formatMoney(total_harga,0,',','.');
+		document.getElementById('biayavalue').value = total_harga;
 		if(baris_kolom != null){
 			baris_kolom.addEventListener('change',function(e){
 				if(this.value == 1){
-					let label_harga = formatMoney(harga*1,0,',','.');
+					total_harga = harga;
+					let label_harga = formatMoney(total_harga,0,',','.');
 					document.getElementById('biaya').value = 'Rp '+label_harga;
 					bariskolomvalue.innerHTML = `
 						<input type="hidden" name="baris" value="1">
 						<input type="hidden" name="kolom" value="1">
 					`;
 				}else if(this.value == 2){
-					let label_harga = formatMoney(harga*2,0,',','.');
+					total_harga = harga*2;
+					let label_harga = formatMoney(total_harga,0,',','.');
 					document.getElementById('biaya').value = 'Rp '+label_harga;
 					bariskolomvalue.innerHTML = `
 						<input type="hidden" name="baris" value="1">
@@ -259,12 +264,14 @@
 					`;
 				}else if(this.value == 3){
 					let label_harga = formatMoney(harga*4,0,',','.');
+					total_harga = harga*3;
 					document.getElementById('biaya').value = 'Rp '+label_harga;
 					bariskolomvalue.innerHTML = `
 						<input type="hidden" name="baris" value="2">
 						<input type="hidden" name="kolom" value="2">
 					`;
 				}
+				document.getElementById('biayavalue').value = total_harga;
 			});
 		}
 	}
@@ -273,22 +280,27 @@
 		let harga = <?php echo $data['tarif'];?>;
 		let baris = document.getElementById('baris');
 		let kolom = document.getElementById('kolom');
+		let total_harga = harga;
 		let bariskolomvalue = document.getElementById('bariskolomvalue');
 		baris.addEventListener('keyup',function(e){
-			let label_harga = formatMoney(harga*baris.value*kolom.value,0,',','.');
+			let total_harga = harga*baris.value*kolom.value;
+			let label_harga = formatMoney(total_harga,0,',','.');
 			document.getElementById('biaya').value = 'Rp '+label_harga;
 			bariskolomvalue.innerHTML = `
 						<input type="hidden" name="baris" value="${baris.value}">
 						<input type="hidden" name="kolom" value="${kolom.value}">
 					`;
+			document.getElementById('biayavalue').value = total_harga;
 		});
 		kolom.addEventListener('keyup',function(e){
-			let label_harga = formatMoney(harga*baris.value*kolom.value,0,',','.');
+			let total_harga = harga*baris.value*kolom.value;
+			let label_harga = formatMoney(total_harga,0,',','.');
 			document.getElementById('biaya').value = 'Rp '+label_harga;
 			bariskolomvalue.innerHTML = `
 						<input type="hidden" name="baris" value="${baris.value}">
 						<input type="hidden" name="kolom" value="${kolom.value}">
 					`;
+			document.getElementById('biayavalue').value = total_harga;
 		})
 
 	}
