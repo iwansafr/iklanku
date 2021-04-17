@@ -41,92 +41,49 @@
 		<?php if ($data['tipe'] == 1): ?>
 			<form action="<?php echo base_url('home/media/next_order/'.$data['id']) ?>" method="get">
 				<div class="form-group">
-					<select name="tipe" id="tipe" class="form-control custom" required>
-						<option value="">PILIH TIPE IKLAN</option>
-						<option value="1">ADLIPS 60"</option>
-						<option value="2">SPOT 60"</option>
-						<option value="3">TIME SIGNAL 60"</option>
+					<select name="kategori" id="kategori" class="form-control custom" required>
+						<option value="">PILIH KATEGORI</option>
+						<option value="1">PRODUK</option>
+						<option value="2">USAHA</option>
+						<option value="3">EVENT</option>
+						<option value="4">KEHILANGAN</option>
+						<option value="5">LAIN-LAIN</option>
 					</select>
 				</div>
 				<div class="form-group">
-					<select name="time" id="time" class="form-control custom" required>
-						<option value="">WAKTU TAYANG</option>
-						<option value="1">PRIME TIME</option>
-						<option value="2">REGULER TIME</option>
-					</select>
-				</div>
-				<div class="form-group">
-					<div class="row">
-						<div class="col">
-							<input type="number" name="durasi" id="durasi" min="1" class="form-control custom" placeholder="DURASI" required>
-						</div>
-						<div class="col">
-							<select name="masa" id="masa" class="form-control custom" required>
-								<option value="">MASA</option>
-								<option value="1">HARI</option>
-								<option value="2">MINGGU</option>
-								<option value="3">BULAN</option>
-							</select>
-						</div>
-					</div>
+					<textarea name="iklan" id="iklan" class="form-control custom" style="height: 30vw!important;" placeholder="KETIK KALIMAT IKLAN ANDA DI SINI" required></textarea>
 				</div>
 				<button class="btn btn-sm btn-primary btn-lg" id="submit" style="border-radius: 0.5rem;width: 100%;background-color:#0872ba;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
 					LANJUT
 				</button>
 			</form>
 			<script>
-				const tipe  = document.querySelector('#tipe');
-				const time  = document.querySelector('#time');
-				const durasi  = document.querySelector('#durasi');
-				const masa  = document.querySelector('#masa');
+				const kategori  = document.querySelector('#kategori');
+				const iklan  = document.querySelector('#iklan');
 				const submit = document.querySelector('#submit');
 
 				submit.addEventListener('click',()=>{
-				    tipechange();
-				    timechange();
-				    durasichange();
-				    masachange();
+				    kategoriChange();
+				    iklanChange();
 				});
-				tipe.addEventListener('change',()=>{
-					tipechange();
+				kategori.addEventListener('change',()=>{
+					kategoriChange();
 				});
-				time.addEventListener('change',()=>{
-					timechange();
+				iklan.addEventListener('keyup',()=>{
+					iklanChange();
 				})
-				durasi.addEventListener('keyup',()=>{
-					durasichange();
-				})
-				masa.addEventListener('change',()=>{
-					masachange();
-				})
-				function tipechange(){
-					if(tipe.validity.valueMissing){
-			        tipe.setCustomValidity('SILAHKAN PILIH TIPE IKLAN');
+				function kategoriChange(){
+					if(kategori.validity.valueMissing){
+			        kategori.setCustomValidity('SILAHKAN PILIH KATEGORI IKLAN');
 			    }else{
-			        tipe.setCustomValidity('');
+			        kategori.setCustomValidity('');
 			    }
 				}
-				function timechange(){
-					if(time.validity.valueMissing){
-			        time.setCustomValidity('SILAHKAN PILIH WAKTU TAYANG');
+				function iklanChange(){
+					if(iklan.validity.valueMissing){
+			        iklan.setCustomValidity('IKLAN TIDAK BOLEH KOSONG');
 			    }else{
-			        time.setCustomValidity('');
-			    }
-				}
-				function masachange(){
-					if(masa.validity.valueMissing){
-			        masa.setCustomValidity('SILAHKAN PILIH MASA');
-			    }else{
-			        masa.setCustomValidity('');
-			    }
-				}
-				function durasichange(){
-					if(durasi.validity.valueMissing){
-			        durasi.setCustomValidity('DURASI TIDAK BOLEH KOSONG');
-			    }else if(durasi.validity.rangeUnderflow){
-			        durasi.setCustomValidity('DURASI MINIMAL 1');
-			    }else{
-			        durasi.setCustomValidity('');
+			        iklan.setCustomValidity('');
 			    }
 				}
 			</script>		

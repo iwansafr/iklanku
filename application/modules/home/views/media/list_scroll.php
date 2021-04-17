@@ -1,20 +1,20 @@
 <?php if (!empty($data)): ?>
 	<div id="product" style="padding: 20px;">
 		<?php foreach ($data['data'] as $key => $value): ?>
-			<div class="card mb-3 product_box">
-				<span class="badge badge-danger pull-right" style="width: 20vw;padding-top: 1vw; position: absolute;top: 2vw;right: 10px;font-size: 3vw;"><?php echo 'Rp '.number_format($value['tarif'],0,',','.') ?></span>
-				<a href="<?php echo base_url('home/media/order/'.$value['id']) ?>" ><img style="border-top-right-radius: 10%;border-top-left-radius: 10%;" src="<?php echo image_module('media',$value['id'].'/'.$value['photo']) ?>" class="card-img-top" alt="..."></a>
-			  <div class="card-body">
-			  	<div class="row">
-				    <div class="col">
-				    	<p style="margin-block-end: 0;font-size: 3vw; font-weight: bold;"><?php echo $value['nama'] ?></p>
-				    </div>
-				    <div class="col-7 description_product">
-				    	<p style="font-size: 3vw;"><?php echo $value['alamat'] ?></p>
-				    </div>
-			  	</div>
-			  </div>
-			</div>
+			<a href="<?php echo base_url('home/media/order/'.$value['id']) ?>" >
+				<div class="card mb-3 product_box">
+				  <div class="card-body">
+						<div class="row">
+							<div class="col-5">
+								<img style="border-top-right-radius: 10%;border-top-left-radius: 10%; object-fit: contain;" src="<?php echo image_module('media',$value['id'].'/'.$value['photo']) ?>" class="card-img-top" alt="...">
+							</div>
+							<div class="col-7" style="margin: auto;">
+								<span class="align-middle"><?= $value['nama'] ?></span>
+							</div>
+						</div>
+				  </div>
+				</div>
+			</a>
 		<?php endforeach ?>
 	</div>
 	<div id="loading" class="text-center d-none">

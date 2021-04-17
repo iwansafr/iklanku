@@ -91,6 +91,11 @@ class Media extends CI_Controller
 			unset($jam_tayang[$_POST['del_jam_tayang']]);
 			$this->session->set_userdata('jam_tayang', $jam_tayang);
 		}
-		$this->load->view('index',['data'=>$data,'jam_tayang'=>$this->session->userdata('jam_tayang')]);
+		$this->load->view('index',['data'=>$data]);
+	}
+	public function next_order($id = 0)
+	{
+		$data = $this->db->query('SELECT * FROM media WHERE id = ? ',$id)->row_array();
+		$this->load->view('index',['data'=>$data]);
 	}
 }

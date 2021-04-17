@@ -62,7 +62,16 @@
 		}
 	</style>	
 <div class="title text-center mt-5 pt-5">
-	<form action="" method="get" class="mt-1">
+	<div class="container">
+		<a href="<?= base_url() ?>" class="float-left">
+			<i class="fa fa-arrow-left"></i>
+		</a>
+		<span class="font-weight-bold">
+			Daftar Radio
+		</span>
+		<hr>
+	</div>
+	<!-- <form action="" method="get" class="mt-1">
 		<div class="form-group mb-2">
 			<div class="input-group">
 				<i class="fa fa-search placeh" style="z-index: 0;"></i>
@@ -70,9 +79,8 @@
 			</div>
 		</div>
 		<button type="submit" class="btn btn-sm btn-primary" style="background-color:#0872ba;width: 90%;border-radius: 0.5rem; font-size: 4vw;">Search</button>
-	</form>
-	<br>
-	</div>
+	</form> -->
+	<!-- <br> -->
 </div>
 <?php $this->load->view('media/list_scroll') ?>
 <script>
