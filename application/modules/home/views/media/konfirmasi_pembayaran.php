@@ -39,6 +39,12 @@
       top: 50%;
   }
 </style>
+<?php 
+$form = new Zea();
+$form->init('edit');
+$form->setTable('order_radio');
+$form->addInput('photo','file');
+?>
 <div class="container mt-5 pt-5 " id="pageSewa">
 	<?php $get = $this->input->get(); ?>
 	<?php $user = $this->session->userdata(base_url().'_logged_in') ?>
