@@ -10,6 +10,9 @@ class Iklan extends CI_Controller
 		$this->load->helper('content');
 		$this->load->library('esg');
 		$this->load->library('ZEA/Zea');
+		if(empty($_SESSION[base_url().'_logged_in']['username'])){
+			redirect('home/login');
+		}
 	}
 
 	public function json_list()

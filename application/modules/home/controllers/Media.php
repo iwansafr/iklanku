@@ -10,6 +10,9 @@ class Media extends CI_Controller
 		$this->load->helper('content');
 		$this->load->library('esg');
 		$this->load->library('ZEA/Zea');
+		if(empty($_SESSION[base_url().'_logged_in']['username'])){
+			redirect('home/login');
+		}
 	}
 	public function getType($type)
 	{
@@ -97,5 +100,56 @@ class Media extends CI_Controller
 	{
 		$data = $this->db->query('SELECT * FROM media WHERE id = ? ',$id)->row_array();
 		$this->load->view('index',['data'=>$data]);
+	}
+	public function confirmation_order($id=0)
+	{
+		$data = $this->db->query('SELECT * FROM media WHERE id = ? ',$id)->row_array();
+		$this->load->view('index',['data'=>$data]);
+	}
+
+	public function finish_order($id= 0)
+	{
+		$user = $this->session->userdata(base_url().'_logged_in');
+		$data = $this->db->query('SELECT * FROM media WHERE id = ? ',$id)->row_array();
+		$post = $this->input->post();
+		$data['last_id'] = 1;
+		if (!empty($post)) {
+			if($post['masa'] == 1){
+				$masa = 1;
+			}else if($post['masa'] == 2){
+				$masa = 7;
+			}else{
+				$masa = 30;
+			};
+			$waktu = $masa*$post['durasi'];
+			$post['total'] = $data['tarif']*$waktu;
+			$post['media_id'] = $data['id'];
+			$post['harga_dasar'] = $data['tarif'];
+			$post['user_id'] = $user['id'];
+
+			$this->db->insert('order_radio',$post);
+			$data['last_id'] = $this->db->insert_id();
+			// $this->media_model->sewa_radio($data['last_id']);
+		}
+		$this->load->view('index',['data'=>$data,'post'=>$post]);	
+	}
+	public function status_pembayaran($id=0,$media_id=0)
+	{
+		$media = $this->db->get_where('media',['id'=>$media_id])->row_array();
+		if($media['tipe'] == 1){
+			$pembayaran = $this->db->get_where('order_radio',['id'=>$id])->row_array();
+		}
+		$this->load->view('index',['data'=>$media,'pembayaran'=>$pembayaran]);
+	}
+	public function konfirmasi_pembayaran($id=0,$media_id=0)
+	{
+		$this->esg->add_js([
+			base_url('templates/iklanku/js/konfirmasi.js')
+		]);
+		$media = $this->db->get_where('media',['id'=>$media_id])->row_array();
+		if($media['tipe'] == 1){
+			$pembayaran = $this->db->get_where('order_radio',['id'=>$id])->row_array();
+		}
+		$this->load->view('index',['data'=>$media,'pembayaran'=>$pembayaran]);
 	}
 }

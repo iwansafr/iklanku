@@ -25,9 +25,10 @@
 	}
 </style>
 <div class="container mt-5 pt-5 " id="pageSewa">
+	<?php $get = $this->input->get(); ?>
 	<div class="title text-center">
 		<div class="container">
-			<a href="<?= base_url() ?>" class="float-left">
+			<a href="<?= base_url('home/media/order/'.$data['id'].'?tipe='.$get['tipe'].'&time='.$get['time'].'&durasi='.$get['durasi'].'&masa='.$get['masa']) ?>" class="float-left">
 				<i class="fa fa-arrow-left"></i>
 			</a>
 			<span class="font-weight-bold">
@@ -39,15 +40,17 @@
 	</div>
 	<?php if (!empty($data)): ?>
 		<?php if ($data['tipe'] == 1): ?>
-			<form action="<?php echo base_url('home/media/next_order/'.$data['id']) ?>" method="get">
+			<form action="<?php echo base_url('home/media/confirmation_order/'.$data['id']) ?>" method="get">
 				<div class="form-group">
+					<input type="hidden" name="tipe" value="<?php echo $get['tipe'] ?>">
+					<input type="hidden" name="time" value="<?php echo $get['time'] ?>">
+					<input type="hidden" name="durasi" value="<?php echo $get['durasi'] ?>">
+					<input type="hidden" name="masa" value="<?php echo $get['masa'] ?>">
 					<select name="kategori" id="kategori" class="form-control custom" required>
 						<option value="">PILIH KATEGORI</option>
-						<option value="1">PRODUK</option>
-						<option value="2">USAHA</option>
-						<option value="3">EVENT</option>
-						<option value="4">KEHILANGAN</option>
-						<option value="5">LAIN-LAIN</option>
+						<?php foreach ($this->media_model->kategori_radio() as $key => $value): ?>
+							<option value="<?php echo $key ?>"><?php echo $value ?></option>
+						<?php endforeach ?>
 					</select>
 				</div>
 				<div class="form-group">
@@ -88,54 +91,7 @@
 				}
 			</script>		
 		<?php elseif($data['tipe'] == 2): ?>
-			<div class="form-group">
-		   	<div class="row">
-		   		<div class="col">
-		   			<div class="form-group">
-		   				<label for="tipe">Tipe Iklan</label>
-		   				<select name="tipe" class="form-control" id="tipeIklan">
-		   					<option value="1">Text</option>
-		   					<option value="2">Graphic</option>
-		   				</select>
-		   			</div>
-		   		</div>
-		   	</div>
-		   	<div class="row" id="bariskolom">
-		   		<div class="col">
-		   			<div class="form-group">
-		   				<label for="tipe">Baris X Kolom</label>
-		   				<select class="form-control" id="baris_kolom">
-		   					<option value="1">1x1</option>
-		   					<option value="2">1x2</option>
-		   					<option value="3">2x2</option>
-		   				</select>
-		   				<div id="bariskolomvalue">
-		   					<input type="hidden" name="baris" value="1">
-								<input type="hidden" name="kolom" value="1">
-		   				</div>
-		   			</div>
-		   		</div>
-		   	</div>
-		   	<div class="row">
-		   		<div class="col">
-		   			<div class="form-group">
-		   				<label for="biaya">biaya</label>
-		   				<input type="text" readonly class="form-control" id="biaya" value="Rp <?php echo number_format($data['tarif'],0,',','.');?>">
-		   				<input type="hidden" name="biaya" id="biayavalue" value="<?php echo $data['tarif'];?>">
-		   			</div>
-		   		</div>
-		   	</div>
-		   	<div class="row">
-		   		<div class="col">
-		   			<label for="isi">Isi Iklan</label>
-		   			<textarea name="isi" id="isiIklan" cols="30" rows="5" class="form-control" required oninvalid="this.setCustomValidity('Isi iklan tidak boleh kosong')" oninput="this.setCustomValidity('')"></textarea>
-		   		</div>
-		   	</div>
-		   	<hr>
-		  </div>
-			<button class="btn btn-sm btn-primary btn-lg" style="border-radius: 1.5rem;width: 100%;background-color:#0872ba;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
-				SELESAI
-			</button>
+			
 		<?php endif ?>
 	<?php else: ?>
 		<?php msg('Mohon Maaf Halaman yang anda minta tidak tersedia','info') ?>

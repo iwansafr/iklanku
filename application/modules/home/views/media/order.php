@@ -25,9 +25,10 @@
 	}
 </style>
 <div class="container mt-5 pt-5 " id="pageSewa">
+	<?php $get = $this->input->get(); ?>
 	<div class="title text-center">
 		<div class="container">
-			<a href="<?= base_url() ?>" class="float-left">
+			<a href="<?= base_url('home/radio') ?>" class="float-left">
 				<i class="fa fa-arrow-left"></i>
 			</a>
 			<span class="font-weight-bold">
@@ -43,29 +44,30 @@
 				<div class="form-group">
 					<select name="tipe" id="tipe" class="form-control custom" required>
 						<option value="">PILIH TIPE IKLAN</option>
-						<option value="1">ADLIPS 60"</option>
-						<option value="2">SPOT 60"</option>
-						<option value="3">TIME SIGNAL 60"</option>
+						<?php foreach ($this->media_model->tipe_radio() as $key => $value): ?>
+							<option value="<?= $key ?>" <?= !empty($get['tipe']) && @$get['tipe']==$key ? 'selected' : ''; ?>><?= $value ?></option>
+						<?php endforeach ?>
 					</select>
 				</div>
 				<div class="form-group">
 					<select name="time" id="time" class="form-control custom" required>
 						<option value="">WAKTU TAYANG</option>
-						<option value="1">PRIME TIME</option>
-						<option value="2">REGULER TIME</option>
+						<?php foreach ($this->media_model->time_radio() as $key => $value): ?>
+							<option value="<?php echo $key ?>" <?= !empty($get['time']) && @$get['time']==$key ? 'selected' : ''; ?> ><?php echo $value ?></option>
+						<?php endforeach ?>
 					</select>
 				</div>
 				<div class="form-group">
 					<div class="row">
 						<div class="col">
-							<input type="number" name="durasi" id="durasi" min="1" class="form-control custom" placeholder="DURASI" required>
+							<input type="number" name="durasi" id="durasi" min="1" class="form-control custom" placeholder="DURASI" required <?= !empty($get['durasi']) ? 'value="'.$get['durasi'].'"' : ''; ?> >
 						</div>
 						<div class="col">
 							<select name="masa" id="masa" class="form-control custom" required>
 								<option value="">MASA</option>
-								<option value="1">HARI</option>
-								<option value="2">MINGGU</option>
-								<option value="3">BULAN</option>
+								<?php foreach ($this->media_model->masa_radio() as $key => $value): ?>
+									<option value="<?php echo $key ?>" <?= !empty($get['masa']) && @$get['masa']==$key ? 'selected' : ''; ?> ><?php echo $value ?></option>
+								<?php endforeach ?>
 							</select>
 						</div>
 					</div>
@@ -131,54 +133,7 @@
 				}
 			</script>		
 		<?php elseif($data['tipe'] == 2): ?>
-			<div class="form-group">
-		   	<div class="row">
-		   		<div class="col">
-		   			<div class="form-group">
-		   				<label for="tipe">Tipe Iklan</label>
-		   				<select name="tipe" class="form-control" id="tipeIklan">
-		   					<option value="1">Text</option>
-		   					<option value="2">Graphic</option>
-		   				</select>
-		   			</div>
-		   		</div>
-		   	</div>
-		   	<div class="row" id="bariskolom">
-		   		<div class="col">
-		   			<div class="form-group">
-		   				<label for="tipe">Baris X Kolom</label>
-		   				<select class="form-control" id="baris_kolom">
-		   					<option value="1">1x1</option>
-		   					<option value="2">1x2</option>
-		   					<option value="3">2x2</option>
-		   				</select>
-		   				<div id="bariskolomvalue">
-		   					<input type="hidden" name="baris" value="1">
-								<input type="hidden" name="kolom" value="1">
-		   				</div>
-		   			</div>
-		   		</div>
-		   	</div>
-		   	<div class="row">
-		   		<div class="col">
-		   			<div class="form-group">
-		   				<label for="biaya">biaya</label>
-		   				<input type="text" readonly class="form-control" id="biaya" value="Rp <?php echo number_format($data['tarif'],0,',','.');?>">
-		   				<input type="hidden" name="biaya" id="biayavalue" value="<?php echo $data['tarif'];?>">
-		   			</div>
-		   		</div>
-		   	</div>
-		   	<div class="row">
-		   		<div class="col">
-		   			<label for="isi">Isi Iklan</label>
-		   			<textarea name="isi" id="isiIklan" cols="30" rows="5" class="form-control" required oninvalid="this.setCustomValidity('Isi iklan tidak boleh kosong')" oninput="this.setCustomValidity('')"></textarea>
-		   		</div>
-		   	</div>
-		   	<hr>
-		  </div>
-			<button class="btn btn-sm btn-primary btn-lg" style="border-radius: 1.5rem;width: 100%;background-color:#0872ba;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
-				SELESAI
-			</button>
+			
 		<?php endif ?>
 	<?php else: ?>
 		<?php msg('Mohon Maaf Halaman yang anda minta tidak tersedia','info') ?>
