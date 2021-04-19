@@ -49,9 +49,8 @@
 					<div class="row">
 						<div class="col">
 							<div class="form-group text-center" style="margin: auto;">
-								<?php if (!empty($post['total'])): ?>
-									<span>Rp. <?php echo number_format($post['total'],2,',','.') ?></span>
-								<?php endif ?>
+								<?php $confirmed = ['BELUM TRANSFER', 'SUDAH TRANSFER'] ?>
+								<span><?php echo $confirmed[$pembayaran['status_pembayaran']] ?></span>
 							</div>
 						</div>
 					</div>
@@ -87,8 +86,8 @@
 				<?php endif ?>
 			</div>
 			<br>
-			<a href="<?= base_url('home/media/status_pembayaran/'.$data['id'].'/'.$data['id']) ?>" class="btn btn-sm btn-primary btn-lg text-white" id="submit" style="border-radius: 0.5rem;width: 100%;background-color:#0872ba;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
-				CEK STATUS PEMBAYARAN
+			<a href="<?= base_url('home/media/konfirmasi_pembayaran/'.$pembayaran['id']) ?>" class="btn btn-sm btn-primary btn-lg text-white" id="submit" style="border-radius: 0.5rem;width: 100%;background-color:#0872ba;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
+				KONFIRMASI PEMBAYARAN
 			</a>
 			<div class="clearfix mb-1"></div>
 			<a class="btn btn-sm btn-success btn-lg text-white" id="submit" style="border-radius: 0.5rem;width: 100%;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
