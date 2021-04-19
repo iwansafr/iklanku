@@ -160,4 +160,11 @@ class Media extends CI_Controller
 		}
 		$this->load->view('index',['data'=>$media,'pembayaran'=>$pembayaran]);
 	}
+	
+	public function pesanan_radio()
+	{
+		$user = $this->session->userdata(base_url().'_logged_in');
+		$data = $this->media_model->get_radio_order($user['id']);
+		$this->load->view('index',['data'=>$data]);
+	}
 }

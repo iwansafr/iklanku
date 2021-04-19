@@ -33,7 +33,7 @@
 	<?php $bank = $this->db->get_where('bank_account')->result_array(); ?>
 	<div class="title text-center">
 		<div class="container">
-			<a href="<?= base_url('home/media/radio') ?>" class="float-left">
+			<a href="<?= base_url('home/media/pesanan_radio') ?>" class="float-left">
 				<i class="fa fa-arrow-left"></i>
 			</a>
 			<span class="font-weight-bold">
@@ -57,6 +57,11 @@
 				</div>
 			</div>
 			<div class="container">
+				<hr>
+				<div class="form-group font-weight-bold text-center" style="margin: auto;">
+					<span>Rp. <?php echo number_format($pembayaran['total'],0,0,'.') ?></span>
+				</div>
+				<hr>
 				<div class="form-group">
 					<span class="v3">
 						Harap Transfer sesuai Nominal di atas ke nomor rekening  di bawah :

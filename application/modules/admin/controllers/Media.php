@@ -8,6 +8,7 @@ class Media extends CI_Controller
 		$this->db->cache_off();
 		$this->load->model('esg_model');
 		$this->load->model('admin_model');
+		$this->load->model('home/media_model');
 		$this->load->library('esg');
 		$this->load->library('ZEA/zea');
 		$this->esg_model->init();
@@ -46,5 +47,18 @@ class Media extends CI_Controller
 		}else{
 			return 1;
 		}
+	}
+	public function pesanan_radio()
+	{
+		$this->load->view('index');
+	}
+	public function clear_pesanan_radio()
+	{
+		$this->load->view('admin/media/pesanan_radio');
+	}
+	public function pesanan_radio_detail()
+	{
+		$data = $this->media_model->get_radio_order_detail($this->input->get('id'));
+		$this->load->view('index',['data'=>$data]);
 	}
 }

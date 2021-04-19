@@ -19,6 +19,17 @@
 				<li><a href="#">Social Media Campaign</a></li>
 				<li><a href="#">Digital Print</a></li>
 			</ul>
+			<li class="active">
+				<a href="#pagePesanan" id="pesananMenu" data-toggle="collapse" aria-expanded="false">Pesanan <i class="fa fa-caret-down pull-right"></i></a>
+
+			</li>
+			<ul class="collapse list-unstyled" id="pagePesanan">
+				<li><a href="#">Out Of Home Media</a></li>
+				<li><a href="#">Iklan Koran</a></li>
+				<li><a href="<?php echo base_url('home/media/pesanan_radio') ?>">Iklan Radio</a></li>
+				<li><a href="#">Social Media Campaign</a></li>
+				<li><a href="#">Digital Print</a></li>
+			</ul>
 			<li>
 				<a href="#">Tentang Kami</a>
 				<a href="#">Kontak</a>
