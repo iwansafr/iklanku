@@ -39,18 +39,23 @@
       top: 50%;
   }
 </style>
-<?php 
-$form = new Zea();
-$form->init('edit');
-$form->setTable('order_radio');
-$form->addInput('photo','file');
-?>
 <div class="container mt-5 pt-5 " id="pageSewa">
-	<?php $get = $this->input->get(); ?>
+	<?php 
+	$form = new Zea();
+	$form->init('edit');
+	$form->setId($pembayaran['id']);
+	$form->setTable('order_radio');
+	$form->addInput('photo','file');
+	// $form->form();
+	if(!empty($_POST))
+	{
+		$form->action();
+	}
+	?>
 	<?php $user = $this->session->userdata(base_url().'_logged_in') ?>
 	<div class="title text-center">
 		<div class="container">
-			<a href="<?= base_url('home/media/iklan/radio') ?>" class="float-left">
+			<a href="<?= base_url('home/radio') ?>" class="float-left">
 				<i class="fa fa-arrow-left"></i>
 			</a>
 			<span class="font-weight-bold">
@@ -61,20 +66,28 @@ $form->addInput('photo','file');
 	</div>
 	<?php if (!empty($data)): ?>
 		<?php if ($data['tipe'] == 1): ?>
-			<form action="<?php echo base_url('home/media/next_order/'.$data['id']) ?>" method="get">
+			<form action="" method="post" name="form1" enctype="multipart/form-data">
 				<div class="form-group text-center">
 					<label for="bukti">Bukti Transfer</label>
 					<label class="fileContainer">
-            <input type="file" id="imageUpload" name="foto" class="form-control" accept="image/*" required>
-            <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-camera-512.png" class="img img-fluid" alt="" id="image_place">
+            <input type="file" id="imageUpload" name="photo" class="form-control" accept="image/*" required>
+            <?php if (!empty($pembayaran['photo'])): ?>
+            	<img src="<?= image_module('order_radio',$pembayaran['id'].'/'.$pembayaran['photo']) ?>" class="img img-fluid" alt="" id="image_place">
+            <?php else: ?>
+            	<img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-camera-512.png" class="img img-fluid" alt="" id="image_place">
+            <?php endif ?>
             <!-- <i class="fa fa-camera" style="font-size: 36px;"></i> -->
-            <!-- <input type="file" id="imageUpload" name="foto" class="form-control" accept="image/*" required oninvalid="this.setCustomValidity('Anda Belum Foto')" oninput="setCustomValidity('')" capture="capture"> -->
+            <!-- <input type="file" id="imageUpload" name="photo" class="form-control" accept="image/*" required oninvalid="this.setCustomValidity('Anda Belum photo')" oninput="setCustomValidity('')" capture="capture"> -->
           </label>
 				</div>
-				<button class="btn btn-sm btn-primary btn-lg" id="submit" style="border-radius: 0.5rem;width: 100%;background-color:#0872ba;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
-					LANJUT
+				<button class="btn btn-sm btn-primary btn-lg" name="form_1" value="true" id="submit" style="border-radius: 0.5rem;width: 100%;background-color:#0872ba;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
+					<i class='fa fa-upload'></i> UPLOAD
 				</button>
 			</form>
+			<hr>
+			<a href="<?= base_url('home/media/status_pembayaran/'.$pembayaran['id']) ?>" class="btn btn-sm btn-primary btn-lg text-white" id="submit" style="border-radius: 0.5rem;width: 100%;background-color:#0872ba;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
+				CEK STATUS PEMBAYARAN
+			</a>
 			<script>
 				const imageUpload  = document.querySelector('#imageUpload');
 				const submit  = document.querySelector('#submit');
