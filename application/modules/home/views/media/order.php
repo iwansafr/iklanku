@@ -32,7 +32,7 @@
 				<i class="fa fa-arrow-left"></i>
 			</a>
 			<span class="font-weight-bold">
-				Form Pasang Iklan Radio
+				Form Pasang Iklan <?php echo $this->media_model->media_type()[$data['tipe']] ?>
 			</span>
 			<hr>
 			<span class="font-weight-bold"><?= $data['nama'] ?></span>

@@ -219,12 +219,45 @@ class Media_model extends CI_Model
 		}
 	}
 
+	public function media_type()
+	{
+		return [
+			'1' => 'Radio',
+			'2' => 'Koran'
+		];
+	}
+
 	public function tipe_radio()
 	{
 		return [
 			"1"=>'ADLIPS 60"',
 			"2"=>'SPOT 60"',
 			"3"=>'TIME SIGNAL 60"',
+		];
+	}
+	public function tipe_koran()
+	{
+		return [
+			'1' => 'IKLAN KOLOM',
+			'2' => 'IKLAN BANNER ATAS',
+			'3' => 'IKLAN BANNER BAWAH',
+			'4' => 'IKLAN BARIS / KECIK',
+		];
+	}
+	public function jumlah_kolom()
+	{
+		return [
+			1=>1,
+			2=>2,
+			3=>3,
+			7=>7
+		];
+	}
+	public function colour()
+	{
+		return [
+			'1' => 'FULL COLOUR',
+			'2' => 'BLACK WHITE'
 		];
 	}
 	public function time_radio()

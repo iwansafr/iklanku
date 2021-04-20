@@ -67,7 +67,7 @@
 			<i class="fa fa-arrow-left"></i>
 		</a>
 		<span class="font-weight-bold">
-			Daftar Radio
+			Daftar <?= $label ?>
 		</span>
 		<hr>
 	</div>
