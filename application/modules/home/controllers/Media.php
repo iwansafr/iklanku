@@ -170,6 +170,7 @@ class Media extends CI_Controller
 	public function detail_order_radio($id = 0)
 	{
 		$data = $this->media_model->get_radio_order_detail($id);
+		$data['tipe_media'] = 1;
 		$this->load->view('index',['data'=>$data]);
 	}
 }

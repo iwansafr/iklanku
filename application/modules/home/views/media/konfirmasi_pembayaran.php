@@ -67,6 +67,11 @@
 	<?php if (!empty($data)): ?>
 		<?php if ($data['tipe'] == 1): ?>
 			<form action="" method="post" name="form1" enctype="multipart/form-data">
+				<?php if (!empty($form->msg)): ?>
+					<?php foreach ($form->msg as $value): ?>
+						<?php msg($value['msg'],$value['alert']); ?>
+					<?php endforeach ?>
+				<?php endif ?>
 				<div class="form-group text-center">
 					<label for="bukti">Bukti Transfer</label>
 					<label class="fileContainer">

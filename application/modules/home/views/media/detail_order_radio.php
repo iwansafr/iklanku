@@ -38,12 +38,12 @@
 		</div>
 	</div>
 	<?php if (!empty($data)): ?>
-		<?php if ($data['tipe'] == 1): ?>
+		<?php if ($data['tipe_media'] == 1): ?>
 			<div class="card card-default" style="border-radius: 0.5rem;">
 				<div class="card-body">
 					<div class="row">
 						<div class="col">
-							<span class="font-weight-bold" style="font-size: 3vw;"><?php echo 'INV0'.$data['tipe'].date('Ymdhi').$data['id'].$user['id'] ?></span>
+							<span class="font-weight-bold" style="font-size: 3vw;"><?php echo 'INV0'.$data['tipe_media'].date('Ymdhi').$data['id'].$user['id'] ?></span>
 						</div>
 						<div class="col-3">
 							<img src="<?= image_module('media',$data['id'].'/'.$data['photo']) ?>" class="img img-fluid" alt="">
@@ -93,7 +93,7 @@
 					</div>
 				</div>
 			</div>
-		<?php elseif($data['tipe'] == 2): ?>
+		<?php elseif($data['tipe_media'] == 2): ?>
 		<?php endif ?>
 	<?php else: ?>
 		<?php msg('Mohon Maaf Halaman yang anda minta tidak tersedia','info') ?>
