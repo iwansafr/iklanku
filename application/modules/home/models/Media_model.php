@@ -244,7 +244,7 @@ class Media_model extends CI_Model
 			'4' => 'IKLAN BARIS / KECIK',
 		];
 	}
-	public function jumlah_kolom()
+	public function kolom()
 	{
 		return [
 			1=>1,
