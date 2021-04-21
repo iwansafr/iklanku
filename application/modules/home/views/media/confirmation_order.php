@@ -27,6 +27,9 @@
 <div class="container mt-5 pt-5 " id="pageSewa">
 	<?php $get = $this->input->get(); ?>
 	<?php $user = $this->session->userdata(base_url().'_logged_in') ?>
+	<?php 
+	pr($get);die();
+	?>
 	<div class="title text-center">
 		<div class="container">
 			<a href="<?= base_url('home/media/next_order/'.$data['id'].'?tipe='.$get['tipe'].'&time='.$get['time'].'&durasi='.$get['durasi'].'&masa='.$get['masa']) ?>" class="float-left">
