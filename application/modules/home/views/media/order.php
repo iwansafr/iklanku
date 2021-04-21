@@ -145,7 +145,7 @@
 				}
 			</script>		
 		<?php elseif($data['tipe'] == 2): ?>
-			<form action="<?php echo base_url('home/media/next_order/'.$data['id']) ?>" method="get">
+			<form action="<?php echo base_url('home/media/confirmation_order/'.$data['id']) ?>" method="get">
 				<div class="form-group">
 					<select name="tipe" id="tipe" class="form-control custom" required>
 						<option value="">PILIH TIPE IKLAN</option>
