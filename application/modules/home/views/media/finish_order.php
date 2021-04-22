@@ -33,7 +33,7 @@
 	<?php $bank = $this->db->get_where('bank_account')->result_array(); ?>
 	<div class="title text-center">
 		<div class="container">
-			<a href="<?= base_url('home/media/radio') ?>" class="float-left">
+			<a href="<?= base_url() ?>" class="float-left">
 				<i class="fa fa-arrow-left"></i>
 			</a>
 			<span class="font-weight-bold">

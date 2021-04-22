@@ -145,7 +145,7 @@
 				}
 			</script>		
 		<?php elseif($data['tipe'] == 2): ?>
-			<form action="<?php echo base_url('home/media/confirmation_order/'.$data['id']) ?>" method="get">
+			<form action="<?php echo base_url('home/media/confirmation_order/'.$data['id']) ?>" method="post" enctype="multipart/form-data">
 				<div class="form-group">
 					<select name="tipe" id="tipe" class="form-control custom" required>
 						<option value="">PILIH TIPE IKLAN</option>
@@ -284,13 +284,38 @@
 	            <input type="file" id="imageUpload" name="photo" class="form-control" accept="image/*" required placeholder="UPLOAD GAMBAR ANDA DI SINI">
 	            <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-camera-512.png" class="img img-fluid" alt="" id="image_place">
 	          </label>
+	          <div class="text-center text-danger">
+	            <span class="v3 d-none" id="warning">Ukuran Gambar Terlalu Besar</span>
+	          </div>
 					`;
 					const imageUpload = document.querySelector('#imageUpload');
 				  const image_place = document.querySelector('#image_place');
+				  const warning     = document.querySelector('#warning');
 				  
 				  imageUpload.addEventListener('change',function(){
-				  	readURL(this, image_place);
+				  	// imageUpload.onchange = function() {
+				    if(this.files[0].size > 307200){
+				       // alert("Ukuran Gambar Terlalu Besar");
+				       warning.classList.remove('d-none');
+				       imageUpload.value = "";
+				       image_place.src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-camera-512.png";
+				    }else{
+				  		readURL(this, image_place);
+				      warning.classList.add('d-none');
+
+				    }
+						// };
+						if(imageUpload.validity.valueMissing){
+				        imageUpload.setCustomValidity('Gambar Tidak Boleh Kosong');
+				    }else{
+				        imageUpload.setCustomValidity('');
+				    }
 				  });
+				  if(imageUpload.validity.valueMissing){
+			        imageUpload.setCustomValidity('Gambar Tidak Boleh Kosong');
+			    }else{
+			        imageUpload.setCustomValidity('');
+			    }
 				}
 				function readURL(input, a) {
 			    if (input.files && input.files[0]) {
@@ -302,6 +327,9 @@
 			      reader.readAsDataURL(input.files[0]);
 			    }
 			  }
+			  // var uploadField = document.getElementById("file");
+
+				
 			</script>		
 		<?php endif ?>
 	<?php else: ?>

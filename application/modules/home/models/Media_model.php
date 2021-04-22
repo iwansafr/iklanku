@@ -126,7 +126,7 @@ class Media_model extends CI_Model
 			}
 		}
 	}
-	public function sewa_koran()
+	public function sewa_koran_old()
 	{
 		if(!empty($_POST['media_id']))
 		{
@@ -409,6 +409,114 @@ class Media_model extends CI_Model
 				</table>
 				';
 
+
+				$this->email->initialize($config);
+				$this->email->from($email_config['email'], 'esoftgreat corp');
+				// $this->email->to(
+				// 	[
+				// 		'admin@billboardku.com',
+				// 		'finance@billboardku.com',
+				// 		'digi.envi@billboardku.com',
+				// 	]
+				// );
+				$this->email->to('iwansafr@gmail.com');
+				$this->email->subject('Sewa');
+				$this->email->message($pesan);
+				$this->email->send();
+				unset($_POST);
+				// redirect(base_url('home/sewa_success'));
+				// pr($pesan);die();
+			}
+		}
+	}
+
+	public function sewa_koran($order_id = 0)
+	{
+		if(!empty($order_id))
+		{
+			$user = $this->session->userdata(base_url().'_logged_in');
+			$data = $this->db->query('
+				SELECT 
+					o.*,
+					m.nama AS nama_media,
+					m.alamat AS alamat_media
+				FROM order_koran AS o 
+				LEFT JOIN media AS m
+				ON(m.id = o.media_id)
+				WHERE o.id = ?',
+				$order_id
+			)->row_array();
+			$email_config = $this->esg->get_config('email_config');
+			if(!empty($email_config))
+			{
+				$this->load->library('email');
+				$config['protocol']     = $email_config['protocol'];
+				$config['smtp_host']    = $email_config['smtp_host'];
+				$config['smtp_port']    = $email_config['smtp_port'];
+				$config['smtp_timeout'] = $email_config['smtp_timeout'];
+				$config['smtp_user']    = $email_config['email'];
+				$config['smtp_pass']    = $email_config['password'];
+				$config['charset']      = $email_config['charset'];
+				$config['newline']      = $email_config['newline'];
+				$config['mailtype']     = $email_config['mailtype'];
+				$config['validation']   = $email_config['validation'];
+
+				$pesan   = '
+				<h5>ORDER ADSBOX - ['.date('d').'/'.date('m').'/'.date('Y').']</h5>
+				<table>
+					<tr>
+						<td>Nama Media</td>
+						<td>:'.$data['nama_media'].'</td>
+					</tr>
+					<tr>
+						<td>Alamat Media</td>
+						<td>:'.$data['alamat_media'].'</td>
+					</tr>
+					<tr>
+						<td>Tipe Iklan</td>
+						<td>:'.$this->tipe_koran()[$data['tipe']].'/ '.$this->colour()[$data['colour']].'</td>
+					</tr>
+					<tr>
+						<td>Masa Tayang</td>
+						<td>:'.$data['durasi'].' '.$this->masa_radio()[$data['masa']].'</td>
+					</tr>
+					<tr>
+						<td>Isi Iklan</td>';
+					if(!empty($data['iklan'])){
+						$pesan .= '
+						<td>:'.$data['iklan'].'</td>';
+					}else{
+						$pesan .= '
+						<td>: Gambar cek di aplikasi</td>';
+					}
+				$pesan .= '
+					</tr>
+					<tr>
+						<td>Biaya</td>
+						<td>:Rp '.number_format($data['total'],0,',','.').'</td>
+					</tr>
+				</table>
+
+				<h5>Data Diri penyewa</h5>
+				<table>
+					<tr>
+						<td>username</td>
+						<td>: '.$user['username'].'</td>
+					</tr>
+					<tr>
+						<td>email</td>
+						<td>: '.$user['email'].'</td>
+					</tr>
+					<tr>
+						<td>phone</td>
+						<td>: '.$user['phone'].'</td>
+					</tr>
+					<tr>
+						<td>level</td>
+						<td>: '.$user['role'].'</td>
+					</tr>
+				</table>
+				';
 
 				$this->email->initialize($config);
 				$this->email->from($email_config['email'], 'esoftgreat corp');

@@ -103,8 +103,14 @@ class Media extends CI_Controller
 	}
 	public function confirmation_order($id=0)
 	{
+		$thumbnail = '';
+		if (!empty($_FILES['photo'])) {
+			$file = file_get_contents($_FILES['photo']['tmp_name']);
+			$file_photo = base64_encode($file);
+			$thumbnail = 'data:image/*;base64,'.$file_photo;
+		}
 		$data = $this->db->query('SELECT * FROM media WHERE id = ? ',$id)->row_array();
-		$this->load->view('index',['data'=>$data]);
+		$this->load->view('index',['data'=>$data,'thumbnail'=>$thumbnail]);
 	}
 
 	public function finish_order($id= 0)
@@ -127,9 +133,14 @@ class Media extends CI_Controller
 			$post['harga_dasar'] = $data['tarif'];
 			$post['user_id'] = $user['id'];
 
-			$this->db->insert('order_radio',$post);
-			$data['last_id'] = $this->db->insert_id();
+			if($data['tipe'] == 1){
+				$this->db->insert('order_radio',$post);
 			// $this->media_model->sewa_radio($data['last_id']);
+			}else if($data['tipe'] == 2){
+				$this->db->insert('order_koran',$post);
+				$this->media_model->sewa_koran($data['last_id']);
+			}
+			$data['last_id'] = $this->db->insert_id();
 		}
 		$this->load->view('index',['data'=>$data,'post'=>$post]);	
 	}
