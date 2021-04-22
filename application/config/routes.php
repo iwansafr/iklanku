@@ -55,6 +55,9 @@ $route['images']              = 'home/e';
 $route['admin/pesanan_radio']        = 'admin/media/pesanan_radio';
 $route['admin/pesanan_radio_detail'] = 'admin/media/pesanan_radio_detail';
 
+$route['admin/pesanan_koran']        = 'admin/media/pesanan_koran';
+$route['admin/pesanan_koran_detail'] = 'admin/media/pesanan_koran_detail';
+
 
 $route['admin/content']                    = 'admin/content/list';
 $route['admin/user']                       = 'admin/user/list';

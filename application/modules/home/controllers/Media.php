@@ -149,7 +149,7 @@ class Media extends CI_Controller
 		$user       = $this->session->userdata(base_url().'_logged_in');
 		$media      = $this->db->get_where('media',['id'=>$media_id])->row_array();
 		$pembayaran = [];
-		
+
 		if (!empty($media)) {
 			if ($media['tipe'] == 1) {
 				$pembayaran = $this->db->get_where('order_radio',['id'=>$id])->row_array();
@@ -189,6 +189,12 @@ class Media extends CI_Controller
 	public function detail_order_radio($id = 0)
 	{
 		$data = $this->media_model->get_radio_order_detail($id);
+		$data['tipe_media'] = 1;
+		$this->load->view('index',['data'=>$data]);
+	}
+	public function detail_order_koran($id = 0)
+	{
+		$data = $this->media_model->get_koran_order_detail($id);
 		$data['tipe_media'] = 1;
 		$this->load->view('index',['data'=>$data]);
 	}

@@ -61,4 +61,18 @@ class Media extends CI_Controller
 		$data = $this->media_model->get_radio_order_detail($this->input->get('id'));
 		$this->load->view('index',['data'=>$data]);
 	}
+
+	public function pesanan_koran()
+	{
+		$this->load->view('index');
+	}
+	public function clear_pesanan_koran()
+	{
+		$this->load->view('admin/media/pesanan_koran');
+	}
+	public function pesanan_koran_detail()
+	{
+		$data = $this->media_model->get_koran_order_detail($this->input->get('id'));
+		$this->load->view('index',['data'=>$data]);
+	}
 }

@@ -107,7 +107,9 @@
 				</div>
 				<div class="form-group">
 					<span class="v3">
-						Transfer telah terkonfirmasi, Order Pasang Iklan Radio anda akan segera kami proses. Pastikan nomor handphone anda aktif dan dapat dihubungi.
+						<?php $tipe_iklan = $data['tipe'] == 1 ? 'Radio' : 'Koran' ?>
+						<?php $detail_order_link = $data['tipe'] == 1 ? 'detail_order_radio' : 'detail_order_koran' ?>
+						Transfer telah terkonfirmasi, Order Pasang Iklan <?php echo $tipe_iklan ?> anda akan segera kami proses. Pastikan nomor handphone anda aktif dan dapat dihubungi.
 					</span>
 				</div>
 			</div>
@@ -116,7 +118,7 @@
 				MENU UTAMA
 			</a>
 			<div class="clearfix mb-1"></div>
-			<a href="<?php echo base_url('home/media/detail_order_radio/'.$pembayaran['id']) ?>" class="btn btn-sm btn-success btn-lg text-white" id="submit" style="border-radius: 0.5rem;width: 100%;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
+			<a href="<?php echo base_url('home/media/'.$detail_order_link.'/'.$pembayaran['id']) ?>" class="btn btn-sm btn-success btn-lg text-white" id="submit" style="border-radius: 0.5rem;width: 100%;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
 				LIHAT DETAIL ORDER
 			</a>
 		<?php endif ?>

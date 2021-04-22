@@ -42,7 +42,7 @@
 			<div class="card-body">
 				<div class="row">
 					<div class="col">
-						<span class="font-weight-bold" style="font-size: 3vw;"><?php echo 'INV0'.$data['tipe_media'].date('Ymdhi').$data['id'].$user['id'] ?></span>
+						<span class="font-weight-bold" style="font-size: 3vw;"><?php echo 'INV0'.$data['tipe'].date('Ymdhi').$data['id'].$user['id'] ?></span>
 					</div>
 					<div class="col-3">
 						<img src="<?= image_module('media',$data['id'].'/'.$data['photo']) ?>" class="img img-fluid" alt="">
@@ -51,16 +51,10 @@
 				<div class="row">
 					<div class="col">
 						<div class="form-group">
-							<span style="font-size: 3vw;color: grey;">Kategori</span><br>
-							<?php echo $this->media_model->kategori_radio()[$data['kategori']] ?>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col">
-						<div class="form-group">
 							<span style="font-size: 3vw;color: grey;">Tipe Iklan</span><br>
-							<?php echo $this->media_model->tipe_radio()[$data['tipe']].' / '.$this->media_model->time_radio()[$data['time']] ?>
+							<span style="font-size: 3vw;">
+								<?php echo $this->media_model->tipe_koran()[$data['tipe']].' / '.$this->media_model->colour()[$data['colour']] ?>
+							</span>
 						</div>
 					</div>
 				</div>
@@ -68,7 +62,9 @@
 					<div class="col">
 						<div class="form-group">
 							<span style="font-size: 3vw;color: grey;">Masa Tayang</span><br>
-							<?php echo $data['durasi'].' '.$this->media_model->masa_radio()[$data['masa']] ?>
+							<span style="font-size: 3vw;">
+								<?php echo $data['durasi'].' '.$this->media_model->masa_radio()[$data['masa']] ?>
+							</span>
 						</div>
 					</div>
 				</div>
@@ -77,7 +73,9 @@
 						<div class="form-group">
 							<span style="font-size: 3vw;color: grey;">Isi Iklan</span><br>
 							<p style="font-size: 3vw;">
-								<?php echo $data['iklan'] ?>
+								<?php if (!empty($data['image'])): ?>
+									<img src="<?php echo $data['image'] ?>" alt="" class="img img-fluid">
+								<?php endif ?>
 							</p>
 						</div>
 					</div>
