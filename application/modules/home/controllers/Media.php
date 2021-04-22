@@ -113,7 +113,7 @@ class Media extends CI_Controller
 		$this->load->view('index',['data'=>$data,'thumbnail'=>$thumbnail]);
 	}
 
-	public function finish_order($id= 0)
+	public function finish_order($id=0)
 	{
 		$user = $this->session->userdata(base_url().'_logged_in');
 		$data = $this->db->query('SELECT * FROM media WHERE id = ? ',$id)->row_array();
@@ -138,36 +138,44 @@ class Media extends CI_Controller
 			// $this->media_model->sewa_radio($data['last_id']);
 			}else if($data['tipe'] == 2){
 				$this->db->insert('order_koran',$post);
-				$this->media_model->sewa_koran($data['last_id']);
+				// $this->media_model->sewa_koran($data['last_id']);
 			}
 			$data['last_id'] = $this->db->insert_id();
 		}
 		$this->load->view('index',['data'=>$data,'post'=>$post]);	
 	}
-	public function status_pembayaran($id=0)
+	public function status_pembayaran($id=0,$media_id=0)
 	{
-		$user = $this->session->userdata(base_url().'_logged_in');
-		$pembayaran = $this->db->get_where('order_radio',['id'=>$id])->row_array();
-		if(!empty($pembayaran['media_id']) && $pembayaran['user_id'] == $user['id']){
-			$media = $this->db->get_where('media',['id'=>$pembayaran['media_id']])->row_array();
-		}else{
-			$pembayaran = [];
-			$media = [];
+		$user       = $this->session->userdata(base_url().'_logged_in');
+		$media      = $this->db->get_where('media',['id'=>$media_id])->row_array();
+		$pembayaran = [];
+		
+		if (!empty($media)) {
+			if ($media['tipe'] == 1) {
+				$pembayaran = $this->db->get_where('order_radio',['id'=>$id])->row_array();
+			}else if($media['tipe'] == 2){
+				$pembayaran = $this->db->get_where('order_koran',['id'=>$id])->row_array();
+			}
 		}
 		$this->load->view('index',['data'=>$media,'pembayaran'=>$pembayaran]);
 	}
-	public function konfirmasi_pembayaran($id=0)
+	public function konfirmasi_pembayaran($id=0,$media_id=0)
 	{
 		$this->esg->add_js([
 			base_url('templates/iklanku/js/konfirmasi.js')
 		]);
-		$user = $this->session->userdata(base_url().'_logged_in');
-		$pembayaran = $this->db->get_where('order_radio',['id'=>$id])->row_array();
-		if(!empty($pembayaran['media_id']) && $pembayaran['user_id'] == $user['id']){
-			$media = $this->db->get_where('media',['id'=>$pembayaran['media_id']])->row_array();
-		}else{
-			$pembayaran = [];
-			$media = [];
+
+		$user       = $this->session->userdata(base_url().'_logged_in');
+		$media      = $this->db->get_where('media',['id'=>$media_id])->row_array();
+		$pembayaran = [];
+
+		if(!empty($media))
+		{
+			if($media['tipe'] == 1){
+				$pembayaran = $this->db->get_where('order_radio',['id'=>$id])->row_array();
+			}else if($media['tipe'] == 2){
+				$pembayaran = $this->db->get_where('order_koran',['id'=>$id])->row_array();
+			}
 		}
 		$this->load->view('index',['data'=>$media,'pembayaran'=>$pembayaran]);
 	}

@@ -43,86 +43,82 @@
 		</div>
 	</div>
 	<?php if (!empty($data)): ?>
-		<?php if ($data['tipe'] == 1): ?>
-			<div class="card card-default" style="border-radius: 0.5rem;">
-				<div class="card-body">
-					<div class="row">
-						<div class="col">
-							<div class="form-group text-center" style="margin: auto;">
-								<?php $confirmed = ['BELUM TRANSFER', 'TRANSFER TERKONFIRMASI'] ?>
-								<span><?php echo $confirmed[$pembayaran['status_pembayaran']] ?></span>
-							</div>
+		<div class="card card-default" style="border-radius: 0.5rem;">
+			<div class="card-body">
+				<div class="row">
+					<div class="col">
+						<div class="form-group text-center" style="margin: auto;">
+							<?php $confirmed = ['BELUM TRANSFER', 'TRANSFER TERKONFIRMASI'] ?>
+							<span><?php echo $confirmed[$pembayaran['status_pembayaran']] ?></span>
 						</div>
 					</div>
 				</div>
 			</div>
-				<?php if (empty($pembayaran['status_pembayaran'])): ?>
-					<div class="container">
-						<hr>
-						<div class="form-group font-weight-bold text-center" style="margin: auto;">
-							<span>Rp. <?php echo number_format($pembayaran['total'],0,0,'.') ?></span>
-						</div>
-						<hr>
+		</div>
+		<?php if (empty($pembayaran['status_pembayaran'])): ?>
+			<div class="container">
+				<hr>
+				<div class="form-group font-weight-bold text-center" style="margin: auto;">
+					<span>Rp. <?php echo number_format($pembayaran['total'],0,0,'.') ?></span>
+				</div>
+				<hr>
+				<div class="form-group">
+					<span class="v3">
+						Harap Transfer sesuai Nominal di atas ke nomor rekening  di bawah :
+					</span>
+				</div>
+				<?php if (!empty($bank)): ?>
+					<?php foreach ($bank as $value): ?>
 						<div class="form-group">
-							<span class="v3">
-								Harap Transfer sesuai Nominal di atas ke nomor rekening  di bawah :
-							</span>
-						</div>
-						<?php if (!empty($bank)): ?>
-							<?php foreach ($bank as $value): ?>
-								<div class="form-group">
-									<div class="row">
-										<div class="col-4">
-											<img src="<?php echo image_module('bank_account',$value['id'].'/'.$value['icon']) ?>" class="img img-fluid" height="50">
-										</div>
-									</div>
-									<span class="v3">
-										<?= $value['bank_name'] ?>
-									</span>
-									<div class="clearfix"></div>
-									<span class="v3 font-weight-bold">
-										<?= $value['bank_number'] ?>
-									</span>
-									<div class="clearfix"></div>
-									<span class="v3">
-										an. <?= $value['person_name'] ?>
-									</span>
+							<div class="row">
+								<div class="col-4">
+									<img src="<?php echo image_module('bank_account',$value['id'].'/'.$value['icon']) ?>" class="img img-fluid" height="50">
 								</div>
-							<?php endforeach ?>
-						<?php endif ?>
-					</div>
-					<br>
-					<a href="<?= base_url('home/media/konfirmasi_pembayaran/'.$pembayaran['id']) ?>" class="btn btn-sm btn-primary btn-lg text-white" id="submit" style="border-radius: 0.5rem;width: 100%;background-color:#0872ba;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
-						KONFIRMASI PEMBAYARAN
-					</a>
-					<div class="clearfix mb-1"></div>
-					<a class="btn btn-sm btn-success btn-lg text-white" id="submit" style="border-radius: 0.5rem;width: 100%;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
-						KONFRIMASI VIA WHATSAPP
-					</a>
-				<?php else: ?>
-					<div class="container">
-						<div class="form-group mt-3">
+							</div>
 							<span class="v3">
-								Terima Kasih,
+								<?= $value['bank_name'] ?>
+							</span>
+							<div class="clearfix"></div>
+							<span class="v3 font-weight-bold">
+								<?= $value['bank_number'] ?>
+							</span>
+							<div class="clearfix"></div>
+							<span class="v3">
+								an. <?= $value['person_name'] ?>
 							</span>
 						</div>
-						<div class="form-group">
-							<span class="v3">
-								Transfer telah terkonfirmasi, Order Pasang Iklan Radio anda akan segera kami proses. Pastikan nomor handphone anda aktif dan dapat dihubungi.
-							</span>
-						</div>
-					</div>
-					<br>
-					<a href="<?= base_url() ?>" class="btn btn-sm btn-primary btn-lg text-white" id="submit" style="border-radius: 0.5rem;width: 100%;background-color:#0872ba;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
-						MENU UTAMA
-					</a>
-					<div class="clearfix mb-1"></div>
-					<a href="<?php echo base_url('home/media/detail_order_radio/'.$pembayaran['id']) ?>" class="btn btn-sm btn-success btn-lg text-white" id="submit" style="border-radius: 0.5rem;width: 100%;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
-						LIHAT DETAIL ORDER
-					</a>
+					<?php endforeach ?>
 				<?php endif ?>
-		<?php elseif($data['tipe'] == 2): ?>
-			
+			</div>
+			<br>
+			<a href="<?= base_url('home/media/konfirmasi_pembayaran/'.$pembayaran['id'].'/'.$pembayaran['media_id']) ?>" class="btn btn-sm btn-primary btn-lg text-white" id="submit" style="border-radius: 0.5rem;width: 100%;background-color:#0872ba;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
+				KONFIRMASI PEMBAYARAN
+			</a>
+			<div class="clearfix mb-1"></div>
+			<a class="btn btn-sm btn-success btn-lg text-white" id="submit" style="border-radius: 0.5rem;width: 100%;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
+				KONFRIMASI VIA WHATSAPP
+			</a>
+		<?php else: ?>
+			<div class="container">
+				<div class="form-group mt-3">
+					<span class="v3">
+						Terima Kasih,
+					</span>
+				</div>
+				<div class="form-group">
+					<span class="v3">
+						Transfer telah terkonfirmasi, Order Pasang Iklan Radio anda akan segera kami proses. Pastikan nomor handphone anda aktif dan dapat dihubungi.
+					</span>
+				</div>
+			</div>
+			<br>
+			<a href="<?= base_url() ?>" class="btn btn-sm btn-primary btn-lg text-white" id="submit" style="border-radius: 0.5rem;width: 100%;background-color:#0872ba;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
+				MENU UTAMA
+			</a>
+			<div class="clearfix mb-1"></div>
+			<a href="<?php echo base_url('home/media/detail_order_radio/'.$pembayaran['id']) ?>" class="btn btn-sm btn-success btn-lg text-white" id="submit" style="border-radius: 0.5rem;width: 100%;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
+				LIHAT DETAIL ORDER
+			</a>
 		<?php endif ?>
 	<?php else: ?>
 		<?php msg('Mohon Maaf Halaman yang anda minta tidak tersedia','info') ?>

@@ -41,10 +41,11 @@
 </style>
 <div class="container mt-5 pt-5 " id="pageSewa">
 	<?php 
+	$table = $data['tipe'] == 1 ? 'order_radio' : 'order_koran';
 	$form = new Zea();
 	$form->init('edit');
 	$form->setId($pembayaran['id']);
-	$form->setTable('order_radio');
+	$form->setTable($table);
 	$form->addInput('photo','file');
 	// $form->form();
 	if(!empty($_POST))
@@ -65,54 +66,50 @@
 		</div>
 	</div>
 	<?php if (!empty($data)): ?>
-		<?php if ($data['tipe'] == 1): ?>
-			<form action="" method="post" name="form1" enctype="multipart/form-data">
-				<?php if (!empty($form->msg)): ?>
-					<?php foreach ($form->msg as $value): ?>
-						<?php msg($value['msg'],$value['alert']); ?>
-					<?php endforeach ?>
-				<?php endif ?>
-				<div class="form-group text-center">
-					<label for="bukti">Bukti Transfer</label>
-					<label class="fileContainer">
-            <input type="file" id="imageUpload" name="photo" class="form-control" accept="image/*" required>
-            <?php if (!empty($pembayaran['photo'])): ?>
-            	<img src="<?= image_module('order_radio',$pembayaran['id'].'/'.$pembayaran['photo']) ?>" class="img img-fluid" alt="" id="image_place">
-            <?php else: ?>
-            	<img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-camera-512.png" class="img img-fluid" alt="" id="image_place">
-            <?php endif ?>
-            <!-- <i class="fa fa-camera" style="font-size: 36px;"></i> -->
-            <!-- <input type="file" id="imageUpload" name="photo" class="form-control" accept="image/*" required oninvalid="this.setCustomValidity('Anda Belum photo')" oninput="setCustomValidity('')" capture="capture"> -->
-          </label>
-				</div>
-				<button class="btn btn-sm btn-primary btn-lg" name="form_1" value="true" id="submit" style="border-radius: 0.5rem;width: 100%;background-color:#0872ba;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
-					<i class='fa fa-upload'></i> UPLOAD
-				</button>
-			</form>
-			<hr>
-			<a href="<?= base_url('home/media/status_pembayaran/'.$pembayaran['id']) ?>" class="btn btn-sm btn-primary btn-lg text-white" id="submit" style="border-radius: 0.5rem;width: 100%;background-color:#0872ba;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
-				CEK STATUS PEMBAYARAN
-			</a>
-			<script>
-				const imageUpload  = document.querySelector('#imageUpload');
-				const submit  = document.querySelector('#submit');
-				imageUpload.addEventListener('change',()=>{
-					imageChange();
-				});
-				submit.addEventListener('click',()=>{
-				    imageChange();
-				});
-				function imageChange(){
-					if(imageUpload.validity.valueMissing){
-			        imageUpload.setCustomValidity('Silahkan Upload Bukti Transfer Terlebih Dahulu');
-			    }else{
-			        imageUpload.setCustomValidity('');
-			    }
-				}
-			</script>
-		<?php elseif($data['tipe'] == 2): ?>
-			
-		<?php endif ?>
+		<form action="" method="post" name="form1" enctype="multipart/form-data">
+			<?php if (!empty($form->msg)): ?>
+				<?php foreach ($form->msg as $value): ?>
+					<?php msg($value['msg'],$value['alert']); ?>
+				<?php endforeach ?>
+			<?php endif ?>
+			<div class="form-group text-center">
+				<label for="bukti">Bukti Transfer</label>
+				<label class="fileContainer">
+          <input type="file" id="imageUpload" name="photo" class="form-control" accept="image/*" required>
+          <?php if (!empty($pembayaran['photo'])): ?>
+          	<img src="<?= image_module($table,$pembayaran['id'].'/'.$pembayaran['photo']) ?>" class="img img-fluid" alt="" id="image_place">
+          <?php else: ?>
+          	<img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-camera-512.png" class="img img-fluid" alt="" id="image_place">
+          <?php endif ?>
+          <!-- <i class="fa fa-camera" style="font-size: 36px;"></i> -->
+          <!-- <input type="file" id="imageUpload" name="photo" class="form-control" accept="image/*" required oninvalid="this.setCustomValidity('Anda Belum photo')" oninput="setCustomValidity('')" capture="capture"> -->
+        </label>
+			</div>
+			<button class="btn btn-sm btn-primary btn-lg" name="form_1" value="true" id="submit" style="border-radius: 0.5rem;width: 100%;background-color:#0872ba;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
+				<i class='fa fa-upload'></i> UPLOAD
+			</button>
+		</form>
+		<hr>
+		<a href="<?= base_url('home/media/status_pembayaran/'.$pembayaran['id'].'/'.$pembayaran['media_id']) ?>" class="btn btn-sm btn-primary btn-lg text-white" id="submit" style="border-radius: 0.5rem;width: 100%;background-color:#0872ba;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
+			CEK STATUS PEMBAYARAN
+		</a>
+		<script>
+			const imageUpload  = document.querySelector('#imageUpload');
+			const submit  = document.querySelector('#submit');
+			imageUpload.addEventListener('change',()=>{
+				imageChange();
+			});
+			submit.addEventListener('click',()=>{
+			    imageChange();
+			});
+			function imageChange(){
+				if(imageUpload.validity.valueMissing){
+		        imageUpload.setCustomValidity('Silahkan Upload Bukti Transfer Terlebih Dahulu');
+		    }else{
+		        imageUpload.setCustomValidity('');
+		    }
+			}
+		</script>
 	<?php else: ?>
 		<?php msg('Mohon Maaf Halaman yang anda minta tidak tersedia','info') ?>
 	<?php endif ?>
