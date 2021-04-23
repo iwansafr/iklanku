@@ -195,7 +195,14 @@ class Media extends CI_Controller
 	public function detail_order_koran($id = 0)
 	{
 		$data = $this->media_model->get_koran_order_detail($id);
-		$data['tipe_media'] = 1;
+		$data['tipe_media'] = 2;
+		$this->load->view('index',['data'=>$data]);
+	}
+
+	public function pesanan_koran()
+	{
+		$user = $this->session->userdata(base_url().'_logged_in');
+		$data = $this->media_model->get_koran_order($user['id']);
 		$this->load->view('index',['data'=>$data]);
 	}
 }

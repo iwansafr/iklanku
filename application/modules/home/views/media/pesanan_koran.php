@@ -39,7 +39,7 @@
 				<i class="fa fa-arrow-left"></i>
 			</a>
 			<span class="font-weight-bold">
-				Pesanan Radio
+				Pesanan Koran
 			</span>
 			<hr>
 		</div>
@@ -47,8 +47,7 @@
 	<div id="produk">
 		<?php if (!empty($data)): ?>
 			<?php 
-			$kategori_radio = $this->media_model->kategori_radio();
-			$tipe_radio = $this->media_model->tipe_radio();
+			$tipe_koran = $this->media_model->tipe_koran();
 			$time_radio = $this->media_model->time_radio();
 			$masa_radio = $this->media_model->masa_radio();
 			?>
@@ -63,8 +62,6 @@
 								<div class="col" style="margin: auto;">
 									<span class="align-middle"><?= $value['nama_media'] ?></span>
 									<br>
-									<span class="v2"><?php echo $kategori_radio[$value['kategori']] ?></span>
-									<span class="v2"><?php echo $tipe_radio[$value['tipe']].'/'.$time_radio[$value['time']] ?></span>
 									<span class="v2"><?php echo $value['durasi'].' '.$masa_radio[$value['masa']] ?></span>
 									<div class="clearfix"></div>
 									<span class="v2">Rp <?php echo number_format($value['total'],0,0,'.') ?></span>

@@ -11,21 +11,21 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `order_koran`;
 CREATE TABLE `order_koran` (
   `id` int NOT NULL,
-  `media_id` int NOT NULL,
-  `nama_media` varchar(255) NOT NULL,
-  `alamat_media` varchar(255) NOT NULL,
-  `biaya` int NOT NULL,
-  `kolom` int NOT NULL,
-  `baris` int NOT NULL,
-  `tipe` tinyint(1) NOT NULL COMMENT '1=text, 2 = graphic',
-  `isi` text NOT NULL,
   `user_id` int NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `role` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `hp` varchar(255) NOT NULL,
-  `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `media_id` int NOT NULL,
+  `photo` varchar(255) DEFAULT NULL,
+  `image` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT 'foto iklan',
+  `kode` varchar(255) NOT NULL,
+  `tipe` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1=adlips 60,2=spot 60, 3=time signal 60',
+  `kolom` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1,2,3,7',
+  `colour` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1=full colour, 2=black white',
+  `durasi` int NOT NULL,
+  `masa` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1=hari, 2=minggu, 3=bulan',
+  `harga_dasar` int NOT NULL,
+  `iklan` text NOT NULL,
+  `total` int NOT NULL,
+  `status_pembayaran` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0=unconfirmed, 1=confirmed',
+  `status_order` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0=belum tayang,1=sudah tayang'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
