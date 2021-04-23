@@ -100,7 +100,7 @@ class Media_model extends CI_Model
 					'admin_handling' => [
 
 					],
-					'add-on' => [
+					'add_on' => [
 
 					],
 				],
@@ -122,7 +122,7 @@ class Media_model extends CI_Model
 					'admin_handling' => [
 
 					],
-					'add-on' => [
+					'add_on' => [
 						1,2
 					],
 				],
@@ -144,7 +144,7 @@ class Media_model extends CI_Model
 					'admin_handling' => [
 						1,2
 					],
-					'add-on' => [
+					'add_on' => [
 						1,2,4,5
 					],
 				],
@@ -166,7 +166,7 @@ class Media_model extends CI_Model
 					'admin_handling' => [
 						1,2
 					],
-					'add-on' => [
+					'add_on' => [
 						1,2,3,4,5
 					],
 				]

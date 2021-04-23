@@ -358,7 +358,7 @@
 									<div class="col text-center">
 										<?php foreach ($this->media_model->posting() as $key => $value): ?>
 											<!-- <div class="col"> -->
-												<a href="#" class="btn btn-sm btn-<?php echo !in_array($key, $data['posting']) ? 'secondary' : 'info'; ?>" style="border-radius: 0.5rem; width: 32%;"><?= $value ?></a>
+												<a href="#" class="btn btn-sm btn-<?php echo !in_array($key, $data['desain_grafis']) ? 'secondary' : 'info'; ?>" style="border-radius: 0.5rem; width: 32%;"><?= $value ?></a>
 											<!-- </div> -->
 										<?php endforeach ?>
 									</div>
@@ -373,7 +373,7 @@
 									<div class="col">
 										<?php foreach ($this->media_model->fotografi() as $key => $value): ?>
 											<!-- <div class="col"> -->
-												<a href="#" class="btn btn-sm btn-<?php echo !in_array($key, $data['posting']) ? 'secondary' : 'info'; ?> mb-1" style="border-radius: 0.5rem; width: 32%;"><?= $value ?></a>
+												<a href="#" class="btn btn-sm btn-<?php echo !in_array($key, $data['fotografi']) ? 'secondary' : 'info'; ?> mb-1" style="border-radius: 0.5rem; width: 32%;"><?= $value ?></a>
 											<!-- </div> -->
 										<?php endforeach ?>
 									</div>
@@ -382,7 +382,7 @@
 						</div>
 						<div class="row">
 							<div class="col">
-								<span class="font-weight-bold">Posing</span>
+								<span class="font-weight-bold">Posting</span>
 								<div class="clearbox"></div>
 								<div class="row">
 									<div class="col">
@@ -403,7 +403,7 @@
 									<div class="col">
 										<?php foreach ($this->media_model->admin_handling() as $key => $value): ?>
 											<!-- <div class="col"> -->
-												<a href="#" class="btn btn-sm btn-<?php echo !in_array($key, $data['posting']) ? 'secondary' : 'info'; ?> mb-1" style="border-radius: 0.5rem; width: 32%;"><?= $value ?></a>
+												<a href="#" class="btn btn-sm btn-<?php echo !in_array($key, $data['admin_handling']) ? 'secondary' : 'info'; ?> mb-1" style="border-radius: 0.5rem; width: 32%;"><?= $value ?></a>
 											<!-- </div> -->
 										<?php endforeach ?>
 									</div>
@@ -418,7 +418,7 @@
 									<div class="col">
 										<?php foreach ($this->media_model->add_on() as$key =>  $value): ?>
 											<!-- <div class="col"> -->
-												<a href="#" class="btn btn-sm btn-<?php echo !in_array($key, $data['posting']) ? 'secondary' : 'info'; ?> mb-1" style="border-radius: 0.5rem; width: 32%;"><?= $value ?></a>
+												<a href="#" class="btn btn-sm btn-<?php echo !in_array($key, $data['add_on']) ? 'secondary' : 'info'; ?> mb-1" style="border-radius: 0.5rem; width: 32%;"><?= $value ?></a>
 											<!-- </div> -->
 										<?php endforeach ?>
 									</div>
