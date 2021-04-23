@@ -26,9 +26,9 @@
 		</div>
 		<div class="col text-center">
 			<div class="card">
-				<a href="#" data-toggle="modal" data-target="#sosmedModal" style="padding: 5px 0 0 0;">
-					<img src="<?php echo base_url('images/sosmed_disabled.png') ?>" class="img img-fluid img-circle">
-					<p class="disabled" style="text-align: center;font-size: 11px;">SOCIAL MEDIA<br>CAMPAIGN</p>
+				<a href="<?php echo base_url('home/sosmed') ?>" style="padding: 5px 0 0 0;">
+					<img src="<?php echo base_url('images/sosmed_active.png') ?>" class="img img-fluid img-circle">
+					<p style="text-align: center;font-size: 11px;">SOCIAL MEDIA<br>CAMPAIGN</p>
 				</a>
 			</div>
 			<div class="modal fade" id="sosmedModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

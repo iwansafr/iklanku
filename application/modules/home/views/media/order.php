@@ -35,6 +35,9 @@
       text-align: right;
       top: 50%;
   }
+  .v3{
+   	font-size: 3vw;
+  }
 </style>
 <div class="container mt-5 pt-5 " id="pageSewa">
 	<?php $get = $this->input->get(); ?>
@@ -47,7 +50,9 @@
 				Form Pasang Iklan <?php echo $this->media_model->media_type()[$data['tipe']] ?>
 			</span>
 			<hr>
-			<span class="font-weight-bold"><?= $data['nama'] ?></span>
+			<?php if ($data['tipe'] < 3): ?>
+				<span class="font-weight-bold"><?= $data['nama'] ?></span>
+			<?php endif ?>
 		</div>
 	</div>
 	<?php if (!empty($data)): ?>
@@ -331,6 +336,102 @@
 
 				
 			</script>		
+		<?php elseif ($data['tipe'] == 3): ?>		    
+			<form action="" method="get">
+				<div class="card card-default" style="border-radius: 0.5rem;">
+					<div class="card-body">
+						<div class="row">
+							<div class="col">
+								<img src="<?= $data['photo'] ?>" class="img img-fluid" alt="">
+							</div>
+							<div class="col" style="margin: auto;">
+								<span class="font-weight-bold"><?= $data['nama'] ?></span>
+								<div class="clearbox"></div>
+								<span class="v3"><?php echo $data['deskripsi'] ?></span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col mb-2">
+								<span class="font-weight-bold">Desain Grafis</span>
+								<div class="clearbox"></div>
+								<div class="row">
+									<div class="col text-center">
+										<?php foreach ($this->media_model->posting() as $key => $value): ?>
+											<!-- <div class="col"> -->
+												<a href="#" class="btn btn-sm btn-<?php echo !in_array($key, $data['posting']) ? 'secondary' : 'info'; ?>" style="border-radius: 0.5rem; width: 32%;"><?= $value ?></a>
+											<!-- </div> -->
+										<?php endforeach ?>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<span class="font-weight-bold">Fotografi</span>
+								<div class="clearbox"></div>
+								<div class="row">
+									<div class="col">
+										<?php foreach ($this->media_model->fotografi() as $key => $value): ?>
+											<!-- <div class="col"> -->
+												<a href="#" class="btn btn-sm btn-<?php echo !in_array($key, $data['posting']) ? 'secondary' : 'info'; ?> mb-1" style="border-radius: 0.5rem; width: 32%;"><?= $value ?></a>
+											<!-- </div> -->
+										<?php endforeach ?>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<span class="font-weight-bold">Posing</span>
+								<div class="clearbox"></div>
+								<div class="row">
+									<div class="col">
+										<?php foreach ($this->media_model->posting() as $key => $value): ?>
+											<!-- <div class="col"> -->
+												<a href="#" class="btn btn-sm btn-<?php echo !in_array($key, $data['posting']) ? 'secondary' : 'info'; ?> mb-1" style="border-radius: 0.5rem; width: 32%;"><?= $value ?></a>
+											<!-- </div> -->
+										<?php endforeach ?>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<span class="font-weight-bold">Admin Handling</span>
+								<div class="clearbox"></div>
+								<div class="row">
+									<div class="col">
+										<?php foreach ($this->media_model->admin_handling() as $key => $value): ?>
+											<!-- <div class="col"> -->
+												<a href="#" class="btn btn-sm btn-<?php echo !in_array($key, $data['posting']) ? 'secondary' : 'info'; ?> mb-1" style="border-radius: 0.5rem; width: 32%;"><?= $value ?></a>
+											<!-- </div> -->
+										<?php endforeach ?>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<span class="font-weight-bold">Add On</span>
+								<div class="clearbox"></div>
+								<div class="row">
+									<div class="col">
+										<?php foreach ($this->media_model->add_on() as$key =>  $value): ?>
+											<!-- <div class="col"> -->
+												<a href="#" class="btn btn-sm btn-<?php echo !in_array($key, $data['posting']) ? 'secondary' : 'info'; ?> mb-1" style="border-radius: 0.5rem; width: 32%;"><?= $value ?></a>
+											<!-- </div> -->
+										<?php endforeach ?>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<br>
+				<button class="btn btn-sm btn-primary btn-lg" id="submit" style="border-radius: 0.5rem;width: 100%;background-color:#0872ba;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
+					PILIH PAKET
+				</button>
+			</form>
 		<?php endif ?>
 	<?php else: ?>
 		<?php msg('Mohon Maaf Halaman yang anda minta tidak tersedia','info') ?>

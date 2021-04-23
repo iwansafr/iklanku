@@ -4,36 +4,173 @@ class Media_model extends CI_Model
 {
 	public function get_list($tipe = 1)
 	{
-		$form = new zea();
-		$form->init('roll');
-		$form->setTable('media');
+		if($tipe < 3){
+			$form = new zea();
+			$form->init('roll');
+			$form->setTable('media');
 
-		$where = '';
-		if(!empty($_GET['nama']))
-		{
-			$where = ' nama LIKE "%'.$this->db->escape_like_str($_GET['nama']).'%"';
-		}
-		
-		if(!empty($_GET['tipe']))
-		{
-			$tipe = @intval($_GET['tipe']);
-		}
+			$where = '';
+			if(!empty($_GET['nama']))
+			{
+				$where = ' nama LIKE "%'.$this->db->escape_like_str($_GET['nama']).'%"';
+			}
+			
+			if(!empty($_GET['tipe']))
+			{
+				$tipe = @intval($_GET['tipe']);
+			}
 
-		if(!empty($where))
-		{
-			$where .= ' AND tipe = '.$tipe;
-		}else{
-			$where = ' tipe = '.$tipe;
-		}
+			if(!empty($where))
+			{
+				$where .= ' AND tipe = '.$tipe;
+			}else{
+				$where = ' tipe = '.$tipe;
+			}
 
-		$form->setWhere($where);
-		$form->addInput('id','plaintext');
-		$form->addInput('nama','plaintext');
-		$form->addInput('tarif','plaintext');
-		$form->addInput('alamat','plaintext');
-		$form->addInput('photo','plaintext');
-		// $form->setLimit(2);
-		return $form->getData();
+			$form->setWhere($where);
+			$form->addInput('id','plaintext');
+			$form->addInput('nama','plaintext');
+			$form->addInput('tarif','plaintext');
+			$form->addInput('alamat','plaintext');
+			$form->addInput('photo','plaintext');
+			// $form->setLimit(2);
+			return $form->getData();
+		}else if($tipe ==3){
+			$data['data'] = $this->paket_sosmed();
+			$data['pagination'] = null;
+			return $data;
+		}
+	}
+	public function fotografi()
+	{
+		return [
+			'1' => 'Venue',
+			'2' => 'Produk 10',
+			'3' => 'Promo',
+			'4' => 'Activity',
+		];
+	}
+
+	//sama dengan desain grafis
+	public function posting()
+	{
+		return [
+			'1' => 'Fedd',
+			'2' => 'Story',
+			'3' => 'Sorotan',
+		];
+	}
+	public function admin_handling()
+	{
+		return [
+			'1' => 'Comment',
+			'2' => 'Messaging',
+		];
+	}
+	public function add_on()
+	{
+		return [
+			'1' => 'Promoted',
+			'2' => 'Feed 3x',
+			'3' => 'Story',
+			'4' => 'Selebgram',
+			'5' => 'Lokal 1x',
+			'6' => 'National',
+		];
+	}
+
+	public function paket_sosmed()
+	{
+		return [
+				'1' => [
+					'id' => '1',
+					'tipe' => '3',
+					'nama' => 'Paket Bronze',
+					'deskripsi' => 'lorem ipsum',
+					'photo' => 'https://www.designvamp.com/wp-content/uploads/2015/07/Bronze-Package-Graphics-Design.png',
+					'desain_grafis' => [
+						1
+					],
+					'fotografi' => [
+						1,2
+					],
+					'posting' => [
+						1,2
+					],
+					'admin_handling' => [
+
+					],
+					'add-on' => [
+
+					],
+				],
+				'2' => [
+					'id' => '2',
+					'tipe' => '3',
+					'nama' => 'Paket Silver',
+					'deskripsi' => 'lorem ipsum',
+					'photo' => 'https://www.designvamp.com/wp-content/uploads/2015/07/Bronze-Package-Graphics-Design.png',
+					'desain_grafis' => [
+						1,2
+					],
+					'fotografi' => [
+						1,2,3
+					],
+					'posting' => [
+						1,2
+					],
+					'admin_handling' => [
+
+					],
+					'add-on' => [
+						1,2
+					],
+				],
+				'3' => [
+					'id' => '3',
+					'tipe' => '3',
+					'nama' => 'Paket Gold',
+					'deskripsi' => 'lorem ipsum',
+					'photo' => 'https://www.designvamp.com/wp-content/uploads/2015/07/Bronze-Package-Graphics-Design.png',
+					'desain_grafis' => [
+						1,2,3
+					],
+					'fotografi' => [
+						1,2,3,4
+					],
+					'posting' => [
+						1,2,3
+					],
+					'admin_handling' => [
+						1,2
+					],
+					'add-on' => [
+						1,2,4,5
+					],
+				],
+				'4' => [
+					'id' => '4',
+					'tipe' => '3',
+					'nama' => 'Paket Ultimate',
+					'deskripsi' => 'lorem ipsum',
+					'photo' => 'https://www.designvamp.com/wp-content/uploads/2015/07/Bronze-Package-Graphics-Design.png',
+					'desain_grafis' => [
+						1,2,3
+					],
+					'fotografi' => [
+						1,2,3,4
+					],
+					'posting' => [
+						1,2,3
+					],
+					'admin_handling' => [
+						1,2
+					],
+					'add-on' => [
+						1,2,3,4,5
+					],
+				]
+			];
 	}
 	public function send_sewa()
 	{
@@ -223,7 +360,8 @@ class Media_model extends CI_Model
 	{
 		return [
 			'1' => 'Radio',
-			'2' => 'Koran'
+			'2' => 'Koran',
+			'3' => 'Sosmed'
 		];
 	}
 

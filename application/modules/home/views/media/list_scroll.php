@@ -1,7 +1,8 @@
 <?php if (!empty($data)): ?>
 	<div id="product" style="padding: 20px;">
 		<?php foreach ($data['data'] as $key => $value): ?>
-			<a href="<?php echo base_url('home/media/order/'.$value['id']) ?>" >
+			<?php $tipe = !empty($value['tipe']) ? '/'.$value['tipe'] : ''; ?>
+			<a href="<?php echo base_url('home/media/order/'.$value['id'].$tipe) ?>" >
 				<div class="card mb-3 product_box">
 				  <div class="card-body">
 						<div class="row">

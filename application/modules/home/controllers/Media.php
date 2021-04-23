@@ -21,6 +21,7 @@ class Media extends CI_Controller
 			return match($type){
 				'radio' => 1,
 				'koran' => 2,
+				'sosmed' => 3,
 				default => 1,
 			};
 		}else{
@@ -74,10 +75,14 @@ class Media extends CI_Controller
 	{
 		$this->load->view('index');
 	}
-	public function order($id = 0)
+	public function order($id = 0, $tipe = 0)
 	{
 		$this->esg->add_css(base_url('templates/iklanku/css/detail.css'));
-		$data = $this->db->query('SELECT * FROM media WHERE id = ? ',$id)->row_array();
+		if ($tipe < 3) {
+			$data = $this->db->query('SELECT * FROM media WHERE id = ? ',$id)->row_array();
+		}else if($tipe ==3){
+			$data = $this->media_model->paket_sosmed()[$id];
+		}
 		if($data['tipe'] == 1){
 			$this->media_model->send_sewa();
 		}else if($data['tipe'] == 2){

@@ -31,9 +31,10 @@
 	<?php $get = $this->input->get(); ?>
 	<?php $user = $this->session->userdata(base_url().'_logged_in') ?>
 	<?php $bank = $this->db->get_where('bank_account')->result_array(); ?>
+	<?php $back_link = $data['tipe'] == '1' ? 'pesanan_radio' : 'pesanan_koran'; ?>
 	<div class="title text-center">
 		<div class="container">
-			<a href="<?= base_url('home/media/pesanan_radio') ?>" class="float-left">
+			<a href="<?= base_url('home/media/'.$back_link) ?>" class="float-left">
 				<i class="fa fa-arrow-left"></i>
 			</a>
 			<span class="font-weight-bold">

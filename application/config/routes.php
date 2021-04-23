@@ -74,6 +74,7 @@ $route['content']                          = 'home/content/list';
 $route['content/popular']                  = 'home/content/list';
 $route['home/koran']                       = 'home/media/tipe/koran';
 $route['home/radio']                       = 'home/media/tipe/radio';
+$route['home/sosmed']                      = 'home/media/tipe/sosmed';
 $route['404_override']                     = 'home/e';
 $route['(:any).html']                      = 'home/content/detail';
 $route['category/(:any).html']             = 'home/content/list';
