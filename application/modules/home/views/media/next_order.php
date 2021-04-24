@@ -107,7 +107,7 @@
 		
 		<?php elseif ($data['tipe'] == 3): ?>
 			 <button class="btn btn-secondary mb-3" style="border-radius: 0.5rem;width: 100%;background-color:#0872ba;line-height: 8vw;font-size: 3.5vw;font-weight: bold;"><?php echo $data['nama'] ?></button>
-			 <form action="<?php echo base_url('home/media/confirmation_order/'.$data['id']) ?>" method="get">
+			 <form action="<?php echo base_url('home/media/confirmation_order/'.$data['id'].'/'.$data['tipe']) ?>" method="get">
 				<div class="form-group">
 					<select name="durasi" id="durasi" class="form-control custom" required>
 						<option value="">DURASI</option>

@@ -110,15 +110,19 @@ class Media extends CI_Controller
 		}
 		$this->load->view('index',['data'=>$data]);
 	}
-	public function confirmation_order($id=0)
+	public function confirmation_order($id=0, $tipe = 0)
 	{
 		$thumbnail = '';
-		if (!empty($_FILES['photo'])) {
-			$file = file_get_contents($_FILES['photo']['tmp_name']);
-			$file_photo = base64_encode($file);
-			$thumbnail = 'data:image/*;base64,'.$file_photo;
+		if($tipe == 3){
+			$data = $this->media_model->paket_sosmed()[$id];
+		}else{
+			if (!empty($_FILES['photo'])) {
+				$file = file_get_contents($_FILES['photo']['tmp_name']);
+				$file_photo = base64_encode($file);
+				$thumbnail = 'data:image/*;base64,'.$file_photo;
+			}
+			$data = $this->db->query('SELECT * FROM media WHERE id = ? ',$id)->row_array();
 		}
-		$data = $this->db->query('SELECT * FROM media WHERE id = ? ',$id)->row_array();
 		$this->load->view('index',['data'=>$data,'thumbnail'=>$thumbnail]);
 	}
 
