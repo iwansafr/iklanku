@@ -2,6 +2,16 @@
 
 class Media_model extends CI_Model
 {
+	public function bulan()
+	{
+		return 
+		[
+			'1' => '1 Bulan',
+			'2' => '2 Bulan',
+			'3' => '3 Bulan',
+		];
+	}
+
 	public function get_list($tipe = 1)
 	{
 		if($tipe < 3){
