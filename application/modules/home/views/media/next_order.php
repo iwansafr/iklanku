@@ -26,16 +26,29 @@
 </style>
 <div class="container mt-5 pt-5 " id="pageSewa">
 	<?php $get = $this->input->get(); ?>
+	<?php 
+	$url_get = '';
+	$i = 0;
+	foreach ($get as $key => $value)
+	{
+		if($i > 0)
+		{
+			$url_get .= '&';
+		}
+		$url_get .= $key.'='.$value;
+		$i++;
+	}
+	$url_get = !empty($url_get) ? '?'.$url_get : '';
+	?>
 	<div class="title text-center">
 		<div class="container">
-			<a href="<?= base_url('home/media/order/'.$data['id'].'?tipe='.$get['tipe'].'&time='.$get['time'].'&durasi='.$get['durasi'].'&masa='.$get['masa']) ?>" class="float-left">
+			<a href="<?= base_url('home/media/next_order/'.$data['id'].$url_get) ?>" class="float-left">
 				<i class="fa fa-arrow-left"></i>
 			</a>
 			<span class="font-weight-bold">
-				Form Pasang Iklan Radio
+				Form Order Iklan <?php echo $this->media_model->media_type()[$data['tipe']] ?>
 			</span>
 			<hr>
-			<span class="font-weight-bold"><?= $data['nama'] ?></span>
 		</div>
 	</div>
 	<?php if (!empty($data)): ?>

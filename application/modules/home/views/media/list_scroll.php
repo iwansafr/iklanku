@@ -1,13 +1,23 @@
 <?php if (!empty($data)): ?>
 	<div id="product" style="padding: 20px;">
 		<?php foreach ($data['data'] as $key => $value): ?>
+			<?php
+			if(!empty($value['tipe']))
+			{
+				if($value['tipe'] == 3){
+					$image_link = $value['photo'];
+				}
+			}else{
+				$image_link = image_module('media',$value['id'].'/'.$value['photo']);
+			}
+			?>
 			<?php $tipe = !empty($value['tipe']) ? '/'.$value['tipe'] : ''; ?>
 			<a href="<?php echo base_url('home/media/order/'.$value['id'].$tipe) ?>" >
 				<div class="card mb-3 product_box">
 				  <div class="card-body">
 						<div class="row">
 							<div class="col-5">
-								<img style="border-top-right-radius: 10%;border-top-left-radius: 10%; object-fit: contain;" src="<?php echo image_module('media',$value['id'].'/'.$value['photo']) ?>" class="card-img-top" alt="...">
+								<img style="border-top-right-radius: 10%;border-top-left-radius: 10%; object-fit: contain;" src="<?php echo $image_link ?>" class="card-img-top" alt="...">
 							</div>
 							<div class="col-7" style="margin: auto;">
 								<span class="align-middle"><?= $value['nama'] ?></span>

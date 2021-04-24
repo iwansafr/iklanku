@@ -109,7 +109,7 @@ class Media_model extends CI_Model
 					'tipe' => '3',
 					'nama' => 'Paket Silver',
 					'deskripsi' => 'lorem ipsum',
-					'photo' => 'https://www.designvamp.com/wp-content/uploads/2015/07/Bronze-Package-Graphics-Design.png',
+					'photo' => 'https://www.designvamp.com/wp-content/uploads/2015/07/Silver-Package-Graphics-Design.png',
 					'desain_grafis' => [
 						1,2
 					],
@@ -131,7 +131,7 @@ class Media_model extends CI_Model
 					'tipe' => '3',
 					'nama' => 'Paket Gold',
 					'deskripsi' => 'lorem ipsum',
-					'photo' => 'https://www.designvamp.com/wp-content/uploads/2015/07/Bronze-Package-Graphics-Design.png',
+					'photo' => 'https://www.designvamp.com/wp-content/uploads/2015/07/Gold-Package-Graphics-Design.png',
 					'desain_grafis' => [
 						1,2,3
 					],
@@ -153,7 +153,7 @@ class Media_model extends CI_Model
 					'tipe' => '3',
 					'nama' => 'Paket Ultimate',
 					'deskripsi' => 'lorem ipsum',
-					'photo' => 'https://www.designvamp.com/wp-content/uploads/2015/07/Bronze-Package-Graphics-Design.png',
+					'photo' => 'https://www.designvamp.com/wp-content/uploads/2015/07/Platinum-Package-Graphics-Design.png',
 					'desain_grafis' => [
 						1,2,3
 					],

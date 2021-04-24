@@ -337,7 +337,7 @@
 				
 			</script>		
 		<?php elseif ($data['tipe'] == 3): ?>		    
-			<form action="" method="get">
+			<form action="<?php echo base_url('home/media/next_order/'.$data['id'].'/'.$data['tipe']) ?>" method="get">
 				<div class="card card-default" style="border-radius: 0.5rem;">
 					<div class="card-body">
 						<div class="row">

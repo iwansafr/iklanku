@@ -101,9 +101,13 @@ class Media extends CI_Controller
 		}
 		$this->load->view('index',['data'=>$data]);
 	}
-	public function next_order($id = 0)
+	public function next_order($id = 0, $tipe =0)
 	{
-		$data = $this->db->query('SELECT * FROM media WHERE id = ? ',$id)->row_array();
+		if($tipe <3){
+			$data = $this->db->query('SELECT * FROM media WHERE id = ? ',$id)->row_array();
+		}else if($tipe == 3){
+			$data = $this->media_model->paket_sosmed()[$id];
+		}
 		$this->load->view('index',['data'=>$data]);
 	}
 	public function confirmation_order($id=0)
