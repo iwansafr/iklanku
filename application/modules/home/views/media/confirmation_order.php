@@ -58,7 +58,7 @@
 	</div>
 	<?php if (!empty($data)): ?>
 		<?php if ($data['tipe'] == 1): ?>
-			<form action="<?php echo base_url('home/media/finish_order/'.$data['id']) ?>" method="post">
+			<form action="<?php echo base_url('home/media/finish_order/'.$data['id'].'/'.$data['tipe']) ?>" method="post">
 				<input type="hidden" name="tipe" value="<?php echo $get['tipe'] ?>">
 				<input type="hidden" name="time" value="<?php echo $get['time'] ?>">
 				<input type="hidden" name="durasi" value="<?php echo $get['durasi'] ?>">
@@ -139,7 +139,7 @@
 				</button>
 			</form>
 		<?php elseif($data['tipe'] == 2): ?>
-			<form action="<?php echo base_url('home/media/finish_order/'.$data['id']) ?>" method="post">
+			<form action="<?php echo base_url('home/media/finish_order/'.$data['id'].'/'.$data['tipe']) ?>" method="post">
 				<input type="hidden" name="tipe" value="<?php echo $get['tipe'] ?>">
 				<input type="hidden" name="kolom" value="<?php echo $get['kolom'] ?>">
 				<input type="hidden" name="durasi" value="<?php echo $get['durasi'] ?>">
@@ -228,7 +228,7 @@
 				</div>
 			</form>
 		<?php elseif ($data['tipe'] == 3): ?>
-			<form action="<?php echo base_url('home/media/finish_order/'.$data['id']) ?>" method="post">
+			<form action="<?php echo base_url('home/media/finish_order/'.$data['id'].'/'.$data['tipe']) ?>" method="post">
 				<?php foreach ($get as $key => $value): ?>
 					<input type="hidden" name="<?php echo $key ?>" value="<?php echo $value ?>">
 				<?php endforeach ?>
@@ -255,7 +255,7 @@
 						<div class="row">
 							<div class="col">
 								<div class="form-group">
-									<span style="font-size: 3vw;color: grey;">Tipe Iklan</span><br>
+									<span style="font-size: 3vw;color: grey;">Nama Paket</span><br>
 									<span style="font-size: 3vw;">
 										<?php echo $data['nama'].' / '.$this->media_model->bulan()[$get['durasi']] ?>
 									</span>
@@ -265,9 +265,9 @@
 						<div class="row">
 							<div class="col">
 								<div class="form-group">
-									<span style="font-size: 3vw;color: grey;">Masa Tayang</span><br>
+									<span style="font-size: 3vw;color: grey;">Nama Usaha / Produk</span><br>
 									<span style="font-size: 3vw;">
-										<?php echo $get['durasi'].' '.$this->media_model->bulan()[$get['durasi']] ?>
+										<?php echo $get['nama'] ?>
 									</span>
 								</div>
 							</div>
@@ -275,12 +275,39 @@
 						<div class="row">
 							<div class="col">
 								<div class="form-group">
-									<span style="font-size: 3vw;color: grey;">Isi Iklan</span><br>
-									<p style="font-size: 3vw;">
-										<?php if (!empty($thumbnail)): ?>
-											<img src="<?php echo $thumbnail ?>" alt="" class="img img-fluid">
-										<?php endif ?>
-									</p>
+									<span style="font-size: 3vw;color: grey;">Alamat</span><br>
+									<span style="font-size: 3vw;">
+										<?php echo $get['alamat'] ?>
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<div class="form-group">
+									<span style="font-size: 3vw;color: grey;">No. HP</span><br>
+									<span style="font-size: 3vw;">
+										<?php echo $get['hp'] ?>
+									</span>
+								</div>
+							</div>
+							<div class="col">
+								<div class="form-group">
+									<span style="font-size: 3vw;color: grey;">Instagram</span><br>
+									<span style="font-size: 3vw;">
+										<?php echo $get['ig'] ?>
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<div class="form-group">
+									<span style="font-size: 3vw;">
+										Total Desain & Post Feed : 12
+										<br>
+										Report & Support by Email & WA
+									</span>
 								</div>
 							</div>
 						</div>

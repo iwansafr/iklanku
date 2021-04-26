@@ -126,7 +126,7 @@ class Media extends CI_Controller
 		$this->load->view('index',['data'=>$data,'thumbnail'=>$thumbnail]);
 	}
 
-	public function finish_order($id=0)
+	public function finish_order($id=0, $tipe = 0)
 	{
 		$user = $this->session->userdata(base_url().'_logged_in');
 		$data = $this->db->query('SELECT * FROM media WHERE id = ? ',$id)->row_array();
