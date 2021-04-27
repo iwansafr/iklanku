@@ -5,3 +5,8 @@ UPDATE `iklan` SET `ukuran` = 1;
 ALTER TABLE `iklan` ADD `jenis` TINYINT(2) NOT NULL AFTER `gallery`;
 ALTER TABLE `iklan` CHANGE `jenis` `jenis` TINYINT NOT NULL DEFAULT '1';
 ALTER TABLE `user` ADD `phone` VARCHAR(20) NOT NULL AFTER `password`;
+
+-- after order_koran
+ALTER TABLE `media` CHANGE `tipe` `tipe` TINYINT(1) NOT NULL COMMENT '1 = radio, 2 = koran, 3= sosmed';
+ALTER TABLE `iklanku`.`media` 
+ADD COLUMN `param` TEXT NOT NULL AFTER `photo`;

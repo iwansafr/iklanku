@@ -19,6 +19,11 @@ class Media extends CI_Controller
 		$type = $this->getType($type);
 		$this->load->view('index',['type' => $type,'label'=>$label]);
 	}
+	public function set_param($id = 0)
+	{
+		$data = $this->db->get_where('media',['id'=>$id])->row_array();
+		$this->load->view('index',['data'=>$data,'id'=>$id]);
+	}
 	public function list($type = 'radio')
 	{
 		$label = $type;
@@ -42,6 +47,7 @@ class Media extends CI_Controller
 			return match($type){
 				'radio' => 1,
 				'koran' => 2,
+				'sosmed' => 3,
 				default => 1,
 			};
 		}else{

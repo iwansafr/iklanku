@@ -60,7 +60,6 @@ class Media_model extends CI_Model
 			'4' => 'Activity',
 		];
 	}
-
 	//sama dengan desain grafis
 	public function posting()
 	{

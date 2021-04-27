@@ -222,10 +222,21 @@ class Zea
 		  {
 		    $data[$key] = $value;
 		  }
-		  $param = $this->CI->db->query('SELECT * FROM '.$table.' WHERE name = ?', $name)->row_array();
+		  if(!empty($this->id))
+		  {
+		  	$param = $this->CI->db->query('SELECT * FROM '.$table.' WHERE id = ?', $this->id)->row_array();
+		  }else{
+		  	$param = $this->CI->db->query('SELECT * FROM '.$table.' WHERE name = ?', $name)->row_array();
+		  }
 		  if(!empty($param))
 		  {
-		    $status = $this->CI->db->update($table, $data, "`name` = '{$name}'");
+		  	if(!empty($this->id))
+		  	{
+		  		unset($data['name']);
+		    	$status = $this->CI->db->update($table, $data, "`id` = '{$this->id}'");
+		  	}else{
+		    	$status = $this->CI->db->update($table, $data, "`name` = '{$name}'");
+		  	}
 		  }else{
 		    $status = $this->CI->db->insert($table, $data);
 		    $last_id = $this->CI->db->insert_id();
@@ -512,7 +523,7 @@ class Zea
 		}
 	}
 
-	public function setMultiSelect($field = '', $table = '', $col = '')
+	public function setMultiSelect($field = '', $table = '', $col = '', $where = '')
 	{
 		if(!empty($field) && !empty($table) && !empty($col))
 		{
@@ -524,7 +535,8 @@ class Zea
 					{
 						$this->multiselect[$field]['data'] = $table;
 					}else{
-						$this->multiselect[$field]['data'] = $this->get_all("SELECT {$col} FROM `{$table}` WHERE 1");
+						$where = !empty($where) ? $where : '1';
+						$this->multiselect[$field]['data'] = $this->get_all("SELECT {$col} FROM `{$table}` WHERE {$where}");
 					}
 				}
 			}
@@ -1405,18 +1417,28 @@ class Zea
 		return $data;
 	}
 
+	public function set_param_field($field = 'value')
+	{
+		$this->param_field = $field;
+	}
+
 	public function getParam()
 	{
-		if(!empty($this->paramname))
+		if(!empty($this->id))
 		{
-			$data = $this->CI->db->query('SELECT '.$this->param_field.' FROM '.$this->table.' WHERE name = ?', $this->paramname)->row_array();
-			// 
-			if(empty($data) && !empty($this->id))
+			$data = $this->CI->db->query('SELECT '.$this->param_field.' FROM '.$this->table.' WHERE id = ?', $this->id)->row_array();
+		}else{
+			if(!empty($this->paramname))
 			{
-				$data = $this->CI->db->query('SELECT '.$this->param_field.' FROM '.$this->table.' WHERE id = ?', $this->id)->row_array();
+				$data = $this->CI->db->query('SELECT '.$this->param_field.' FROM '.$this->table.' WHERE name = ?', $this->paramname)->row_array();
+				// 
+				if(empty($data))
+				{
+					$data = $this->CI->db->query('SELECT '.$this->param_field.' FROM '.$this->table.' WHERE id = ?', $this->id)->row_array();
+				}
 			}
-			return $data;
 		}
+		return $data;
 	}
 
 	public function before($func)
