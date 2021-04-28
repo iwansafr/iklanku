@@ -21,6 +21,7 @@ class Media extends CI_Controller
 	}
 	public function set_param($id = 0)
 	{
+		$this->esg_model->set_nav_title('media');
 		$data = $this->db->get_where('media',['id'=>$id])->row_array();
 		$this->load->view('index',['data'=>$data,'id'=>$id]);
 	}
