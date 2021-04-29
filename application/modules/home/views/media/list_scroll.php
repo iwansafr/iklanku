@@ -2,14 +2,17 @@
 	<div id="product" style="padding: 20px;">
 		<?php foreach ($data['data'] as $key => $value): ?>
 			<?php
-			if(!empty($value['tipe']))
-			{
-				if($value['tipe'] == 3){
-					$image_link = $value['photo'];
-				}
-			}else{
-				$image_link = image_module('media',$value['id'].'/'.$value['photo']);
-			}
+			// if(!empty($value['tipe']))
+			// {
+			// 	if($value['tipe'] == 3){
+			// 		$image_link = $value['photo'];
+			// 	}else{
+			// 		$image_link = image_module('media',$value['id'].'/'.$value['photo']);
+			// 	}
+			// }else{
+			// 	$image_link = image_module('media',$value['id'].'/'.$value['photo']);
+			// }
+			$image_link = image_module('media',$value['id'].'/'.$value['photo']);
 			?>
 			<?php $tipe = !empty($value['tipe']) ? '/'.$value['tipe'] : ''; ?>
 			<a href="<?php echo base_url('home/media/order/'.$value['id'].$tipe) ?>" >

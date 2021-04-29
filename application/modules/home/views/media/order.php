@@ -347,7 +347,7 @@
 							<div class="col" style="margin: auto;">
 								<span class="font-weight-bold"><?= $data['nama'] ?></span>
 								<div class="clearbox"></div>
-								<span class="v3"><?php echo $data['deskripsi'] ?></span>
+								<span class="v3"><?php echo $data['alamat'] ?></span>
 							</div>
 						</div>
 						<div class="row">

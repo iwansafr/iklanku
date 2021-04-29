@@ -78,10 +78,17 @@ class Media extends CI_Controller
 	public function order($id = 0, $tipe = 0)
 	{
 		$this->esg->add_css(base_url('templates/iklanku/css/detail.css'));
-		if ($tipe < 3) {
+		// if ($tipe < 3) {
 			$data = $this->db->query('SELECT * FROM media WHERE id = ? ',$id)->row_array();
-		}else if($tipe ==3){
-			$data = $this->media_model->paket_sosmed()[$id];
+		// }else if($tipe ==3){
+		// 	$data = $this->media_model->paket_sosmed()[$id];
+		// }
+		if($data['tipe'] == 3){
+			$data['desain_grafis'] = json_decode($data['param'],1)['desain_grafis'];
+			$data['fotografi'] = json_decode($data['param'],1)['fotografi'];
+			$data['posting'] = json_decode($data['param'],1)['posting'];
+			$data['admin_handling'] = json_decode($data['param'],1)['admin_handling'];
+			$data['add_on'] = json_decode($data['param'],1)['add_on'];
 		}
 		if($data['tipe'] == 1){
 			$this->media_model->send_sewa();

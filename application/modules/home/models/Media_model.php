@@ -14,7 +14,7 @@ class Media_model extends CI_Model
 
 	public function get_list($tipe = 1)
 	{
-		if($tipe < 3){
+		// if($tipe < 3){
 			$form = new zea();
 			$form->init('roll');
 			$form->setTable('media');
@@ -39,53 +39,67 @@ class Media_model extends CI_Model
 
 			$form->setWhere($where);
 			$form->addInput('id','plaintext');
+			$form->addInput('tipe','plaintext');
 			$form->addInput('nama','plaintext');
 			$form->addInput('tarif','plaintext');
 			$form->addInput('alamat','plaintext');
 			$form->addInput('photo','plaintext');
 			// $form->setLimit(2);
 			return $form->getData();
-		}else if($tipe ==3){
-			$data['data'] = $this->paket_sosmed();
-			$data['pagination'] = null;
-			return $data;
+		// }else if($tipe ==3){
+		// 	$data['data'] = $this->paket_sosmed();
+		// 	$data['pagination'] = null;
+			// return $data;
+		// }
+	}
+	public function media_options($tipe = 1)
+	{
+		$data = $this->db->query('SELECT id,title FROM media_options WHERE tipe = ? ORDER BY id ASC',$tipe)->result_array();
+		$output = [];
+		foreach ($data as $key => $value) {
+			$output[$value['id']] = $value['title'];
 		}
+		return $output;
 	}
 	public function fotografi()
 	{
-		return [
-			'1' => 'Venue',
-			'2' => 'Produk 10',
-			'3' => 'Promo',
-			'4' => 'Activity',
-		];
+		// return [
+		// 	'1' => 'Venue',
+		// 	'2' => 'Produk 10',
+		// 	'3' => 'Promo',
+		// 	'4' => 'Activity',
+		// ];
+		return $this->media_options(2);
 	}
 	//sama dengan desain grafis
 	public function posting()
 	{
-		return [
-			'1' => 'Fedd',
-			'2' => 'Story',
-			'3' => 'Sorotan',
-		];
+		// return [
+		// 	'1' => 'Fedd',
+		// 	'2' => 'Story',
+		// 	'3' => 'Sorotan',
+		// ];
+		return $this->media_options(1);
 	}
 	public function admin_handling()
 	{
-		return [
-			'1' => 'Comment',
-			'2' => 'Messaging',
-		];
+		return $this->media_options(3);
+		// return [
+		// 	'1' => 'Comment',
+		// 	'2' => 'Messaging',
+		// ];
 	}
 	public function add_on()
 	{
-		return [
-			'1' => 'Promoted',
-			'2' => 'Feed 3x',
-			'3' => 'Story',
-			'4' => 'Selebgram',
-			'5' => 'Lokal 1x',
-			'6' => 'National',
-		];
+		return $this->media_options(4);
+		// return [
+		// 	'1' => 'Promoted',
+		// 	'2' => 'Feed 3x',
+		// 	'3' => 'Story',
+		// 	'4' => 'Selebgram',
+		// 	'5' => 'Lokal 1x',
+		// 	'6' => 'National',
+		// ];
 	}
 
 	public function paket_sosmed()
