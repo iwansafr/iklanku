@@ -342,7 +342,7 @@
 					<div class="card-body">
 						<div class="row">
 							<div class="col">
-								<img src="<?= $data['photo'] ?>" class="img img-fluid" alt="">
+								<img src="<?= image_module('media',$data['id'].'/'.$data['photo']) ?>" class="img img-fluid" alt="">
 							</div>
 							<div class="col" style="margin: auto;">
 								<span class="font-weight-bold"><?= $data['nama'] ?></span>
