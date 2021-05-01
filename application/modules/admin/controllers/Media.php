@@ -45,27 +45,27 @@ class Media extends CI_Controller
 	{
 		if(!empty($type))
 		{
-			// return match($type){
-			// 	'radio' => 1,
-			// 	'koran' => 2,
-			// 	'sosmed' => 3,
-			// 	default => 1,
-			// };
-			switch($type){
-				case 'radio':
-					return 1;
-				break;
-				case 'koran':
-					return 2;
-				break;
-				case 'sosmed':
-					return 3;
-				break;
-				default:
-					return 1;
-				break;
+			return match($type){
+				'radio' => 1,
+				'koran' => 2,
+				'sosmed' => 3,
+				default => 1,
+			};
+			// switch($type){
+			// 	case 'radio':
+			// 		return 1;
+			// 	break;
+			// 	case 'koran':
+			// 		return 2;
+			// 	break;
+			// 	case 'sosmed':
+			// 		return 3;
+			// 	break;
+			// 	default:
+			// 		return 1;
+			// 	break;
 
-			}
+			// }
 		}else{
 			return 1;
 		}
