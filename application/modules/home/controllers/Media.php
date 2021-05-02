@@ -125,26 +125,18 @@ class Media extends CI_Controller
 	}
 	public function next_order($id = 0, $tipe =0)
 	{
-		if($tipe <3){
-			$data = $this->db->query('SELECT * FROM media WHERE id = ? ',$id)->row_array();
-		}else if($tipe == 3){
-			$data = $this->media_model->paket_sosmed()[$id];
-		}
+		$data = $this->db->query('SELECT * FROM media WHERE id = ? ',$id)->row_array();
 		$this->load->view('index',['data'=>$data]);
 	}
 	public function confirmation_order($id=0, $tipe = 0)
 	{
 		$thumbnail = '';
-		if($tipe == 3){
-			$data = $this->media_model->paket_sosmed()[$id];
-		}else{
-			if (!empty($_FILES['photo'])) {
-				$file = file_get_contents($_FILES['photo']['tmp_name']);
-				$file_photo = base64_encode($file);
-				$thumbnail = 'data:image/*;base64,'.$file_photo;
-			}
-			$data = $this->db->query('SELECT * FROM media WHERE id = ? ',$id)->row_array();
+		if (!empty($_FILES['photo'])) {
+			$file = file_get_contents($_FILES['photo']['tmp_name']);
+			$file_photo = base64_encode($file);
+			$thumbnail = 'data:image/*;base64,'.$file_photo;
 		}
+		$data = $this->db->query('SELECT * FROM media WHERE id = ? ',$id)->row_array();
 		$this->load->view('index',['data'=>$data,'thumbnail'=>$thumbnail]);
 	}
 
@@ -155,27 +147,37 @@ class Media extends CI_Controller
 		$post = $this->input->post();
 		$data['last_id'] = 1;
 		if (!empty($post)) {
-			if($post['masa'] == 1){
-				$masa = 1;
-			}else if($post['masa'] == 2){
-				$masa = 7;
-			}else{
-				$masa = 30;
-			};
-			$waktu = $masa*$post['durasi'];
-			$post['total'] = $data['tarif']*$waktu;
+			if($data['tipe'] < 3){
+				if($post['masa'] == 1){
+					$masa = 1;
+				}else if($post['masa'] == 2){
+					$masa = 7;
+				}else{
+					$masa = 30;
+				};
+				$waktu = $masa*$post['durasi'];
+				$post['total'] = $data['tarif']*$waktu;
+			}else if($data['tipe'] == 3){
+				$waktu = 30*$post['durasi'];
+				$post['total'] = $data['tarif']*$waktu;
+			}
 			$post['media_id'] = $data['id'];
 			$post['harga_dasar'] = $data['tarif'];
 			$post['user_id'] = $user['id'];
 
 			if($data['tipe'] == 1){
 				$this->db->insert('order_radio',$post);
+				$data['last_id'] = $this->db->insert_id();
 			// $this->media_model->sewa_radio($data['last_id']);
 			}else if($data['tipe'] == 2){
 				$this->db->insert('order_koran',$post);
+				$data['last_id'] = $this->db->insert_id();
 				// $this->media_model->sewa_koran($data['last_id']);
+			}else if($data['tipe'] == 3){
+				$this->db->insert('order_sosmed',$post);
+				$data['last_id'] = $this->db->insert_id();
+				$this->media_model->sewa_sosmed($data['last_id']);
 			}
-			$data['last_id'] = $this->db->insert_id();
 		}
 		$this->load->view('index',['data'=>$data,'post'=>$post]);	
 	}
