@@ -22,4 +22,16 @@ $form->addInput('add_on','multiselect');
 $form->setLabel('add_on','Add On');
 $form->setMultiSelect('add_on','media_options','id,title','tipe = 4');
 $form->setEnableDeleteParam(false);
+
+foreach ($media_options as $key => $value) {
+	$form->addInput('total_'.$value['title'].'_'.$value['tipe'],'text');
+	$form->setType('total_'.$value['title'].'_'.$value['tipe'],'number');
+	$form->setLabel('total_'.$value['title'].'_'.$value['tipe'], 'Total '.$value['title'].' '.$tipe[$value['tipe']]);
+}
+foreach ($this->media_model->bulan() as $key => $value) {
+	$title = str_replace(' ', '_', $value);
+	$form->addInput('harga_'.$title,'text');
+	$form->setType('harga_'.$title,'number');
+	$form->setLabel('harga_'.$title, 'Harga paket '.$value);	
+}
 $form->form();

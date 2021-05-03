@@ -23,7 +23,8 @@ class Media extends CI_Controller
 	{
 		$this->esg_model->set_nav_title('media');
 		$data = $this->db->get_where('media',['id'=>$id])->row_array();
-		$this->load->view('index',['data'=>$data,'id'=>$id]);
+		$media_options = $this->db->get('media_options')->result_array();
+		$this->load->view('index',['data'=>$data,'id'=>$id,'media_options'=>$media_options,'tipe'=>['1'=>'posting','2'=>'fotografi','3'=>'admin_handling','4'=>'add_on']]);
 	}
 	public function list($type = 'radio')
 	{
