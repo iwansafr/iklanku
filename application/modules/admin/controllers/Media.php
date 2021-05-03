@@ -97,4 +97,12 @@ class Media extends CI_Controller
 		$data = $this->media_model->get_koran_order_detail($this->input->get('id'));
 		$this->load->view('index',['data'=>$data]);
 	}
+	public function attribute()
+	{
+		$this->load->view('index');
+	}
+	public function clear_attribute()
+	{
+		$this->load->view('media/attribute');
+	}
 }
