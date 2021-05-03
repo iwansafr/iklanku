@@ -31,7 +31,6 @@
 </head>
 <body class="hold-transition login-page" style="background: #d2d6de;">
   <div class="hidden">
-    <?php pr($_SERVER);?>
   </div>
   <?php
   $msg  = $this->esg->get_esg('msg');
