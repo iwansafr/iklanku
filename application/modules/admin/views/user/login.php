@@ -30,6 +30,9 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body class="hold-transition login-page" style="background: #d2d6de;">
+  <div class="hidden">
+    <?php pr($_SERVER);?>
+  </div>
   <?php
   $msg  = $this->esg->get_esg('msg');
   $data = $this->input->post();
