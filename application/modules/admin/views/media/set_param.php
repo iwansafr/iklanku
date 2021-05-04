@@ -34,4 +34,9 @@ foreach ($this->media_model->bulan() as $key => $value) {
 	$form->setType('harga_'.$title,'number');
 	$form->setLabel('harga_'.$title, 'Harga paket '.$value);	
 }
-$form->form();
+if(!empty($form->getParam()))
+{
+	$form->form();
+}else{
+	msg('Maaf Link tidak valid','danger');
+}
