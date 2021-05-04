@@ -241,7 +241,7 @@
 				<input type="hidden" name="user_id" value="<?php echo $user['id'] ?>">
 				<input type="hidden" name="media_id" value="<?php echo $data['id'] ?>">
 				<input type="hidden" name="kode" value="<?php echo 'INV0'.$data['tipe'].date('Ymdhi').$data['id'].$user['id'] ?>">
-
+				<?php $param = json_decode($data['param'],1) ?>
 				<div class="card card-default" style="border-radius: 0.5rem;">
 					<div class="card-body">
 						<div class="row">
@@ -318,8 +318,15 @@
 									<?php 
 									$masa = 30;
 									$waktu = $masa*$get['durasi'];
+									$tarif = $data['tarif'];
+									if(!empty($param['harga_'.$get['durasi'].'_Bulan']))
+									{
+										$tarif = $param['harga_'.$get['durasi'].'_Bulan'];
+									}else{
+										$tarif = $tarif*$waktu;
+									}
 									?>
-									<span>Rp. <?php echo number_format($data['tarif']*$waktu,0,0,'.') ?></span>
+									<span>Rp. <?php echo number_format($tarif,0,0,'.') ?></span>
 								</div>
 							</div>
 						</div>

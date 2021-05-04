@@ -336,7 +336,8 @@
 
 				
 			</script>		
-		<?php elseif ($data['tipe'] == 3): ?>		    
+		<?php elseif ($data['tipe'] == 3): ?>
+			<?php $param = json_decode($data['param'],1); ?>
 			<form action="<?php echo base_url('home/media/next_order/'.$data['id'].'/'.$data['tipe']) ?>" method="get">
 				<div class="card card-default" style="border-radius: 0.5rem;">
 					<div class="card-body">
@@ -358,7 +359,7 @@
 									<div class="col text-center">
 										<?php foreach ($this->media_model->posting() as $key => $value): ?>
 											<!-- <div class="col"> -->
-												<a href="#" class="btn btn-sm btn-<?php echo !in_array($key, (array)$data['desain_grafis']) ? 'secondary' : 'info'; ?>" style="border-radius: 0.5rem; width: 32%;"><?= $value ?></a>
+												<a href="#" class="btn btn-sm btn-<?php echo !in_array($key, (array)$data['desain_grafis']) ? 'secondary' : 'info'; ?>" style="border-radius: 0.5rem; width: 32%;"><?= $value ?> <?php echo $param['total_'.$value.'_1'] ?></a>
 											<!-- </div> -->
 										<?php endforeach ?>
 									</div>
@@ -373,7 +374,7 @@
 									<div class="col">
 										<?php foreach ($this->media_model->fotografi() as $key => $value): ?>
 											<!-- <div class="col"> -->
-												<a href="#" class="btn btn-sm btn-<?php echo !in_array($key, (array)$data['fotografi']) ? 'secondary' : 'info'; ?> mb-1" style="border-radius: 0.5rem; width: 32%;"><?= $value ?></a>
+												<a href="#" class="btn btn-sm btn-<?php echo !in_array($key, (array)$data['fotografi']) ? 'secondary' : 'info'; ?> mb-1" style="border-radius: 0.5rem; width: 32%;"><?= $value ?> <?php echo $param['total_'.$value.'_2'] ?></a>
 											<!-- </div> -->
 										<?php endforeach ?>
 									</div>
@@ -388,7 +389,7 @@
 									<div class="col">
 										<?php foreach ($this->media_model->posting() as $key => $value): ?>
 											<!-- <div class="col"> -->
-												<a href="#" class="btn btn-sm btn-<?php echo !in_array($key, (array)$data['posting']) ? 'secondary' : 'info'; ?> mb-1" style="border-radius: 0.5rem; width: 32%;"><?= $value ?></a>
+												<a href="#" class="btn btn-sm btn-<?php echo !in_array($key, (array)$data['posting']) ? 'secondary' : 'info'; ?> mb-1" style="border-radius: 0.5rem; width: 32%;"><?= $value ?> <?php echo $param['total_'.$value.'_1'] ?></a>
 											<!-- </div> -->
 										<?php endforeach ?>
 									</div>
@@ -403,7 +404,7 @@
 									<div class="col">
 										<?php foreach ($this->media_model->admin_handling() as $key => $value): ?>
 											<!-- <div class="col"> -->
-												<a href="#" class="btn btn-sm btn-<?php echo !in_array($key, (array)$data['admin_handling']) ? 'secondary' : 'info'; ?> mb-1" style="border-radius: 0.5rem; width: 32%;"><?= $value ?></a>
+												<a href="#" class="btn btn-sm btn-<?php echo !in_array($key, (array)$data['admin_handling']) ? 'secondary' : 'info'; ?> mb-1" style="border-radius: 0.5rem; width: 32%;"><?= $value ?> <?php echo $param['total_'.$value.'_3'] ?></a>
 											<!-- </div> -->
 										<?php endforeach ?>
 									</div>
@@ -418,7 +419,7 @@
 									<div class="col">
 										<?php foreach ($this->media_model->add_on() as$key =>  $value): ?>
 											<!-- <div class="col"> -->
-												<a href="#" class="btn btn-sm btn-<?php echo !in_array($key, (array)$data['add_on']) ? 'secondary' : 'info'; ?> mb-1" style="border-radius: 0.5rem; width: 32%;"><?= $value ?></a>
+												<a href="#" class="btn btn-sm btn-<?php echo !in_array($key, (array)$data['add_on']) ? 'secondary' : 'info'; ?> mb-1" style="border-radius: 0.5rem; width: 32%;"><?= $value ?> <?php echo $param['total_'.$value.'_4'] ?></a>
 											<!-- </div> -->
 										<?php endforeach ?>
 									</div>

@@ -159,7 +159,14 @@ class Media extends CI_Controller
 				$post['total'] = $data['tarif']*$waktu;
 			}else if($data['tipe'] == 3){
 				$waktu = 30*$post['durasi'];
-				$post['total'] = $data['tarif']*$waktu;
+				$tarif = $data['tarif'];
+				if(!empty($param['harga_'.$post['durasi'].'_Bulan']))
+				{
+					$tarif = $param['harga_'.$post['durasi'].'_Bulan'];
+				}else{
+					$tarif = $tarif*$waktu;
+				}
+				$post['total'] = $tarif;
 			}
 			$post['media_id'] = $data['id'];
 			$post['harga_dasar'] = $data['tarif'];
