@@ -27,7 +27,7 @@
 				<li><a href="#">Out Of Home Media</a></li>
 				<li><a href="<?php echo base_url('home/media/pesanan_koran') ?>">Iklan Koran</a></li>
 				<li><a href="<?php echo base_url('home/media/pesanan_radio') ?>">Iklan Radio</a></li>
-				<li><a href="#">Social Media Campaign</a></li>
+				<li><a href="<?php echo base_url('home/media/pesanan_sosmed') ?>">Social Media Campaign</a></li>
 				<li><a href="#">Digital Print</a></li>
 			</ul>
 			<li>

@@ -483,6 +483,22 @@ class Media_model extends CI_Model
 				$user_id
 			)->result_array();
 	}
+	public function get_sosmed_order($user_id = 0)
+	{
+		return $this->db->query('
+				SELECT 
+					o.*,
+					m.nama AS nama_media,
+					m.alamat AS alamat_media,
+					m.photo AS gambar_media,
+					m.id AS id_media
+				FROM order_sosmed AS o 
+				LEFT JOIN media AS m
+				ON(m.id = o.media_id)
+				WHERE o.user_id = ?',
+				$user_id
+			)->result_array();
+	}
 	public function get_radio_order_detail($id = 0)
 	{
 		return $this->db->query('
@@ -518,6 +534,28 @@ class Media_model extends CI_Model
 					u.email AS email,
 					u.phone AS phone
 				FROM order_koran AS o 
+				LEFT JOIN media AS m
+				ON(m.id = o.media_id)
+				LEFT JOIN user AS u
+				ON(u.id = o.user_id)
+				WHERE o.id = ?',
+				$id
+			)->row_array();	
+	}
+	public function get_sosmed_order_detail($id = 0)
+	{
+		return $this->db->query('
+				SELECT 
+					o.*,
+					m.nama AS nama_media,
+					m.alamat AS alamat_media,
+					m.photo AS gambar_media,
+					m.id AS id_media,
+					m.param AS param,
+					u.username AS username,
+					u.email AS email,
+					u.phone AS phone
+				FROM order_sosmed AS o 
 				LEFT JOIN media AS m
 				ON(m.id = o.media_id)
 				LEFT JOIN user AS u

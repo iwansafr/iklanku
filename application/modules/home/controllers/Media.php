@@ -249,4 +249,16 @@ class Media extends CI_Controller
 		$data = $this->media_model->get_koran_order($user['id']);
 		$this->load->view('index',['data'=>$data]);
 	}
+	public function pesanan_sosmed()
+	{
+		$user = $this->session->userdata(base_url().'_logged_in');
+		$data = $this->media_model->get_sosmed_order($user['id']);
+		$this->load->view('index',['data'=>$data]);
+	}
+	public function detail_order_sosmed($id = 0)
+	{
+		$data = $this->media_model->get_sosmed_order_detail($id);
+		$data['tipe_media'] = 3;
+		$this->load->view('index',['data'=>$data]);
+	}
 }
