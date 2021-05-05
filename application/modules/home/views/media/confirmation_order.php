@@ -303,8 +303,13 @@
 						<div class="row">
 							<div class="col">
 								<div class="form-group">
+									<?php 
+									$total_post = $param['x_post'];
+									$time = 4*$get['durasi'];
+									$total_post = $total_post*$time;
+									?>
 									<span style="font-size: 3vw;">
-										Total Desain & Post Feed : 12
+										Total Desain & Post Feed : <?php echo $total_post ?>
 										<br>
 										Report & Support by Email & WA
 									</span>

@@ -34,6 +34,9 @@ foreach ($this->media_model->bulan() as $key => $value) {
 	$form->setType('harga_'.$title,'number');
 	$form->setLabel('harga_'.$title, 'Harga paket '.$value);	
 }
+$form->addInput('x_post','text');
+$form->setLabel('x_post','Post Perminggu (x)');
+$form->setType('x_post','number');
 if(!empty($form->getParam()))
 {
 	$form->form();
