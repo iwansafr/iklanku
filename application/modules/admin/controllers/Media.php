@@ -98,6 +98,20 @@ class Media extends CI_Controller
 		$data = $this->media_model->get_koran_order_detail($this->input->get('id'));
 		$this->load->view('index',['data'=>$data]);
 	}
+
+	public function pesanan_sosmed()
+	{
+		$this->load->view('index');
+	}
+	public function clear_pesanan_sosmed()
+	{
+		$this->load->view('admin/media/pesanan_sosmed');
+	}
+	public function pesanan_sosmed_detail()
+	{
+		$data = $this->media_model->get_sosmed_order_detail($this->input->get('id'));
+		$this->load->view('index',['data'=>$data]);
+	}
 	public function attribute()
 	{
 		$this->load->view('index');

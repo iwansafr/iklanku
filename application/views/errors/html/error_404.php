@@ -22,7 +22,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body class="bg-dark text-white">
 	<div class="container mt-5">
 		<h1>SORRY WRONG WAY</h1>
-		<a href="<?php echo $_SERVER['HTTP_REFERER'] ?>" class="btn btn-info"><- Back</a>
+		<?php if (!empty($_SERVER['HTTP_REFERER'])): ?>
+			<a href="<?php echo $_SERVER['HTTP_REFERER'] ?>" class="btn btn-info"><- Back</a>
+		<?php endif ?>
 	</div>
 </body>
 </html>

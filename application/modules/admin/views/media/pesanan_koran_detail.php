@@ -1,4 +1,8 @@
 <div class="panel panel-default" style="border-radius: 0.5rem;">
+	<a href="<?= base_url('admin/pesanan_koran') ?>" class="btn btn-info btn-sm">
+		<i class="fa fa-arrow-left"></i>
+		Kembali
+	</a>
 	<div class="panel-body">
 		<div class="row">
 			<div class="col-xs-9">
