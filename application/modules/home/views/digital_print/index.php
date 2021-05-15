@@ -42,7 +42,7 @@
 <div class="container mt-5 pt-5 " id="pageSewa">
 	<div class="title text-center">
 		<div class="container">
-			<a href="<?= base_url('home/media/') ?>" class="float-left">
+			<a href="<?= base_url('home/iklan/media') ?>" class="float-left">
 				<i class="fa fa-arrow-left"></i>
 			</a>
 			<span class="font-weight-bold">
@@ -61,6 +61,24 @@
 						</div>
 					</div>
 				<?php endforeach ?>
+				<div class="col-6 text-center mb-3">
+					<div class="card" style="border-radius: 1.5rem;height: 110px; margin: auto; background: #2522221c; color: #2522221c;">
+						<div style="margin: auto;">
+							<span class="v4 font-weight-bold" style="margin-bottom: 0px;">MENU X</span>
+							<div class="clearfix"></div>
+							<span class="v2"></span>
+						</div>
+					</div>
+				</div>
+				<div class="col-6 text-center mb-3">
+					<div class="card" style="border-radius: 1.5rem;height: 110px; margin: auto; background: #2522221c; color: #2522221c;">
+						<div style="margin: auto;">
+							<span class="v4 font-weight-bold" style="margin-bottom: 0px;">MENU X</span>
+							<div class="clearfix"></div>
+							<span class="v2"></span>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
