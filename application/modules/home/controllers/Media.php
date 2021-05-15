@@ -71,21 +71,6 @@ class Media extends CI_Controller
 		}
 	}
 
-	public function index()
-	{
-		$this->esg->add_css('//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css');
-		$this->esg->add_js(['https://code.jquery.com/ui/1.12.1/jquery-ui.js',base_url('templates/iklanku/js/home.js')]);
-
-
-		$data    = $this->media_model->get_list();
-		$status  = $this->media_model->status();
-		$ukuran  = $this->media_model->ukuran();
-		$jenis  = $this->media_model->jenis();
-		$dimensi = $this->media_model->dimensi();
-		$light   = $this->media_model->light();
-
-		$this->load->view('index',['data'=>$data,'ukuran'=>$ukuran,'jenis'=>$jenis,'status'=>$status,'dimensi'=>$dimensi,'light'=>$light,'full'=>1]);
-	}
 	public function media()
 	{
 		$this->load->view('index');

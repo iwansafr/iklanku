@@ -885,4 +885,29 @@ class Media_model extends CI_Model
 			}
 		}
 	}
+	public function digital_print()
+	{
+		return [
+			[
+				'id'=>'1',
+				'title' => 'MMT',
+				'description' => 'Outdoor',
+			],
+			[
+				'id'=>'2',
+				'title' => 'MMT',
+				'description' => 'Indoor',
+			],
+			[
+				'id'=>'3',
+				'title' => 'KERTAS',
+				'description' => 'IVORY<br>CTS<br>LINEN<br>HAMMER',
+			],
+			[
+				'id'=>'4',
+				'title' => 'STIKER',
+				'description' => 'INDOOR<br>OUTDOOR<br>ONE WAY',
+			]
+		];
+	}
 }

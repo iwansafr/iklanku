@@ -41,15 +41,17 @@
 	$url_get = !empty($url_get) ? '?'.$url_get : '';
 	?>
 	<div class="title text-center">
-		<div class="container">
-			<a href="<?= base_url('home/media/next_order/'.$data['id'].$url_get) ?>" class="float-left">
-				<i class="fa fa-arrow-left"></i>
-			</a>
-			<span class="font-weight-bold">
-				Form Order Iklan <?php echo $this->media_model->media_type()[$data['tipe']] ?>
-			</span>
-			<hr>
-		</div>
+		<?php if (!empty($data)): ?>
+			<div class="container">
+				<a href="<?= base_url('home/media/next_order/'.$data['id'].$url_get) ?>" class="float-left">
+					<i class="fa fa-arrow-left"></i>
+				</a>
+				<span class="font-weight-bold">
+					Form Order Iklan <?php echo $this->media_model->media_type()[$data['tipe']] ?>
+				</span>
+				<hr>
+			</div>
+		<?php endif ?>
 	</div>
 	<?php if (!empty($data)): ?>
 		<?php if ($data['tipe'] == 1): ?>

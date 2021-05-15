@@ -72,8 +72,8 @@
 	<div class="row" style="padding: 10px 30px 0 30px;">
 		<div class="col text-center">
 			<div class="card">
-				<a href="#" data-toggle="modal" data-target="#sosmedModal" style="padding: 5px 0 0 0;">
-					<img src="<?php echo base_url('images/digitalprint_disabled.png') ?>" class="img img-fluid img-circle">
+				<a href="<?php echo base_url('home/digital_print') ?>" style="padding: 5px 0 0 0;">
+					<img src="<?php echo base_url('images/MENU-DIGITALPRINT-ACTIVE-03.png') ?>" class="img img-fluid img-circle">
 					<p class="disabled" style="text-align: center;font-size: 11px;">DIGITAL PRINT</p>
 				</a>
 			</div>
