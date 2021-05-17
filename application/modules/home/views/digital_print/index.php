@@ -52,13 +52,15 @@
 			<div class="row" style="padding: 10px 30px 0 30px;">
 				<?php foreach ($menu as $key => $value): ?>
 					<div class="col-6 text-center mb-3">
-						<div class="card" style="border-radius: 1.5rem;height: 110px; margin: auto;">
-							<div style="margin: auto;">
-								<span class="v4 font-weight-bold" style="margin-bottom: 0px;"><?php echo $value['title'] ?></span>
-								<div class="clearfix"></div>
-								<span class="v2"><?php echo $value['description'] ?></span>
+						<a href="<?php echo base_url('home/digital_print/form_order/'.$value['id']) ?>">
+							<div class="card" style="border-radius: 1.5rem;height: 110px; margin: auto;">
+								<div style="margin: auto;">
+									<span class="v4 font-weight-bold" style="margin-bottom: 0px;"><?php echo strtok($value['title'],' ') ?></span>
+									<div class="clearfix"></div>
+									<span class="v2"><?php echo $value['description'] ?></span>
+								</div>
 							</div>
-						</div>
+						</a>
 					</div>
 				<?php endforeach ?>
 				<div class="col-6 text-center mb-3">

@@ -888,26 +888,55 @@ class Media_model extends CI_Model
 	public function digital_print()
 	{
 		return [
-			[
+			'1'=>[
 				'id'=>'1',
-				'title' => 'MMT',
+				'title' => 'MMT Outdoor',
 				'description' => 'Outdoor',
 			],
-			[
+			'2'=>[
 				'id'=>'2',
-				'title' => 'MMT',
+				'title' => 'MMT Indoor',
 				'description' => 'Indoor',
 			],
-			[
+			'3'=>[
 				'id'=>'3',
 				'title' => 'KERTAS',
 				'description' => 'IVORY<br>CTS<br>LINEN<br>HAMMER',
 			],
-			[
+			'4'=>[
 				'id'=>'4',
 				'title' => 'STIKER',
 				'description' => 'INDOOR<br>OUTDOOR<br>ONE WAY',
 			]
+		];
+	}
+	public function digital_print_produk()
+	{
+		return [
+			'1' => [
+				'id' => '1',
+				'title' => 'SPANDUK'
+			],
+			'2' => [
+				'id' => '2',
+				'title' => 'BACKDROP'
+			],
+			'3' => [
+				'id' => '3',
+				'title' => 'X-BANNER'
+			],
+			'4' => [
+				'id' => '4',
+				'title' => 'ROLL BANNER'
+			],
+			'5' => [
+				'id' => '5',
+				'title' => 'ROUNDTEXT'
+			],
+			'6' => [
+				'id' => '6',
+				'title' => 'BACKLIGHTED'
+			],
 		];
 	}
 }

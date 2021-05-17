@@ -19,4 +19,14 @@ class Digital_print extends CI_Controller
 		$menu = $this->media_model->digital_print();
 		$this->load->view('index',['menu'=>$menu]);
 	}
+
+	public function form_order($id = 0)
+	{
+		$data = $this->media_model->digital_print();
+		if(!empty($data[$id]))
+		{
+			$data = $data[$id];
+		}
+		$this->load->view('index',['data'=>$data]);
+	}
 }

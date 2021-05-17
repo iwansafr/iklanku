@@ -12,7 +12,7 @@
 				    	<p style="font-size: 3vw;"><?php echo $value['jalan'] ?></p>
 				    </div>
 				    <div class="col-7 description_product">
-				    	<p style="font-size: 3vw;margin-block-end: 0;"><?php echo $jenis[$value['jenis']] ?> / <?php echo $ukuran[$value['ukuran']] ?>	 M</p>
+				    	<p style="font-size: 3vw;margin-block-end: 0;"><?php echo @$jenis[$value['jenis']] ?> / <?php echo $ukuran[$value['ukuran']] ?>	 M</p>
 				    	<p style="font-size: 3vw;"><?php echo $dimensi[$value['dimensi']] ?> / <?php echo $light[$value['light']] ?></p>
 				    </div>
 			  	</div>

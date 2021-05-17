@@ -66,7 +66,6 @@ class Iklan extends CI_Controller
 		$jenis  = $this->iklan_model->jenis();
 		$dimensi = $this->iklan_model->dimensi();
 		$light   = $this->iklan_model->light();
-
 		$this->load->view('index',['data'=>$data,'ukuran'=>$ukuran,'jenis'=>$jenis,'status'=>$status,'dimensi'=>$dimensi,'light'=>$light,'full'=>1]);
 	}
 	public function media()
