@@ -24,6 +24,8 @@ class Digital_print extends CI_Controller
 	{
 		$data = $this->media_model->digital_print();
 		$produk = $this->media_model->digital_print_produk();
+		$bahan = $this->media_model->digital_print_bahan();
+		$finishing = $this->media_model->digital_print_finishing();
 		if(!empty($data[$id]))
 		{
 			$data = $data[$id];
@@ -36,7 +38,25 @@ class Digital_print extends CI_Controller
 				}
 			}
 			$produk = $produk_tmp;
+			$bahan_tmp = [];
+			foreach ($bahan as $key => $value) {
+				foreach($value['digi_ids'] as $dkey => $dvalue){
+					if($dvalue == $id){
+						$bahan_tmp[$value['id']] = $value;
+					}
+				}
+			}
+			$bahan = $bahan_tmp;
+			$finishing_tmp = [];
+			foreach ($finishing as $key => $value) {
+				foreach($value['digi_ids'] as $dkey => $dvalue){
+					if($dvalue == $id){
+						$finishing_tmp[$value['id']] = $value;
+					}
+				}
+			}
+			$finishing = $finishing_tmp;
 		}
-		$this->load->view('index',['data'=>$data,'produk'=>$produk]);
+		$this->load->view('index',['data'=>$data,'produk'=>$produk,'bahan'=>$bahan,'finishing'=>$finishing]);
 	}
 }

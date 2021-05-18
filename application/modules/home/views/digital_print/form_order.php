@@ -60,8 +60,46 @@
 				<?php endforeach ?>
 			</select>
 		</div>
-		<div class="form-inline">
-			
+		<div class="form-group">
+			<div class="row">
+				<div class="col-3 pr-0">
+					<input type="number" class="form-control custom" placeholder="WIDTH">
+				</div>
+				<div class="col-3 pr-0">
+					<input type="number" class="form-control custom" placeholder="HEIGHT">
+				</div>
+				<div class="col pr-0" style="margin: auto; font-size: 3vw;">
+					CM /
+				</div>
+				<div class="col-3 pl-0 pr-1">
+					<input type="number" class="form-control custom" placeholder="JUMLAH">
+				</div>
+				<div class="col pl-0" style="margin: auto; font-size: 3vw;">
+					UNIT
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<select name="produk" id="produk" class="form-control custom" required="">
+				<option value="">BAHAN</option>
+				<?php foreach ($bahan as $key => $value): ?>
+					<option value="<?php echo $value['id'] ?>"><?php echo $value['title'] ?></option>
+				<?php endforeach ?>
+			</select>
+		</div>
+		<div class="form-group">
+			<select name="produk" id="produk" class="form-control custom" required="">
+				<option value="">FINISHING</option>
+				<?php foreach ($finishing as $key => $value): ?>
+					<option value="<?php echo $value['id'] ?>"><?php echo $value['title'] ?></option>
+				<?php endforeach ?>
+			</select>
+		</div>
+		<div class="form-inline mt-3 mb-3">
+  		<input autocomplete="off" type="checkbox" style="width: 30px;height: 5vw;" name="include">
+  		<div class="text ml-2 font-weight-bold" style="font-size: 3vw; opacity: 0.7">
+  			INCLUDE ALAT
+  		</div>
 		</div>
 	</form>
 </div>

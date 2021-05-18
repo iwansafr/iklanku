@@ -957,4 +957,91 @@ class Media_model extends CI_Model
 			]
 		];
 	}
+	public function digital_print_bahan()
+	{
+		return [
+			'1' => [
+				'id' => '1',
+				'digi_ids' => [
+					1
+				],
+				'title' => 'FLEXY CHINA 280 GR'
+			],
+			'2' => [
+				'id' => '2',
+				'digi_ids' => [
+					1
+				],
+				'title' => 'FLEXY CHINA 340 GR'
+			],
+			'3' => [
+				'id' => '3',
+				'digi_ids' => [
+					1
+				],
+				'title' => 'FLEXY CHINA 440 GR'
+			],
+			'4' => [
+				'id' => '4',
+				'digi_ids' => [
+					1
+				],
+				'title' => 'FLEXY KOREA 440 GR'
+			],
+			'5' => [
+				'id' => '5',
+				'digi_ids' => [
+					1
+				],
+				'title' => 'BACKLIGHT KOREA 440 GR'
+			],
+		];
+	}
+	public function digital_print_finishing()
+	{
+		return [
+			'1' => [
+				'id' => '1',
+				'digi_ids' => [
+					1
+				],
+				'title' => 'SEAMING PRESS GAMBAR'
+			],
+			'2' => [
+				'id' => '2',
+				'digi_ids' => [
+					1
+				],
+				'title' => 'SEAMING PRESS LUBANG'
+			],
+			'3' => [
+				'id' => '3',
+				'digi_ids' => [
+					1
+				],
+				'title' => 'KOLONG KANAN KIRI'
+			],
+			'4' => [
+				'id' => '4',
+				'digi_ids' => [
+					1
+				],
+				'title' => 'KOLONG ATAS BAWAH'
+			],
+			'5' => [
+				'id' => '5',
+				'digi_ids' => [
+					1
+				],
+				'title' => 'KOLONG KELILING'
+			],
+			'6' => [
+				'id' => '6',
+				'digi_ids' => [
+					1
+				],
+				'title' => 'SISA BAHAN'
+			],
+		];
+	}
 }
