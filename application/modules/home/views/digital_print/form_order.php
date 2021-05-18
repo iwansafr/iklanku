@@ -51,13 +51,17 @@
 			<hr>
 		</div>
 	</div>
-	<div class="row">
-		<form>
-			<div class="form-group">
-				<select class="form-control custom">
-					<option>test</option>
-				</select>
-			</div>
-		</form>
-	</div>
+	<form action="">
+		<div class="form-group">
+			<select name="produk" id="produk" class="form-control custom" required="">
+				<option value="">NAMA PRODUK</option>
+				<?php foreach ($produk as $key => $value): ?>
+					<option value="<?php echo $value['id'] ?>"><?php echo $value['title'] ?></option>
+				<?php endforeach ?>
+			</select>
+		</div>
+		<div class="form-inline">
+			
+		</div>
+	</form>
 </div>

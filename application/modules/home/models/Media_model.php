@@ -915,28 +915,46 @@ class Media_model extends CI_Model
 		return [
 			'1' => [
 				'id' => '1',
+				'digi_ids' => [
+					1,2
+				],
 				'title' => 'SPANDUK'
 			],
 			'2' => [
 				'id' => '2',
+				'digi_ids' => [
+					1
+				],
 				'title' => 'BACKDROP'
 			],
 			'3' => [
 				'id' => '3',
+				'digi_ids' => [
+					1
+				],
 				'title' => 'X-BANNER'
 			],
 			'4' => [
 				'id' => '4',
+				'digi_ids' => [
+					1
+				],
 				'title' => 'ROLL BANNER'
 			],
 			'5' => [
 				'id' => '5',
+				'digi_ids' => [
+					1
+				],
 				'title' => 'ROUNDTEXT'
 			],
 			'6' => [
 				'id' => '6',
+				'digi_ids' => [
+					1
+				],
 				'title' => 'BACKLIGHTED'
-			],
+			]
 		];
 	}
 }

@@ -23,10 +23,20 @@ class Digital_print extends CI_Controller
 	public function form_order($id = 0)
 	{
 		$data = $this->media_model->digital_print();
+		$produk = $this->media_model->digital_print_produk();
 		if(!empty($data[$id]))
 		{
 			$data = $data[$id];
+			$produk_tmp = [];
+			foreach ($produk as $key => $value) {
+				foreach($value['digi_ids'] as $dkey => $dvalue){
+					if($dvalue == $id){
+						$produk_tmp[$value['id']] = $value;
+					}
+				}
+			}
+			$produk = $produk_tmp;
 		}
-		$this->load->view('index',['data'=>$data]);
+		$this->load->view('index',['data'=>$data,'produk'=>$produk]);
 	}
 }
