@@ -887,28 +887,7 @@ class Media_model extends CI_Model
 	}
 	public function digital_print()
 	{
-		return [
-			'1'=>[
-				'id'=>'1',
-				'title' => 'MMT Outdoor',
-				'description' => 'Outdoor',
-			],
-			'2'=>[
-				'id'=>'2',
-				'title' => 'MMT Indoor',
-				'description' => 'Indoor',
-			],
-			'3'=>[
-				'id'=>'3',
-				'title' => 'KERTAS',
-				'description' => 'IVORY<br>CTS<br>LINEN<br>HAMMER',
-			],
-			'4'=>[
-				'id'=>'4',
-				'title' => 'STIKER',
-				'description' => 'INDOOR<br>OUTDOOR<br>ONE WAY',
-			]
-		];
+		return $this->db->get('digital_print')->result_array();
 	}
 	public function digital_print_produk()
 	{

@@ -59,4 +59,8 @@ class Digital_print extends CI_Controller
 		}
 		$this->load->view('index',['data'=>$data,'produk'=>$produk,'bahan'=>$bahan,'finishing'=>$finishing]);
 	}
+	public function confirmation_order()
+	{
+		$this->load->view('index');
+	}
 }

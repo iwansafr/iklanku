@@ -51,7 +51,8 @@
 			<hr>
 		</div>
 	</div>
-	<form action="">
+	<form action="<?php echo base_url('home/digital_print/confirmation_order/') ?>" method="get">
+		<input type="hidden" name="digital_print_id" value="<?php echo $data['id'] ?>">
 		<div class="form-group">
 			<select name="produk" id="produk" class="form-control custom" required="">
 				<option value="">NAMA PRODUK</option>
