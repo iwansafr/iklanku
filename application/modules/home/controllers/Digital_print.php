@@ -22,41 +22,11 @@ class Digital_print extends CI_Controller
 
 	public function form_order($id = 0)
 	{
-		$data = $this->media_model->digital_print();
-		$produk = $this->media_model->digital_print_produk();
-		$bahan = $this->media_model->digital_print_bahan();
+		$data = $this->db->get_where('digital_print',['id'=>$id])->row_array();
+		$produk = $this->db->query('SELECT * FROM digital_print_produk WHERE digi_ids LIKE "%,'.$data['id'].',%"')->result_array();
+		$bahan = $this->db->query('SELECT * FROM digital_print_bahan WHERE digi_ids LIKE "%,'.$data['id'].',%"')->result_array();
 		$finishing = $this->media_model->digital_print_finishing();
-		if(!empty($data[$id]))
-		{
-			$data = $data[$id];
-			$produk_tmp = [];
-			foreach ($produk as $key => $value) {
-				foreach($value['digi_ids'] as $dkey => $dvalue){
-					if($dvalue == $id){
-						$produk_tmp[$value['id']] = $value;
-					}
-				}
-			}
-			$produk = $produk_tmp;
-			$bahan_tmp = [];
-			foreach ($bahan as $key => $value) {
-				foreach($value['digi_ids'] as $dkey => $dvalue){
-					if($dvalue == $id){
-						$bahan_tmp[$value['id']] = $value;
-					}
-				}
-			}
-			$bahan = $bahan_tmp;
-			$finishing_tmp = [];
-			foreach ($finishing as $key => $value) {
-				foreach($value['digi_ids'] as $dkey => $dvalue){
-					if($dvalue == $id){
-						$finishing_tmp[$value['id']] = $value;
-					}
-				}
-			}
-			$finishing = $finishing_tmp;
-		}
+
 		$this->load->view('index',['data'=>$data,'produk'=>$produk,'bahan'=>$bahan,'finishing'=>$finishing]);
 	}
 	public function confirmation_order()

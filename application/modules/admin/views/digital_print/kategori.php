@@ -15,7 +15,9 @@ $roll->setTable('digital_print');
 $roll->addInput('id','plaintext');
 $roll->setLabel('id','action');
 $roll->setPlainText('id',[
-	base_url('admin/digital_print/kategori_detail/{id}') => 'Detail'
+	base_url('admin/digital_print/kategori_detail/{id}') => 'Detail',
+	base_url('admin/digital_print/kategori_produk/{id}') => 'Produk',
+	base_url('admin/digital_print/kategori_bahan/{id}') => 'Bahan'
 ]);
 $roll->addInput('title','plaintext');
 $roll->setDelete(true);

@@ -30,4 +30,28 @@ class Digital_print extends CI_Controller
 	{
 		$this->load->view('index',['id'=>$id]);
 	}
+
+	public function kategori_produk($id = 0)
+	{
+		$navigation = $this->esg->get_esg('navigation');
+		$navigation['array'] = ['Digital Print','Kategori Produk'];
+		$this->esg->set_esg('navigation',$navigation);
+		$this->load->view('index',['id'=>$id,'kategori'=>$this->db->query('SELECT * FROM digital_print WHERE id = ?',$id)->row_array()]);
+	}
+	public function clear_kategori_produk($id = 0)
+	{
+		$this->load->view('admin/digital_print/kategori_produk',['id'=>$id,'kategori'=>$this->db->query('SELECT * FROM digital_print WHERE id = ?',$id)->row_array()]);
+	}
+
+	public function kategori_bahan($id = 0)
+	{
+		$navigation = $this->esg->get_esg('navigation');
+		$navigation['array'] = ['Digital Print','Kategori Produk'];
+		$this->esg->set_esg('navigation',$navigation);
+		$this->load->view('index',['id'=>$id,'kategori'=>$this->db->query('SELECT * FROM digital_print WHERE id = ?',$id)->row_array()]);
+	}
+	public function clear_kategori_bahan($id = 0)
+	{
+		$this->load->view('admin/digital_print/kategori_bahan',['id'=>$id,'kategori'=>$this->db->query('SELECT * FROM digital_print WHERE id = ?',$id)->row_array()]);
+	}
 }

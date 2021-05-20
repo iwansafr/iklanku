@@ -891,90 +891,11 @@ class Media_model extends CI_Model
 	}
 	public function digital_print_produk()
 	{
-		return [
-			'1' => [
-				'id' => '1',
-				'digi_ids' => [
-					1,2
-				],
-				'title' => 'SPANDUK'
-			],
-			'2' => [
-				'id' => '2',
-				'digi_ids' => [
-					1
-				],
-				'title' => 'BACKDROP'
-			],
-			'3' => [
-				'id' => '3',
-				'digi_ids' => [
-					1
-				],
-				'title' => 'X-BANNER'
-			],
-			'4' => [
-				'id' => '4',
-				'digi_ids' => [
-					1
-				],
-				'title' => 'ROLL BANNER'
-			],
-			'5' => [
-				'id' => '5',
-				'digi_ids' => [
-					1
-				],
-				'title' => 'ROUNDTEXT'
-			],
-			'6' => [
-				'id' => '6',
-				'digi_ids' => [
-					1
-				],
-				'title' => 'BACKLIGHTED'
-			]
-		];
+		return $this->db->get('digital_print_produk')->result_array();
 	}
 	public function digital_print_bahan()
 	{
-		return [
-			'1' => [
-				'id' => '1',
-				'digi_ids' => [
-					1
-				],
-				'title' => 'FLEXY CHINA 280 GR'
-			],
-			'2' => [
-				'id' => '2',
-				'digi_ids' => [
-					1
-				],
-				'title' => 'FLEXY CHINA 340 GR'
-			],
-			'3' => [
-				'id' => '3',
-				'digi_ids' => [
-					1
-				],
-				'title' => 'FLEXY CHINA 440 GR'
-			],
-			'4' => [
-				'id' => '4',
-				'digi_ids' => [
-					1
-				],
-				'title' => 'FLEXY KOREA 440 GR'
-			],
-			'5' => [
-				'id' => '5',
-				'digi_ids' => [
-					1
-				],
-				'title' => 'BACKLIGHT KOREA 440 GR'
-			],
-		];
+		return $this->db->get('digital_print_bahan')->result_array();
 	}
 	public function digital_print_finishing()
 	{
