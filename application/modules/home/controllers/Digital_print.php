@@ -31,6 +31,8 @@ class Digital_print extends CI_Controller
 	}
 	public function confirmation_order()
 	{
-		$this->load->view('index');
+		$data = [];
+		$data['data'] = $this->db->get_where('digital_print',['id'=>$this->input->get('digital_print_id')])->row_array();
+		$this->load->view('index', $data);
 	}
 }
