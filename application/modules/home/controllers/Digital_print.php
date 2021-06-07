@@ -33,6 +33,9 @@ class Digital_print extends CI_Controller
 	{
 		$data = [];
 		$data['data'] = $this->db->get_where('digital_print',['id'=>$this->input->get('digital_print_id')])->row_array();
+		$data['produk'] = $this->db->get_where('digital_print_produk',['id'=>$this->input->get('produk')])->row_array();
+		$data['bahan'] = $this->db->get_where('digital_print_bahan',['id'=>$this->input->get('bahan')])->row_array();
+		$data['finishing'] = $this->media_model->digital_print_finishing();
 		$this->load->view('index', $data);
 	}
 }
