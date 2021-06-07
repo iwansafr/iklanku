@@ -47,7 +47,7 @@
 	?>
 	<div class="title text-center">
 		<div class="container">
-			<a href="<?= base_url('home/media/next_order/'.$data['id'].$url_get) ?>" class="float-left">
+			<a href="<?= base_url('home/digital_print/form_order/'.$data['id']) ?>" class="float-left">
 				<i class="fa fa-arrow-left"></i>
 			</a>
 			<span class="font-weight-bold">
@@ -58,18 +58,41 @@
 	</div>
 	<?php if (!empty($data)): ?>
 		<?php if ($data['id'] == 1): ?>
-			<form action="<?php echo base_url('home/media/finish_order/'.$data['id'].'/'.$data['title']) ?>" method="post">
+			<form action="<?php echo base_url('home/digital_print/send_order') ?>" method="post">
+				<?php
+				$biaya = 0;
+				if (strtolower($produk['title']) == 'spanduk' || strtolower($produk['title']) == 'backdrop' || strtolower($produk['title']) == 'backlighted' || strtolower($produk['title']) == 'round text') {
+					$biaya = $get['width'] * $get['height'] * $get['jumlah'] * $bahan['harga'];
+				}else if (strtolower($produk['title']) == 'x-banner' || strtolower($produk['title']) == 'roll banner') {
+					$biaya_add = 0;
+					if(!empty($get['add'])){
+						$biaya_add = $data['harga_add'];
+					}else{
+						$biaya_add = $data['harga_non_add'];
+					}
+					$biaya = $get['width'] * $get['height'] * $get['jumlah'] * $bahan['harga'] + $biaya_add;
+				}
+				?>
 				<input type="hidden" name="user_id" value="<?php echo $user['id'] ?>">
-				<input type="hidden" name="media_id" value="<?php echo $data['id'] ?>">
-				<input type="hidden" name="kode" value="<?php echo 'INV0'.$data['title'].date('Ymdhi').$data['id'].$user['id'] ?>">
+				<input type="hidden" name="kat_id" value="<?php echo $data['id'] ?>">
+				<input type="hidden" name="produk_id" value="<?php echo $get['produk'] ?>">
+				<input type="hidden" name="bahan_id" value="<?php echo $bahan['id'] ?>">
+				<input type="hidden" name="width" value="<?php echo $get['width'] ?>">
+				<input type="hidden" name="height" value="<?php echo $get['height'] ?>">
+				<input type="hidden" name="jumlah" value="<?php echo $get['jumlah'] ?>">
+				<input type="hidden" name="sisi" value="<?php echo @$get['sisi'] ?>">
+				<input type="hidden" name="warna" value="<?php echo @$get['warna'] ?>">
+				<input type="hidden" name="flipped" value="<?php echo @$get['flipped'] ?>">
+				<input type="hidden" name="potong" value="<?php echo @$get['potong'] ?>">
+				<input type="hidden" name="add" value="<?php echo @$get['add'] ?>">
+				<input type="hidden" name="biaya" value="<?php echo $biaya ?>">
+				<input type="hidden" name="kode" value="<?php echo 'INV0'.substr($data['title'],0,2).$data['id'].$get['produk'].$user['id'].date('Ymdhi') ?>">
 
 				<div class="card card-default" style="border-radius: 0.5rem;">
 					<div class="card-body">
-						<?php pr($data) ?>
-						<?php pr($get) ?>
 						<div class="row">
 							<div class="col">
-								<span class="font-weight-bold" style="font-size: 3vw;"><?php echo 'INV0'.$data['title'].date('Ymdhi').$data['id'].$user['id'] ?></span>
+								<span class="font-weight-bold" style="font-size: 3vw;"><?php echo 'INV0'.substr($data['title'],0,2).$data['id'].$get['produk'].$user['id'].date('Ymdhi') ?></span>
 							</div>
 							<div class="col-3">
 								<img src="<?= image_module('digital_print') ?>" class="img img-fluid" alt="">
@@ -125,18 +148,30 @@
 							<div class="col">
 								<div class="form-group">
 									<span style="font-size: 3vw;color: grey;">Biaya</span><br>
-									<span>Rp. <?php echo number_format(1000000,0,0,'.') ?></span>
+									<span>Rp. <?php echo number_format($biaya,0,0,'.') ?></span>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 				<br>
-				<button class="btn btn-sm btn-primary btn-lg" id="submit" style="border-radius: 0.5rem;width: 100%;background-color:#0872ba;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
-					ORDER
-				</button>
+				<?php if (!empty($biaya)): ?>
+					<div id="submitdiv">
+						<button class="btn btn-sm btn-primary btn-lg" id="submit" style="border-radius: 0.5rem;width: 100%;background-color:#0872ba;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
+							LANJUT
+						</button>
+					</div>
+					<div id="loadingdiv" class="text-center d-none">
+						<span>Memproses Pesanan ...</span>
+					</div>
+				<?php else: ?>
+					Biaya Tidak Valid
+				<?php endif ?>
 			</form>
 		<?php endif ?>
+		<a href="<?= base_url('home/digital_print/form_order/'.$data['id']) ?>" class="btn btn-sm btn-success btn-lg text-white mt-2" id="submit" style="border-radius: 0.5rem;width: 100%;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
+			EDIT FORM
+		</a>
 		<script>
 			const submit = document.querySelector('#submit');
 			const loadingdiv = document.querySelector('#loadingdiv');

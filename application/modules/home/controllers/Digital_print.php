@@ -38,4 +38,10 @@ class Digital_print extends CI_Controller
 		$data['finishing'] = $this->media_model->digital_print_finishing();
 		$this->load->view('index', $data);
 	}
+	public function send_order()
+	{
+		if (!empty($_POST)) {
+			$data = $_POST;
+		}
+	}
 }
