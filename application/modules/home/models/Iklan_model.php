@@ -241,7 +241,7 @@ class Iklan_model extends CI_Model
 		}
 	}
 
-	public function send_email($data = array(),$email_to = 'iwansafr@gmail.com', $header = 'Esoftgreat Corp')
+	public function send_email($data = array(),$mail_to = 'iwansafr@gmail.com', $header = 'Esoftgreat Corp')
 	{
 		$email_config = $this->esg->get_config('email_config');
 		$user = $this->session->userdata(base_url().'_logged_in');
@@ -282,7 +282,7 @@ class Iklan_model extends CI_Model
 				</tr>
 				<tr>
 					<td>phone</td>
-					<td>: '.$user['hp'].'</td>
+					<td>: '.$user['phone'].'</td>
 				</tr>
 				<tr>
 					<td>level</td>
@@ -292,13 +292,12 @@ class Iklan_model extends CI_Model
 			';
 
 
-			// $this->email->initialize($config);
-			// $this->email->from($email_config['email'], $header);
-			// $this->email->to($mail_to);
-			// $this->email->subject('Sewa');
-			// $this->email->message($pesan);
-			// $this->email->send();
-			pr($pesan);
+			$this->email->initialize($config);
+			$this->email->from($email_config['email'], $header);
+			$this->email->to($mail_to);
+			$this->email->subject('Sewa');
+			$this->email->message($pesan);
+			$this->email->send();
 			return true;
 			// pr($pesan);die();
 		}

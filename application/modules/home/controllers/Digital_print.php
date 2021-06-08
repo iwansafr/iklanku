@@ -43,14 +43,52 @@ class Digital_print extends CI_Controller
 	{
 		if (!empty($_POST)) {
 			$data = $_POST;
-			pr($data);
+			$mail_to = [
+				'admin@billboardku',
+				'finance@billboardku',
+				'digi.envi@billboardku',
+			];
+			$mail_to = 'iwansafr@gmail.com';
+			$this->db->select('username,phone');
 			$user = $this->db->get_where('user',['id'=>$data['user_id']])->row_array();
-			pr($user);
+			$this->db->select('title');
 			$produk = $this->db->get_where('digital_print_produk',['id'=>$data['produk_id']])->row_array();
-			pr($produk);
+			$this->db->select('title');
+			$bahan = $this->db->get_where('digital_print_bahan',['id'=>$data['bahan_id']])->row_array();
+			$this->db->select('title');
 			$menu = $this->db->get_where('digital_print',['id'=>$data['kat_id']])->row_array();
-			pr($menu);
-			// $this->iklan_model->send_email($data);
+			$param = [
+				'Nama User' => $user['username'],
+				'No HP' => $user['phone'],
+				'Bahan' => $bahan['title'],
+				'NAma Menu' => $menu['title'],
+				'Nama Produk' => $produk['title'],
+				'Ukuran' => 'W = '.$data['width'].' - H = '.$data['height'],
+				'Sisi' => @intval($data['sisi']).' Sisi',
+				'Warna' => $data['warna'],
+				'Flipped' => $data['flipped'],
+				'Potong' => $data['potong'],
+				'Add' => $data['add'],
+				'Jumlah' => $data['jumlah'],
+				'Biaya' => $data['biaya'],
+
+			];
+			$input = [];
+			$input['kode'] = $data['kode'];
+			$input['user_id'] = $data['user_id'];
+			$input['produk_id'] = $data['produk_id'];
+			$input['param'] = json_encode($param);
+			if($this->db->insert('digital_print_order', $input)){
+				$last_id = $this->db->insert_id();
+				$this->iklan_model->send_email($param,$mail_to);
+				header('location: '.base_url('home/digital_print/payment/'.$last_id));
+			}
 		}
+	}
+	public function payment($id = 0)
+	{
+		$data = [];
+		$data['data'] = $this->db->get_where('digital_print_order',['id'=>$id])->row_array();
+		$this->load->view('index', $data);
 	}
 }
