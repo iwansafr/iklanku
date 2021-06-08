@@ -43,7 +43,14 @@ class Digital_print extends CI_Controller
 	{
 		if (!empty($_POST)) {
 			$data = $_POST;
-			$this->iklan_model->send_email($data);
+			pr($data);
+			$user = $this->db->get_where('user',['id'=>$data['user_id']])->row_array();
+			pr($user);
+			$produk = $this->db->get_where('digital_print_produk',['id'=>$data['produk_id']])->row_array();
+			pr($produk);
+			$menu = $this->db->get_where('digital_print',['id'=>$data['kat_id']])->row_array();
+			pr($menu);
+			// $this->iklan_model->send_email($data);
 		}
 	}
 }
