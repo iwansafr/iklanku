@@ -240,4 +240,67 @@ class Iklan_model extends CI_Model
 			}
 		}
 	}
+
+	public function send_email($data = array(),$email_to = 'iwansafr@gmail.com', $header = 'Esoftgreat Corp')
+	{
+		$email_config = $this->esg->get_config('email_config');
+		$user = $this->session->userdata(base_url().'_logged_in');
+		if(!empty($email_config))
+		{
+			$this->load->library('email');
+			$config['protocol']     = $email_config['protocol'];
+			$config['smtp_host']    = $email_config['smtp_host'];
+			$config['smtp_port']    = $email_config['smtp_port'];
+			$config['smtp_timeout'] = $email_config['smtp_timeout'];
+			$config['smtp_user']    = $email_config['email'];
+			$config['smtp_pass']    = $email_config['password'];
+			$config['charset']      = $email_config['charset'];
+			$config['newline']      = $email_config['newline'];
+			$config['mailtype']     = $email_config['mailtype'];
+			$config['validation']   = $email_config['validation'];
+			$pesan   = '
+			<h5>ORDER ADSBOX - ['.date('d').'/'.date('m').'/'.date('Y').']</h5>
+			<table>';
+			foreach ($data as $key => $value) {
+				$pesan .= '
+					<tr>
+						<td>'.$key.'</td>
+						<td>:'.$value.'</td>
+					</tr>
+				';
+			}
+			$pesan .= '
+			<h5>Data Diri penyewa</h5>
+			<table>
+				<tr>
+					<td>username</td>
+					<td>: '.$user['username'].'</td>
+				</tr>
+				<tr>
+					<td>email</td>
+					<td>: '.$user['email'].'</td>
+				</tr>
+				<tr>
+					<td>phone</td>
+					<td>: '.$user['hp'].'</td>
+				</tr>
+				<tr>
+					<td>level</td>
+					<td>: '.$user['role'].'</td>
+				</tr>
+			</table>
+			';
+
+
+			// $this->email->initialize($config);
+			// $this->email->from($email_config['email'], $header);
+			// $this->email->to($mail_to);
+			// $this->email->subject('Sewa');
+			// $this->email->message($pesan);
+			// $this->email->send();
+			pr($pesan);
+			return true;
+			// pr($pesan);die();
+		}
+	}
 }

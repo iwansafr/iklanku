@@ -7,6 +7,7 @@ class Digital_print extends CI_Controller
 		parent::__construct();
 		$this->load->model('home_model');
 		$this->load->model('media_model');
+		$this->load->model('iklan_model');
 		$this->load->helper('content');
 		$this->load->library('esg');
 		$this->load->library('ZEA/Zea');
@@ -42,6 +43,7 @@ class Digital_print extends CI_Controller
 	{
 		if (!empty($_POST)) {
 			$data = $_POST;
+			$this->iklan_model->send_email($data);
 		}
 	}
 }
