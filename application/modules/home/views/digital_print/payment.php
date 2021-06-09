@@ -43,6 +43,7 @@
 		</div>
 	</div>
 	<?php if (!empty($data)): ?>
+		<?php $param = json_decode($data['param'],1) ?>
 		<div class="card card-default" style="border-radius: 0.5rem;">
 			<div class="card-body">
 				<div class="row">
@@ -55,11 +56,11 @@
 				</div>
 			</div>
 		</div>
-		<?php if (empty($pembayaran['status_pembayaran'])): ?>
+		<?php if (empty($data['status_pembayaran'])): ?>
 			<div class="container">
 				<hr>
 				<div class="form-group font-weight-bold text-center" style="margin: auto;">
-					<span>Rp. <?php echo number_format($pembayaran['total'],0,0,'.') ?></span>
+					<span>Rp. <?php echo number_format($param['Biaya'],0,0,'.') ?></span>
 				</div>
 				<hr>
 				<div class="form-group">
@@ -91,7 +92,7 @@
 				<?php endif ?>
 			</div>
 			<br>
-			<a href="<?= base_url('home/media/konfirmasi_pembayaran/'.$pembayaran['id'].'/'.$pembayaran['media_id']) ?>" class="btn btn-sm btn-primary btn-lg text-white" id="submit" style="border-radius: 0.5rem;width: 100%;background-color:#0872ba;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
+			<a href="<?= base_url('home/media/konfirmasi_pembayaran/'.$data['id']) ?>" class="btn btn-sm btn-primary btn-lg text-white" id="submit" style="border-radius: 0.5rem;width: 100%;background-color:#0872ba;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
 				KONFIRMASI PEMBAYARAN
 			</a>
 			<div class="clearfix mb-1"></div>
