@@ -61,7 +61,7 @@ class Digital_print extends CI_Controller
 				'Nama User' => $user['username'],
 				'No HP' => $user['phone'],
 				'Bahan' => $bahan['title'],
-				'NAma Menu' => $menu['title'],
+				'Nama Menu' => $menu['title'],
 				'Nama Produk' => $produk['title'],
 				'Ukuran' => 'W = '.$data['width'].' - H = '.$data['height'],
 				'Sisi' => @intval($data['sisi']).' Sisi',
