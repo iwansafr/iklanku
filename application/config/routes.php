@@ -61,6 +61,9 @@ $route['admin/pesanan_koran_detail'] = 'admin/media/pesanan_koran_detail';
 $route['admin/pesanan_sosmed']        = 'admin/media/pesanan_sosmed';
 $route['admin/pesanan_sosmed_detail'] = 'admin/media/pesanan_sosmed_detail';
 
+$route['admin/pesanan_digital']        = 'admin/digital_print/pesanan';
+$route['admin/pesanan_digital_detail'] = 'admin/digital_print/pesanan_detail';
+
 
 $route['admin/content']                    = 'admin/content/list';
 $route['admin/user']                       = 'admin/user/list';

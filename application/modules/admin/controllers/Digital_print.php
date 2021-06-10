@@ -54,4 +54,13 @@ class Digital_print extends CI_Controller
 	{
 		$this->load->view('admin/digital_print/kategori_bahan',['id'=>$id,'kategori'=>$this->db->query('SELECT * FROM digital_print WHERE id = ?',$id)->row_array()]);
 	}
+	public function pesanan()
+	{
+		$this->load->view('index');
+	}
+	public function pesanan_detail()
+	{
+		$data = $this->db->get_where('digital_print_order',['id'=>$this->input->get('id')])->row_array();
+		$this->load->view('index', ['param'=>json_decode($data['param'],1),'data'=>$data]);
+	}
 }
