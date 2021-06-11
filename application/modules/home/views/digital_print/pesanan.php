@@ -62,6 +62,11 @@
 									<span class="v2"><?php echo $value['kode'] ?></span>
 									<div class="clearfix"></div>
 									<span class="v2">Rp <?php echo number_format($param['Biaya'],0,0,'.') ?></span>
+									<?php if (!empty($value['status_pembayaran'])): ?>
+										<span class="btn btn-success btn-sm v2">Confirmed</span>
+									<?php else: ?>
+										<span class="btn btn-danger btn-sm v2">Unconfirmed</span>
+									<?php endif ?>
 								</div>
 							</div>
 					  </div>

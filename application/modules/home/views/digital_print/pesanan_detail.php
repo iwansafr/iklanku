@@ -54,13 +54,17 @@
 				<div class="col-6">
 					<div class="form-group">
 						<span style="font-size: 3vw;color: grey;">Status Pembayaran</span><br>
-						<?php echo $status[$data['status_pembayaran']] ?>
+						<a href="<?php echo base_url('home/digital_print/payment/'.$data['id']) ?>" class="btn btn-sm btn-warning">
+							<?php echo $status[$data['status_pembayaran']] ?>
+						</a>
 					</div>
 				</div>
 				<div class="col-6">
 					<div class="form-group">
 						<span style="font-size: 3vw;color: grey;">Status Order</span><br>
-						<?php echo $status[$data['status_order']] ?>
+						<a href="<?php echo base_url('home/digital_print/payment/'.$data['id']) ?>" class="btn btn-sm btn-warning">
+							<?php echo $status[$data['status_order']] ?>
+						</a>
 					</div>
 				</div>
 			</div>

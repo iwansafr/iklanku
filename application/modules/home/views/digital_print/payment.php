@@ -117,7 +117,7 @@
 				MENU UTAMA
 			</a>
 			<div class="clearfix mb-1"></div>
-			<a href="<?php echo base_url('home/media/'.$data['id']) ?>" class="btn btn-sm btn-success btn-lg text-white" id="submit" style="border-radius: 0.5rem;width: 100%;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
+			<a href="<?php echo base_url('home/digital_print/pesanan_detail/'.$data['id']) ?>" class="btn btn-sm btn-success btn-lg text-white" id="submit" style="border-radius: 0.5rem;width: 100%;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
 				LIHAT DETAIL ORDER
 			</a>
 		<?php endif ?>
