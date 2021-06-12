@@ -57,7 +57,7 @@
 		</div>
 	</div>
 	<?php if (!empty($data)): ?>
-		<?php if ($data['id'] == 1): ?>
+		<?php if ($data['id'] == 1 || $data['id'] == 2): ?>
 			<form action="<?php echo base_url('home/digital_print/send_order') ?>" method="post">
 				<?php
 				$biaya = 0;

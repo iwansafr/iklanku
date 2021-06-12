@@ -94,6 +94,7 @@ class Digital_print extends CI_Controller
 	public function pesanan()
 	{
 		$data = [];
+		$this->db->order_by('id','DESC');
 		$data['data'] = $this->db->get_where('digital_print_order',['user_id'=>$this->session->userdata(base_url('_logged_in'))['id']])->result_array();
 		$this->load->view('index',$data);
 	}
