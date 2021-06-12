@@ -8,6 +8,7 @@ class Digital_print extends CI_Controller
 		$this->load->model('home_model');
 		$this->load->model('media_model');
 		$this->load->model('iklan_model');
+		$this->load->model('digital_print_model');
 		$this->load->helper('content');
 		$this->load->library('esg');
 		$this->load->library('ZEA/Zea');
@@ -27,8 +28,11 @@ class Digital_print extends CI_Controller
 		$produk = $this->db->query('SELECT * FROM digital_print_produk WHERE digi_ids LIKE "%,'.$data['id'].',%"')->result_array();
 		$bahan = $this->db->query('SELECT * FROM digital_print_bahan WHERE digi_ids LIKE "%,'.$data['id'].',%"')->result_array();
 		$finishing = $this->media_model->digital_print_finishing();
-
-		$this->load->view('index',['data'=>$data,'produk'=>$produk,'bahan'=>$bahan,'finishing'=>$finishing]);
+		$ukuran = $this->digital_print_model->ukuran_kertas();
+		$sisi = $this->digital_print_model->sisi_kertas();
+		$colour = $this->digital_print_model->colour();
+		$flipped = $this->digital_print_model->flipped();
+		$this->load->view('index',['data'=>$data,'produk'=>$produk,'bahan'=>$bahan,'finishing'=>$finishing,'ukuran'=>$ukuran,'sisi'=>$sisi,'colour'=>$colour,'flipped'=>$flipped]);
 	}
 	public function confirmation_order()
 	{
