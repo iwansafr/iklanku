@@ -64,7 +64,6 @@
 		<div class="row">
 			<div class="col">
 				<select name="flipped" id="flipped" class="form-control custom" required="">
-					<option value="">FLIPPED</option>
 					<?php foreach ($flipped as $key => $value): ?>
 						<option value="<?php echo $value ?>"><?php echo $value ?></option>
 					<?php endforeach ?>
@@ -84,3 +83,95 @@
 		LANJUT
 	</button>
 </form>
+<script>
+	const produk = document.querySelector('#produk');
+	produk.addEventListener('change',function(){
+		produkChange();
+	})
+	function produkChange(){
+		if(produk.validity.valueMissing){
+			produk.setCustomValidity('silahkan pilih produk');
+		}else{
+			produk.setCustomValidity('');
+		}
+	}
+	const bahan = document.querySelector('#bahan');
+	bahan.addEventListener('change',function(){
+		bahanChange();
+	})
+	function bahanChange(){
+		if(bahan.validity.valueMissing){
+			bahan.setCustomValidity('silahkan pilih bahan');
+		}else{
+			bahan.setCustomValidity('');
+		}
+	}
+	const ukuran = document.querySelector('#ukuran');
+	ukuran.addEventListener('change',function(){
+		ukuranChange();
+	})
+	function ukuranChange(){
+		if(ukuran.validity.valueMissing){
+			ukuran.setCustomValidity('silahkan pilih ukuran');
+		}else{
+			ukuran.setCustomValidity('');
+		}
+	}
+	const sisi = document.querySelector('#sisi');
+	sisi.addEventListener('change',function(){
+		sisiChange();
+	})
+	function sisiChange(){
+		if(sisi.validity.valueMissing){
+			sisi.setCustomValidity('silahkan pilih sisi');
+		}else{
+			sisi.setCustomValidity('');
+		}
+	}
+	const colour = document.querySelector('#colour');
+	colour.addEventListener('change',function(){
+		colourChange();
+	})
+	function colourChange(){
+		if(colour.validity.valueMissing){
+			colour.setCustomValidity('silahkan pilih colour');
+		}else{
+			colour.setCustomValidity('');
+		}
+	}
+	const flipped = document.querySelector('#flipped');
+	flipped.addEventListener('change',function(){
+		flippedChange();
+	})
+	function flippedChange(){
+		if(flipped.validity.valueMissing){
+			flipped.setCustomValidity('silahkan pilih flipped');
+		}else{
+			flipped.setCustomValidity('');
+		}
+	}
+	const jumlah = document.querySelector('#jumlah');
+	jumlah.addEventListener('keyup',function(){
+		jumlahchange();
+	})
+	function jumlahchange(){
+		if(jumlah.validity.valueMissing){
+	        jumlah.setCustomValidity('JUMLAH TIDAK BOLEH KOSONG');
+	    }else if(jumlah.validity.rangeUnderflow){
+	        jumlah.setCustomValidity('JUMLAH MINIMAL 1');
+	    }else{
+	        jumlah.setCustomValidity('');
+	    }
+	}
+
+	const submit = document.querySelector('#submit');
+	submit.addEventListener('click',function(){
+		produkChange();
+		bahanChange();
+		ukuranChange();
+		sisiChange();
+		colourChange();
+		flippedChange();
+		jumlahchange();
+	})
+</script>

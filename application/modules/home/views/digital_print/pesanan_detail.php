@@ -110,7 +110,25 @@
 				<div class="col-md-12">
 					<div class="form-group">
 						<span style="font-size: 3vw;color: grey;">Finishing</span><br>
-						<?php echo $param['Bahan'] ?>
+						<?php echo @$param['Finishing'] ?>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="form-group">
+						<span style="font-size: 3vw;color: grey;">Flipped</span><br>
+						<?php echo @$param['Flipped'] ?>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="form-group">
+						<span style="font-size: 3vw;color: grey;">Potong</span><br>
+						<?php echo @$param['Potong'] ?>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="form-group">
+						<span style="font-size: 3vw;color: grey;">Add</span><br>
+						<?php echo @$param['Add'] ?>
 					</div>
 				</div>
 			</div>

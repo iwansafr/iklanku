@@ -69,14 +69,18 @@ class Digital_print extends CI_Controller
 				'Nama Produk' => $produk['title'],
 				'Ukuran' => 'W = '.$data['width'].' - H = '.$data['height'],
 				'Sisi' => @intval($data['sisi']).' Sisi',
-				'Warna' => $data['warna'],
+				'Warna' => $data['colour'],
 				'Flipped' => $data['flipped'],
 				'Potong' => $data['potong'],
+				'Finishing' => $data['finishing'],
 				'Add' => $data['add'],
 				'Jumlah' => $data['jumlah'],
 				'Biaya' => $data['biaya'],
 
 			];
+			if($data['kat_id'] == 3){
+				$param['Ukuran'] = $data['ukuran'];
+			}
 			$input = [];
 			$input['kode'] = $data['kode'];
 			$input['user_id'] = $data['user_id'];
