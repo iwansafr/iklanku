@@ -55,5 +55,7 @@
 		<?php $this->load->view('form_mmt') ?>
 	<?php elseif($data['id'] == 3): ?>
 		<?php $this->load->view('form_kertas') ?>
+	<?php elseif ($data['id'] == 4): ?>
+	   <?php $this->load->view('form_stiker') ?>
 	<?php endif ?>
 </div>

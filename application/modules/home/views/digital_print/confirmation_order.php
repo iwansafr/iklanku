@@ -75,6 +75,9 @@
 			if($data['id'] == 3){
 				$biaya = $bahan['harga']*$get['jumlah'];
 			}
+			if($data['id'] == 4){
+				$biaya = $bahan['harga']*$get['width']*$get['height']*$get['jumlah'];
+			}
 			?>
 			<input type="hidden" name="user_id" value="<?php echo $user['id'] ?>">
 			<input type="hidden" name="kat_id" value="<?php echo $data['id'] ?>">
@@ -89,7 +92,7 @@
 			<input type="hidden" name="colour" value="<?php echo @$get['colour'] ?>">
 			<input type="hidden" name="flipped" value="<?php echo @$get['flipped'] ?>">
 			<input type="hidden" name="potong" value="<?php echo @$get['potong'] ?>">
-			<?php if ($data['id' == 3]): ?>
+			<?php if ($data['id'] == 3): ?>
 				<input type="hidden" name="potong" value="<?php echo !empty($get['potong']) ? 'potong' : 'tidak potong' ?>">
 			<?php endif ?>
 
@@ -135,7 +138,7 @@
 						<div class="col">
 							<div class="form-group">
 								<span style="font-size: 3vw;color: grey;">Ukuran / Jumlah</span><br>
-								<?php if ($data['id'] == 1 || $data['id']==2): ?>
+								<?php if ($data['id'] == 1 || $data['id']==2 || $data['id'] == 4): ?>
 								<?php echo $get['width'] ?> / <?php echo $get['height'] ?> CM / <?php echo $get['jumlah'] ?> Unit
 								<?php elseif($data['id'] == 3): ?>
 								<?php echo $get['ukuran'] ?> / <?php echo $get['sisi'] ?> SISI / <?php echo $get['jumlah'] ?> Unit
@@ -162,6 +165,13 @@
 								<div class="form-group">
 									<span style="font-size: 3vw;color: grey;">Bahan / Flipped / Potong</span><br>
 									<?php echo $bahan['title'] ?> / <?php echo $get['flipped'] ?> / <?php echo !empty($get['potong']) ? 'Potong' : '-' ?>
+								</div>							
+							</div>
+						<?php elseif ($data['id']==4): ?>
+							<div class="col">
+								<div class="form-group">
+									<span style="font-size: 3vw;color: grey;">Bahan</span><br>
+									<?php echo $bahan['title'] ?>
 								</div>							
 							</div>
 						<?php endif ?>
