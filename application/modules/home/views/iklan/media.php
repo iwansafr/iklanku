@@ -79,7 +79,12 @@
 			</div>
 		</div>
 		<div class="col text-center">
-			
+			<div class="card">
+				<a href="<?php echo base_url('home/digital_print') ?>" style="padding: 5px 0 0 0;">
+					<img src="<?php echo base_url('images/MENU-DIGITALPRINT-ACTIVE-03.png') ?>" class="img img-fluid img-circle">
+					<p class="disabled" style="text-align: center;font-size: 11px;">DIGITAL PRINT INDOOR MEDIA</p>
+				</a>
+			</div>
 		</div>
 	</div>
 </div>
