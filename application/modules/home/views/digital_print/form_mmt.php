@@ -76,10 +76,10 @@
 	})
 	function produkchange(){
 		if(produk.validity.valueMissing){
-        produk.setCustomValidity('SILAHKAN PILIH PRODUK');
-    }else{
-        produk.setCustomValidity('');
-    }
+        	produk.setCustomValidity('SILAHKAN PILIH PRODUK');
+	    }else{
+	        produk.setCustomValidity('');
+	    }
 	}
 
 	bahan.addEventListener('change',function(){
@@ -87,10 +87,10 @@
 	})
 	function bahanchange(){
 		if(bahan.validity.valueMissing){
-        bahan.setCustomValidity('SILAHKAN PILIH BAHAN');
-    }else{
-        bahan.setCustomValidity('');
-    }
+	        bahan.setCustomValidity('SILAHKAN PILIH BAHAN');
+	    }else{
+	        bahan.setCustomValidity('');
+	    }
 	}
 
 	finishing.addEventListener('change',function(){
@@ -98,10 +98,10 @@
 	})
 	function finishingchange(){
 		if(finishing.validity.valueMissing){
-        finishing.setCustomValidity('SILAHKAN PILIH FINISHING');
-    }else{
-        finishing.setCustomValidity('');
-    }
+	        finishing.setCustomValidity('SILAHKAN PILIH FINISHING');
+	    }else{
+	        finishing.setCustomValidity('');
+	    }
 	}
 
 	width.addEventListener('keyup',function(){
@@ -109,12 +109,12 @@
 	})
 	function widthchange(){
 		if(width.validity.valueMissing){
-        width.setCustomValidity('WIDTH TIDAK BOLEH KOSONG');
-    }else if(width.validity.rangeUnderflow){
-        width.setCustomValidity('WIDTH MINIMAL 1');
-    }else{
-        width.setCustomValidity('');
-    }
+	        width.setCustomValidity('WIDTH TIDAK BOLEH KOSONG');
+	    }else if(width.validity.rangeUnderflow){
+	        width.setCustomValidity('WIDTH MINIMAL 1');
+	    }else{
+	        width.setCustomValidity('');
+	    }
 	}
 
 	height.addEventListener('keyup',function(){
@@ -122,12 +122,12 @@
 	})
 	function heightchange(){
 		if(height.validity.valueMissing){
-        height.setCustomValidity('HEIGHT TIDAK BOLEH KOSONG');
-    }else if(height.validity.rangeUnderflow){
-        height.setCustomValidity('HEIGHT MINIMAL 1');
-    }else{
-        height.setCustomValidity('');
-    }
+	        height.setCustomValidity('HEIGHT TIDAK BOLEH KOSONG');
+	    }else if(height.validity.rangeUnderflow){
+	        height.setCustomValidity('HEIGHT MINIMAL 1');
+	    }else{
+	        height.setCustomValidity('');
+	    }
 	}
 
 	jumlah.addEventListener('keyup',function(){
@@ -135,11 +135,11 @@
 	})
 	function jumlahchange(){
 		if(jumlah.validity.valueMissing){
-        jumlah.setCustomValidity('JUMLAH TIDAK BOLEH KOSONG');
-    }else if(jumlah.validity.rangeUnderflow){
-        jumlah.setCustomValidity('JUMLAH MINIMAL 1');
-    }else{
-        jumlah.setCustomValidity('');
-    }
+	        jumlah.setCustomValidity('JUMLAH TIDAK BOLEH KOSONG');
+	    }else if(jumlah.validity.rangeUnderflow){
+	        jumlah.setCustomValidity('JUMLAH MINIMAL 1');
+	    }else{
+	        jumlah.setCustomValidity('');
+	    }
 	}
 </script>
