@@ -10,6 +10,7 @@ $(document).ready(function(){
 			for(i=0;i<result.data.length;i++){
 				$('#lokasi').append(`<option value="${result.data[i]['id']}">${result.data[i]['location']}</option>`);
 			}
+
 		});
 	}
 })
