@@ -10,16 +10,16 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `admin_menu`;
 CREATE TABLE `admin_menu` (
-  `id` int NOT NULL,
-  `par_id` int DEFAULT NULL,
+  `id` int(11) NOT NULL,
+  `par_id` int(11) DEFAULT NULL,
   `user_role_ids` varchar(255) NOT NULL,
   `title` varchar(255) DEFAULT NULL,
   `icon` varchar(45) DEFAULT NULL,
   `link` varchar(255) DEFAULT NULL,
-  `sort_order` int NOT NULL DEFAULT '1',
+  `sort_order` int(11) NOT NULL DEFAULT '1',
   `created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `admin_menu` (`id`, `par_id`, `user_role_ids`, `title`, `icon`, `link`, `sort_order`, `created`, `updated`) VALUES
 (1, 0, ',1,2,3,', 'Dashboard', 'fa fa-tachometer-alt', '/', 1, '2019-03-30 03:05:59', '2020-07-25 08:14:14'),
@@ -76,18 +76,20 @@ INSERT INTO `admin_menu` (`id`, `par_id`, `user_role_ids`, `title`, `icon`, `lin
 (53, 44, ',1,2,', 'Pesanan Koran', 'fa fa-list', '/media/pesanan_koran', 1, '2021-05-05 13:09:15', '2021-05-05 13:09:15'),
 (54, 0, ',1,2,', 'Digital Print', 'fa fa-print', '#', 1, '2021-05-20 10:38:29', '2021-05-20 10:38:29'),
 (55, 54, ',1,2,', 'Kategori', 'fa fa-list', '/digital_print/kategori', 1, '2021-05-20 10:39:10', '2021-05-20 10:39:10'),
-(57, 54, ',1,2,', 'Pesanan', 'fa fa-list', '/digital_print/pesanan', 1, '2021-06-13 18:48:26', '2021-06-13 18:48:26');
+(57, 54, ',1,2,', 'Pesanan', 'fa fa-list', '/digital_print/pesanan', 1, '2021-06-13 18:48:26', '2021-06-13 18:48:26'),
+(58, 0, ',1,2,', 'Digital Indoor', 'fa fa-print', '#', 1, '2021-06-14 00:56:12', '2021-06-14 00:56:12'),
+(59, 58, ',1,2,', 'Venue', 'fa fa-store', '/digital_indoor/venue', 1, '2021-06-14 00:57:06', '2021-06-14 00:57:06');
 
 DROP TABLE IF EXISTS `bank_account`;
 CREATE TABLE `bank_account` (
-  `id` int UNSIGNED NOT NULL,
+  `id` int(10) UNSIGNED NOT NULL,
   `bank_name` varchar(255) NOT NULL,
   `person_name` varchar(255) NOT NULL,
   `icon` varchar(255) NOT NULL,
   `bank_number` varchar(255) NOT NULL,
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `bank_account` (`id`, `bank_name`, `person_name`, `icon`, `bank_number`, `created`, `updated`) VALUES
 (1, 'Bank BCA Pemuda Semarang', 'PT. DECALLING MEDIA INTERNUSA', 'icon_BCA.png', '0312609779', '2019-04-14 16:18:57', '2021-04-18 04:27:10'),
@@ -95,24 +97,24 @@ INSERT INTO `bank_account` (`id`, `bank_name`, `person_name`, `icon`, `bank_numb
 
 DROP TABLE IF EXISTS `comment`;
 CREATE TABLE `comment` (
-  `id` int NOT NULL,
-  `par_id` int NOT NULL,
+  `id` int(11) NOT NULL,
+  `par_id` int(11) NOT NULL,
   `module` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1=content,2=product',
-  `module_id` int NOT NULL,
-  `user_id` int NOT NULL DEFAULT '0',
+  `module_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL DEFAULT '0',
   `username` varchar(255) NOT NULL,
   `content` mediumtext NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0=unread, 1=read',
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `config`;
 CREATE TABLE `config` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
   `value` mediumtext NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `config` (`id`, `name`, `value`) VALUES
 (1, 'templates', '{\"public_template\":\"iklanku\",\"admin_template\":\"AdminLTE\"}'),
@@ -135,7 +137,7 @@ INSERT INTO `config` (`id`, `name`, `value`) VALUES
 
 DROP TABLE IF EXISTS `content`;
 CREATE TABLE `content` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `cat_ids` mediumtext NOT NULL,
   `tag_ids` varchar(255) NOT NULL,
   `title` varchar(255) NOT NULL,
@@ -151,22 +153,22 @@ CREATE TABLE `content` (
   `images` text NOT NULL,
   `document` text NOT NULL,
   `author` varchar(255) NOT NULL,
-  `hits` int NOT NULL,
+  `hits` int(11) NOT NULL,
   `last_hits` datetime NOT NULL,
   `rating` varchar(255) NOT NULL,
   `params` text NOT NULL,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `publish` tinyint(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `content` (`id`, `cat_ids`, `tag_ids`, `title`, `slug`, `description`, `keyword`, `intro`, `content`, `source`, `image`, `icon`, `image_link`, `images`, `document`, `author`, `hits`, `last_hits`, `rating`, `params`, `created`, `updated`, `publish`) VALUES
 (1, ',1,', ',1,2,', 'Hello World', 'hello-world', 'Hello World\r\n', 'Hello World', 'Hello World\r\n', '<p>Hello World</p>\r\n', '', 'image_Hello_World_1541950550.png', '', '', '[\"images_Hello_World_0_1541950550.png\",\"images_Hello_World_1_1541950550.png\"]', '', 'admin', 153, '0000-00-00 00:00:00', '', '', '2018-11-11 22:35:50', '2020-07-24 07:28:23', 1);
 
 DROP TABLE IF EXISTS `content_cat`;
 CREATE TABLE `content_cat` (
-  `id` int NOT NULL,
-  `par_id` int NOT NULL,
+  `id` int(11) NOT NULL,
+  `par_id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `slug` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
@@ -175,27 +177,27 @@ CREATE TABLE `content_cat` (
   `publish` tinyint(1) NOT NULL DEFAULT '1',
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `content_cat` (`id`, `par_id`, `title`, `slug`, `image`, `icon`, `description`, `publish`, `created`, `updated`) VALUES
 (1, 0, 'Uncategorized', 'uncategorized', '', '', '', 1, '2018-11-11 22:23:38', '2020-07-24 07:28:23');
 
 DROP TABLE IF EXISTS `content_tag`;
 CREATE TABLE `content_tag` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
-  `total` int NOT NULL,
+  `total` int(11) NOT NULL,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `digital_print`;
 CREATE TABLE `digital_print` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
-  `harga_add` int NOT NULL,
-  `harga_non_add` int NOT NULL,
+  `harga_add` int(11) NOT NULL,
+  `harga_non_add` int(11) NOT NULL,
   `description` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `digital_print` (`id`, `title`, `harga_add`, `harga_non_add`, `description`) VALUES
 (1, 'MMT Outdoor', 100000, 50000, 'Outdoor'),
@@ -205,11 +207,11 @@ INSERT INTO `digital_print` (`id`, `title`, `harga_add`, `harga_non_add`, `descr
 
 DROP TABLE IF EXISTS `digital_print_bahan`;
 CREATE TABLE `digital_print_bahan` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `digi_ids` text NOT NULL,
   `title` varchar(255) NOT NULL,
-  `harga` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  `harga` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `digital_print_bahan` (`id`, `digi_ids`, `title`, `harga`) VALUES
 (1, ',1,2,', 'FLEXY CHINA 280 GR', 10000),
@@ -232,16 +234,16 @@ INSERT INTO `digital_print_bahan` (`id`, `digi_ids`, `title`, `harga`) VALUES
 
 DROP TABLE IF EXISTS `digital_print_order`;
 CREATE TABLE `digital_print_order` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `kode` varchar(255) NOT NULL,
-  `user_id` int NOT NULL,
-  `produk_id` int NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `produk_id` int(11) NOT NULL,
   `param` json NOT NULL,
   `status_pembayaran` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0=unconfirmed,1=confirmed',
   `status_order` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0=belum dicetak, 1=sudah dicetak',
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `digital_print_order` (`id`, `kode`, `user_id`, `produk_id`, `param`, `status_pembayaran`, `status_order`, `created`, `updated`) VALUES
 (1, 'INV0MM119202106080657', 9, 1, '{\"Add\": \"\", \"Sisi\": \"0 Sisi\", \"Bahan\": \"FLEXY CHINA 280 GR\", \"Biaya\": \"1440000\", \"No HP\": \"3553454234235\", \"Warna\": \"\", \"Jumlah\": \"1\", \"Potong\": \"\", \"Ukuran\": \"W = 12 - H = 12\", \"Flipped\": \"\", \"Nama Menu\": \"MMT Outdoor\", \"Nama User\": \"lina\", \"Nama Produk\": \"SPANDUK\"}', 1, 1, '2021-06-08 18:57:54', '2021-06-10 18:13:10'),
@@ -256,10 +258,10 @@ INSERT INTO `digital_print_order` (`id`, `kode`, `user_id`, `produk_id`, `param`
 
 DROP TABLE IF EXISTS `digital_print_produk`;
 CREATE TABLE `digital_print_produk` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `digi_ids` text NOT NULL,
   `title` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `digital_print_produk` (`id`, `digi_ids`, `title`) VALUES
 (1, ',1,', 'SPANDUK'),
@@ -280,23 +282,23 @@ INSERT INTO `digital_print_produk` (`id`, `digi_ids`, `title`) VALUES
 
 DROP TABLE IF EXISTS `iklan`;
 CREATE TABLE `iklan` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `jalan` varchar(255) NOT NULL,
   `kota` varchar(255) NOT NULL,
   `latitude` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `longitude` varchar(255) NOT NULL,
   `map_image` varchar(255) NOT NULL,
   `gallery` text NOT NULL,
-  `jenis` tinyint NOT NULL DEFAULT '1',
+  `jenis` tinyint(4) NOT NULL DEFAULT '1',
   `dimensi` tinyint(1) NOT NULL COMMENT '1 = vertical, 2 = horizontal',
-  `ukuran` tinyint NOT NULL DEFAULT '1',
+  `ukuran` tinyint(4) NOT NULL DEFAULT '1',
   `light` tinyint(1) NOT NULL COMMENT '1 = backlight, 2 = frontlight',
   `alamat` text NOT NULL,
   `status` tinyint(1) NOT NULL COMMENT '1 = available, 0 = unavailable',
-  `views` int NOT NULL,
+  `views` int(11) NOT NULL,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `iklan` (`id`, `jalan`, `kota`, `latitude`, `longitude`, `map_image`, `gallery`, `jenis`, `dimensi`, `ukuran`, `light`, `alamat`, `status`, `views`, `created`, `updated`) VALUES
 (1, 'Jl. Majapahit', 'Kota Semarang', '-6.470252', '110.8836412', 'map_image_Jl._Majapahit.jpg', '[\"gallery_Jl._Majapahit_0_1595617841.jpg\",\"gallery_Jl._Majapahit_1_1595617841.jpg\",\"gallery_Jl._Majapahit_2_1595617841.jpg\",\"gallery_Jl._Majapahit_3_1595617841.jpg\",\"gallery_Jl._Majapahit_4_1595617841.jpg\"]', 1, 2, 1, 2, 'RM. Pempek Ny. Kamto BRI Unit Majapahit SPBU Majapahit', 0, 2, '2020-07-22 13:14:17', '2020-12-29 16:09:50'),
@@ -318,28 +320,28 @@ INSERT INTO `iklan` (`id`, `jalan`, `kota`, `latitude`, `longitude`, `map_image`
 
 DROP TABLE IF EXISTS `iklan_sewa`;
 CREATE TABLE `iklan_sewa` (
-  `id` int NOT NULL,
-  `iklan_id` int NOT NULL,
-  `user_id` int NOT NULL,
+  `id` int(11) NOT NULL,
+  `iklan_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `role` varchar(100) NOT NULL,
   `email` varchar(255) NOT NULL,
   `hp` varchar(255) NOT NULL,
   `kota` varchar(255) NOT NULL,
   `jl` varchar(255) NOT NULL,
-  `jenis` tinyint NOT NULL,
-  `dimensi` tinyint NOT NULL,
-  `ukuran` tinyint NOT NULL,
-  `lightning` tinyint NOT NULL,
-  `sisi` tinyint NOT NULL,
+  `jenis` tinyint(4) NOT NULL,
+  `dimensi` tinyint(4) NOT NULL,
+  `ukuran` tinyint(4) NOT NULL,
+  `lightning` tinyint(4) NOT NULL,
+  `sisi` tinyint(4) NOT NULL,
   `start` date NOT NULL,
   `end` date NOT NULL,
-  `durasi` tinyint NOT NULL,
-  `harga` int NOT NULL,
+  `durasi` tinyint(4) NOT NULL,
+  `harga` int(11) NOT NULL,
   `status` tinyint(1) NOT NULL,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `iklan_sewa` (`id`, `iklan_id`, `user_id`, `username`, `role`, `email`, `hp`, `kota`, `jl`, `jenis`, `dimensi`, `ukuran`, `lightning`, `sisi`, `start`, `end`, `durasi`, `harga`, `status`, `created`, `updated`) VALUES
 (1, 16, 9, 'lina', 'Member', 'lina@gmail.com', '3553454234235', 'Kota Semarang', 'Jl. Prof Hamka', 2, 1, 5, 1, 2, '2020-08-21', '2020-09-21', 4, 0, 0, '2020-08-21 10:04:09', '2020-08-21 10:04:09'),
@@ -347,28 +349,28 @@ INSERT INTO `iklan_sewa` (`id`, `iklan_id`, `user_id`, `username`, `role`, `emai
 
 DROP TABLE IF EXISTS `invoice`;
 CREATE TABLE `invoice` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `code` varchar(255) NOT NULL,
   `receiver` varchar(255) NOT NULL,
   `payment_method` tinyint(1) NOT NULL DEFAULT '1',
   `notes` varchar(255) NOT NULL,
   `items` mediumtext NOT NULL,
   `status` tinyint(1) NOT NULL,
-  `ppn` int NOT NULL,
+  `ppn` int(11) NOT NULL,
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `media`;
 CREATE TABLE `media` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `tipe` tinyint(1) NOT NULL COMMENT '1 = radio, 2 = koran, 3= sosmed',
   `nama` varchar(255) NOT NULL,
   `alamat` text NOT NULL,
-  `tarif` int NOT NULL,
+  `tarif` int(11) NOT NULL,
   `photo` varchar(255) NOT NULL,
   `param` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `media` (`id`, `tipe`, `nama`, `alamat`, `tarif`, `photo`, `param`) VALUES
 (1, 1, 'Semarang FM', 'jl Cokroaminoto no 125', 1000, 'photo_Semarang_FM.png', '{}'),
@@ -407,23 +409,23 @@ INSERT INTO `media` (`id`, `tipe`, `nama`, `alamat`, `tarif`, `photo`, `param`) 
 
 DROP TABLE IF EXISTS `media_iklan`;
 CREATE TABLE `media_iklan` (
-  `id` int NOT NULL,
-  `media_id` int NOT NULL,
+  `id` int(11) NOT NULL,
+  `media_id` int(11) NOT NULL,
   `nama_media` varchar(255) NOT NULL,
   `alamat_media` varchar(255) NOT NULL,
-  `biaya` int NOT NULL,
+  `biaya` int(11) NOT NULL,
   `judul` varchar(255) NOT NULL,
   `isi` text NOT NULL,
   `jam_tayang` text NOT NULL,
-  `durasi` int NOT NULL,
-  `user_id` int NOT NULL,
+  `durasi` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `role` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `hp` varchar(255) NOT NULL,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `media_iklan` (`id`, `media_id`, `nama_media`, `alamat_media`, `biaya`, `judul`, `isi`, `jam_tayang`, `durasi`, `user_id`, `username`, `role`, `email`, `hp`, `created`, `updated`) VALUES
 (1, 31, 'Semarang FM', 'jl Cokroaminoto no 125', 2000, 'esoftgreat', 'ini adalah iklan esoftgreat', '01.00, 02.00', 126, 9, 'lina', 'Member', 'lina@gmail.com', '3553454234235', '2020-12-30 16:02:39', '2020-12-30 16:02:39'),
@@ -434,11 +436,11 @@ INSERT INTO `media_iklan` (`id`, `media_id`, `nama_media`, `alamat_media`, `biay
 
 DROP TABLE IF EXISTS `media_options`;
 CREATE TABLE `media_options` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `tipe` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1=posting,2=fotografi,3=admin handling, 4=add on',
-  `par_id` int NOT NULL DEFAULT '0',
+  `par_id` int(11) NOT NULL DEFAULT '0',
   `title` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `media_options` (`id`, `tipe`, `par_id`, `title`) VALUES
 (1, 1, 0, 'Feed'),
@@ -459,15 +461,15 @@ INSERT INTO `media_options` (`id`, `tipe`, `par_id`, `title`) VALUES
 
 DROP TABLE IF EXISTS `menu`;
 CREATE TABLE `menu` (
-  `id` int NOT NULL,
-  `par_id` int NOT NULL DEFAULT '0',
-  `position_id` int NOT NULL DEFAULT '0',
-  `sort_order` int NOT NULL,
+  `id` int(11) NOT NULL,
+  `par_id` int(11) NOT NULL DEFAULT '0',
+  `position_id` int(11) NOT NULL DEFAULT '0',
+  `sort_order` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `link` mediumtext NOT NULL,
   `tpl` varchar(255) NOT NULL,
   `publish` tinyint(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `menu` (`id`, `par_id`, `position_id`, `sort_order`, `title`, `link`, `tpl`, `publish`) VALUES
 (3, 0, 2, 0, 'youtube', 'utube', '0', 1),
@@ -497,11 +499,11 @@ INSERT INTO `menu` (`id`, `par_id`, `position_id`, `sort_order`, `title`, `link`
 
 DROP TABLE IF EXISTS `menu_position`;
 CREATE TABLE `menu_position` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `menu_position` (`id`, `title`, `created`, `updated`) VALUES
 (1, 'Top Menu', '2018-11-12 02:16:02', '2020-07-24 07:28:23'),
@@ -511,7 +513,7 @@ INSERT INTO `menu_position` (`id`, `title`, `created`, `updated`) VALUES
 
 DROP TABLE IF EXISTS `message`;
 CREATE TABLE `message` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `subject` varchar(255) NOT NULL,
@@ -519,27 +521,27 @@ CREATE TABLE `message` (
   `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1=unread,2=read',
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `order_koran`;
 CREATE TABLE `order_koran` (
-  `id` int NOT NULL,
-  `user_id` int NOT NULL,
-  `media_id` int NOT NULL,
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `media_id` int(11) NOT NULL,
   `photo` varchar(255) DEFAULT NULL,
   `image` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT 'foto iklan',
   `kode` varchar(255) NOT NULL,
   `tipe` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1=adlips 60,2=spot 60, 3=time signal 60',
   `kolom` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1,2,3,7',
   `colour` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1=full colour, 2=black white',
-  `durasi` int NOT NULL,
+  `durasi` int(11) NOT NULL,
   `masa` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1=hari, 2=minggu, 3=bulan',
-  `harga_dasar` int NOT NULL,
+  `harga_dasar` int(11) NOT NULL,
   `iklan` text NOT NULL,
-  `total` int NOT NULL,
+  `total` int(11) NOT NULL,
   `status_pembayaran` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0=unconfirmed, 1=confirmed',
   `status_order` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0=belum tayang,1=sudah tayang'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `order_koran` (`id`, `user_id`, `media_id`, `photo`, `image`, `kode`, `tipe`, `kolom`, `colour`, `durasi`, `masa`, `harga_dasar`, `iklan`, `total`, `status_pembayaran`, `status_order`) VALUES
 (1, 9, 32, NULL, 'data:image/*;base64,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Hzt37iQ4uP2HYXq9nl27dnH77bd3qr8X8/LLL5OamtqlfQMCAti8eTPr169Hqez2PMpCtCspKYmxY8f2djeEEEIIIYQQwu+6/Fe1Qd1G3Wt8g+zIR5dy6k9PtBlgA0Re5Fji8mamkcbESAC21WnZWKP1Wf8/qcGEauo6fdzISPcx77//ftRq3w8MKBQK7yizPn36dKXbVzStVsuSJUsYMGAA7777LkuWLOGTTz7hzJkzl81Ef/L6te3999/npz/96QXLf/rTn/L+++/3aNtXX301s2bN4o8F77GxMte7XIuKH0ffwXPR832231iZy68L3mHq1KkkJSV1qI3IyEimTJnCypUrvct0Oh333HMP77zzDn379vXZ3maz8eGHHzJnzhxUKtUFxysoKEChUBAfH++z/Ne//jXPP/+8z7KEhAQADh061KG+9rQZM2YQEBBA3759SUtL6+3uiG7asGEDzz333AXLn3vuOTZs2NALPRJCCCGEEEKI744ulxPxJ+flkbuJTnI4HJRPjfFZ9stjOtICGwkOPPd85OUHA/nRaw6UrQRUbYmIiMBsNhMSEsLNN9/sExCkpqbSv39/Tp48icFg8C5fuXIlmZmZrFixwrts8+bNvPHGG2zatMm7LDk5mVWrVqHX6ykrK2P58uV8+eWX3vXp6eksWLCA8PBwGhoayMrK4m9/+5u3XMQDDzzAtddeS1RUFA6Hg8LCQjIzM0lLS+Pqq6/G6XTy73//mz/+8Y80Nzd36JgKhYI777yTW265heDgYEpKSoiMjOTkyZMXXBuTyURERAR//OMfffrdUnvt+eM69NbrN2LECN566y1iY2M5ffo0K1asYMuWLR3u9y233MLYsWPR6XQ0Nzfz2Wef8a9//YvrrruO+Ph4NBoNzc3N7N69m/379wPu8hgDBgxAoVBw5swZjh8/3uXSF//+97+ZOXMmAL/73e8Ad4A9efJk1q9f36VjdtRdd92FzWZjSeW5OQuGEcWqa54nQeMOgF+oXOGzz1uVH/LY4Pnceeed5OXltdvGddddR3NzMzt27PAuu+mmm0hLS+OXv/xlqwH+li1bePTRRxk5ciT79u3zWecJpK+++mry8/MBd1A+efJkXC4Xr732GtXV1YA7xLbb7T6lPyZOnMjmzZvp06cPx44d480332T79u3e9TfffDMPPfQQERER1NXVsWnT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j8YYm0y/6pDTgUMAsAEju/xXTcpyCUvkk4zvfoCXD5fejniSuVPszF32Ar97s2xhx9LFHyM7EWn+kJOR3WgG0L4TEXxObvtO1Paaog6HA6Obm3phi4iIiLiY0WjE19cXX1/fui5FREREREQqMPTt29dpNptJTk4G4OjRo5UOLC4uxlFYSNbZs5jd3QkMDHRpIe3eHVL+/Wf/tcGlx76ZnDmThd3hICCgISZ3d80CEhERERERERERkUp9m/wDzcLvrOsyauTb5B8YNLBf+W2r1Uq1E1CDwYABMLm5YbOppUVdyS/Ix+TuhgE0G1tERERERERERERuejWaxms0GnF3d6fAZquteuQaCgpsuGsGtoiIiIiIiIiIiNwiajYT22DA3WTCaDSQk5NTm3VJJXJycnB3d8PdZCp/PkRERERERERERERuZjWazmswGDC5u2M2W8g5f762apIq5Jw/j9lsweTurgBbREREREREREREbgnuNRlsMBhwc3PD09OD9PR08vML8PT0qK3apIL8ggLOnz+P1WrFzc1NIXY98m3yD3VdgoiIiIiIiIiIyE2rxiG2wWDAYjbTwMeH1B9Tada0qUsKie/+F5cc52aVmppKAx8fLGazWonUM7+0FV5FREREREREROTWcLNMvqxRiA0XF3f09vHhfO4FcnMv4OPjfcOF3PerVjd8jJvVhQsXKC524u3jg8lk0qKOIiIiIiIiIiIiAsCuXbtwd78y5u3Ro0cdVFM7ahxil7UUsZjN+Pn7cTr1NM2aNq30gZIbV1hYSErKafwa+mMxmzEajZqFLSIiIiIiIiIiIgC4ubnh5+dX12XUquua0ms0GjGbzfh4e+Pl5cU3J0/idDpdXdstz+l08u3JZLy8vWjg7YO5NMQWERERERERERERuVVcVyJqMBgwGo1YzGZ8fX0xmUx89/3N0V+lPvnu+x8wmUz4+/nh4WHRLGwRERERERERERG55Vz3tF6j0YjJZMLT05OAhg2x2W0cPXqMwsJCV9Z3SyosLOTosWM4Ch00DGiIh6cnbm5umoUtIiIiIiIiIiIit5wbSkUNBgMmd3e8vLy47Ve/wtPbi2NJSVy4cMFV9d1yLly4wLGkJDy9vAgKCsLbywt3NzfNwBYREREREREREZFb0g2txljWVsRsMmE0GHAzGjG7m/j625P4eHsR1qgRHh4erqr1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AACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAACQJWIDAAAAAJAlYgMAAAAAkCViAwAAAADwVdu2zc+//DofPvy1610RGwAAAACAr1qWZV68+Gb3kC1iAwAAAABwlB9/+H5evfpu15AtYgMAAAAAcLS9Q7aIDQAAAADA/3aYwy53RGwAAAAAAI722+9/zLv3f87bN6/n5ctvH/2eiA0AAAAAwFH2DtgzIjYAAAAAAEfYtm0+fvx714A9M/N8t0sAAAAAADxZy7LM259e737Xm9gAAAAAAGSJ2AAAAAAAZPmcCAAAAADAE7Vt25yfn596xqMSsQEAAAAAnqjr6+tTT3h0PicCAAAAAECWiA0AAAAAQJaIDQAAAABAlogNAAAAAECWiA0AAAAAQJaIDQAAAABAlogNAAAAAECWiA0AAAAAQJaIDQAAAABAlogNAAAAAECWiA0AAAAAQNbZw8PDHA6HU+8AAAAAAIAvnM3MbNt26h0AAAAAAPCF5zMzd3d3nx9cXFycbAwAAAAAAPzXs5mZy8vLw/39/am3AAAAAADAzMys6zq3t7fPzmZmlmWZdV1PvQkAAAAAAGZd11mWZWb+eRP7X1dXV/7wCAAAAADASd3c3Hxu158Af6ft9ag+WNYAAAAASUVORK5CYII=', 'INV02202104220404329', 1, 1, 1, 12, 1, 10000, '', 120000, 0, 0);
@@ -560,22 +562,22 @@ INSERT INTO `order_koran` (`id`, `user_id`, `media_id`, `photo`, `image`, `kode`
 
 DROP TABLE IF EXISTS `order_radio`;
 CREATE TABLE `order_radio` (
-  `id` int NOT NULL,
-  `user_id` int NOT NULL,
-  `media_id` int NOT NULL,
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `media_id` int(11) NOT NULL,
   `photo` varchar(255) DEFAULT NULL,
   `kode` varchar(255) NOT NULL,
   `tipe` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1=adlips 60,2=spot 60, 3=time signal 60',
   `time` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1=prime time , 2=regular time',
-  `durasi` int NOT NULL,
+  `durasi` int(11) NOT NULL,
   `masa` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1=hari, 2=minggu, 3=bulan',
-  `harga_dasar` int NOT NULL,
+  `harga_dasar` int(11) NOT NULL,
   `kategori` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1=produk,2=usaha,3=event,4=kehilangan,5=lain-lain',
   `iklan` text NOT NULL,
-  `total` int NOT NULL,
+  `total` int(11) NOT NULL,
   `status_pembayaran` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0=unconfirmed, 1=confirmed',
   `status_order` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0=belum tayang,1=sudah tayang'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `order_radio` (`id`, `user_id`, `media_id`, `photo`, `kode`, `tipe`, `time`, `durasi`, `masa`, `harga_dasar`, `kategori`, `iklan`, `total`, `status_pembayaran`, `status_order`) VALUES
 (1, 9, 31, NULL, 'INV01202104181103319', 1, 1, 12, 3, 1000, 1, 'ini adalah contoh konten isi dari iklan radio', 360000, 0, 0),
@@ -583,20 +585,20 @@ INSERT INTO `order_radio` (`id`, `user_id`, `media_id`, `photo`, `kode`, `tipe`,
 
 DROP TABLE IF EXISTS `order_sosmed`;
 CREATE TABLE `order_sosmed` (
-  `id` int NOT NULL,
-  `media_id` int NOT NULL,
-  `user_id` int NOT NULL,
+  `id` int(11) NOT NULL,
+  `media_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `kode` varchar(255) NOT NULL,
   `durasi` tinyint(1) NOT NULL COMMENT 'bulan',
   `nama` varchar(255) NOT NULL,
   `hp` varchar(20) NOT NULL,
   `ig` varchar(255) NOT NULL,
   `alamat` text NOT NULL,
-  `harga_dasar` int NOT NULL,
-  `total` int NOT NULL,
+  `harga_dasar` int(11) NOT NULL,
+  `total` int(11) NOT NULL,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `order_sosmed` (`id`, `media_id`, `user_id`, `kode`, `durasi`, `nama`, `hp`, `ig`, `alamat`, `harga_dasar`, `total`, `created`, `updated`) VALUES
 (1, 33, 9, 'INV03202105050222339', 1, 'esoftgreat', '085290335332', '@esoftgreat', '-', 50000, 1500000, '2021-05-05 14:22:42', '2021-05-05 14:22:42'),
@@ -604,9 +606,181 @@ INSERT INTO `order_sosmed` (`id`, `media_id`, `user_id`, `kode`, `durasi`, `nama
 (3, 33, 9, 'INV03202105081031339', 1, 'esdofj', '90808080', '@kkhjkhj', '-', 50000, 1500000, '2021-05-08 22:31:13', '2021-05-08 22:31:13'),
 (4, 33, 9, 'INV03202105081040339', 1, 'sfasfd', '4325', 'dfgs', '4532v', 50000, 1500000, '2021-05-08 22:40:18', '2021-05-08 22:40:18');
 
+DROP TABLE IF EXISTS `pma__bookmark`;
+CREATE TABLE `pma__bookmark` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `dbase` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `user` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `label` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `query` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Bookmarks';
+
+DROP TABLE IF EXISTS `pma__central_columns`;
+CREATE TABLE `pma__central_columns` (
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `col_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `col_type` varchar(64) COLLATE utf8_bin NOT NULL,
+  `col_length` text COLLATE utf8_bin,
+  `col_collation` varchar(64) COLLATE utf8_bin NOT NULL,
+  `col_isNull` tinyint(1) NOT NULL,
+  `col_extra` varchar(255) COLLATE utf8_bin DEFAULT '',
+  `col_default` text COLLATE utf8_bin
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Central list of columns';
+
+DROP TABLE IF EXISTS `pma__column_info`;
+CREATE TABLE `pma__column_info` (
+  `id` int(5) UNSIGNED NOT NULL,
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `column_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `comment` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `mimetype` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `transformation` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `transformation_options` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `input_transformation` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `input_transformation_options` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Column information for phpMyAdmin';
+
+DROP TABLE IF EXISTS `pma__designer_settings`;
+CREATE TABLE `pma__designer_settings` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `settings_data` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Settings related to Designer';
+
+DROP TABLE IF EXISTS `pma__export_templates`;
+CREATE TABLE `pma__export_templates` (
+  `id` int(5) UNSIGNED NOT NULL,
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `export_type` varchar(10) COLLATE utf8_bin NOT NULL,
+  `template_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `template_data` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Saved export templates';
+
+DROP TABLE IF EXISTS `pma__favorite`;
+CREATE TABLE `pma__favorite` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `tables` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Favorite tables';
+
+DROP TABLE IF EXISTS `pma__history`;
+CREATE TABLE `pma__history` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `username` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `timevalue` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `sqlquery` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='SQL history for phpMyAdmin';
+
+DROP TABLE IF EXISTS `pma__navigationhiding`;
+CREATE TABLE `pma__navigationhiding` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `item_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `item_type` varchar(64) COLLATE utf8_bin NOT NULL,
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Hidden items of navigation tree';
+
+DROP TABLE IF EXISTS `pma__pdf_pages`;
+CREATE TABLE `pma__pdf_pages` (
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `page_nr` int(10) UNSIGNED NOT NULL,
+  `page_descr` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='PDF relation pages for phpMyAdmin';
+
+DROP TABLE IF EXISTS `pma__recent`;
+CREATE TABLE `pma__recent` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `tables` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Recently accessed tables';
+
+INSERT INTO `pma__recent` (`username`, `tables`) VALUES
+('root', '[{\"db\":\"iklanku\",\"table\":\"venue_location\"},{\"db\":\"iklanku\",\"table\":\"venue\"},{\"db\":\"iklanku\",\"table\":\"digital_print_produk\"},{\"db\":\"iklanku\",\"table\":\"digital_print_order\"},{\"db\":\"iklanku\",\"table\":\"digital_print_bahan\"},{\"db\":\"iklanku\",\"table\":\"order_koran\"},{\"db\":\"iklanku\",\"table\":\"media_iklan\"},{\"db\":\"iklanku\",\"table\":\"media\"},{\"db\":\"iklanku\",\"table\":\"pma__users\"},{\"db\":\"iklanku\",\"table\":\"order_sosmed\"}]');
+
+DROP TABLE IF EXISTS `pma__relation`;
+CREATE TABLE `pma__relation` (
+  `master_db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `master_table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `master_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `foreign_db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `foreign_table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `foreign_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Relation table';
+
+DROP TABLE IF EXISTS `pma__savedsearches`;
+CREATE TABLE `pma__savedsearches` (
+  `id` int(5) UNSIGNED NOT NULL,
+  `username` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `search_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `search_data` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Saved searches';
+
+DROP TABLE IF EXISTS `pma__table_coords`;
+CREATE TABLE `pma__table_coords` (
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `pdf_page_number` int(11) NOT NULL DEFAULT '0',
+  `x` float UNSIGNED NOT NULL DEFAULT '0',
+  `y` float UNSIGNED NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table coordinates for phpMyAdmin PDF output';
+
+DROP TABLE IF EXISTS `pma__table_info`;
+CREATE TABLE `pma__table_info` (
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `display_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table information for phpMyAdmin';
+
+DROP TABLE IF EXISTS `pma__table_uiprefs`;
+CREATE TABLE `pma__table_uiprefs` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `prefs` text COLLATE utf8_bin NOT NULL,
+  `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Tables'' UI preferences';
+
+DROP TABLE IF EXISTS `pma__tracking`;
+CREATE TABLE `pma__tracking` (
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `version` int(10) UNSIGNED NOT NULL,
+  `date_created` datetime NOT NULL,
+  `date_updated` datetime NOT NULL,
+  `schema_snapshot` text COLLATE utf8_bin NOT NULL,
+  `schema_sql` text COLLATE utf8_bin,
+  `data_sql` longtext COLLATE utf8_bin,
+  `tracking` set('UPDATE','REPLACE','INSERT','DELETE','TRUNCATE','CREATE DATABASE','ALTER DATABASE','DROP DATABASE','CREATE TABLE','ALTER TABLE','RENAME TABLE','DROP TABLE','CREATE INDEX','DROP INDEX','CREATE VIEW','ALTER VIEW','DROP VIEW') COLLATE utf8_bin DEFAULT NULL,
+  `tracking_active` int(1) UNSIGNED NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Database changes tracking for phpMyAdmin';
+
+DROP TABLE IF EXISTS `pma__userconfig`;
+CREATE TABLE `pma__userconfig` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `timevalue` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `config_data` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='User preferences storage for phpMyAdmin';
+
+INSERT INTO `pma__userconfig` (`username`, `timevalue`, `config_data`) VALUES
+('root', '2021-06-14 02:11:26', '{\"Console\\/Mode\":\"collapse\"}');
+
+DROP TABLE IF EXISTS `pma__usergroups`;
+CREATE TABLE `pma__usergroups` (
+  `usergroup` varchar(64) COLLATE utf8_bin NOT NULL,
+  `tab` varchar(64) COLLATE utf8_bin NOT NULL,
+  `allowed` enum('Y','N') COLLATE utf8_bin NOT NULL DEFAULT 'N'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='User groups with configured menu items';
+
+DROP TABLE IF EXISTS `pma__users`;
+CREATE TABLE `pma__users` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `usergroup` varchar(64) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Users and their assignments to user groups';
+
 DROP TABLE IF EXISTS `product`;
 CREATE TABLE `product` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `cat_ids` mediumtext NOT NULL,
   `tag_ids` mediumtext NOT NULL,
   `image` varchar(11) NOT NULL,
@@ -616,16 +790,16 @@ CREATE TABLE `product` (
   `description` mediumtext NOT NULL,
   `price` varchar(255) NOT NULL,
   `discount` double NOT NULL,
-  `qty` int NOT NULL,
+  `qty` int(11) NOT NULL,
   `publish` tinyint(1) NOT NULL DEFAULT '1' COMMENT '0 = not publish, 1 = publish',
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `product_cat`;
 CREATE TABLE `product_cat` (
-  `id` int NOT NULL,
-  `par_id` int NOT NULL,
+  `id` int(11) NOT NULL,
+  `par_id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `slug` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
@@ -633,30 +807,30 @@ CREATE TABLE `product_cat` (
   `publish` tinyint(1) NOT NULL DEFAULT '1',
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `product_tag`;
 CREATE TABLE `product_tag` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
-  `total` int NOT NULL,
+  `total` int(11) NOT NULL,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `subscriber`;
 CREATE TABLE `subscriber` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `email` varchar(255) NOT NULL,
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `subscriber` (`id`, `email`, `created`, `updated`) VALUES
 (1, 'iwansafr@gmail.com', '2019-04-22 06:39:07', '2020-07-24 07:28:23');
 
 DROP TABLE IF EXISTS `testimonial`;
 CREATE TABLE `testimonial` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `profession` varchar(255) NOT NULL,
@@ -664,37 +838,37 @@ CREATE TABLE `testimonial` (
   `publish` tinyint(1) NOT NULL DEFAULT '0',
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `testimonial` (`id`, `name`, `email`, `profession`, `testimonial`, `publish`, `created`, `updated`) VALUES
 (2, 'iwan', 'iwansafr@gmail.com', 'guru', 'keren websitenya', 0, '2019-08-27 11:53:56', '2020-07-24 07:28:23');
 
 DROP TABLE IF EXISTS `trash`;
 CREATE TABLE `trash` (
-  `id` int NOT NULL,
-  `user_id` int NOT NULL,
-  `table_id` int NOT NULL,
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `table_id` int(11) NOT NULL,
   `table_title` varchar(255) NOT NULL,
   `table_content` mediumtext NOT NULL,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `trash` (`id`, `user_id`, `table_id`, `table_title`, `table_content`, `created`) VALUES
 (110, 2, 56, 'admin_menu', '{\"id\":\"56\",\"par_id\":\"54\",\"user_role_ids\":\",1,2,\",\"title\":\"Kategori\",\"icon\":\"fa fa-list\",\"link\":\"\\/digital_print\\/kategori\",\"sort_order\":\"1\",\"created\":\"2021-05-20 18:30:59\",\"updated\":\"2021-05-20 18:30:59\"}', '2021-05-20 18:32:02');
 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `phone` varchar(20) NOT NULL,
   `email` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
-  `user_role_id` int NOT NULL,
+  `user_role_id` int(11) NOT NULL,
   `active` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1 = active, 0 = not active',
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `user` (`id`, `username`, `password`, `phone`, `email`, `image`, `user_role_id`, `active`, `created`, `updated`) VALUES
 (1, 'root', '$2y$10$iN3I64zsXAyy9MCEVAPe3uqv1ygazlJgKFYEc2aNCiu2VDe/ZTKjO', '', 'root@esoftgreat.com', '', 1, 1, '2018-11-03 07:36:32', '2020-07-24 07:28:23'),
@@ -709,13 +883,13 @@ INSERT INTO `user` (`id`, `username`, `password`, `phone`, `email`, `image`, `us
 
 DROP TABLE IF EXISTS `user_login`;
 CREATE TABLE `user_login` (
-  `id` int NOT NULL,
-  `user_id` int NOT NULL,
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `ip` varchar(15) NOT NULL,
   `browser` varchar(255) NOT NULL,
   `status` tinyint(1) NOT NULL COMMENT '0=failed, 1=success',
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `user_login` (`id`, `user_id`, `ip`, `browser`, `status`, `created`) VALUES
 (1, 7, '165.22.105.190', 'Mozilla/5.0 (Linux; Android 9; Mi A2 Lite Build/PKQ1.180917.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/72.0.3626.121 Mobile Safari/537.36', 1, '2019-05-24 21:11:18'),
@@ -1243,15 +1417,17 @@ INSERT INTO `user_login` (`id`, `user_id`, `ip`, `browser`, `status`, `created`)
 (526, 2, '::1', 'Mozilla/5.0 (Linux; Android 8.0.0; Pixel 2 XL Build/OPD1.170816.004) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Mobile Safari/537.36', 1, '2021-06-06 13:36:25'),
 (527, 2, '::1', 'Mozilla/5.0 (Linux; Android 8.0.0; Pixel 2 XL Build/OPD1.170816.004) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Mobile Safari/537.36', 1, '2021-06-08 06:16:50'),
 (528, 2, '::1', 'Mozilla/5.0 (Linux; Android 8.0.0; Pixel 2 XL Build/OPD1.170816.004) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Mobile Safari/537.36', 1, '2021-06-10 18:11:52'),
-(529, 2, '::1', 'Mozilla/5.0 (Linux; Android 8.0.0; Pixel 2 XL Build/OPD1.170816.004) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Mobile Safari/537.36', 1, '2021-06-14 01:47:13');
+(529, 2, '::1', 'Mozilla/5.0 (Linux; Android 8.0.0; Pixel 2 XL Build/OPD1.170816.004) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Mobile Safari/537.36', 1, '2021-06-14 01:47:13'),
+(530, 2, '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', 1, '2021-06-14 07:55:39'),
+(531, 0, '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', 0, '2021-06-14 09:32:19');
 
 DROP TABLE IF EXISTS `user_login_failed`;
 CREATE TABLE `user_login_failed` (
-  `id` int NOT NULL,
-  `user_login_id` int NOT NULL,
+  `id` int(11) NOT NULL,
+  `user_login_id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `user_login_failed` (`id`, `user_login_id`, `username`, `password`) VALUES
 (1, 480, 'root', 'Dks_080308'),
@@ -1266,17 +1442,18 @@ INSERT INTO `user_login_failed` (`id`, `user_login_id`, `username`, `password`) 
 (10, 497, 'admin', '123456'),
 (11, 504, 'root', 'Dks_080308'),
 (12, 506, 'root', 'Dks_080308'),
-(13, 525, 'admin', 'admin');
+(13, 525, 'admin', 'admin'),
+(14, 531, 'lina', '1');
 
 DROP TABLE IF EXISTS `user_role`;
 CREATE TABLE `user_role` (
-  `id` int NOT NULL,
-  `level` tinyint NOT NULL,
+  `id` int(11) NOT NULL,
+  `level` tinyint(4) NOT NULL,
   `title` varchar(255) NOT NULL,
   `description` mediumtext NOT NULL,
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `user_role` (`id`, `level`, `title`, `description`, `created`, `updated`) VALUES
 (1, 1, 'root', 'super user', '2018-11-02 22:57:22', '2020-07-24 07:28:23'),
@@ -1284,9 +1461,31 @@ INSERT INTO `user_role` (`id`, `level`, `title`, `description`, `created`, `upda
 (3, 5, 'Member', 'User member yang hanya berlangganan saja', '2018-11-04 12:59:26', '2020-07-24 07:28:23'),
 (4, 3, 'agency', 'user member sebagai agency', '2020-08-19 20:45:10', '2020-08-19 20:45:10');
 
+DROP TABLE IF EXISTS `venue`;
+CREATE TABLE `venue` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO `venue` (`id`, `title`) VALUES
+(1, 'RAMAYANA'),
+(2, 'ADA'),
+(3, 'MATAHARI');
+
+DROP TABLE IF EXISTS `venue_location`;
+CREATE TABLE `venue_location` (
+  `id` int(11) NOT NULL,
+  `venue_ids` text NOT NULL,
+  `location` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO `venue_location` (`id`, `venue_ids`, `location`) VALUES
+(1, ',1,2,3,', 'KEDUNGMUNDU'),
+(2, ',1,2,3,', 'KEDUNGMUNDUS');
+
 DROP TABLE IF EXISTS `visitor`;
 CREATE TABLE `visitor` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `ip` varchar(50) NOT NULL,
   `visited` varchar(255) NOT NULL,
   `city` varchar(50) NOT NULL,
@@ -1294,7 +1493,7 @@ CREATE TABLE `visitor` (
   `country` varchar(10) NOT NULL,
   `browser` varchar(255) NOT NULL,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `visitor` (`id`, `ip`, `visited`, `city`, `region`, `country`, `browser`, `created`) VALUES
 (1, '::1', 'http://localhost/iklan/', '', '', '', 'Mozilla/5.0 (Linux; Android 8.0.0; Pixel 2 XL Build/OPD1.170816.004) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Mobile Safari/537.36', '2021-05-08 22:22:32'),
@@ -2367,7 +2566,226 @@ INSERT INTO `visitor` (`id`, `ip`, `visited`, `city`, `region`, `country`, `brow
 (1063, '::1', 'http://localhost/iklan/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36', '2021-06-14 01:48:07'),
 (1064, '::1', 'http://localhost/iklan/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36', '2021-06-14 01:48:27'),
 (1065, '::1', 'http://localhost/iklan/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36', '2021-06-14 01:48:38'),
-(1066, '::1', 'http://localhost/iklan/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36', '2021-06-14 01:48:49');
+(1066, '::1', 'http://localhost/iklan/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36', '2021-06-14 01:48:49'),
+(1067, '::1', 'http://localhost/iklanku/home/iklan/media', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 07:41:13'),
+(1068, '::1', 'http://localhost/iklanku/home/logout', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 07:55:31'),
+(1069, '::1', 'http://localhost/iklanku/home/login', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 07:55:32'),
+(1070, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 07:55:41'),
+(1071, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 08:06:46'),
+(1072, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 08:14:23'),
+(1073, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 08:14:37'),
+(1074, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 08:14:40'),
+(1075, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 08:14:49'),
+(1076, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 08:32:06'),
+(1077, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 08:32:18'),
+(1078, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 08:32:52'),
+(1079, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 08:32:55'),
+(1080, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 08:33:11'),
+(1081, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 08:34:11'),
+(1082, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 08:34:14'),
+(1083, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 08:34:21'),
+(1084, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 08:34:22'),
+(1085, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 08:34:23'),
+(1086, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 08:34:48'),
+(1087, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 08:35:06'),
+(1088, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 08:35:49'),
+(1089, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 08:37:37'),
+(1090, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 08:37:56'),
+(1091, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:00:05'),
+(1092, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:00:18'),
+(1093, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:01:10'),
+(1094, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:01:13'),
+(1095, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:01:16'),
+(1096, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:01:41'),
+(1097, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:01:51'),
+(1098, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:02:08'),
+(1099, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:02:37'),
+(1100, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:05:56'),
+(1101, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:06:16'),
+(1102, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:06:21'),
+(1103, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:08:31'),
+(1104, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:08:44'),
+(1105, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:10:30'),
+(1106, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:10:32'),
+(1107, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:10:54'),
+(1108, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:11:57'),
+(1109, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:11:57'),
+(1110, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:12:02'),
+(1111, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:12:58'),
+(1112, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:13:16'),
+(1113, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:14:46'),
+(1114, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:14:58'),
+(1115, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:15:10'),
+(1116, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:15:15'),
+(1117, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:15:20'),
+(1118, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:15:21'),
+(1119, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:15:23'),
+(1120, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:15:32'),
+(1121, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:16:32'),
+(1122, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:16:33'),
+(1123, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:16:38'),
+(1124, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:16:38'),
+(1125, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:16:41'),
+(1126, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:16:45'),
+(1127, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:17:49'),
+(1128, '::1', 'http://localhost/iklanku/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:17:50'),
+(1129, '::1', 'http://localhost/iklanku/', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:32:29'),
+(1130, '::1', 'http://localhost/iklanku/', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:32:34'),
+(1131, '::1', 'http://localhost/iklanku/home/iklan/media', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:32:34'),
+(1132, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:32:37'),
+(1133, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:34:09'),
+(1134, '::1', 'http://localhost/iklanku/', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:34:12'),
+(1135, '::1', 'http://localhost/iklanku/home/iklan/media', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:34:13'),
+(1136, '::1', 'http://localhost/iklanku/home/digital_print', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:34:15'),
+(1137, '::1', 'http://localhost/iklanku/home/iklan/media', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:34:19'),
+(1138, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:34:21'),
+(1139, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:34:48'),
+(1140, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:36:04'),
+(1141, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:36:32'),
+(1142, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:36:58'),
+(1143, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:39:16'),
+(1144, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:39:55'),
+(1145, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:40:51'),
+(1146, '::1', 'http://localhost/iklanku/home', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:41:20'),
+(1147, '::1', 'http://localhost/iklanku/', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:41:26'),
+(1148, '::1', 'http://localhost/iklanku/home/iklan/media', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:41:26'),
+(1149, '::1', 'http://localhost/iklanku/home/digital_print', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:41:27'),
+(1150, '::1', 'http://localhost/iklanku/home/digital_print/form_order/3', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:41:29'),
+(1151, '::1', 'http://localhost/iklanku/home/digital_print', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:41:38'),
+(1152, '::1', 'http://localhost/iklanku/home/digital_print/form_order/1', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:41:39'),
+(1153, '::1', 'http://localhost/iklanku/home/digital_print', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:41:42'),
+(1154, '::1', 'http://localhost/iklanku/home/iklan/media', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:41:44'),
+(1155, '::1', 'http://localhost/iklanku/home/iklan', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:41:45'),
+(1156, '::1', 'http://localhost/iklanku/home/iklan/json_kota', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:41:47'),
+(1157, '::1', 'http://localhost/iklanku/', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:41:48'),
+(1158, '::1', 'http://localhost/iklanku/home/iklan/media', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:41:49'),
+(1159, '::1', 'http://localhost/iklanku/home/sosmed', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:41:50'),
+(1160, '::1', 'http://localhost/iklanku/home/media/json_list', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:41:52'),
+(1161, '::1', 'http://localhost/iklanku/home/media/order/33/3', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:42:52'),
+(1162, '::1', 'http://localhost/iklanku/home/radio', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:46:27'),
+(1163, '::1', 'http://localhost/iklanku/home/media/json_list', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:46:28'),
+(1164, '::1', 'http://localhost/iklanku/', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:46:30'),
+(1165, '::1', 'http://localhost/iklanku/home/iklan/media', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:46:31'),
+(1166, '::1', 'http://localhost/iklanku/home/radio', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:46:34'),
+(1167, '::1', 'http://localhost/iklanku/home/media/json_list', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:46:34'),
+(1168, '::1', 'http://localhost/iklanku/home/media/order/31/1', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:46:36'),
+(1169, '::1', 'http://localhost/iklanku/home/radio', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:46:40'),
+(1170, '::1', 'http://localhost/iklanku/home/media/json_list', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:46:41'),
+(1171, '::1', 'http://localhost/iklanku/', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:46:42'),
+(1172, '::1', 'http://localhost/iklanku/home/iklan/media', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:46:43'),
+(1173, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 09:46:46'),
+(1174, '::1', 'http://localhost/iklanku/', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 10:32:39'),
+(1175, '::1', 'http://localhost/iklanku/home/iklan/media', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 10:32:39'),
+(1176, '::1', 'http://localhost/iklanku/home/iklan', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 10:52:21'),
+(1177, '::1', 'http://localhost/iklanku/home/iklan/json_kota', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 10:52:22'),
+(1178, '::1', 'http://localhost/iklanku/home/iklan/json_jalan/jk', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 10:52:29'),
+(1179, '::1', 'http://localhost/iklanku/home/iklan/json_jalan/j', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 10:52:30'),
+(1180, '::1', 'http://localhost/iklanku/home/iklan/json_jalan/jl', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 10:52:30'),
+(1181, '::1', 'http://localhost/iklanku/home/iklan/json_jalan/j', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 10:52:31'),
+(1182, '::1', 'http://localhost/iklanku/home/iklan/json_jalan', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 10:52:31'),
+(1183, '::1', 'http://localhost/iklanku/home/iklan/json_jalan/j', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 10:52:32'),
+(1184, '::1', 'http://localhost/iklanku/home/iklan/json_jalan', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 10:52:33'),
+(1185, '::1', 'http://localhost/iklanku/', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 10:52:35'),
+(1186, '::1', 'http://localhost/iklanku/home/iklan/media', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 10:52:36'),
+(1187, '::1', 'http://localhost/iklanku/home/iklan/media', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:12:43'),
+(1188, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:16:04'),
+(1189, '::1', 'http://localhost/iklanku/home', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:16:08'),
+(1190, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:16:18'),
+(1191, '::1', 'http://localhost/iklanku/', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:16:19'),
+(1192, '::1', 'http://localhost/iklanku/home/iklan/media', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:16:20'),
+(1193, '::1', 'http://localhost/iklanku/home/iklan', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:16:22'),
+(1194, '::1', 'http://localhost/iklanku/home/iklan/json_kota', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:17:22'),
+(1195, '::1', 'http://localhost/iklanku/home/iklan/json_kota', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:25:55'),
+(1196, '::1', 'http://localhost/iklanku/', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:28:18'),
+(1197, '::1', 'http://localhost/iklanku/home/iklan/media', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:28:19'),
+(1198, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:28:22'),
+(1199, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:31:04'),
+(1200, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:31:05'),
+(1201, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:31:06'),
+(1202, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:32:47'),
+(1203, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:36:12'),
+(1204, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:36:32'),
+(1205, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:36:59'),
+(1206, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/1', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:37:03'),
+(1207, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:41:51'),
+(1208, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/2', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:41:57'),
+(1209, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:43:32'),
+(1210, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/1', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:43:41'),
+(1211, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:44:08'),
+(1212, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/2', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:44:12'),
+(1213, '::1', 'http://localhost/iklanku/', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:44:22'),
+(1214, '::1', 'http://localhost/iklanku/home/iklan/media', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:44:22'),
+(1215, '::1', 'http://localhost/iklanku/home/iklan', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:44:24'),
+(1216, '::1', 'http://localhost/iklanku/home/iklan/json_kota', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:44:25'),
+(1217, '::1', 'http://localhost/iklanku/home/iklan/json_list', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:44:34'),
+(1218, '::1', 'http://localhost/iklanku/images/modules/iklan/4/map_image_Jl._Prof_Hamka.jpg', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:44:34'),
+(1219, '::1', 'http://localhost/iklanku/images/modules/iklan/3/map_image_Jl._Majapahit.jpg', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:44:36'),
+(1220, '::1', 'http://localhost/iklanku/', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:45:16'),
+(1221, '::1', 'http://localhost/iklanku/home/iklan/media', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:45:16'),
+(1222, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:45:17'),
+(1223, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/2', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:45:20'),
+(1224, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:45:42'),
+(1225, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/2', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:45:44'),
+(1226, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:48:10'),
+(1227, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/2', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:50:37'),
+(1228, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:50:40'),
+(1229, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:51:41'),
+(1230, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:51:41'),
+(1231, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:51:41'),
+(1232, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/2', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:54:23'),
+(1233, '::1', 'http://localhost/iklanku/', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:54:29'),
+(1234, '::1', 'http://localhost/iklanku/home/iklan/media', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:54:30'),
+(1235, '::1', 'http://localhost/iklanku/home/iklan', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:54:33'),
+(1236, '::1', 'http://localhost/iklanku/home/iklan/json_kota', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:54:35'),
+(1237, '::1', 'http://localhost/iklanku/home/iklan/json_list', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:54:38'),
+(1238, '::1', 'http://localhost/iklanku/images/modules/iklan/4/map_image_Jl._Prof_Hamka.jpg', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:54:38');
+INSERT INTO `visitor` (`id`, `ip`, `visited`, `city`, `region`, `country`, `browser`, `created`) VALUES
+(1239, '::1', 'http://localhost/iklanku/images/modules/iklan/3/map_image_Jl._Majapahit.jpg', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:54:39'),
+(1240, '::1', 'http://localhost/iklanku/home/iklan/json_list', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:56:34'),
+(1241, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/3', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:56:49'),
+(1242, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/3', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:57:04'),
+(1243, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/3', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:57:11'),
+(1244, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/3', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:57:17'),
+(1245, '::1', 'http://localhost/iklanku/home/iklan/media', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:57:18'),
+(1246, '::1', 'http://localhost/iklanku/home/iklan', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:57:22'),
+(1247, '::1', 'http://localhost/iklanku/home/iklan/media', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:57:23'),
+(1248, '::1', 'http://localhost/iklanku/home/iklan/json_list', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:57:23'),
+(1249, '::1', 'http://localhost/iklanku/home/iklan/media', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:58:58'),
+(1250, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:59:07'),
+(1251, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/1', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:59:15'),
+(1252, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:59:40'),
+(1253, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/1', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 11:59:45'),
+(1254, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 12:00:30'),
+(1255, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/2', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 12:00:34'),
+(1256, '::1', 'http://localhost/iklanku/', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 12:01:01'),
+(1257, '::1', 'http://localhost/iklanku/home/iklan/media', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 12:01:02'),
+(1258, '::1', 'http://localhost/iklanku/home/iklan', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 12:01:03'),
+(1259, '::1', 'http://localhost/iklanku/home/iklan/json_kota', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 12:01:04'),
+(1260, '::1', 'http://localhost/iklanku/home/iklan/json_list', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 12:01:07'),
+(1261, '::1', 'http://localhost/iklanku/images/modules/iklan/4/map_image_Jl._Prof_Hamka.jpg', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 12:01:07'),
+(1262, '::1', 'http://localhost/iklanku/images/modules/iklan/3/map_image_Jl._Majapahit.jpg', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 12:01:08'),
+(1263, '::1', 'http://localhost/iklanku/', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 12:01:22'),
+(1264, '::1', 'http://localhost/iklanku/home/iklan/media', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 12:01:23'),
+(1265, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 12:01:25'),
+(1266, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/2', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 12:01:27'),
+(1267, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/3', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 12:01:43'),
+(1268, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 12:03:18'),
+(1269, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/1', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 12:03:28'),
+(1270, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 12:05:19'),
+(1271, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/2', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 12:05:23'),
+(1272, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 12:06:30'),
+(1273, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/1', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 12:06:36'),
+(1274, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 12:07:03'),
+(1275, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/2', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 12:07:10'),
+(1276, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/1', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 12:07:15'),
+(1277, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 12:08:03'),
+(1278, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/1', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 12:08:10'),
+(1279, '::1', 'http://localhost/iklanku/home/iklan/media', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 14:21:26'),
+(1280, '::1', 'http://localhost/iklanku/home/login', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 14:21:26'),
+(1281, '::1', 'http://localhost/iklanku/home/iklan/media', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 14:21:33'),
+(1282, '::1', 'http://localhost/iklanku/home/login', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 14:21:33'),
+(1283, '::1', 'http://localhost/iklanku/home/login', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 14:21:46'),
+(1284, '::1', 'http://localhost/iklanku/home/iklan/media', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 14:21:49');
 
 
 ALTER TABLE `admin_menu`
@@ -2439,6 +2857,69 @@ ALTER TABLE `order_radio`
 
 ALTER TABLE `order_sosmed`
   ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `pma__bookmark`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `pma__central_columns`
+  ADD PRIMARY KEY (`db_name`,`col_name`);
+
+ALTER TABLE `pma__column_info`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `db_name` (`db_name`,`table_name`,`column_name`);
+
+ALTER TABLE `pma__designer_settings`
+  ADD PRIMARY KEY (`username`);
+
+ALTER TABLE `pma__export_templates`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `u_user_type_template` (`username`,`export_type`,`template_name`);
+
+ALTER TABLE `pma__favorite`
+  ADD PRIMARY KEY (`username`);
+
+ALTER TABLE `pma__history`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `username` (`username`,`db`,`table`,`timevalue`);
+
+ALTER TABLE `pma__navigationhiding`
+  ADD PRIMARY KEY (`username`,`item_name`,`item_type`,`db_name`,`table_name`);
+
+ALTER TABLE `pma__pdf_pages`
+  ADD PRIMARY KEY (`page_nr`),
+  ADD KEY `db_name` (`db_name`);
+
+ALTER TABLE `pma__recent`
+  ADD PRIMARY KEY (`username`);
+
+ALTER TABLE `pma__relation`
+  ADD PRIMARY KEY (`master_db`,`master_table`,`master_field`),
+  ADD KEY `foreign_field` (`foreign_db`,`foreign_table`);
+
+ALTER TABLE `pma__savedsearches`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `u_savedsearches_username_dbname` (`username`,`db_name`,`search_name`);
+
+ALTER TABLE `pma__table_coords`
+  ADD PRIMARY KEY (`db_name`,`table_name`,`pdf_page_number`);
+
+ALTER TABLE `pma__table_info`
+  ADD PRIMARY KEY (`db_name`,`table_name`);
+
+ALTER TABLE `pma__table_uiprefs`
+  ADD PRIMARY KEY (`username`,`db_name`,`table_name`);
+
+ALTER TABLE `pma__tracking`
+  ADD PRIMARY KEY (`db_name`,`table_name`,`version`);
+
+ALTER TABLE `pma__userconfig`
+  ADD PRIMARY KEY (`username`);
+
+ALTER TABLE `pma__usergroups`
+  ADD PRIMARY KEY (`usergroup`,`tab`,`allowed`);
+
+ALTER TABLE `pma__users`
+  ADD PRIMARY KEY (`username`,`usergroup`);
 
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
@@ -2472,111 +2953,141 @@ ALTER TABLE `user_login_failed`
 ALTER TABLE `user_role`
   ADD PRIMARY KEY (`id`);
 
+ALTER TABLE `venue`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `venue_location`
+  ADD PRIMARY KEY (`id`);
+
 ALTER TABLE `visitor`
   ADD PRIMARY KEY (`id`);
 
 
 ALTER TABLE `admin_menu`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 ALTER TABLE `bank_account`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 ALTER TABLE `comment`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `config`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 ALTER TABLE `content`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 
 ALTER TABLE `content_cat`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 ALTER TABLE `content_tag`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `digital_print`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 ALTER TABLE `digital_print_bahan`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 ALTER TABLE `digital_print_order`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 ALTER TABLE `digital_print_produk`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 ALTER TABLE `iklan`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 ALTER TABLE `iklan_sewa`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 ALTER TABLE `invoice`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 ALTER TABLE `media`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 ALTER TABLE `media_iklan`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 ALTER TABLE `media_options`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 ALTER TABLE `menu`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 ALTER TABLE `menu_position`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 ALTER TABLE `message`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `order_koran`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 ALTER TABLE `order_radio`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 ALTER TABLE `order_sosmed`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+ALTER TABLE `pma__bookmark`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `pma__column_info`
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `pma__export_templates`
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `pma__history`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `pma__pdf_pages`
+  MODIFY `page_nr` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `pma__savedsearches`
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `product`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `product_cat`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `product_tag`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `subscriber`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 ALTER TABLE `testimonial`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 ALTER TABLE `trash`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
 
 ALTER TABLE `user`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 ALTER TABLE `user_login`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=530;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=532;
 
 ALTER TABLE `user_login_failed`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 ALTER TABLE `user_role`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+ALTER TABLE `venue`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+ALTER TABLE `venue_location`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 ALTER TABLE `visitor`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1067;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1285;
 
 
 ALTER TABLE `trash`
