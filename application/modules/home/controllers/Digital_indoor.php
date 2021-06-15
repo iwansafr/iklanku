@@ -29,4 +29,8 @@ class Digital_indoor extends CI_Controller
 		$output = ['data'=>$data['data'],'success'=>$data];
 		echo json_encode($output);
 	}
+	public function confirmation_order()
+	{
+		$this->load->view('index');
+	}
 }

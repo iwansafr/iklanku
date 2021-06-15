@@ -51,9 +51,9 @@
 			<hr>
 		</div>
 	</div>
-	<form action="<?php echo base_url('home/digital_print/confirmation_order/') ?>" method="get">
+	<form action="<?php echo base_url('home/digital_indoor/confirmation_order/') ?>" method="get">
 		<div class="form-group">
-			<select name="venue" id="venue" class="form-control custom" required="">
+			<select name="venue" id="venue" class="form-control custom" required="" required>
 				<option value="" disabled selected>Pilih VENUE</option>
 				<?php foreach ($venue as $key => $value): ?>
 					<option value="<?php echo $value['id'] ?>"><?php echo $value['title'] ?></option>
@@ -61,9 +61,12 @@
 			</select>
 		</div>
 		<div class="form-group">
-		    <select class="mdb-select colorful-select dropdown-primary md-form form-control" multiple searchable="Search here.." name="lokasi" id="lokasi">
-		      <option value="" disabled selected>Pilih Lokasi</option>
-		    </select>
+	    <select class="mdb-select colorful-select dropdown-primary md-form form-control" multiple searchable="Search here.." name="lokasi" id="lokasi" required>
+	      <option value="" disabled selected>Pilih Lokasi</option>
+	    </select>
 		</div>
+		<button class="btn btn-sm btn-primary btn-lg" id="submit" style="border-radius: 0.5rem;width: 100%;background-color:#0872ba;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
+			LANJUT
+		</button>
 	</form>
 </div>
