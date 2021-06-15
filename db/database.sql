@@ -1464,8 +1464,8 @@ INSERT INTO `user_role` (`id`, `level`, `title`, `description`, `created`, `upda
 DROP TABLE IF EXISTS `venue`;
 CREATE TABLE `venue` (
   `id` int(11) NOT NULL,
-  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `title` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `venue` (`id`, `title`) VALUES
 (1, 'RAMAYANA'),
@@ -1477,7 +1477,7 @@ CREATE TABLE `venue_location` (
   `id` int(11) NOT NULL,
   `venue_ids` text NOT NULL,
   `location` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `venue_location` (`id`, `venue_ids`, `location`) VALUES
 (1, ',1,2,3,', 'KEDUNGMUNDU'),

@@ -51,7 +51,6 @@
 		    });
 		});
 	</script>
-
-  <?php $this->load->view('script') ?>
+	<?php $this->load->view('script') ?>
 </body>
 </html>
