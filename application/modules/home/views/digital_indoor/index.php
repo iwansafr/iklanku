@@ -61,7 +61,7 @@
 			</select>
 		</div>
 		<div class="form-group">
-	    <select class="mdb-select colorful-select dropdown-primary md-form form-control" multiple searchable="Search here.." name="lokasi" id="lokasi" required>
+	    <select class="mdb-select colorful-select dropdown-primary md-form form-control" multiple searchable="Search here.." name="lokasi[]" id="lokasi" required>
 	      <option value="" disabled selected>Pilih Lokasi</option>
 	    </select>
 		</div>

@@ -31,25 +31,22 @@
 		<?php $get = $this->input->get(); ?>
 	<?php endif ?>
 	<?php $user = $this->session->userdata(base_url().'_logged_in') ?>
-	<?php 
-	$url_get = '';
-	$i = 0;
-	foreach ($get as $key => $value)
-	{
-		if($i > 0)
-		{
-			$url_get .= '&';
-		}
-		$url_get .= $key.'='.$value;
-		$i++;
-	}
-	$url_get = !empty($url_get) ? '?'.$url_get : '';
-	?>
 	<div class="title text-center">
 		<div class="container">
-			<a href="<?= base_url('home/digital_indoor/form_order/'.$url_get) ?>" class="float-left">
-				<i class="fa fa-arrow-left"></i>
-			</a>
+			<form action="<?= base_url('home/digital_indoor/form_order/') ?>" method="get">
+				<?php foreach ($get as $key => $value): ?>
+					<?php if ($key=='lokasi'): ?>
+						<?php foreach ($value as $lkey => $lvalue): ?>
+							<input type="hidden" name="lokasi[]" value="<?= $lvalue ?>">
+						<?php endforeach ?>
+					<?php else: ?>
+						<input type="hidden" name="<?php echo $key ?>" value="<?= $value ?>">
+					<?php endif ?>
+				<?php endforeach ?>
+				<button type="submit" class="float-left btn-sm btn-primary">
+					<i class="fa fa-arrow-left"></i>
+				</button>
+			</form>
 			<span class="font-weight-bold">
 				Konfirmasi Order
 			</span>
@@ -122,9 +119,21 @@
 				Biaya Tidak Valid
 			<?php endif ?>
 		</form>
-		<a href="<?= base_url('home/digital_print/form_order/') ?>" class="btn btn-sm btn-success btn-lg text-white mt-2" id="submit" style="border-radius: 0.5rem;width: 100%;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
-			EDIT FORM
-		</a>
+		<form action="<?= base_url('home/digital_print/form_order/') ?>" method="get">
+			<?php foreach ($get as $key => $value): ?>
+				<?php if ($key=='lokasi'): ?>
+					<?php foreach ($value as $lkey => $lvalue): ?>
+						<input type="hidden" name="lokasi[]" value="<?= $lvalue ?>">
+					<?php endforeach ?>
+				<?php else: ?>
+					<input type="hidden" name="<?php echo $key ?>" value="<?= $value ?>">
+				<?php endif ?>
+			<?php endforeach ?>
+
+			<button type="submit" class="btn btn-sm btn-success btn-lg text-white mt-2" id="submit" style="border-radius: 0.5rem;width: 100%;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
+				EDIT FORM
+			</button>
+		</form>
 		<script>
 			const submit = document.querySelector('#submit');
 			const loadingdiv = document.querySelector('#loadingdiv');
