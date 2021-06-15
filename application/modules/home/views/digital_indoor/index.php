@@ -51,7 +51,7 @@
 			<hr>
 		</div>
 	</div>
-	<form action="<?php echo base_url('home/digital_indoor/confirmation_order/') ?>" method="get">
+	<form action="<?php echo base_url('home/digital_indoor/form_order/') ?>" method="get">
 		<div class="form-group">
 			<select name="venue" id="venue" class="form-control custom" required="" required>
 				<option value="" disabled selected>Pilih VENUE</option>

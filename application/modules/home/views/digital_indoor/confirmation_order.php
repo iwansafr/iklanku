@@ -23,83 +23,118 @@
 	   -ms-text-align-last: center;
 	   -moz-text-align-last: center;
 	}
-	.fileContainer [type=file] {
-      cursor: inherit;
-      display: block;
-      font-size: 999px;
-      filter: alpha(opacity=0);
-      min-width: 100%;
-      opacity: 0;
-      position: absolute;
-      right: 0;
-      text-align: right;
-      top: 50%;
-  }
-  .v3{
-   	font-size: 3vw;
-  }
 </style>
 <div class="container mt-5 pt-5 " id="pageSewa">
+	<?php if (!empty($_POST)): ?>
+		<?php $get = $this->input->post(); ?>
+	<?php else: ?>
+		<?php $get = $this->input->get(); ?>
+	<?php endif ?>
+	<?php $user = $this->session->userdata(base_url().'_logged_in') ?>
+	<?php 
+	$url_get = '';
+	$i = 0;
+	foreach ($get as $key => $value)
+	{
+		if($i > 0)
+		{
+			$url_get .= '&';
+		}
+		$url_get .= $key.'='.$value;
+		$i++;
+	}
+	$url_get = !empty($url_get) ? '?'.$url_get : '';
+	?>
 	<div class="title text-center">
 		<div class="container">
-			<a href="<?= base_url('home/digital_indoor') ?>" class="float-left">
+			<a href="<?= base_url('home/digital_indoor/form_order/'.$url_get) ?>" class="float-left">
 				<i class="fa fa-arrow-left"></i>
 			</a>
 			<span class="font-weight-bold">
-				Form Sewa Slot
+				Konfirmasi Order
 			</span>
 			<hr>
 		</div>
 	</div>
-	<form action="" method="get">
-		<div class="form-group text-center">
-			<label>Penyewa</label>
-			<input type="text" name="nama" class="form-control custom" readonly value="<?php echo $this->session->userdata(base_url().'_logged_in')['username'] ?>">
-		</div>
-		<div class="form-group">
-			<div class="row">
-				<div class="col">
-					<select class="form-control" name="sewa" required>
-						<option value="" disabled selected>JENIS SEWA</option>
-						<option value="eksklusif">EKSKLUSIF</option>
-						<option value="single slot">SINGLE SLOT</option>
-						<option value="multiple slot">MULTIPLE SLOT</option>
-					</select>
-				</div>
-				<div class="col">
-					<select class="form-control" name="slot" required>
-						<option value="" disabled selected>JUMLAH SLOT</option>
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
-					</select>
-				</div>
-			</div>
-		</div>
-		<div class="form-group text-center">
-			<label>Mulai Tayang</label>
-			<input type="date" name="mulai_tayang" class="form-control custom" required>
-		</div>
-		<div class="form-group">
-			<div class="row">
-				<div class="col">
-					<input type="number" name="durasi" class="form-control custom" placeholder="DURASI" required min="1">
-				</div>
-				<div class="col">
-					<select class="form-control custom" name="masa_tayang" required>
-						<option value="" disabled selected>MASA TAYANG</option>
-						<option>HARI</option>
-						<option>MINGGU</option>
-						<option>BULAN</option>
-					</select>
-				</div>
-			</div>
-		</div>
+	<?php if (!empty($config)): ?>
+		<form action="<?php echo base_url('home/digital_indoor/send_order') ?>" method="post">
+			<?php
+			$biaya = 0;
+			?>
+			<input type="hidden" name="user_id" value="<?php echo $user['id'] ?>">
+			<input type="hidden" name="kode" value="<?php echo 'INV0'.$user['id'].date('Ymdhi') ?>">
 
-		<button class="btn btn-sm btn-primary btn-lg" id="submit" style="border-radius: 0.5rem;width: 100%;background-color:#0872ba;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
-			LANJUT
-		</button>
-	</form>
+			<div class="card card-default" style="border-radius: 0.5rem;">
+				<div class="card-body">
+					<div class="row">
+						<div class="col">
+							<span class="font-weight-bold" style="font-size: 3vw;"><?php echo 'INV0'.$user['id'].date('Ymdhi') ?></span>
+						</div>
+						<div class="col-3">
+							<img src="<?= image_module('digital_print') ?>" class="img img-fluid" alt="">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<div class="form-group">
+								<span style="font-size: 3vw;color: grey;">Nama Pelanggan</span><br>
+								<?php echo $user['username'] ?>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<div class="form-group">
+								<span style="font-size: 3vw;color: grey;">Jenis Sewa</span><br>
+								<?php echo $get['sewa'] ?>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<div class="form-group">
+								<span style="font-size: 3vw;color: grey;">Venue</span><br>
+								<?php echo $get['sewa'].' / '.$get['sewa'] ?>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<div class="form-group">
+								<span style="font-size: 3vw;color: grey;">Biaya</span><br>
+								<span>Rp. <?php echo number_format($biaya,0,0,'.') ?></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br>
+			<?php if (!empty($biaya)): ?>
+				<div id="submitdiv">
+					<button class="btn btn-sm btn-primary btn-lg" id="submit" style="border-radius: 0.5rem;width: 100%;background-color:#0872ba;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
+						LANJUT
+					</button>
+				</div>
+				<div id="loadingdiv" class="text-center d-none">
+					<span>Memproses Pesanan ...</span>
+				</div>
+			<?php else: ?>
+				Biaya Tidak Valid
+			<?php endif ?>
+		</form>
+		<a href="<?= base_url('home/digital_print/form_order/') ?>" class="btn btn-sm btn-success btn-lg text-white mt-2" id="submit" style="border-radius: 0.5rem;width: 100%;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
+			EDIT FORM
+		</a>
+		<script>
+			const submit = document.querySelector('#submit');
+			const loadingdiv = document.querySelector('#loadingdiv');
+			const submitdiv = document.querySelector('#submitdiv');
+			submit.addEventListener('click',()=>{
+			   loadingdiv.classList.remove('d-none');
+			   submitdiv.classList.add('d-none');
+			});
+		</script>
+	<?php else: ?>
+		<?php msg('Mohon Maaf Halaman yang anda minta tidak tersedia','info') ?>
+	<?php endif ?>
 </div>

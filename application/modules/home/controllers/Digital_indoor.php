@@ -29,8 +29,14 @@ class Digital_indoor extends CI_Controller
 		$output = ['data'=>$data['data'],'success'=>$data];
 		echo json_encode($output);
 	}
-	public function confirmation_order()
+	public function form_order()
 	{
 		$this->load->view('index');
+	}
+	public function confirmation_order()
+	{
+		$config = [];
+		$config['config'] = $this->esg->get_config('harga_slot');
+		$this->load->view('index',$config);
 	}
 }

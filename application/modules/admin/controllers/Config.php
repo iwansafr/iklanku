@@ -177,4 +177,8 @@ class Config extends CI_Controller
 	{
 		$this->load->view('index');
 	}
+	public function harga_slot()
+	{
+		$this->load->view('index');
+	}
 }
