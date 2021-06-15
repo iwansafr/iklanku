@@ -67,8 +67,3 @@
 		</div>
 	</form>
 </div>
-<script>
-	$(document).ready(function() {
-		$('.mdb-select').materialSelect();
-	});
-</script>
