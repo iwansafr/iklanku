@@ -133,7 +133,8 @@ INSERT INTO `config` (`id`, `name`, `value`) VALUES
 (14, 'corporate_widget', '{\"template\":\"corporate\",\"menu_top\":{\"content\":\"3\"},\"menu_main\":{\"content\":\"1\"},\"content_slider\":{\"content\":\"14\",\"limit\":\"3\"},\"content\":{\"content\":\"7\",\"limit\":\"3\"},\"menu_bottom\":{\"content\":\"3\"}}'),
 (15, 'corporate_mega_widget', '{\"template\":\"corporate_mega\",\"menu_top\":{\"content\":\"3\"},\"menu_main\":{\"content\":\"1\"},\"content_slider\":{\"content\":\"14\",\"limit\":\"7\"},\"content\":{\"content\":\"latest\",\"limit\":\"7\"},\"menu_bottom\":{\"content\":\"0\"}}'),
 (16, 'etrain_widget', '{\"template\":\"etrain\",\"menu_top\":{\"content\":\"1\"},\"content_banner\":{\"content\":\"2\",\"limit\":\"7\"},\"content_feature\":{\"content\":\"19\",\"limit\":\"7\"},\"content_about\":{\"content\":\"2\",\"limit\":\"7\"},\"content_count\":{\"content\":\"3\",\"limit\":\"7\"},\"content_courses\":{\"content\":\"15\",\"limit\":\"7\"},\"content_advance\":{\"content\":\"5\",\"limit\":\"7\"},\"content_testimonials\":{\"content\":\"14\",\"limit\":\"7\"},\"content_blog\":{\"content\":\"14\",\"limit\":\"7\"}}'),
-(17, 'email_config', '{\"email\":\"iklan@esoftgreat.com\",\"password\":\"W1RN.zCIvzse\",\"protocol\":\"smtp\",\"smtp_host\":\"ssl:\\/\\/mail.esoftgreat.com\",\"smtp_port\":\"465\",\"smtp_timeout\":\"7\",\"charset\":\"utf-8\",\"newline\":\"\\\\r\\\\n\",\"mailtype\":\"html\",\"validation\":\"TRUE\"}');
+(17, 'email_config', '{\"email\":\"iklan@esoftgreat.com\",\"password\":\"W1RN.zCIvzse\",\"protocol\":\"smtp\",\"smtp_host\":\"ssl:\\/\\/mail.esoftgreat.com\",\"smtp_port\":\"465\",\"smtp_timeout\":\"7\",\"charset\":\"utf-8\",\"newline\":\"\\\\r\\\\n\",\"mailtype\":\"html\",\"validation\":\"TRUE\"}'),
+(18, 'harga_slot', '{\"eksklusif\":\"50000\",\"single_slot\":\"100000\",\"multiple_slot\":\"150000\"}');
 
 DROP TABLE IF EXISTS `content`;
 CREATE TABLE `content` (
@@ -609,174 +610,174 @@ INSERT INTO `order_sosmed` (`id`, `media_id`, `user_id`, `kode`, `durasi`, `nama
 DROP TABLE IF EXISTS `pma__bookmark`;
 CREATE TABLE `pma__bookmark` (
   `id` int(10) UNSIGNED NOT NULL,
-  `dbase` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `user` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `dbase` varchar(255) NOT NULL DEFAULT '',
+  `user` varchar(255) NOT NULL DEFAULT '',
   `label` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `query` text COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Bookmarks';
+  `query` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Bookmarks';
 
 DROP TABLE IF EXISTS `pma__central_columns`;
 CREATE TABLE `pma__central_columns` (
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `col_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `col_type` varchar(64) COLLATE utf8_bin NOT NULL,
-  `col_length` text COLLATE utf8_bin,
-  `col_collation` varchar(64) COLLATE utf8_bin NOT NULL,
+  `db_name` varchar(64) NOT NULL,
+  `col_name` varchar(64) NOT NULL,
+  `col_type` varchar(64) NOT NULL,
+  `col_length` text,
+  `col_collation` varchar(64) NOT NULL,
   `col_isNull` tinyint(1) NOT NULL,
-  `col_extra` varchar(255) COLLATE utf8_bin DEFAULT '',
-  `col_default` text COLLATE utf8_bin
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Central list of columns';
+  `col_extra` varchar(255) DEFAULT '',
+  `col_default` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Central list of columns';
 
 DROP TABLE IF EXISTS `pma__column_info`;
 CREATE TABLE `pma__column_info` (
   `id` int(5) UNSIGNED NOT NULL,
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `column_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `db_name` varchar(64) NOT NULL DEFAULT '',
+  `table_name` varchar(64) NOT NULL DEFAULT '',
+  `column_name` varchar(64) NOT NULL DEFAULT '',
   `comment` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `mimetype` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `transformation` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `transformation_options` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `input_transformation` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `input_transformation_options` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Column information for phpMyAdmin';
+  `transformation` varchar(255) NOT NULL DEFAULT '',
+  `transformation_options` varchar(255) NOT NULL DEFAULT '',
+  `input_transformation` varchar(255) NOT NULL DEFAULT '',
+  `input_transformation_options` varchar(255) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Column information for phpMyAdmin';
 
 DROP TABLE IF EXISTS `pma__designer_settings`;
 CREATE TABLE `pma__designer_settings` (
-  `username` varchar(64) COLLATE utf8_bin NOT NULL,
-  `settings_data` text COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Settings related to Designer';
+  `username` varchar(64) NOT NULL,
+  `settings_data` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Settings related to Designer';
 
 DROP TABLE IF EXISTS `pma__export_templates`;
 CREATE TABLE `pma__export_templates` (
   `id` int(5) UNSIGNED NOT NULL,
-  `username` varchar(64) COLLATE utf8_bin NOT NULL,
-  `export_type` varchar(10) COLLATE utf8_bin NOT NULL,
-  `template_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `template_data` text COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Saved export templates';
+  `username` varchar(64) NOT NULL,
+  `export_type` varchar(10) NOT NULL,
+  `template_name` varchar(64) NOT NULL,
+  `template_data` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Saved export templates';
 
 DROP TABLE IF EXISTS `pma__favorite`;
 CREATE TABLE `pma__favorite` (
-  `username` varchar(64) COLLATE utf8_bin NOT NULL,
-  `tables` text COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Favorite tables';
+  `username` varchar(64) NOT NULL,
+  `tables` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Favorite tables';
 
 DROP TABLE IF EXISTS `pma__history`;
 CREATE TABLE `pma__history` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `username` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `username` varchar(64) NOT NULL DEFAULT '',
+  `db` varchar(64) NOT NULL DEFAULT '',
+  `table` varchar(64) NOT NULL DEFAULT '',
   `timevalue` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `sqlquery` text COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='SQL history for phpMyAdmin';
+  `sqlquery` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='SQL history for phpMyAdmin';
 
 DROP TABLE IF EXISTS `pma__navigationhiding`;
 CREATE TABLE `pma__navigationhiding` (
-  `username` varchar(64) COLLATE utf8_bin NOT NULL,
-  `item_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `item_type` varchar(64) COLLATE utf8_bin NOT NULL,
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Hidden items of navigation tree';
+  `username` varchar(64) NOT NULL,
+  `item_name` varchar(64) NOT NULL,
+  `item_type` varchar(64) NOT NULL,
+  `db_name` varchar(64) NOT NULL,
+  `table_name` varchar(64) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Hidden items of navigation tree';
 
 DROP TABLE IF EXISTS `pma__pdf_pages`;
 CREATE TABLE `pma__pdf_pages` (
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `db_name` varchar(64) NOT NULL DEFAULT '',
   `page_nr` int(10) UNSIGNED NOT NULL,
   `page_descr` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='PDF relation pages for phpMyAdmin';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='PDF relation pages for phpMyAdmin';
 
 DROP TABLE IF EXISTS `pma__recent`;
 CREATE TABLE `pma__recent` (
-  `username` varchar(64) COLLATE utf8_bin NOT NULL,
-  `tables` text COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Recently accessed tables';
+  `username` varchar(64) NOT NULL,
+  `tables` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Recently accessed tables';
 
 INSERT INTO `pma__recent` (`username`, `tables`) VALUES
 ('root', '[{\"db\":\"iklanku\",\"table\":\"venue_location\"},{\"db\":\"iklanku\",\"table\":\"venue\"},{\"db\":\"iklanku\",\"table\":\"digital_print_produk\"},{\"db\":\"iklanku\",\"table\":\"digital_print_order\"},{\"db\":\"iklanku\",\"table\":\"digital_print_bahan\"},{\"db\":\"iklanku\",\"table\":\"order_koran\"},{\"db\":\"iklanku\",\"table\":\"media_iklan\"},{\"db\":\"iklanku\",\"table\":\"media\"},{\"db\":\"iklanku\",\"table\":\"pma__users\"},{\"db\":\"iklanku\",\"table\":\"order_sosmed\"}]');
 
 DROP TABLE IF EXISTS `pma__relation`;
 CREATE TABLE `pma__relation` (
-  `master_db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `master_table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `master_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `foreign_db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `foreign_table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `foreign_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Relation table';
+  `master_db` varchar(64) NOT NULL DEFAULT '',
+  `master_table` varchar(64) NOT NULL DEFAULT '',
+  `master_field` varchar(64) NOT NULL DEFAULT '',
+  `foreign_db` varchar(64) NOT NULL DEFAULT '',
+  `foreign_table` varchar(64) NOT NULL DEFAULT '',
+  `foreign_field` varchar(64) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Relation table';
 
 DROP TABLE IF EXISTS `pma__savedsearches`;
 CREATE TABLE `pma__savedsearches` (
   `id` int(5) UNSIGNED NOT NULL,
-  `username` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `search_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `search_data` text COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Saved searches';
+  `username` varchar(64) NOT NULL DEFAULT '',
+  `db_name` varchar(64) NOT NULL DEFAULT '',
+  `search_name` varchar(64) NOT NULL DEFAULT '',
+  `search_data` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Saved searches';
 
 DROP TABLE IF EXISTS `pma__table_coords`;
 CREATE TABLE `pma__table_coords` (
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `db_name` varchar(64) NOT NULL DEFAULT '',
+  `table_name` varchar(64) NOT NULL DEFAULT '',
   `pdf_page_number` int(11) NOT NULL DEFAULT '0',
   `x` float UNSIGNED NOT NULL DEFAULT '0',
   `y` float UNSIGNED NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table coordinates for phpMyAdmin PDF output';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Table coordinates for phpMyAdmin PDF output';
 
 DROP TABLE IF EXISTS `pma__table_info`;
 CREATE TABLE `pma__table_info` (
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `display_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table information for phpMyAdmin';
+  `db_name` varchar(64) NOT NULL DEFAULT '',
+  `table_name` varchar(64) NOT NULL DEFAULT '',
+  `display_field` varchar(64) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Table information for phpMyAdmin';
 
 DROP TABLE IF EXISTS `pma__table_uiprefs`;
 CREATE TABLE `pma__table_uiprefs` (
-  `username` varchar(64) COLLATE utf8_bin NOT NULL,
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `prefs` text COLLATE utf8_bin NOT NULL,
+  `username` varchar(64) NOT NULL,
+  `db_name` varchar(64) NOT NULL,
+  `table_name` varchar(64) NOT NULL,
+  `prefs` text NOT NULL,
   `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Tables'' UI preferences';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tables'' UI preferences';
 
 DROP TABLE IF EXISTS `pma__tracking`;
 CREATE TABLE `pma__tracking` (
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `db_name` varchar(64) NOT NULL,
+  `table_name` varchar(64) NOT NULL,
   `version` int(10) UNSIGNED NOT NULL,
   `date_created` datetime NOT NULL,
   `date_updated` datetime NOT NULL,
-  `schema_snapshot` text COLLATE utf8_bin NOT NULL,
-  `schema_sql` text COLLATE utf8_bin,
-  `data_sql` longtext COLLATE utf8_bin,
-  `tracking` set('UPDATE','REPLACE','INSERT','DELETE','TRUNCATE','CREATE DATABASE','ALTER DATABASE','DROP DATABASE','CREATE TABLE','ALTER TABLE','RENAME TABLE','DROP TABLE','CREATE INDEX','DROP INDEX','CREATE VIEW','ALTER VIEW','DROP VIEW') COLLATE utf8_bin DEFAULT NULL,
+  `schema_snapshot` text NOT NULL,
+  `schema_sql` text,
+  `data_sql` longtext,
+  `tracking` set('UPDATE','REPLACE','INSERT','DELETE','TRUNCATE','CREATE DATABASE','ALTER DATABASE','DROP DATABASE','CREATE TABLE','ALTER TABLE','RENAME TABLE','DROP TABLE','CREATE INDEX','DROP INDEX','CREATE VIEW','ALTER VIEW','DROP VIEW') DEFAULT NULL,
   `tracking_active` int(1) UNSIGNED NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Database changes tracking for phpMyAdmin';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Database changes tracking for phpMyAdmin';
 
 DROP TABLE IF EXISTS `pma__userconfig`;
 CREATE TABLE `pma__userconfig` (
-  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `username` varchar(64) NOT NULL,
   `timevalue` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `config_data` text COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='User preferences storage for phpMyAdmin';
+  `config_data` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='User preferences storage for phpMyAdmin';
 
 INSERT INTO `pma__userconfig` (`username`, `timevalue`, `config_data`) VALUES
 ('root', '2021-06-14 02:11:26', '{\"Console\\/Mode\":\"collapse\"}');
 
 DROP TABLE IF EXISTS `pma__usergroups`;
 CREATE TABLE `pma__usergroups` (
-  `usergroup` varchar(64) COLLATE utf8_bin NOT NULL,
-  `tab` varchar(64) COLLATE utf8_bin NOT NULL,
-  `allowed` enum('Y','N') COLLATE utf8_bin NOT NULL DEFAULT 'N'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='User groups with configured menu items';
+  `usergroup` varchar(64) NOT NULL,
+  `tab` varchar(64) NOT NULL,
+  `allowed` enum('Y','N') NOT NULL DEFAULT 'N'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='User groups with configured menu items';
 
 DROP TABLE IF EXISTS `pma__users`;
 CREATE TABLE `pma__users` (
-  `username` varchar(64) COLLATE utf8_bin NOT NULL,
-  `usergroup` varchar(64) COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Users and their assignments to user groups';
+  `username` varchar(64) NOT NULL,
+  `usergroup` varchar(64) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Users and their assignments to user groups';
 
 DROP TABLE IF EXISTS `product`;
 CREATE TABLE `product` (
@@ -1419,7 +1420,8 @@ INSERT INTO `user_login` (`id`, `user_id`, `ip`, `browser`, `status`, `created`)
 (528, 2, '::1', 'Mozilla/5.0 (Linux; Android 8.0.0; Pixel 2 XL Build/OPD1.170816.004) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Mobile Safari/537.36', 1, '2021-06-10 18:11:52'),
 (529, 2, '::1', 'Mozilla/5.0 (Linux; Android 8.0.0; Pixel 2 XL Build/OPD1.170816.004) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Mobile Safari/537.36', 1, '2021-06-14 01:47:13'),
 (530, 2, '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', 1, '2021-06-14 07:55:39'),
-(531, 0, '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', 0, '2021-06-14 09:32:19');
+(531, 0, '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', 0, '2021-06-14 09:32:19'),
+(532, 2, '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', 1, '2021-06-16 08:18:36');
 
 DROP TABLE IF EXISTS `user_login_failed`;
 CREATE TABLE `user_login_failed` (
@@ -1464,7 +1466,7 @@ INSERT INTO `user_role` (`id`, `level`, `title`, `description`, `created`, `upda
 DROP TABLE IF EXISTS `venue`;
 CREATE TABLE `venue` (
   `id` int(11) NOT NULL,
-  `title` varchar(255) NOT NULL
+  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `venue` (`id`, `title`) VALUES
@@ -2785,7 +2787,126 @@ INSERT INTO `visitor` (`id`, `ip`, `visited`, `city`, `region`, `country`, `brow
 (1281, '::1', 'http://localhost/iklanku/home/iklan/media', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 14:21:33'),
 (1282, '::1', 'http://localhost/iklanku/home/login', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 14:21:33'),
 (1283, '::1', 'http://localhost/iklanku/home/login', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 14:21:46'),
-(1284, '::1', 'http://localhost/iklanku/home/iklan/media', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 14:21:49');
+(1284, '::1', 'http://localhost/iklanku/home/iklan/media', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 14:21:49'),
+(1285, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 14:24:51'),
+(1286, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/2', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 14:24:54'),
+(1287, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/1', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 14:29:52'),
+(1288, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 14:29:53'),
+(1289, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 14:43:11'),
+(1290, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/1', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 14:43:15'),
+(1291, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/2', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 14:43:19'),
+(1292, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 14:48:02'),
+(1293, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/1', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 14:48:11'),
+(1294, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 14:48:28'),
+(1295, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/1', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 14:48:31'),
+(1296, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/3', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 14:48:35'),
+(1297, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/2', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 14:48:45'),
+(1298, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/1', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 14:48:48'),
+(1299, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 14:48:57'),
+(1300, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/1', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 14:49:07'),
+(1301, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 14:49:23'),
+(1302, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/2', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 14:49:26'),
+(1303, '::1', 'http://localhost/iklanku/home/iklan/media', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 15:16:51'),
+(1304, '::1', 'http://localhost/iklanku/home/login', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-14 15:16:52'),
+(1305, '::1', 'http://localhost/iklanku/home/iklan/media', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 11:49:24'),
+(1306, '::1', 'http://localhost/iklanku/home/login', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 11:49:24'),
+(1307, '::1', 'http://localhost/iklanku/home/iklan/media', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 11:50:11'),
+(1308, '::1', 'http://localhost/iklanku/home/login', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 11:50:12'),
+(1309, '::1', 'http://localhost/iklanku/home/login', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 11:50:23'),
+(1310, '::1', 'http://localhost/iklanku/home/iklan/media', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 11:50:26'),
+(1311, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 11:51:37'),
+(1312, '::1', 'http://localhost/iklanku/home/iklan/media', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 13:37:16'),
+(1313, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 13:37:23'),
+(1314, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 13:37:55'),
+(1315, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/2', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 13:38:01'),
+(1316, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 13:38:08'),
+(1317, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 13:38:36'),
+(1318, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 13:40:33'),
+(1319, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 13:48:26'),
+(1320, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/2', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 13:48:29'),
+(1321, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/1', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 13:48:41'),
+(1322, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/2', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 13:48:46'),
+(1323, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 13:48:54'),
+(1324, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 13:49:20'),
+(1325, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 13:49:39'),
+(1326, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 13:50:38'),
+(1327, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 13:50:46'),
+(1328, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 13:51:28'),
+(1329, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 13:52:09'),
+(1330, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 13:52:27'),
+(1331, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 13:53:01'),
+(1332, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 13:54:09'),
+(1333, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 13:54:43'),
+(1334, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 13:56:57'),
+(1335, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 13:58:12'),
+(1336, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 13:58:41'),
+(1337, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 13:58:55'),
+(1338, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 13:59:19'),
+(1339, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 13:59:34'),
+(1340, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 13:59:41'),
+(1341, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 14:03:01'),
+(1342, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 14:05:21'),
+(1343, '::1', 'http://localhost/iklanku/', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 14:06:01'),
+(1344, '::1', 'http://localhost/iklanku/home/iklan/media', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 14:06:02'),
+(1345, '::1', 'http://localhost/iklanku/home/digital_print', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 14:06:04'),
+(1346, '::1', 'http://localhost/iklanku/home/digital_print/form_order/1', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 14:06:06'),
+(1347, '::1', 'http://localhost/iklanku/', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 14:06:18'),
+(1348, '::1', 'http://localhost/iklanku/home/iklan/media', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 14:06:19'),
+(1349, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 14:10:57'),
+(1350, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/2', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 14:11:05'),
+(1351, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 14:11:12'),
+(1352, '::1', 'http://localhost/iklanku/home/iklan/media', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 15:20:24'),
+(1353, '::1', 'http://localhost/iklanku/home/login', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-15 15:20:24'),
+(1354, '::1', 'http://localhost/iklanku/home/iklan/media', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko)', '2021-06-15 15:26:32'),
+(1355, '::1', 'http://localhost/iklanku/home/login', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko)', '2021-06-15 15:26:32'),
+(1356, '::1', 'http://localhost/iklanku/home/iklan/media', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 08:15:53'),
+(1357, '::1', 'http://localhost/iklanku/home/login', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 08:15:53'),
+(1358, '::1', 'http://localhost/iklanku/home/login', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 08:16:03'),
+(1359, '::1', 'http://localhost/iklanku/home/iklan/media', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 08:16:04'),
+(1360, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 08:17:30'),
+(1361, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/2', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 08:17:33'),
+(1362, '::1', 'http://localhost/iklanku/home/digital_indoor/form_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 08:17:36'),
+(1363, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 08:18:11'),
+(1364, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 08:18:59'),
+(1365, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 08:22:01'),
+(1366, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 08:23:41'),
+(1367, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 08:43:15'),
+(1368, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 08:43:20'),
+(1369, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 08:44:02'),
+(1370, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 08:46:24'),
+(1371, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 08:46:36'),
+(1372, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 08:46:49'),
+(1373, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 08:47:20'),
+(1374, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 08:47:45'),
+(1375, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 08:47:53'),
+(1376, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 08:48:04'),
+(1377, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 08:48:57'),
+(1378, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 08:49:01'),
+(1379, '::1', 'http://localhost/iklanku/home/digital_indoor/form_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 08:49:07'),
+(1380, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 08:49:10'),
+(1381, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/1', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 08:49:12'),
+(1382, '::1', 'http://localhost/iklanku/home/digital_indoor/form_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 08:50:16'),
+(1383, '::1', 'http://localhost/iklanku/home/digital_indoor/form_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 08:50:17'),
+(1384, '::1', 'http://localhost/iklanku/', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 08:51:17'),
+(1385, '::1', 'http://localhost/iklanku/', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 08:51:18'),
+(1386, '::1', 'http://localhost/iklanku/', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 08:51:18'),
+(1387, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 08:51:19'),
+(1388, '::1', 'http://localhost/iklanku/', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 08:51:19'),
+(1389, '::1', 'http://localhost/iklanku/home/iklan/media', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 08:51:19'),
+(1390, '::1', 'http://localhost/iklanku/home/digital_indoor', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 08:54:31'),
+(1391, '::1', 'http://localhost/iklanku/home/digital_indoor/getLocation/2', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 08:54:37'),
+(1392, '::1', 'http://localhost/iklanku/home/digital_indoor/form_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 08:54:40'),
+(1393, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 08:54:55'),
+(1394, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 09:00:38'),
+(1395, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 09:01:40'),
+(1396, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 09:02:23'),
+(1397, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 09:03:08'),
+(1398, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 09:04:10'),
+(1399, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 09:04:28'),
+(1400, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 09:06:14'),
+(1401, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 09:08:29'),
+(1402, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 09:09:17'),
+(1403, '::1', 'http://localhost/iklanku/home/digital_indoor/confirmation_order', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15', '2021-06-16 09:10:27');
 
 
 ALTER TABLE `admin_menu`
@@ -2973,7 +3094,7 @@ ALTER TABLE `comment`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `config`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 ALTER TABLE `content`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
@@ -3072,7 +3193,7 @@ ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 ALTER TABLE `user_login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=532;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=533;
 
 ALTER TABLE `user_login_failed`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
@@ -3087,7 +3208,7 @@ ALTER TABLE `venue_location`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 ALTER TABLE `visitor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1285;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1404;
 
 
 ALTER TABLE `trash`
