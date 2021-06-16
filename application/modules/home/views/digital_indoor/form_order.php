@@ -58,7 +58,7 @@
 				<input type="hidden" name="lokasi[]" value="<?php echo $value ?>">
 			<?php endforeach ?>
 		<?php endif ?>
-		<input type="hidden" name="venue" value="<?php echo $get['venue'] ?>">
+		<input type="hidden" name="venue_id" value="<?php echo $get['venue'] ?>">
 		<div class="form-group text-center">
 			<label>Penyewa</label>
 			<input type="text" name="nama" class="form-control custom" readonly value="<?php echo $this->session->userdata(base_url().'_logged_in')['username'] ?>">
@@ -66,7 +66,7 @@
 		<div class="form-group">
 			<div class="row">
 				<div class="col">
-					<select class="form-control" name="sewa" required id="sewa">
+					<select class="form-control" name="jenis_sewa" required id="sewa">
 						<option value="" disabled selected>JENIS SEWA</option>
 						<option value="eksklusif">EKSKLUSIF</option>
 						<option value="single_slot">SINGLE SLOT</option>

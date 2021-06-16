@@ -65,13 +65,16 @@
 			}else if($get['masa_tayang'] == 'BULAN'){
 				$durasi = 30;
 			}
-			$biaya = $config[$get['sewa']]*$get['slot']*$durasi;
+			$biaya = $config[$get['jenis_sewa']]*$get['slot']*$durasi;
 			$ppn = $biaya*10/100;
 			$biaya = $biaya+$ppn;
 			?>
 			<input type="hidden" name="user_id" value="<?php echo $user['id'] ?>">
 			<input type="hidden" name="kode" value="<?php echo 'INV0'.$user['id'].date('Ymdhi') ?>">
 			<input type="hidden" name="biaya" value="<?php echo $biaya ?>">
+			<input type="hidden" name="username" value="<?php echo $user['username'] ?>">
+			<input type="hidden" name="hp" value="<?php echo $user['phone'] ?>">
+
 			<?php foreach ($get as $key => $value): ?>
 				<?php if ($key=='lokasi'): ?>
 					<?php foreach ($value as $lkey => $lvalue): ?>
@@ -104,7 +107,7 @@
 						<div class="col">
 							<div class="form-group">
 								<span style="font-size: 3vw;color: grey;">Jenis Sewa</span><br>
-								<?php echo $get['sewa'] ?>
+								<?php echo $get['jenis_sewa'] ?>
 							</div>
 						</div>
 					</div>
