@@ -37,6 +37,14 @@ class Digital_indoor extends CI_Controller
 	{
 		$config = [];
 		$config['config'] = $this->esg->get_config('harga_slot');
+		$config['venue'] = $this->db->get_where('venue',['id'=>$this->input->get('venue')])->row_array();
+		$this->db->select('id,location');
+		$this->db->from('venue_location');
+		$config['venue_location'] = $this->db->where_in('id',$this->input->get('lokasi'))->get()->result_array();
 		$this->load->view('index',$config);
+	}
+	public function send_order()
+	{
+		
 	}
 }

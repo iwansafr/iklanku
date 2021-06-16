@@ -57,9 +57,30 @@
 		<form action="<?php echo base_url('home/digital_indoor/send_order') ?>" method="post">
 			<?php
 			$biaya = 0;
+			$durasi = 0;
+			if ($get['masa_tayang'] == 'HARI') {
+				$durasi = 1;
+			}else if($get['masa_tayang'] == 'MINGGU'){
+				$durasi = 7;
+			}else if($get['masa_tayang'] == 'BULAN'){
+				$durasi = 30;
+			}
+			$biaya = $config[$get['sewa']]*$get['slot']*$durasi;
+			$ppn = $biaya*10/100;
+			$biaya = $biaya+$ppn;
 			?>
 			<input type="hidden" name="user_id" value="<?php echo $user['id'] ?>">
 			<input type="hidden" name="kode" value="<?php echo 'INV0'.$user['id'].date('Ymdhi') ?>">
+			<input type="hidden" name="biaya" value="<?php echo $biaya ?>">
+			<?php foreach ($get as $key => $value): ?>
+				<?php if ($key=='lokasi'): ?>
+					<?php foreach ($value as $lkey => $lvalue): ?>
+						<input type="hidden" name="lokasi[]" value="<?php echo $lvalue ?>">
+					<?php endforeach ?>
+				<?php else: ?>
+					<input type="hidden" name="<?php echo $key ?>" value="<?php echo $value ?>">
+				<?php endif ?>
+			<?php endforeach ?>
 
 			<div class="card card-default" style="border-radius: 0.5rem;">
 				<div class="card-body">
@@ -91,7 +112,24 @@
 						<div class="col">
 							<div class="form-group">
 								<span style="font-size: 3vw;color: grey;">Venue</span><br>
-								<?php echo $get['sewa'].' / '.$get['sewa'] ?>
+								<?php echo $venue['title'].' / ' ?>
+								<?php foreach ($venue_location as $vlk => $vlv): ?>
+									<?php echo $vlv['location'] ?>,
+								<?php endforeach ?>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<div class="form-group">
+								<span style="font-size: 3vw;color: grey;">Mulai Tayang</span><br>
+								<?php echo str_replace('-',' ',content_date($get['mulai_tayang'])) ?>
+							</div>
+						</div>
+						<div class="col">
+							<div class="form-group">
+								<span style="font-size: 3vw;color: grey;">Masa Tayang</span><br>
+								<?php echo $get['durasi'],' '.$get['masa_tayang'] ?>
 							</div>
 						</div>
 					</div>
