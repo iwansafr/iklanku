@@ -41,6 +41,8 @@ class Digital_indoor extends CI_Controller
 	}
 	public function pesanan_detail()
 	{
-		$this->load->view('index');
+		$data = $this->db->get_where('digital_indoor_order',['id'=>$this->input->get('id')])->row_array();
+		$venue = $this->db->get_where('venue',['id'=>$data['venue_id']])->row_array();
+		$this->load->view('index', ['param'=>json_decode($data['param'],1),'data'=>$data,'venue'=>$venue]);
 	}
 }
