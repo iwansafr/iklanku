@@ -64,6 +64,9 @@ $route['admin/pesanan_sosmed_detail'] = 'admin/media/pesanan_sosmed_detail';
 $route['admin/pesanan_digital']        = 'admin/digital_print/pesanan';
 $route['admin/pesanan_digital_detail'] = 'admin/digital_print/pesanan_detail';
 
+$route['admin/pesanan_indoor']        = 'admin/digital_indoor/pesanan';
+$route['admin/pesanan_indoor_detail'] = 'admin/digital_indoor/pesanan_detail';
+
 
 $route['admin/content']                    = 'admin/content/list';
 $route['admin/user']                       = 'admin/user/list';

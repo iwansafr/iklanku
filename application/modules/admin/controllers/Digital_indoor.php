@@ -31,4 +31,16 @@ class Digital_indoor extends CI_Controller
 		$data['data'] = $this->db->get_where('venue',['id'=>$id])->row_array();
 		$this->load->view('digital_indoor/location', $data);
 	}
+	public function pesanan()
+	{
+		$this->load->view('index');
+	}
+	public function clear_pesanan_indoor()
+	{
+		$this->load->view('digital_indoor/pesanan');
+	}
+	public function pesanan_detail()
+	{
+		$this->load->view('index');
+	}
 }
