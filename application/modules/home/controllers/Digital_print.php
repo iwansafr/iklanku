@@ -51,8 +51,9 @@ class Digital_print extends CI_Controller
 				'admin@billboardku',
 				'finance@billboardku',
 				'digi.envi@billboardku',
+				'iwansafr@gmail.com',
 			];
-			$mail_to = 'iwansafr@gmail.com';
+			// $mail_to = 'iwansafr@gmail.com';
 			$this->db->select('username,phone');
 			$user = $this->db->get_where('user',['id'=>$data['user_id']])->row_array();
 			$this->db->select('title');

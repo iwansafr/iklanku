@@ -96,7 +96,8 @@
 				KONFIRMASI PEMBAYARAN
 			</a>
 			<div class="clearfix mb-1"></div>
-			<a class="btn btn-sm btn-success btn-lg text-white" id="submit" style="border-radius: 0.5rem;width: 100%;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
+			<?php $tipe_iklan = $data['tipe'] == 1 ? 'Iklan Radio' : 'Iklan Koran' ?>
+			<a href='https://wa.me/<?php echo $meta['contact']['wa'] ?>?text=konfirmasi pembayaran <?php echo $tipe_iklan ?> dengan kode <?php echo $pembayaran['kode']?>' class="btn btn-sm btn-success btn-lg text-white" id="submit" style="border-radius: 0.5rem;width: 100%;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
 				KONFRIMASI VIA WHATSAPP
 			</a>
 		<?php else: ?>

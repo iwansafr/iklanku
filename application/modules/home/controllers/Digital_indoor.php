@@ -51,8 +51,9 @@ class Digital_indoor extends CI_Controller
 				'admin@billboardku',
 				'finance@billboardku',
 				'digi.envi@billboardku',
+				'iwansafr@gmail.com'
 			];
-			$mail_to = 'iwansafr@gmail.com';
+			// $mail_to = 'iwansafr@gmail.com';
 			$this->db->select('id,location');
 			$this->db->from('venue_location');
 			$location = $this->db->where_in('id',$this->input->get('lokasi'))->get()->result_array();
@@ -102,7 +103,9 @@ class Digital_indoor extends CI_Controller
 	public function pesanan_detail($id = 0)
 	{
 		$data = [];
-		$data['data'] = $this->db->get_where('digital_indoor_order',['id'=>$id])->row_array();
+		$this->db->select('digital_indoor_order.*,venue.title AS venue');
+		$this->db->join('venue','digital_indoor_order.venue_id = venue.id');
+		$data['data'] = $this->db->get_where('digital_indoor_order',['digital_indoor_order.id'=>$id])->row_array();
 		$data['param'] = json_decode($data['data']['param'], 1);
 		$this->load->view('index', $data);
 	}

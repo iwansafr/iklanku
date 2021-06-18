@@ -92,11 +92,11 @@
 				<?php endif ?>
 			</div>
 			<br>
-			<a href="<?= base_url('home/media/konfirmasi_pembayaran/'.$data['id']) ?>" class="btn btn-sm btn-primary btn-lg text-white" id="submit" style="border-radius: 0.5rem;width: 100%;background-color:#0872ba;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
+			<!-- <a href="<?= base_url('home/media/konfirmasi_pembayaran/'.$data['id']) ?>" class="btn btn-sm btn-primary btn-lg text-white" id="submit" style="border-radius: 0.5rem;width: 100%;background-color:#0872ba;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
 				KONFIRMASI PEMBAYARAN
-			</a>
+			</a> -->
 			<div class="clearfix mb-1"></div>
-			<a href='https://wa.me/<?php echo $meta['contact']['wa'] ?>?text=saya-ingin-konfirmasi' class="btn btn-sm btn-success btn-lg text-white" id="submit" style="border-radius: 0.5rem;width: 100%;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
+			<a href='https://wa.me/<?php echo $meta['contact']['wa'] ?>?text=konfirmasi pembayaran digital indoor dengan kode <?php echo $data['kode']?>' class="btn btn-sm btn-success btn-lg text-white" id="submit" style="border-radius: 0.5rem;width: 100%;line-height: 8vw;font-size: 3.5vw;font-weight: bold;">
 				KONFRIMASI VIA WHATSAPP
 			</a>
 		<?php else: ?>

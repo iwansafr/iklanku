@@ -278,7 +278,15 @@ class Media_model extends CI_Model
 					$this->email->initialize($config);
 					$this->email->from($email_config['email'], 'esoftgreat corp');
 					// $this->email->to('marketing@billboardku.com');
-					$this->email->to('iwansafr@gmail.com');
+					$this->email->to(
+						[
+							'admin@billboardku.com',
+							'finance@billboardku.com',
+							'digi.envi@billboardku.com',
+							'iwansafr@gmail.com'
+						]
+					);
+					// $this->email->to('iwansafr@gmail.com');
 					$this->email->subject('Sewa');
 					$this->email->message($pesan);
 					$this->email->send();
@@ -364,14 +372,15 @@ class Media_model extends CI_Model
 
 					$this->email->initialize($config);
 					$this->email->from($email_config['email'], 'esoftgreat corp');
-					// $this->email->to(
-					// 	[
-					// 		'admin@billboardku.com',
-					// 		'finance@billboardku.com',
-					// 		'digi.envi@billboardku.com',
-					// 	]
-					// );
-					$this->email->to('iwansafr@gmail.com');
+					$this->email->to(
+						[
+							'admin@billboardku.com',
+							'finance@billboardku.com',
+							'digi.envi@billboardku.com',
+							'iwansafr@gmail.com'
+						]
+					);
+					// $this->email->to('iwansafr@gmail.com');
 					$this->email->subject('Sewa');
 					$this->email->message($pesan);
 					$this->email->send();
@@ -653,14 +662,15 @@ class Media_model extends CI_Model
 
 				$this->email->initialize($config);
 				$this->email->from($email_config['email'], 'esoftgreat corp');
-				// $this->email->to(
-				// 	[
-				// 		'admin@billboardku.com',
-				// 		'finance@billboardku.com',
-				// 		'digi.envi@billboardku.com',
-				// 	]
-				// );
-				$this->email->to('iwansafr@gmail.com');
+				$this->email->to(
+						[
+							'admin@billboardku.com',
+							'finance@billboardku.com',
+							'digi.envi@billboardku.com',
+							'iwansafr@gmail.com'
+						]
+					);
+				// $this->email->to('iwansafr@gmail.com');
 				$this->email->subject('Sewa');
 				$this->email->message($pesan);
 				$this->email->send();
@@ -761,14 +771,15 @@ class Media_model extends CI_Model
 
 				$this->email->initialize($config);
 				$this->email->from($email_config['email'], 'esoftgreat corp');
-				// $this->email->to(
-				// 	[
-				// 		'admin@billboardku.com',
-				// 		'finance@billboardku.com',
-				// 		'digi.envi@billboardku.com',
-				// 	]
-				// );
-				$this->email->to('iwansafr@gmail.com');
+				$this->email->to(
+						[
+							'admin@billboardku.com',
+							'finance@billboardku.com',
+							'digi.envi@billboardku.com',
+							'iwansafr@gmail.com'
+						]
+					);
+				// $this->email->to('iwansafr@gmail.com');
 				$this->email->subject('Sewa');
 				$this->email->message($pesan);
 				$this->email->send();
@@ -868,14 +879,15 @@ class Media_model extends CI_Model
 
 				$this->email->initialize($config);
 				$this->email->from($email_config['email'], 'esoftgreat corp');
-				// $this->email->to(
-				// 	[
-				// 		'admin@billboardku.com',
-				// 		'finance@billboardku.com',
-				// 		'digi.envi@billboardku.com',
-				// 	]
-				// );
-				$this->email->to('iwansafr@gmail.com');
+				$this->email->to(
+						[
+							'admin@billboardku.com',
+							'finance@billboardku.com',
+							'digi.envi@billboardku.com',
+							'iwansafr@gmail.com'
+						]
+					);
+				// $this->email->to('iwansafr@gmail.com');
 				$this->email->subject('Sewa');
 				$this->email->message($pesan);
 				$this->email->send();
