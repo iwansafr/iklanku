@@ -29,6 +29,7 @@
 				<li><a href="<?php echo base_url('home/media/pesanan_radio') ?>">Iklan Radio</a></li>
 				<li><a href="<?php echo base_url('home/media/pesanan_sosmed') ?>">Social Media Campaign</a></li>
 				<li><a href="<?php echo base_url('home/digital_print/pesanan') ?>">Digital Print</a></li>
+				<li><a href="<?php echo base_url('home/digital_indoor/pesanan') ?>">Digital Indoor</a></li>
 			</ul>
 			<li>
 				<a href="#">Tentang Kami</a>

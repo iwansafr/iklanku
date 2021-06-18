@@ -90,4 +90,20 @@ class Digital_indoor extends CI_Controller
 		$data['data'] = $this->db->get_where('digital_indoor_order',['id'=>$id])->row_array();
 		$this->load->view('index', $data);
 	}
+	public function pesanan()
+	{
+		$data = [];
+		$this->db->select('digital_indoor_order.*,venue.title AS venue');
+		$this->db->join('venue','digital_indoor_order.venue_id = venue.id');
+		$this->db->order_by('id','DESC');
+		$data['data'] = $this->db->get_where('digital_indoor_order',['user_id'=>$this->session->userdata(base_url('_logged_in'))['id']])->result_array();
+		$this->load->view('index',$data);
+	}
+	public function pesanan_detail($id = 0)
+	{
+		$data = [];
+		$data['data'] = $this->db->get_where('digital_indoor_order',['id'=>$id])->row_array();
+		$data['param'] = json_decode($data['data']['param'], 1);
+		$this->load->view('index', $data);
+	}
 }
